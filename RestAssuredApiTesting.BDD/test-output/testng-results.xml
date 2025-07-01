@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-01T11:28:25 IST" name="Default suite" finished-at="2025-07-01T11:28:32 IST" duration-ms="7818">
+    <groups>
+    </groups>
+    <test started-at="2025-07-01T11:28:25 IST" name="Default test" finished-at="2025-07-01T11:28:32 IST" duration-ms="7818">
+      <class name="com.onsite.project_test_page.ProjectListTest">
+        <test-method signature="getAllProjectsUsingPagination()[pri:0, instance:com.onsite.project_test_page.ProjectListTest@3427b02d]" started-at="2025-07-01T11:28:25 IST" name="getAllProjectsUsingPagination" finished-at="2025-07-01T11:28:32 IST" duration-ms="7742" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllProjectsUsingPagination -->
+      </class> <!-- com.onsite.project_test_page.ProjectListTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
