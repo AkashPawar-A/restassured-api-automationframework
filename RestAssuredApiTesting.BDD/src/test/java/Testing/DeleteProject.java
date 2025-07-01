@@ -37,6 +37,7 @@ public class DeleteProject {
 				     .statusLine("HTTP/1.1 200 OK")
 				     .log().all()
 				     .extract().response();
+		System.out.println("akash");
  
 		String jsonString = response.asString();
 		Assert.assertEquals(jsonString.contains("successfully delete project"), true);
