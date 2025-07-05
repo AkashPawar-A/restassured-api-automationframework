@@ -3,13 +3,13 @@ package com.onsite.payloadbuilder;
 import java.util.Arrays;
 import java.util.List;
 
-import com.onsite.pojo_request.TimeSheetRequest;
+import com.onsite.pojo_request.TimeSheetCreateRequest;
 
 public class TimeSheetCreatePayload {
 	
-	public static TimeSheetRequest buildtimeSheetCreatePayload() {
+	public static TimeSheetCreateRequest buildtimeSheetCreatePayload() {
 		
-	TimeSheetRequest timesheetObj = new TimeSheetRequest();
+	TimeSheetCreateRequest timesheetObj = new TimeSheetCreateRequest();
 	
 	timesheetObj.setCompany_id("75916659-9cbe-4ca7-812e-181a29229772");
 	timesheetObj.setDuration(14640.0);

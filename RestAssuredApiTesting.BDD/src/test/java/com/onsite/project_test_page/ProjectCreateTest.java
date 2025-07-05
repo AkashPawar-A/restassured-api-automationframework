@@ -30,7 +30,7 @@ public class ProjectCreateTest extends BaseToken {
     @Test(priority = 1)
     public void createProject() throws JsonProcessingException {
 
-    	ProjectCreateRequest payload = ProjectCreatePayload.createProjectRequest();
+    	ProjectCreateRequest payload = ProjectCreatePayload.buildcreateProjectRequest();
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonPayload = mapper.writeValueAsString(payload);
@@ -72,8 +72,7 @@ public class ProjectCreateTest extends BaseToken {
         ProjectDetail.createdId = response.jsonPath().getString("creator");
         ProjectDetail.creatorCompanyUserId = response.jsonPath().getString("creator_company_user_id");
         
-        ProjectDetail.editPayload = ProjectEditPayload.editProjectRequest();
-        
+        ProjectDetail.editPayload = ProjectEditPayload.editProjectRequest();  
         System.out.println("Created Project ID: " + ProjectDetail.projectId);
     }
 

@@ -2,7 +2,7 @@ package com.onsite.pojo_request;
 
 import java.util.List;
 
-public class TimeSheetRequest {
+public class TimeSheetCreateRequest {
 	
 	private String company_id;
 	private double duration;

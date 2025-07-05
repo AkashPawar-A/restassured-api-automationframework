@@ -7,7 +7,7 @@ import com.onsite.pojo_request.ProjectCreateRequest.Location;
 
 public class ProjectCreatePayload {
 	
-	public static ProjectCreateRequest createProjectRequest() {
+	public static ProjectCreateRequest buildcreateProjectRequest() {
 		
 		ProjectCreateRequest payload = new ProjectCreateRequest(); 
 
