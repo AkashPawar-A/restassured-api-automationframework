@@ -2,6 +2,9 @@ package com.onsite.pojo_response;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TimeSheetResponseBody {
 	
 	private String billing_activity_id;

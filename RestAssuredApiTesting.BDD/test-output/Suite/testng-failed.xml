@@ -4,15 +4,16 @@
   <listeners>
     <listener class-name="com.onsite.reports.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="TimeSheetTest(failed)">
     <classes>
-      <class name="com.onsite.test_page.ProjectDeleteTest">
+      <class name="com.onsite.timesheet_test_page.TimeSheetCreateTest">
         <methods>
-          <include name="deleteProject"/>
+          <include name="getTimeSheet"/>
           <include name="generateTokenForSuite"/>
+          <include name="postTimesheet"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.test_page.ProjectDeleteTest -->
+      </class> <!-- com.onsite.timesheet_test_page.TimeSheetCreateTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- TimeSheetTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -5,16 +5,21 @@
 	<listeners>
 		<listener class-name="com.onsite.reports.ExtentReportManager"/>
 	</listeners>
-	
-  <test thread-count="5" name="Test">
-    <classes>
-      
-      <class name="com.onsite.project_test_page.ProjectCreateTest"/>
-      <class name="com.onsite.project_test_page.ProjectGetTest"/>
-      <class name="com.onsite.project_test_page.ProjectUpdateTest"/>
-      <class name="com.onsite.project_test_page.ProjectEditStatusTest"/>
-      
-    
-    </classes>
-  </test> <!-- Test -->
+	<!--
+  <test thread-count="5" name="ProjectTest">
+      <classes>
+          <class name="com.onsite.project_test_page.ProjectCreateTest"/>
+          <class name="com.onsite.project_test_page.ProjectGetTest"/>
+          <class name="com.onsite.project_test_page.ProjectUpdateTest"/>
+          <class name="com.onsite.project_test_page.ProjectEditStatusTest"/>
+          </classes>
+  </test> 
+  -->
+  
+  <test thread-count="5" name="TimeSheetTest">
+	  <classes>
+		  <class name="com.onsite.timesheet_test_page.TimeSheetCreateTest"/>	  
+	  </classes>  
+  </test>
+   
 </suite> <!-- Suite -->

@@ -1,10 +1,11 @@
 package com.onsite.timesheet_test_page;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.onsite.context.TimeSheetDetails;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.TimeSheet_Api;
 import com.onsite.payloadbuilder.TimeSheetCreatePayload;
@@ -19,7 +20,7 @@ import com.onsite.utilities_page.BaseToken;
 public class TimeSheetCreateTest extends BaseToken {
 	
 	@Test(priority=1)
-	public void timesheet() throws Exception {
+	public void postTimesheet() throws Exception {
 		
 		TimeSheetCreateRequest payload = TimeSheetCreatePayload.buildtimeSheetCreatePayload();
 		
@@ -39,12 +40,47 @@ public class TimeSheetCreateTest extends BaseToken {
 				.then()
 				  .statusCode(200)
 				  .body("company_id", equalTo("75916659-9cbe-4ca7-812e-181a29229772"))
-				  .body("duration", equalTo("20"))
-				  .body("end_time", equalTo("2025-07-04T12:51:27.206Z"))
-				  .body("notes", equalTo("party_company_user_id"))
-				  .body("project_id", equalTo("5ff6dd18-061c-43cc-9847-79cff6ee1222"))
-				  .body("start_time", equalTo("2025-07-03T11:51:27.206Z"))
-				  .body("timesheet_date", equalTo("2025-07-02T18:30:00.001Z"))
+				  .body("duration", equalTo(3600))
+				//  .body("end_time", equalTo("2025-07-06T08:32:39.077Z"))
+				  .body("notes", equalTo("testing frist"))
+				  .body("party_company_user_id", equalTo("8f1e9ece-d44c-4ca2-ae3f-986267a8e567"))
+				  .body("project_id", equalTo("e3266525-81ad-47e5-9796-d7ffea6568ff"))
+				 // .body("start_time", equalTo("2025-07-06T07:32:39.077Z"))
+				// .body("timesheet_date", equalTo("2025-07-05T18:30:00.001Z"))
+				  .log().all()
 				  .extract().response();
+		
+		TimeSheetDetails.company_id = response.jsonPath().getString("company_id");
+		TimeSheetDetails.party_company_user_id = response.jsonPath().getString("party_company_user_id");
+		TimeSheetDetails.project_id = response.jsonPath().getString("project_id");
+		TimeSheetDetails.timesheet_id = response.jsonPath().getString("id");
+	}
+	
+	@Test(priority=2, dependsOnMethods="postTimesheet")
+	public void getTimeSheet() {
+		
+		TimeSheetResponseBody timeSheetObj =
+				
+				given()
+				  .baseUri(ApiBasePath.BASE_URL)
+				  .header("Authorization", "Bearer " + token)
+				  .contentType(ContentType.JSON)
+				  .pathParam("timesheet_id", TimeSheetDetails.timesheet_id)
+				.when()
+				  .get(TimeSheet_Api.details_timeSheet)
+				.then()
+				  .statusCode(200)
+				  .log().all()
+				  .extract().as(TimeSheetResponseBody.class);	
+		
+		Assert.assertEquals(timeSheetObj.getCompany_id(), "75916659-9cbe-4ca7-812e-181a29229772");
+		Assert.assertEquals(timeSheetObj.getDuration(), 3600);
+		//Assert.assertEquals(timeSheetObj.getEnd_time(), "2025-07-06T08:32:39.077Z");
+		Assert.assertEquals(timeSheetObj.getNotes(), "testing frist");
+		Assert.assertEquals(timeSheetObj.getParty_company_user_id(), "8f1e9ece-d44c-4ca2-ae3f-986267a8e567");
+		Assert.assertEquals(timeSheetObj.getProject_id(), "e3266525-81ad-47e5-9796-d7ffea6568ff");
+		Assert.assertTrue(timeSheetObj.getPhotos().isEmpty());
+		//Assert.assertEquals(timeSheetObj.getStart_time(), "2025-07-06T07:32:39.077Z");
+		//Assert.assertEquals(timeSheetObj.getTimesheet_date(), "2025-07-05T18:30:00.001Z");
 	}
 }

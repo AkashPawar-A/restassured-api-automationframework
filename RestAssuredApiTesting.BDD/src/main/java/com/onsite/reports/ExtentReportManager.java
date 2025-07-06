@@ -37,7 +37,7 @@ public class ExtentReportManager implements ITestListener {
         
         sparkReporter = new ExtentSparkReporter(reportPath);
         sparkReporter.config().setDocumentTitle("RestAssuredAutomationProject");
-        sparkReporter.config().setReportName("Project Create");
+        sparkReporter.config().setReportName("test cases update");
         sparkReporter.config().setTheme(Theme.DARK);
 
         extent = new ExtentReports();
