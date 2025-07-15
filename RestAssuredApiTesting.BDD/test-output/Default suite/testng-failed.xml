@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.timesheet_test_page.TimeSheetNegative_tests">
+      <class name="com.onsite.timesheet_test_page.TimeSheetEditTest">
         <methods>
           <include name="generateTokenForSuite"/>
-          <include name="test_MissingFields"/>
-          <include name="test_InvalidProjectId"/>
+          <include name="editTimeSheet"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetNegative_tests -->
+      </class> <!-- com.onsite.timesheet_test_page.TimeSheetEditTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

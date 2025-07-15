@@ -16,7 +16,6 @@ import io.restassured.http.ContentType;
 import static org.hamcrest.Matchers.equalTo;
 import io.restassured.response.Response;
 
-import com.onsite.utilities_page.ApiNegativeValidator;
 import com.onsite.utilities_page.BaseToken;
 
 public class TimeSheetCreateTest extends BaseToken {
@@ -25,6 +24,10 @@ public class TimeSheetCreateTest extends BaseToken {
 	public void postTimesheet() throws Exception {
 		
 	    TimeSheetCreateRequest payload = TimeSheetCreatePayload.buildtimeSheetCreatePayload();
+	    
+	    ObjectMapper mapper = new ObjectMapper();
+	    String jasonPayload = mapper.writeValueAsString(payload);
+	    System.out.println("final json payload" + jasonPayload);
 
 	    Response response = given()
 	        .baseUri(ApiBasePath.BASE_URL)

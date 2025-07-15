@@ -6,14 +6,13 @@
   </listeners>
   <test thread-count="5" name="TimeSheetTest(failed)">
     <classes>
-      <class name="com.onsite.timesheet_test_page.TimeSheetCreateTest">
+      <class name="com.onsite.timesheet_test_page.TimeSheetDeleteTest">
         <methods>
-          <include name="getTimeSheet"/>
           <include name="generateTokenForSuite"/>
-          <include name="postTimesheet"/>
+          <include name="deleteTimesheet"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetCreateTest -->
+      </class> <!-- com.onsite.timesheet_test_page.TimeSheetDeleteTest -->
     </classes>
   </test> <!-- TimeSheetTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

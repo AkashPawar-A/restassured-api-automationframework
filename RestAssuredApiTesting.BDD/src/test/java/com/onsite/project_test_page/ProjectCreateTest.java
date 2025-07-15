@@ -72,7 +72,7 @@ public class ProjectCreateTest extends BaseToken {
         ProjectDetail.createdId = response.jsonPath().getString("creator");
         ProjectDetail.creatorCompanyUserId = response.jsonPath().getString("creator_company_user_id");
         
-        ProjectDetail.editPayload = ProjectEditPayload.editProjectRequest();  
+        ProjectDetail.editPayload = ProjectEditPayload.buildEditProjectRequest();  
         System.out.println("Created Project ID: " + ProjectDetail.projectId);
     }
 

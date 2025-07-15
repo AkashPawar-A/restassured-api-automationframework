@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.context.ProjectDetail;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Project_levelApi;
+import com.onsite.payloadbuilder.ProjectEditPayload;
 import com.onsite.pojo_request.ProjectEditRequest;
 import com.onsite.pojo_response.ProjectResponseBody;
 import com.onsite.utilities_page.BaseToken;
@@ -25,7 +26,7 @@ public class ProjectUpdateTest extends BaseToken {
         }
 
         //Build payload
-        ProjectEditRequest editPayload = ProjectDetail.editPayload;
+        ProjectEditRequest editPayload = ProjectEditPayload.buildEditProjectRequest();
         ObjectMapper mapper = new ObjectMapper();
         String jsonPayload = mapper.writeValueAsString(editPayload);
 
@@ -48,6 +49,7 @@ public class ProjectUpdateTest extends BaseToken {
 
         //Handle response status
         int status = response.getStatusCode();
+        
         if (status != 200) {
             System.out.println("PATCH failed with status code: " + status);
             System.out.println("Response: " + response.getBody().asString());

@@ -7,7 +7,7 @@ import com.onsite.pojo_request.ProjectEditRequest;
 
 public class ProjectEditPayload {
     
-    public static ProjectEditRequest editProjectRequest() {
+    public static ProjectEditRequest buildEditProjectRequest() {
         
         ProjectEditRequest editPayload = new ProjectEditRequest();
         ProjectDetail.editPayload = editPayload;

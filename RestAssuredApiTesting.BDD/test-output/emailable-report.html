@@ -8,75 +8,15 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">6,627</td><td></td><td></td></tr>
+<tr><th colspan="8">Suite</th></tr>
+<tr><td><a href="#t0">TimeSheetTest</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">19,995</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">com.onsite.timesheet_test_page.TimeSheetNegative_tests</td><td><a href="#m0">test_InvalidProjectId</a></td><td rowspan="1">1752151145609</td><td rowspan="1">615</td></tr><tr class="failedeven"><td><a href="#m1">test_MissingFields</a></td><td rowspan="1">1752151145160</td><td rowspan="1">437</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.onsite.timesheet_test_page.TimeSheetNegative_tests</td><td><a href="#m2">test_InvalidCompanyId</a></td><td rowspan="1">1752151146235</td><td rowspan="1">443</td></tr><tr class="passedeven"><td><a href="#m3">test_InvalidPartyCompanyUserId</a></td><td rowspan="1">1752151146683</td><td rowspan="1">512</td></tr><tr class="passedeven"><td><a href="#m4">test_Unauthorized</a></td><td rowspan="1">1752151144299</td><td rowspan="1">853</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">TimeSheetTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.onsite.timesheet_test_page.TimeSheetCreateTest</td><td><a href="#m0">getTimeSheet</a></td><td rowspan="1">1752572568481</td><td rowspan="1">1125</td></tr><tr class="passedeven"><td><a href="#m1">postTimesheet</a></td><td rowspan="1">1752572565538</td><td rowspan="1">2924</td></tr><tr class="passedodd"><td rowspan="1">com.onsite.timesheet_test_page.TimeSheetDeleteTest</td><td><a href="#m2">deleteTimesheet</a></td><td rowspan="1">1752572580911</td><td rowspan="1">743</td></tr><tr class="passedeven"><td rowspan="1">com.onsite.timesheet_test_page.TimeSheetDetailsTest</td><td><a href="#m3">getTimeSheet</a></td><td rowspan="1">1752572573180</td><td rowspan="1">805</td></tr><tr class="passedodd"><td rowspan="1">com.onsite.timesheet_test_page.TimeSheetEditTest</td><td><a href="#m4">editTimeSheet</a></td><td rowspan="1">1752572577089</td><td rowspan="1">694</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.onsite.timesheet_test_page.TimeSheetNegative_tests#test_InvalidProjectId</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Status/message mismatch
-	at org.testng.Assert.fail(Assert.java:99)
-	at com.onsite.utilities_page.ApiNegativeValidator.validateResponse(ApiNegativeValidator.java:39)
-	at com.onsite.timesheet_test_page.TimeSheetNegative_tests.test_InvalidProjectId(TimeSheetNegative_tests.java:65)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.onsite.timesheet_test_page.TimeSheetNegative_tests#test_MissingFields</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Status/message mismatch
-	at org.testng.Assert.fail(Assert.java:99)
-	at com.onsite.utilities_page.ApiNegativeValidator.validateResponse(ApiNegativeValidator.java:39)
-	at com.onsite.timesheet_test_page.TimeSheetNegative_tests.test_MissingFields(TimeSheetNegative_tests.java:47)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.onsite.timesheet_test_page.TimeSheetNegative_tests#test_InvalidCompanyId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.onsite.timesheet_test_page.TimeSheetNegative_tests#test_InvalidPartyCompanyUserId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.onsite.timesheet_test_page.TimeSheetNegative_tests#test_Unauthorized</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>TimeSheetTest</h2><h3 id="m0">com.onsite.timesheet_test_page.TimeSheetCreateTest#getTimeSheet</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.onsite.timesheet_test_page.TimeSheetCreateTest#postTimesheet</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.onsite.timesheet_test_page.TimeSheetDeleteTest#deleteTimesheet</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.onsite.timesheet_test_page.TimeSheetDetailsTest#getTimeSheet</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.onsite.timesheet_test_page.TimeSheetEditTest#editTimeSheet</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
