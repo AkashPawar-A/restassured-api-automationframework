@@ -1,59 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="8" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-15T15:12:41 IST" name="Suite" finished-at="2025-07-15T15:13:01 IST" duration-ms="19995">
+  <suite started-at="2025-07-22T18:00:54 IST" name="Default suite" finished-at="2025-07-22T18:01:08 IST" duration-ms="14068">
     <groups>
     </groups>
-    <test started-at="2025-07-15T15:12:41 IST" name="TimeSheetTest" finished-at="2025-07-15T15:13:01 IST" duration-ms="19995">
-      <class name="com.onsite.timesheet_test_page.TimeSheetCreateTest">
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetCreateTest@2e005c4b]" started-at="2025-07-15T15:12:34 IST" name="generateTokenForSuite" finished-at="2025-07-15T15:12:41 IST" duration-ms="7527" status="PASS">
+    <test started-at="2025-07-22T18:00:54 IST" name="Default test" finished-at="2025-07-22T18:01:08 IST" duration-ms="14068">
+      <class name="com.onsite.credit_note_test_page.CreditNoteCreateTest">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteCreateTest@3bb9a3ff]" started-at="2025-07-22T18:00:46 IST" name="generateTokenForSuite" finished-at="2025-07-22T18:00:54 IST" duration-ms="7719" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetCreateTest@2e005c4b]" started-at="2025-07-15T15:12:42 IST" name="setUp" finished-at="2025-07-15T15:12:45 IST" duration-ms="3505" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteCreateTest@3bb9a3ff]" started-at="2025-07-22T18:00:54 IST" name="setUp" finished-at="2025-07-22T18:00:58 IST" duration-ms="3672" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="postTimesheet()[pri:1, instance:com.onsite.timesheet_test_page.TimeSheetCreateTest@2e005c4b]" started-at="2025-07-15T15:12:45 IST" name="postTimesheet" finished-at="2025-07-15T15:12:48 IST" duration-ms="2924" status="PASS">
+        <test-method signature="postCreditNote()[pri:1, instance:com.onsite.credit_note_test_page.CreditNoteCreateTest@3bb9a3ff]" started-at="2025-07-22T18:00:58 IST" name="postCreditNote" finished-at="2025-07-22T18:01:03 IST" duration-ms="5807" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- postTimesheet -->
-        <test-method signature="getTimeSheet()[pri:2, instance:com.onsite.timesheet_test_page.TimeSheetCreateTest@2e005c4b]" started-at="2025-07-15T15:12:48 IST" name="getTimeSheet" finished-at="2025-07-15T15:12:49 IST" depends-on-methods="com.onsite.timesheet_test_page.TimeSheetCreateTest.postTimesheet" duration-ms="1125" status="PASS">
+        </test-method> <!-- postCreditNote -->
+        <test-method signature="getCreditNote()[pri:2, instance:com.onsite.credit_note_test_page.CreditNoteCreateTest@3bb9a3ff]" started-at="2025-07-22T18:01:03 IST" name="getCreditNote" finished-at="2025-07-22T18:01:08 IST" depends-on-methods="com.onsite.credit_note_test_page.CreditNoteCreateTest.postCreditNote" duration-ms="4526" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getTimeSheet -->
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetCreateTest -->
-      <class name="com.onsite.timesheet_test_page.TimeSheetDetailsTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetDetailsTest@a514af7]" started-at="2025-07-15T15:12:49 IST" name="setUp" finished-at="2025-07-15T15:12:53 IST" duration-ms="3570" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="getTimeSheet()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetDetailsTest@a514af7]" started-at="2025-07-15T15:12:53 IST" name="getTimeSheet" finished-at="2025-07-15T15:12:53 IST" duration-ms="805" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTimeSheet -->
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetDetailsTest -->
-      <class name="com.onsite.timesheet_test_page.TimeSheetEditTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetEditTest@6b927fb]" started-at="2025-07-15T15:12:53 IST" name="setUp" finished-at="2025-07-15T15:12:57 IST" duration-ms="3096" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="editTimeSheet()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetEditTest@6b927fb]" started-at="2025-07-15T15:12:57 IST" name="editTimeSheet" finished-at="2025-07-15T15:12:57 IST" duration-ms="694" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- editTimeSheet -->
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetEditTest -->
-      <class name="com.onsite.timesheet_test_page.TimeSheetDeleteTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetDeleteTest@3e58a80e]" started-at="2025-07-15T15:12:57 IST" name="setUp" finished-at="2025-07-15T15:13:00 IST" duration-ms="3123" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="deleteTimesheet()[pri:1, instance:com.onsite.timesheet_test_page.TimeSheetDeleteTest@3e58a80e]" started-at="2025-07-15T15:13:00 IST" name="deleteTimesheet" finished-at="2025-07-15T15:13:01 IST" duration-ms="743" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteTimesheet -->
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetDeleteTest -->
-    </test> <!-- TimeSheetTest -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- getCreditNote -->
+      </class> <!-- com.onsite.credit_note_test_page.CreditNoteCreateTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
