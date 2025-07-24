@@ -9,5 +9,6 @@ public class CreditNoteDetails {
 	public static String party_company_user_id;
 	public static String invoice_id;
 	public static String creditNote_id;
+	public static String invoice_date;
 
 }
