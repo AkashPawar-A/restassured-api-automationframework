@@ -19,8 +19,6 @@ import org.testng.annotations.Test;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-
 public class CreditNoteCreateTest extends BaseToken{
 
 	@Test(priority=1)

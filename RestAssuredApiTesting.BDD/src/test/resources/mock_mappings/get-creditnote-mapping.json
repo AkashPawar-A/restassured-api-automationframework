@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/apis/v3/creditnote/mock-id-123"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "get-creditnote-response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

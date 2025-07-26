@@ -20,5 +20,13 @@
       "items": { "type": "string", "format": "uri" }
     }
   },
-  "required": ["id", "project_id", "company_id", "creator", "party_company_user_id", "invoice_date", "amount"]
+  "required": [
+  "id",
+  "project_id",
+  "company_id",
+  "creator",
+  "party_company_user_id",
+  "invoice_date",
+  "total_amount"
+  ]
 }

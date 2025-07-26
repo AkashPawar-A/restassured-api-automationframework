@@ -1,0 +1,8 @@
+{
+  "id": "mock-id-123",
+  "project_id": "mock-project-id",
+  "company_id": "mock-company-id",
+  "creator": "mock-creator",
+  "invoice_date": "2025-07-24T00:00:00Z",
+  "amount": 1000
+}
