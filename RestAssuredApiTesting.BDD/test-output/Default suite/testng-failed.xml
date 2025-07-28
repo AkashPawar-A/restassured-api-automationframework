@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.mockserver.MockServerTest">
+      <class name="com.onsite.credit_note_test_page.CreditNoteCreateTest">
         <methods>
-          <include name="testMockedUserAPI"/>
-          <include name="setup"/>
-          <include name="teardown"/>
+          <include name="generateTokenForSuite"/>
+          <include name="postCreditNote"/>
+          <include name="getCreditNote"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.mockserver.MockServerTest -->
+      </class> <!-- com.onsite.credit_note_test_page.CreditNoteCreateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

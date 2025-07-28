@@ -1,5 +1,10 @@
 package com.onsite.credit_note_test_page;
 
+import static io.restassured.RestAssured.given;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.context.CreditNoteDetails;
 import com.onsite.endpoints.ApiBasePath;
@@ -8,46 +13,34 @@ import com.onsite.payloadbuilder.CreditNotePayload;
 import com.onsite.pojo_request.CreditNoteRequest;
 import com.onsite.pojo_response.CreditNoteResponseBody;
 import com.onsite.utilities_page.AuthUtils;
-import com.onsite.utilities_page.BaseToken;
-import com.onsite.utilities_page.JsonDataProvider;
 import com.onsite.utilities_page.SchemaValidator;
-
-import static io.restassured.RestAssured.*;
-
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class CreditNoteCreateTest extends BaseToken{
+public class CreditNoteEditTest {
+	
+	@Test(priority=1)
+	public void postCreditNote() throws Exception {
 
-	@DataProvider(name = "creditNote_TestData")
-	public Object[][] getCreditNoteData() {
-	    String path = "src/test/resources/test_data/CreditNote_TestData.json";
-	    return JsonDataProvider.getDataFromJson(path, CreditNoteRequest.class);
-	}
-
-	@Test(priority = 1, dataProvider = "creditNote_TestData")
-	public void postCreditNote(CreditNoteRequest payload) throws Exception {
+		CreditNoteRequest payload = CreditNotePayload.buildCreditNotePayload();
 
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonPayload = mapper.writeValueAsString(payload);
 		System.out.println("final json payload" + jsonPayload);
 
 		Response response = 
-			given()
+				given()
 				.baseUri(ApiBasePath.BASE_URL)
 				.header("Authorization", AuthUtils.getToken())
 				.contentType(ContentType.JSON)
 				.body(payload)
 				.log().all()
 
-			.when()
+				.when()
 				.post(CreditNote_Api.Create_CreaditNote)
 
-			.then()
+				.then()
 				.log().all()
 				.extract().response();
 
@@ -99,30 +92,27 @@ public class CreditNoteCreateTest extends BaseToken{
 
 	@Test(priority=2, dependsOnMethods="postCreditNote")
 	public void getCreditNote() throws Exception {
-		
-		if (CreditNoteDetails.creditNote_id == null || CreditNoteDetails.creditNote_id.isEmpty()) {
-	        throw new IllegalArgumentException("creditNote_id is null or empty. Cannot proceed with getCreditNote.");
-	    }
 
 		Response response = 
 
-			given()
+				given()
 				.baseUri(ApiBasePath.BASE_URL)
 				.header("Authorization", AuthUtils.getToken())
 				.contentType(ContentType.JSON)
 				.pathParam("id", CreditNoteDetails.creditNote_id)
 
-			.when()
+				.when()
 				.get(CreditNote_Api.Get_CreditNote)
 
-			.then()
+				.then()
 				.statusCode(200)
 				.log().all()
 				.extract().response();
 
 		String jsonResponse = response.asString();
-		SchemaValidator.validateSchema("schemas_files/CreditNote.json", jsonResponse);
+		SchemaValidator.validateSchema("schemas/CreditNote.json", jsonResponse);
 
 		CreditNoteResponseBody creditNoteObj = response.as(CreditNoteResponseBody.class);
 	}
+
 }
