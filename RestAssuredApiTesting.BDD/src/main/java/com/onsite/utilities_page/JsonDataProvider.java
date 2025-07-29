@@ -1,39 +1,45 @@
 package com.onsite.utilities_page;
 
-import java.io.IOException;
 import java.io.File;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+import com.fasterxml.jackson.databind.type.CollectionType;
 
 public class JsonDataProvider {
 
-	public static <T> Object[][] getDataFromJson(String filePath, Class<T> clazz) {
-        ObjectMapper mapper = new ObjectMapper();
-        Object[][] data = null;
-
+	public static Object[][] getDataFromJson(String filePath, Class<?> clazz) {
         try {
-            // Try to parse as array first
-            T[] array = mapper.readValue(new File(filePath), mapper.getTypeFactory().constructArrayType(clazz));
-            data = new Object[array.length][1];
-            for (int i = 0; i < array.length; i++) {
-                data[i][0] = array[i];
+            ObjectMapper mapper = new ObjectMapper();
+            File file = new File(filePath);
+
+            // Detect array or single object
+            if (file.exists()) {
+                // Check if file starts with `[` indicating it's an array
+                String content = new String(java.nio.file.Files.readAllBytes(file.toPath())).trim();
+
+                if (content.startsWith("[")) {
+                    // It's a JSON array
+                    CollectionType listType = mapper.getTypeFactory().constructCollectionType(List.class, clazz);
+                    List<?> dataList = mapper.readValue(content, listType);
+
+                    Object[][] result = new Object[dataList.size()][1];
+                    for (int i = 0; i < dataList.size(); i++) {
+                        result[i][0] = dataList.get(i);
+                    }
+                    return result;
+
+                } else {
+                    // It's a single JSON object
+                    Object singleObj = mapper.readValue(content, clazz);
+                    return new Object[][] { { singleObj } };
+                }
+            } else {
+                throw new RuntimeException("File not found: " + filePath);
             }
-        } catch (MismatchedInputException e) {
-            try {
-                // If not array, try to parse single object
-                T singleObject = mapper.readValue(new File(filePath), clazz);
-                data = new Object[1][1];
-                data[0][0] = singleObject;
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                throw new RuntimeException("Failed to read test data from file: " + filePath, ex);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        } catch (Exception e) {
             throw new RuntimeException("Failed to read test data from file: " + filePath, e);
         }
-
-        return data;
     }
 }

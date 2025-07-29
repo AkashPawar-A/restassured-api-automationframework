@@ -1,0 +1,22 @@
+[
+{
+  "id": "c4372358-2782-4f09-8a0c-6a1c54a80a86",
+  "photos": ["https://onsitedev.blr1.digitaloceanspaces.com/...png"],
+  "project_id": "678affad-cf3e-430b-bd28-3326ce334d80",
+  "invoice_date": "2025-07-28T04:41:33.548Z",
+  "amount": 10,
+  "notes": "check 1",
+  "reference_number": "A-001",
+  "party_company_user_id": "433e0e67-e9d3-4925-92fe-e68e5aa3f981"
+},
+{
+  "id" : "4c736546-9b11-4b32-b39f-6a36eda11e7e",
+  "photos": [],
+  "project_id": "3c2922e1-16b6-4531-b1c4-3568e8ab3954",
+  "invoice_date": "2025-07-28T04:41:33.548Z",
+  "amount": 11,
+  "notes": "check 1",
+  "reference_number": "A-001",
+  "party_company_user_id": "433e0e67-e9d3-4925-92fe-e68e5aa3f981"
+}
+]

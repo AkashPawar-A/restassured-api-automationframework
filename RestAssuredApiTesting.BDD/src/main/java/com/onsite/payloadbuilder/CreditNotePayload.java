@@ -1,12 +1,12 @@
 package com.onsite.payloadbuilder;
 
-import com.onsite.pojo_request.CreditNoteRequest;
+import com.onsite.pojo_request.CreditNoteCreateRequest;
 
 public class CreditNotePayload {
 
-	public static CreditNoteRequest buildCreditNotePayload() {
+	public static CreditNoteCreateRequest buildCreditNotePayload() {
 
-		CreditNoteRequest payload = new CreditNoteRequest();
+		CreditNoteCreateRequest payload = new CreditNoteCreateRequest();
 
 		payload.setProject_id("bfe6f3e8-fc36-4549-abdd-2c4623bd8899");
 		payload.setInvoice_date("2025-07-22T10:56:44.395Z");

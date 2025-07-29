@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.context.CreditNoteDetails;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.CreditNote_Api;
-import com.onsite.payloadbuilder.CreditNotePayload;
-import com.onsite.pojo_request.CreditNoteRequest;
+import com.onsite.pojo_request.CreditNoteCreateRequest;
 import com.onsite.pojo_response.CreditNoteResponseBody;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.BaseToken;
@@ -23,14 +22,14 @@ import io.restassured.response.Response;
 
 public class CreditNoteCreateTest extends BaseToken{
 
-	@DataProvider(name = "creditNote_TestData")
+	@DataProvider(name = "creditNote_CreateTestData")
 	public Object[][] getCreditNoteData() {
-	    String path = "src/test/resources/test_data/CreditNote_TestData.json";
-	    return JsonDataProvider.getDataFromJson(path, CreditNoteRequest.class);
+	    String path = "src/test/resources/test_data/CreditNote_CreateTestData.json";
+	    return JsonDataProvider.getDataFromJson(path, CreditNoteCreateRequest.class);
 	}
 
-	@Test(priority = 1, dataProvider = "creditNote_TestData")
-	public void postCreditNote(CreditNoteRequest payload) throws Exception {
+	@Test(priority = 1, dataProvider = "creditNote_CreateTestData")
+	public void postCreditNote(CreditNoteCreateRequest payload) throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonPayload = mapper.writeValueAsString(payload);
@@ -82,7 +81,7 @@ public class CreditNoteCreateTest extends BaseToken{
 		}
 	}
 
-	private void validateRequiredFieldsOnError(CreditNoteRequest payload, String errorMessage) {
+	private void validateRequiredFieldsOnError(CreditNoteCreateRequest payload, String errorMessage) {
 		if (payload.getProject_id() == null || payload.getProject_id().isEmpty()) {
 			System.out.println("error message for project id: " + errorMessage);
 			Assert.fail("Project ID is missing: " + errorMessage);
@@ -101,7 +100,7 @@ public class CreditNoteCreateTest extends BaseToken{
 	public void getCreditNote() throws Exception {
 		
 		if (CreditNoteDetails.creditNote_id == null || CreditNoteDetails.creditNote_id.isEmpty()) {
-	        throw new IllegalArgumentException("creditNote_id is null or empty. Cannot proceed with getCreditNote.");
+	        throw new IllegalArgumentException("creditNote_id is null or empty");
 	    }
 
 		Response response = 

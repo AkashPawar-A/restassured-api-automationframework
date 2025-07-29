@@ -1,6 +1,6 @@
 package com.onsite.pojo_request;
 
-public class CreditNoteRequest {
+public class CreditNoteCreateRequest {
 	
 	private String[] photos;
 	private String project_id;
