@@ -5,7 +5,7 @@
 	<listeners>
 		<listener class-name="com.onsite.reports.ExtentReportManager"/>
 	</listeners>
-	<!-- 
+  <!-- 
   <test thread-count="5" name="ProjectTest">
       <classes>
           <class name="com.onsite.project_test_page.ProjectCreateTest"/>
@@ -14,7 +14,7 @@
           <class name="com.onsite.project_test_page.ProjectEditStatusTest"/>
       </classes>
   </test> 
-   -->
+   
   <test thread-count="5" name="TimeSheetTest">
 	  <classes>
 		  <class name="com.onsite.timesheet_test_page.TimeSheetCreateTest"/>
@@ -23,5 +23,13 @@
 		  <class name="com.onsite.timesheet_test_page.TimeSheetDeleteTest"/> 
 	  </classes>  
   </test>
-   
+  -->
+  <test thread-count="5" name="CreditNote">
+	  <classes>
+		  <class name="com.onsite.credit_note_test_page.CreditNoteCreateTest"/>
+		  <class name="com.onsite.credit_note_test_page.CreditNoteEditTest"/>
+		  <class name="com.onsite.credit_note_test_page.CreditNoteDeleteTest"/>
+	  </classes>
+  </test>
+    
 </suite> <!-- Suite -->

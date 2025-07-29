@@ -56,7 +56,14 @@ public class CreditNoteEditTest extends BaseToken{
 		System.out.println("Message :" + Message);
 		
 		if(statusCode==200) {
+			CreditNoteDetails.project_id = response.jsonPath().getString("project_id");
+			CreditNoteDetails.company_id = response.jsonPath().getString("company_id");
+			CreditNoteDetails.creator_id = response.jsonPath().getString("creator");
+			CreditNoteDetails.creator_company_user_id = response.jsonPath().getString("creator_company_user_id");
 			CreditNoteDetails.creditNote_id = response.jsonPath().getString("id");
+			CreditNoteDetails.party_company_user_id = response.jsonPath().getString("party_company_user_id");
+			CreditNoteDetails.invoice_id = response.jsonPath().getString("invoice_id");
+			CreditNoteDetails.invoice_date = response.jsonPath().getString("invoice_date");
 		}
 	}
 
