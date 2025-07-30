@@ -4,6 +4,9 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
+import java.util.List;
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,38 +16,56 @@ import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.BaseToken;
 
 public class TimeSheetListTest extends BaseToken{
-	
+
 	@Test
 	public void listtimesheet() {
-		
-		String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
-		
-		Response response = 
-			given()
-				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
-				.contentType(ContentType.JSON)
-				.queryParam("count", 20)
-				.queryParam("page", 1)
-				.queryParam("company_id", companyId)
-				.log().all()
-				
-			.when()
-				.get(TimeSheet_Api.list_timesheet)
-				
-			.then()
-				.log().all()
-				.extract().response();
-		
-		int statusCode = response.getStatusCode();		
-		String message = response.jsonPath().getString("message");
-		
-		System.out.println("status code :" + statusCode);
-		System.out.println("response message :" + message);
-		
-		Assert.assertEquals(statusCode, 200, "Expected 200 OK status");
-		Assert.assertTrue(response.jsonPath().getList("data").size()<=20, "Should return <= 20 records");
-		Assert.assertNotNull(response.jsonPath().getString("data[0].project_id"), "Project ID must be present");
-	}
 
+        String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
+        int count = 30;
+        int pageNumber = 1;
+        boolean morePages = true;
+
+        while (morePages) {
+            System.out.println("Validating page: " + pageNumber);
+
+            Response response = 
+                given()
+                    .baseUri(ApiBasePath.BASE_URL)
+                    .header("Authorization", AuthUtils.getToken())
+                    .contentType(ContentType.JSON)
+                    .queryParam("count", count)
+                    .queryParam("page", pageNumber)
+                    .queryParam("company_id", companyId)
+                    .log().uri()
+
+                .when()
+                    .get(TimeSheet_Api.list_timesheet)
+
+                .then()
+                    .log().status()
+                    .extract().response();
+
+            int statusCode = response.statusCode();
+            Assert.assertEquals(statusCode, 200, "Expected status 200 on page " + pageNumber);
+
+            List<Map<String, Object>> dataList = response.jsonPath().getList("data");
+            Assert.assertNotNull(dataList, "Data list should not be null on page " + pageNumber);
+
+            for (Map<String, Object> item : dataList) {
+                String projectId = (String) item.get("project_id");
+                String actualCompanyId = (String) item.get("company_id");
+
+                Assert.assertNotNull(projectId, "Project ID should not be null on page " + pageNumber);
+                Assert.assertEquals(actualCompanyId, companyId, "Company ID mismatch on page " + pageNumber);
+            }
+
+            System.out.println("Page " + pageNumber + " validated successfully with " + dataList.size() + " records");
+
+            String nextUrl = response.jsonPath().getString("page.next_url");
+            morePages = (nextUrl != null && !nextUrl.isEmpty());
+            pageNumber++;
+        }
+
+        System.out.println("All paginated timesheet records validated successfully");
+    }
 }
