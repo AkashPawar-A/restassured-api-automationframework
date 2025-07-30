@@ -8,4 +8,5 @@ public class Project_levelApi {
 	public static final String UPDATE_PROJECT = "/edit/project";
 	public static final String UPDATE_STATUS = "/edit/project/status";
 	public static final String PROJECT_LIST = "/list/dashboard/project";
+	public static final String PROJECT_COUNT = "https://testapi.onsiteteams.in/apis/v3/list/dashboard/project?count=20&page=2&company_id=75916659-9cbe-4ca7-812e-181a29229772";
 }
