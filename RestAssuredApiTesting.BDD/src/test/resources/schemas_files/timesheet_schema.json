@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "object",
+      "properties": {
+        "next_url": { "type": ["string", "null"] },
+        "prev_url": { "type": ["string", "null"] },
+        "count": { "type": "integer" }
+      },
+      "required": ["count"]
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "company_id": { "type": "string" },
+          "creator": { "type": "string" },
+          "created": { "type": "string" },
+          "updated": { "type": "string" },
+          "delete": { "type": "integer" },
+          "creator_company_user_id": { "type": "string" },
+          "project_id": { "type": "string" },
+          "timesheet_date": { "type": "string" },
+          "start_time": { "type": "string" },
+          "end_time": { "type": "string" },
+          "duration": { "type": "number" },
+          "billing_activity_id": { "type": ["string", "null"] },
+          "notes": { "type": "string" },
+          "photos": {
+            "type": ["array", "null"],
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["id", "company_id", "creator", "created", "updated", "project_id"]
+      }
+    }
+  },
+  "required": ["data"]
+}

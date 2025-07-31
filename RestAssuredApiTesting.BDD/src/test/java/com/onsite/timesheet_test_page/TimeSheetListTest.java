@@ -14,11 +14,12 @@ import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.TimeSheet_Api;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.BaseToken;
+import com.onsite.utilities_page.SchemaValidator;
 
 public class TimeSheetListTest extends BaseToken{
 
 	@Test
-	public void listtimesheet() {
+	public void listtimesheet() throws Exception {
 
         String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
         int count = 30;
@@ -44,12 +45,17 @@ public class TimeSheetListTest extends BaseToken{
                 .then()
                     .log().status()
                     .extract().response();
-
+            
+            String jsonResponse = response.asString();
+            SchemaValidator.validateSchema("schemas_files/timesheet_schema.json", jsonResponse);
+            
             int statusCode = response.statusCode();
             Assert.assertEquals(statusCode, 200, "Expected status 200 on page " + pageNumber);
 
             List<Map<String, Object>> dataList = response.jsonPath().getList("data");
             Assert.assertNotNull(dataList, "Data list should not be null on page " + pageNumber);
+            
+            Assert.assertTrue(dataList.size() <= count, "More than expected records returned on page " + pageNumber);
 
             for (Map<String, Object> item : dataList) {
                 String projectId = (String) item.get("project_id");
@@ -61,6 +67,7 @@ public class TimeSheetListTest extends BaseToken{
 
             System.out.println("Page " + pageNumber + " validated successfully with " + dataList.size() + " records");
 
+            // Move to next page
             String nextUrl = response.jsonPath().getString("page.next_url");
             morePages = (nextUrl != null && !nextUrl.isEmpty());
             pageNumber++;
