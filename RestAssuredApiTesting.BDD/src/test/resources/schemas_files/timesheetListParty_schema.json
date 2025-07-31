@@ -1,0 +1,49 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "company_id", "name", "creator", "user_id"],
+    "properties": {
+      "id": { "type": "string" },
+      "company_id": { "type": "string" },
+      "company_role_id": { "type": "string" },
+      "role": { "type": "string" },
+      "type": { "type": "string" },
+      "creator": { "type": "string" },
+      "name": { "type": "string" },
+      "mobile": { "type": "number" },
+      "mobile_verified": { "type": "integer" },
+      "user_id": { "type": "string" },
+      "assigned_project_ids": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "aadhar_photos": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "custom_fields": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["id", "name", "data_type"],
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "data_type": { "type": "string" },
+            "created": { "type": "string" },
+            "updated": { "type": "string" }
+          }
+        }
+      },
+      "created": { "type": "string" },
+      "updated": { "type": "string" },
+      "monkey_patch_creator": { "type": "object" },
+      "monkey_patch_user": { "type": "object" },
+      "monkey_patch_wallet": { "type": "object" },
+      "monkey_patch_primary_address": { "type": "object" },
+      "email": { "type": "string" },
+      "rating": { "type": "number" }
+    }
+  }
+}

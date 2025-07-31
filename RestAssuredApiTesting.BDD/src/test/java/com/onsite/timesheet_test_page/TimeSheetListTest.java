@@ -19,12 +19,14 @@ import com.onsite.utilities_page.SchemaValidator;
 public class TimeSheetListTest extends BaseToken{
 
 	@Test
-	public void listtimesheet() throws Exception {
+	public void listTimeSheet() throws Exception {
 
         String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
         int count = 30;
         int pageNumber = 1;
         boolean morePages = true;
+        
+        int totalRecords = 0;
 
         while (morePages) {
             System.out.println("Validating page: " + pageNumber);
@@ -47,13 +49,15 @@ public class TimeSheetListTest extends BaseToken{
                     .extract().response();
             
             String jsonResponse = response.asString();
-            SchemaValidator.validateSchema("schemas_files/timesheet_schema.json", jsonResponse);
+            SchemaValidator.validateSchema("schemas_files/timesheetList_schema.json", jsonResponse);
             
             int statusCode = response.statusCode();
             Assert.assertEquals(statusCode, 200, "Expected status 200 on page " + pageNumber);
 
             List<Map<String, Object>> dataList = response.jsonPath().getList("data");
             Assert.assertNotNull(dataList, "Data list should not be null on page " + pageNumber);
+            
+            totalRecords += dataList.size(); // add current page size
             
             Assert.assertTrue(dataList.size() <= count, "More than expected records returned on page " + pageNumber);
 
@@ -64,7 +68,8 @@ public class TimeSheetListTest extends BaseToken{
                 Assert.assertNotNull(projectId, "Project ID should not be null on page " + pageNumber);
                 Assert.assertEquals(actualCompanyId, companyId, "Company ID mismatch on page " + pageNumber);
             }
-
+            
+            System.out.println("Total records fetched: " + totalRecords);
             System.out.println("Page " + pageNumber + " validated successfully with " + dataList.size() + " records");
 
             // Move to next page

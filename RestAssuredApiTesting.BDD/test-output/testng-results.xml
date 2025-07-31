@@ -2,24 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-31T14:20:31 IST" name="Default suite" finished-at="2025-07-31T14:21:19 IST" duration-ms="47975">
+  <suite started-at="2025-07-31T16:11:02 IST" name="Default suite" finished-at="2025-07-31T16:11:14 IST" duration-ms="11716">
     <groups>
     </groups>
-    <test started-at="2025-07-31T14:20:31 IST" name="Default test" finished-at="2025-07-31T14:21:19 IST" duration-ms="47975">
-      <class name="com.onsite.timesheet_test_page.TimeSheetListTest">
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetListTest@c8c12ac]" started-at="2025-07-31T14:20:24 IST" name="generateTokenForSuite" finished-at="2025-07-31T14:20:31 IST" duration-ms="7273" status="PASS">
+    <test started-at="2025-07-31T16:11:02 IST" name="Default test" finished-at="2025-07-31T16:11:14 IST" duration-ms="11716">
+      <class name="com.onsite.timesheet_test_page.TimesheetListParty_TestPage">
+        <test-method signature="timesheetListParty()[pri:0, instance:com.onsite.timesheet_test_page.TimesheetListParty_TestPage@2e005c4b]" started-at="2025-07-31T16:11:02 IST" name="timesheetListParty" finished-at="2025-07-31T16:11:14 IST" duration-ms="11645" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- generateTokenForSuite -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetListTest@c8c12ac]" started-at="2025-07-31T14:20:31 IST" name="setUp" finished-at="2025-07-31T14:20:34 IST" duration-ms="3047" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="listtimesheet()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetListTest@c8c12ac]" started-at="2025-07-31T14:20:34 IST" name="listtimesheet" finished-at="2025-07-31T14:21:19 IST" duration-ms="44867" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- listtimesheet -->
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetListTest -->
+        </test-method> <!-- timesheetListParty -->
+      </class> <!-- com.onsite.timesheet_test_page.TimesheetListParty_TestPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
