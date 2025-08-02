@@ -30,7 +30,6 @@ public class TimeSheetEditTest extends BaseToken{
 		String jsonEditPayload = mapper.writeValueAsString(editObj);
 
 		TimeSheetResponseBody response = 
-				
 			given()
 				.baseUri(ApiBasePath.BASE_URL)
 				.header("Authorization", "Bearer " + token)

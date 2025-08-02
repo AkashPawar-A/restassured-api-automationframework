@@ -1,0 +1,17 @@
+[
+  {
+    "file_name": "sample.png",
+    "file_type": "image/png",
+    "uploaded_url": "https://onsitedev.blr1.digitaloceanspaces.com/material/07b3d0f2-6721-4d8f-8866-dd52379921ba_c5b0bdca-6941-4411-aa64-369f6bb8cc32.png"
+  },
+  {
+    "file_name": "sample.xlsx",
+    "file_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "uploaded_url": "https://onsitedev.blr1.digitaloceanspaces.com/material/1e4298dd-4934-47db-970f-fa2f1730a6f3_c5b0bdca-6941-4411-aa64-369f6bb8cc32.xlsx"
+  },
+  {
+    "file_name": "sample.pdf",
+    "file_type": "application/pdf",
+    "uploaded_url": "https://onsitedev.blr1.digitaloceanspaces.com/material/4e1e5cce-9c56-45a3-b124-95c43da5788a_c5b0bdca-6941-4411-aa64-369f6bb8cc32.pdf"
+  }
+]
