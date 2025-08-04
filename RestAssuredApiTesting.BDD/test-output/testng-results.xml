@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-04T14:20:15 IST" name="Default suite" finished-at="2025-08-04T14:20:24 IST" duration-ms="8953">
+  <suite started-at="2025-08-04T15:59:55 IST" name="Default suite" finished-at="2025-08-04T16:00:04 IST" duration-ms="8917">
     <groups>
     </groups>
-    <test started-at="2025-08-04T14:20:15 IST" name="Default test" finished-at="2025-08-04T14:20:24 IST" duration-ms="8953">
-      <class name="com.onsite.timesheet_test_page.TimeSheetSearchTest">
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetSearchTest@c8c12ac]" started-at="2025-08-04T14:20:06 IST" name="generateTokenForSuite" finished-at="2025-08-04T14:20:15 IST" duration-ms="8403" status="PASS">
+    <test started-at="2025-08-04T15:59:55 IST" name="Default test" finished-at="2025-08-04T16:00:04 IST" duration-ms="8917">
+      <class name="com.onsite.credit_note_test_page.CreditNoteApproval_test">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteApproval_test@c8c12ac]" started-at="2025-08-04T15:59:47 IST" name="generateTokenForSuite" finished-at="2025-08-04T15:59:55 IST" duration-ms="7909" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetSearchTest@c8c12ac]" started-at="2025-08-04T14:20:15 IST" name="setUp" finished-at="2025-08-04T14:20:18 IST" duration-ms="3246" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteApproval_test@c8c12ac]" started-at="2025-08-04T15:59:55 IST" name="setUp" finished-at="2025-08-04T15:59:59 IST" duration-ms="3585" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="searchTimeSheet()[pri:0, instance:com.onsite.timesheet_test_page.TimeSheetSearchTest@c8c12ac]" started-at="2025-08-04T14:20:18 IST" name="searchTimeSheet" finished-at="2025-08-04T14:20:24 IST" duration-ms="5642" status="PASS">
+        <test-method signature="approvalCreditNote()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteApproval_test@c8c12ac]" started-at="2025-08-04T15:59:59 IST" name="approvalCreditNote" finished-at="2025-08-04T16:00:04 IST" duration-ms="5274" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchTimeSheet -->
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetSearchTest -->
+        </test-method> <!-- approvalCreditNote -->
+      </class> <!-- com.onsite.credit_note_test_page.CreditNoteApproval_test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
