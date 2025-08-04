@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.timesheet_test_page.TimeSheetListTest">
+      <class name="com.onsite.timesheet_test_page.TimeSheetSearchTest">
         <methods>
-          <include name="listTimeSheet"/>
           <include name="generateTokenForSuite"/>
+          <include name="searchTimeSheet"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.timesheet_test_page.TimeSheetListTest -->
+      </class> <!-- com.onsite.timesheet_test_page.TimeSheetSearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
