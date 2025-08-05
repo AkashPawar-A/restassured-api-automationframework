@@ -3,7 +3,7 @@ package com.onsite.project_test_page;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.context.ProjectDetail;
 import com.onsite.endpoints.ApiBasePath;
-import com.onsite.endpoints.Project_levelApi;
+import com.onsite.endpoints.Project_Api;
 import com.onsite.payloadbuilder.ProjectEditPayload;
 import com.onsite.pojo_request.ProjectEditRequest;
 import com.onsite.pojo_response.ProjectResponseBody;
@@ -42,7 +42,7 @@ public class ProjectUpdateTest extends BaseToken {
                 .body(jsonPayload)
                 .log().all()
             .when()
-                .patch(Project_levelApi.UPDATE_PROJECT)
+                .patch(Project_Api.UPDATE_PROJECT)
             .then()
                 .log().all()
                 .extract().response();
@@ -78,7 +78,7 @@ public class ProjectUpdateTest extends BaseToken {
                 .contentType(ContentType.JSON)
                 .pathParam("projectId", ProjectDetail.projectId) 
             .when()
-                .get(Project_levelApi.GET_PROJECT)
+                .get(Project_Api.GET_PROJECT)
             .then()
                 .statusCode(200)
                 .extract().as(ProjectResponseBody.class);

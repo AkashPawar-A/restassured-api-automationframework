@@ -2,24 +2,36 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-04T15:59:55 IST" name="Default suite" finished-at="2025-08-04T16:00:04 IST" duration-ms="8917">
+  <suite started-at="2025-08-05T23:46:59 IST" name="Default suite" finished-at="2025-08-05T23:47:19 IST" duration-ms="20344">
     <groups>
     </groups>
-    <test started-at="2025-08-04T15:59:55 IST" name="Default test" finished-at="2025-08-04T16:00:04 IST" duration-ms="8917">
-      <class name="com.onsite.credit_note_test_page.CreditNoteApproval_test">
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteApproval_test@c8c12ac]" started-at="2025-08-04T15:59:47 IST" name="generateTokenForSuite" finished-at="2025-08-04T15:59:55 IST" duration-ms="7909" status="PASS">
+    <test started-at="2025-08-05T23:46:59 IST" name="Default test" finished-at="2025-08-05T23:47:19 IST" duration-ms="20344">
+      <class name="com.onsite.credit_note_test_page.CreditNoteAddItemTest">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteAddItemTest@35e2d654]" started-at="2025-08-05T23:46:51 IST" name="generateTokenForSuite" finished-at="2025-08-05T23:46:59 IST" duration-ms="8038" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteApproval_test@c8c12ac]" started-at="2025-08-04T15:59:55 IST" name="setUp" finished-at="2025-08-04T15:59:59 IST" duration-ms="3585" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteAddItemTest@35e2d654]" started-at="2025-08-05T23:46:59 IST" name="setUp" finished-at="2025-08-05T23:47:06 IST" duration-ms="7502" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="approvalCreditNote()[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteApproval_test@c8c12ac]" started-at="2025-08-04T15:59:59 IST" name="approvalCreditNote" finished-at="2025-08-04T16:00:04 IST" duration-ms="5274" status="PASS">
+        <test-method signature="addCreditItem(com.onsite.pojo_request.CreditNoteCreateRequest,com.onsite.pojo_request.CreditNoteAddItemRequest)[pri:0, instance:com.onsite.credit_note_test_page.CreditNoteAddItemTest@35e2d654]" started-at="2025-08-05T23:47:07 IST" name="addCreditItem" data-provider="creditNoteData" finished-at="2025-08-05T23:47:19 IST" duration-ms="12290" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.onsite.pojo_request.CreditNoteCreateRequest@58eac00e]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[com.onsite.pojo_request.CreditNoteAddItemRequest@6acffb2d]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- approvalCreditNote -->
-      </class> <!-- com.onsite.credit_note_test_page.CreditNoteApproval_test -->
+        </test-method> <!-- addCreditItem -->
+      </class> <!-- com.onsite.credit_note_test_page.CreditNoteAddItemTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

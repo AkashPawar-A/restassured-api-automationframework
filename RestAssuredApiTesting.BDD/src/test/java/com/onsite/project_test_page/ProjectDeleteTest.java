@@ -1,7 +1,7 @@
 package com.onsite.project_test_page;
 
 import com.onsite.context.ProjectDetail;
-import com.onsite.endpoints.Project_levelApi;
+import com.onsite.endpoints.Project_Api;
 import com.onsite.pojo_response.ProjectResponseBody;
 import com.onsite.utilities_page.BaseToken;
 
@@ -26,7 +26,7 @@ public class ProjectDeleteTest extends BaseToken {
 				   .pathParam("projectId", ProjectDetail.projectId)
 				   
 				.when()
-				   .delete(Project_levelApi.DELETE_PROJECT)
+				   .delete(Project_Api.DELETE_PROJECT)
 				   
 				.then()
 				   .statusCode(200)

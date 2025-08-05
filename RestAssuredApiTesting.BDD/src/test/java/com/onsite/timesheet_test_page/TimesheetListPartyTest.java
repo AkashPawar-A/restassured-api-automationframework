@@ -15,7 +15,7 @@ import com.onsite.endpoints.TimeSheet_Api;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.SchemaValidator;
 
-public class TimesheetListParty_TestPage {
+public class TimesheetListPartyTest {
 	
 	@Test
 	public void timesheetListParty() throws Exception {

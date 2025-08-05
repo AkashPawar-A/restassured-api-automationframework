@@ -8,108 +8,108 @@ import com.onsite.pojo_request.TimeSheetCreateRequest;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TimeSheetResponseBody extends ProjectResponseBody {
 
-	public String id;
-	public String company_id;
-	public String creator;
-	public String created;
-	public String updated;
-	public int delete;
-	public String creator_company_user_id;
-	public String project_id;
-	public String timesheet_date;
-	public String start_time;
-	public String end_time;
-	public int duration;
-	public String billing_activity_id;
-	public String notes;
-	public List<Object> photos;
+	private String id;
+	private String company_id;
+	private String creator;
+	private String created;
+	private String updated;
+	private int delete;
+	private String creator_company_user_id;
+	private String project_id;
+	private String timesheet_date;
+	private String start_time;
+	private String end_time;
+	private int duration;
+	private String billing_activity_id;
+	private String notes;
+	private List<Object> photos;
 
-	public MonkeyPatchProject monkey_patch_project;
-	public String party_company_user_id;
-	public MonkeyPatchPartyCompanyUser monkey_patch_party_company_user;
-	public String search;
+	private MonkeyPatchProject monkey_patch_project;
+	private String party_company_user_id;
+	private MonkeyPatchPartyCompanyUser monkey_patch_party_company_user;
+	private String search;
 
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	public class MonkeyPatchProject {
-		public String id;
-		public String type;
-		public String name;
-		public String contractor;
-		public String contractor_company_user_id;
-		public String creator;
-		public String creator_company_user_id;
-		public String bg_image;
-		public List<String> admins;
-		public List<String> admins_company_user_ids;
+		private String id;
+		private String type;
+		private String name;
+		private String contractor;
+		private String contractor_company_user_id;
+		private String creator;
+		private String creator_company_user_id;
+		private String bg_image;
+		private List<String> admins;
+		private List<String> admins_company_user_ids;
 		public List<Object> workers_company_user_ids;
-		public String customer_name;
-		public int customer_contact;
-		public String customer_email;
-		public String customer_company_name;
-		public String customer_company_address;
-		public String customer_gst;
-		public String customer_profile_image;
-		public String address;
-		public String city;
-		public String state;
-		public String status;
-		public List<Object> contact_book;
-		public int is_engine;
-		public String duplicate_from;
-		public String created;
-		public String updated;
-		public Object contact_data;
-		public Object photos;
-		public Location location;
-		public Object google_address;
-		public Object allowed_features;
-		public int estimated_cost;
-		public int progress;
-		public String start_date;
-		public String end_date;
-		public String company_id;
-		public int attendance_radius;
-		public int distance;
+		private String customer_name;
+		private int customer_contact;
+		private String customer_email;
+		private String customer_company_name;
+		private String customer_company_address;
+		private String customer_gst;
+		private String customer_profile_image;
+		private String address;
+		private String city;
+		private String state;
+		private String status;
+		private List<Object> contact_book;
+		private int is_engine;
+		private String duplicate_from;
+		private String created;
+		private String updated;
+		private Object contact_data;
+		private Object photos;
+		private Location location;
+		private Object google_address;
+		private Object allowed_features;
+		private int estimated_cost;
+		private int progress;
+		private String start_date;
+		private String end_date;
+		private String company_id;
+		private int attendance_radius;
+		private int distance;
 
 		public static class Location {
-			public String type;
-			public List<Double> coordinates;
+			private String type;
+			private List<Double> coordinates;
 		}
 	}
 
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	public class MonkeyPatchPartyCompanyUser {
-		public String id;
-		public String company_id;
-		public String type;
-		public String creator;
-		public String name;
-		public long mobile;
-		public int mobile_verified;
-		public String user_id;
-		public List<Object> assigned_project_ids;
-		public List<Object> pinned_project_ids;
-		public List<CustomField> custom_fields;
-		public List<String> bank_account_ids;
-		public List<String> company_user_bank_account_ids;
-		public List<Object> upi_ids;
-		public List<Object> address_ids;
-		public String created;
-		public String updated;
-		public int rating;
+		private String id;
+		private String company_id;
+		private String type;
+		private String creator;
+		private String name;
+		private long mobile;
+		private int mobile_verified;
+		private String user_id;
+		private List<Object> assigned_project_ids;
+		private List<Object> pinned_project_ids;
+		private List<CustomField> custom_fields;
+		private List<String> bank_account_ids;
+		private List<String> company_user_bank_account_ids;
+		private List<Object> upi_ids;
+		private List<Object> address_ids;
+		private String created;
+		private String updated;
+		private int rating;
 
 		public static class CustomField {
-			public String id;
-			public String name;
-			public String data_type;
-			public String custom_field_type;
-			public String default_value;
-			public int default_value_enabled;
-			public String company_id;
-			public int is_published;
-			public int delete;
-			public String created;
-			public String updated;
+			private String id;
+			private String name;
+			private String data_type;
+			private String custom_field_type;
+			private String default_value;
+			private int default_value_enabled;
+			private String company_id;
+			private int is_published;
+			private int delete;
+			private String created;
+			private String updated;
 		}
 	}
 
@@ -263,6 +263,5 @@ public class TimeSheetResponseBody extends ProjectResponseBody {
 
 		public void setSearch(String search) {
 			this.search = search;
-		}
-	
+		}	
 }

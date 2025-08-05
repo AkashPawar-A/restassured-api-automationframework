@@ -12,11 +12,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.onsite.endpoints.ApiBasePath;
+import com.onsite.endpoints.Common_Api;
 import com.onsite.endpoints.CreditNote_Api;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.BaseToken;
 
-public class CreditNoteUploadFile_TestPage extends BaseToken {
+public class CreditNoteUploadFileTest extends BaseToken {
 	
 	String basePath = "src/test/resources/test_data/UploadTestFiles";
 	
@@ -49,7 +50,7 @@ public class CreditNoteUploadFile_TestPage extends BaseToken {
 				.log().all()
 				
 			.when()
-				.post(CreditNote_Api.Upload_file)
+				.post(Common_Api.Upload_file)
 				
 			.then()
 				.log().all()

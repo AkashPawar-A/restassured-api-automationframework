@@ -2,7 +2,7 @@ package com.onsite.project_test_page;
 
 import com.onsite.context.ProjectDetail;
 import com.onsite.endpoints.ApiBasePath;
-import com.onsite.endpoints.Project_levelApi;
+import com.onsite.endpoints.Project_Api;
 import com.onsite.pojo_response.ProjectResponseBody;
 import com.onsite.utilities_page.BaseToken;
 
@@ -31,7 +31,7 @@ public class ProjectGetTest extends BaseToken{
 		  .pathParam("projectId", ProjectDetail.projectId)
 
 		.when()
-		  .get(Project_levelApi.GET_PROJECT)
+		  .get(Project_Api.GET_PROJECT)
 		
 		.then()
 		   .statusCode(200)

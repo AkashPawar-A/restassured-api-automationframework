@@ -16,7 +16,7 @@ import com.onsite.endpoints.CreditNote_Api;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.BaseToken;
 
-public class CreditNoteApproval_test extends BaseToken{
+public class CreditNoteApprovalTest extends BaseToken{
 
 	@Test
 	public void approvalCreditNote() throws Exception {
@@ -40,7 +40,7 @@ public class CreditNoteApproval_test extends BaseToken{
 					.log().body()
 
 				.when()
-					.patch(CreditNote_Api.approval_CreditNote)
+					.patch(CreditNote_Api.Approval_CreditNote)
 
 				.then()
 					.log().status()

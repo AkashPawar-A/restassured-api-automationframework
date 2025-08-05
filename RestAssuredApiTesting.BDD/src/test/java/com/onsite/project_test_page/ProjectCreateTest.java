@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.onsite.endpoints.Project_levelApi;
+import com.onsite.endpoints.Project_Api;
 import com.onsite.context.ProjectDetail;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.payloadbuilder.ProjectCreatePayload;
@@ -44,7 +44,7 @@ public class ProjectCreateTest extends BaseToken {
                     .body(jsonPayload)
                     .log().all()
                 .when()
-                    .post(Project_levelApi.CREATE_PROJECT)
+                    .post(Project_Api.CREATE_PROJECT)
                 .then()
                     .statusCode(200)  // Always check this
                     .body("name", equalTo("API Test Project - t7"))
@@ -86,7 +86,7 @@ public class ProjectCreateTest extends BaseToken {
     		        .contentType(ContentType.JSON)
     		        .pathParam("projectId", ProjectDetail.projectId)
     		    .when()
-    		        .get(Project_levelApi.GET_PROJECT)
+    		        .get(Project_Api.GET_PROJECT)
     		    .then()
     		        .statusCode(200)
     		        .extract().as(ProjectResponseBody.class);

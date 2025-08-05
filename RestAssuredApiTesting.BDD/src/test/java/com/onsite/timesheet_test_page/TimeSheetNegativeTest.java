@@ -12,7 +12,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
-public class TimeSheetNegative_tests extends BaseToken {
+public class TimeSheetNegativeTest extends BaseToken {
 
     @Test(priority=1)
     public void test_Unauthorized() {

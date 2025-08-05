@@ -1,6 +1,6 @@
 package com.onsite.endpoints;
 
-public class Project_levelApi {
+public class Project_Api {
 
 	public static final String CREATE_PROJECT = "/add/project";
 	public static final String GET_PROJECT = "/detail/project/{projectId}";  // using path param
