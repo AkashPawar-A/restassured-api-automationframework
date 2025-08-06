@@ -1,5 +1,6 @@
 [
   {
+    "credit_note_id" : "",
     "estimated_quantity": 100,
     "gst_amount": 180,
     "gst_percent": 18,
@@ -8,10 +9,10 @@
     "name": "Test Material",
     "notes": "test - 1",
     "quantity": 100,
-    "sub_category_id": "92eee21a-99d7-4346-8e95-b6df70e628eb",
+    "sub_category_id": "",
     "total_amount": 1180,
     "unit": "sqft",
-    "unit_id": "b297156a-c4b9-4899-beb8-7752ff93bf04",
+    "unit_id": "",
     "unit_price": 10,
     "work_amount": 1000
   }
