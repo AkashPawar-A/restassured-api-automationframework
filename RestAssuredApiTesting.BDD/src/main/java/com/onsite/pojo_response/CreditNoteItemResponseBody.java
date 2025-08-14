@@ -1,5 +1,8 @@
 package com.onsite.pojo_response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CreditNoteItemResponseBody {
 	
 	private String id;
@@ -193,6 +196,7 @@ public class CreditNoteItemResponseBody {
 
 	private MonkeyPatchSubCategory monkey_patch_sub_category;
 
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class MonkeyPatchSubCategory {
 		
 		private String id;

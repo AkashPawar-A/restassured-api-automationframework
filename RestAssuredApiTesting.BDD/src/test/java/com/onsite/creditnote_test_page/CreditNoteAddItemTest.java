@@ -1,4 +1,4 @@
-package com.onsite.credit_note_test_page;
+package com.onsite.creditnote_test_page;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -27,6 +27,7 @@ public class CreditNoteAddItemTest extends BaseToken {
 
 	@DataProvider(name = "creditNoteData")
 	public Object[][] getCreditNoteData() {
+		
 		String creditNotePath = "src/test/resources/test_data/CreditNote_CreateTestData.json";
 		String creditItemPath = "src/test/resources/test_data/CreditNoteItem_AddTestData.json";
 
@@ -65,6 +66,7 @@ public class CreditNoteAddItemTest extends BaseToken {
 				.extract().response();
 
 		Assert.assertEquals(companyUserResponse.getStatusCode(), 200, "companyUser response failed");
+		
 		List<Map<String, Object>> companyUserList = companyUserResponse.jsonPath().getList("data");
 		Assert.assertNotNull(companyUserList, "companyUser list is null");
 		Assert.assertFalse(companyUserList.isEmpty(), "companyUser list is empty");

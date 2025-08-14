@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.credit_note_test_page.CreditNoteAddItemTest">
+      <class name="com.onsite.mom_test_page.Create_MOM_Test">
         <methods>
+          <include name="createMOM" invocation-numbers="0"/>
           <include name="generateTokenForSuite"/>
-          <include name="addCreditItem" invocation-numbers="0"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.credit_note_test_page.CreditNoteAddItemTest -->
+      </class> <!-- com.onsite.mom_test_page.Create_MOM_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,4 +1,4 @@
-package com.onsite.credit_note_test_page;
+package com.onsite.creditnote_test_page;
 
 import static io.restassured.RestAssured.given;
 

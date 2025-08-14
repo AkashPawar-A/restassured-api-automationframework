@@ -198,6 +198,7 @@ public class CreditNoteResponseBody {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class CompanyUser {
 	
 	private String id;
@@ -344,6 +345,7 @@ class CompanyUser {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class CompanyRole {
 	
 	private String id;
@@ -433,6 +435,7 @@ class CompanyRole {
 	}
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class User {
 	
 	private String id;
@@ -501,6 +504,7 @@ class User {
 	}
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Project {
 	
 	private String id;
@@ -911,6 +915,7 @@ class Location {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class PrimaryAddress {
 	
 	private String id;
@@ -1064,6 +1069,7 @@ class PrimaryAddress {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class CountryConfig {
 	
 	private String country_code;
@@ -1176,6 +1182,7 @@ class CountryConfig {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Invoice {
 	
 	private String id;
@@ -1343,6 +1350,7 @@ class Invoice {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Settlement {
 	
 	private String id;
@@ -1426,6 +1434,7 @@ class Settlement {
 
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class MetaData {
 	private int can_edit;
 	private int can_update_approval_flag;

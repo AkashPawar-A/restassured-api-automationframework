@@ -11,6 +11,5 @@ public class ProjectDetail {
 	public static String supervisorId;
 	public static String createdId;
 	public static String creatorCompanyUserId;
-	
 	public static ProjectEditRequest editPayload;
 }
