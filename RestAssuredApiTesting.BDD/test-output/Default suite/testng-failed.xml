@@ -5,7 +5,7 @@
     <classes>
       <class name="com.onsite.mom_test_page.Create_MOM_Test">
         <methods>
-          <include name="createMOM" invocation-numbers="0"/>
+          <include name="createMOM"/>
           <include name="generateTokenForSuite"/>
           <include name="getCompanyUserId"/>
           <include name="getProjectId"/>

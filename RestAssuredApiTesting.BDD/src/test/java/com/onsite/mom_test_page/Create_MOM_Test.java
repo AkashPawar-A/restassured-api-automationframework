@@ -296,8 +296,8 @@ public class Create_MOM_Test extends BaseToken{
 	@Test(priority=4, dependsOnMethods="createMOM")
 	public void getMOM() throws Exception {
 
-		if(MomDetails.momId.isEmpty() || MomDetails.momId == null) {
-			throw new IllegalArgumentException("mom id is null or empty");
+		if (MomDetails.momId == null || MomDetails.momId.isEmpty()) {
+		    throw new IllegalArgumentException("mom id is null or empty");
 		}
 
 		Response getMoMResponse = 
@@ -316,8 +316,27 @@ public class Create_MOM_Test extends BaseToken{
 				.extract().response();
 
 		Assert.assertEquals(getMoMResponse.getStatusCode(), 200, "expected status code is not responede");
+		
+		long responseTime = getMoMResponse.getTime();
+		Assert.assertTrue(responseTime < 5000, ": response time is too long >5s" + ", actual" + responseTime);
+		
+		Assert.assertEquals(getMoMResponse.contentType(), "application/json; charset=utf-8", "invalid content type");
+		
+		List<String> mandatoryField = Arrays.asList("id", "attendee_cu_ids", "company_id", "creator", "creator_company_user_id", "project_id");
+		for(String field : mandatoryField) {
+			Assert.assertNotNull(getMoMResponse.jsonPath().get(field), "mandotory field is missing :" + field);
+		}
 
 		MOM_Response momObj = getMoMResponse.as(MOM_Response.class);
+		
+	    try { UUID.fromString(momObj.getId()); } 
+	    catch (IllegalArgumentException e) { Assert.fail("Invalid UUID for MOM id"); }
+
+	    try { UUID.fromString(momObj.getCompany_id()); } 
+	    catch (IllegalArgumentException e) { Assert.fail("Invalid UUID for company_id"); }
+
+	    try { UUID.fromString(momObj.getProject_id()); } 
+	    catch (IllegalArgumentException e) { Assert.fail("Invalid UUID for project_id"); }
 
 		String jsonResponse = getMoMResponse.asString();
 		SchemaValidator.validateSchema("schemas_files/mom.json", jsonResponse);
