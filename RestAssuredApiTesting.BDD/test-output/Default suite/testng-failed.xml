@@ -7,6 +7,9 @@
         <methods>
           <include name="createMOM" invocation-numbers="0"/>
           <include name="generateTokenForSuite"/>
+          <include name="getCompanyUserId"/>
+          <include name="getProjectId"/>
+          <include name="getMOM"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.onsite.mom_test_page.Create_MOM_Test -->

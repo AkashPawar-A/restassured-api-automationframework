@@ -3,7 +3,9 @@ package com.onsite.pojo_response;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class MOM_Response {
 	
 	private String id;
@@ -22,11 +24,11 @@ public class MOM_Response {
 	private CompanyUser[] monkey_patch_attendees;
 	private Project monkey_patch_project;
 	
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+	//@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime mom_date;
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+	//@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime created;
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+	//@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime updated;
 	
 	public String getId() {

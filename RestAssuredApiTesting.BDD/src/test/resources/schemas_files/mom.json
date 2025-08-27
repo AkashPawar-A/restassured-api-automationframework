@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MOM_Response",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "project_id": { "type": "string" },
+    "company_id": { "type": "string" },
+    "creator": { "type": "string" },
+    "creator_company_user_id": { "type": "string" },
+    "attendee_cu_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" },
+    "photos": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "delete": { "type": "integer" },
+    "source_add": { "type": "string" },
+    "source_edit": { "type": "string" },
+    "search": { "type": "string" },
+
+    "monkey_patch_attendees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CompanyUser"
+      }
+    },
+    "monkey_patch_project": {
+      "$ref": "#/definitions/Project"
+    },
+
+    "mom_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "project_id",
+    "company_id",
+    "creator",
+    "creator_company_user_id",
+    "mom_date",
+    "created",
+    "updated"
+  ],
+  "definitions": {
+    "CompanyUser": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": {
+           "oneOf":[
+                  { "type": "string", "format": "email" },
+                  { "type": "string", "maxLength": 0 }
+                  ] 
+                  }
+      },
+      "additionalProperties": true
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
