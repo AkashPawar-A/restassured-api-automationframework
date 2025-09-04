@@ -3,16 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.mom_test_page.Create_MOM_Test">
+      <class name="com.onsite.mom_test_page.Edit_MOM_Test">
         <methods>
-          <include name="createMOM"/>
-          <include name="generateTokenForSuite"/>
-          <include name="getCompanyUserId"/>
-          <include name="getProjectId"/>
-          <include name="getMOM"/>
-          <include name="setUp"/>
+          <include name="editMom" invocation-numbers="0"/>
+          <include name="geteditdata" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.onsite.mom_test_page.Create_MOM_Test -->
+      </class> <!-- com.onsite.mom_test_page.Edit_MOM_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
