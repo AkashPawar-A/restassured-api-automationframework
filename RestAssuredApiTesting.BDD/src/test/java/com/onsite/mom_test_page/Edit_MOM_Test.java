@@ -90,7 +90,7 @@ public class Edit_MOM_Test {
 			}
 		}
 
-		int reqIndex = 1;
+		int reqIndex = 0;
 		if(momList.size() > reqIndex) {
 			Map<String, Object> selecetMomEntry = momList.get(reqIndex);
 
@@ -174,73 +174,6 @@ public class Edit_MOM_Test {
 
 		long responseTime = momAttendeelistResponse.getTime();
 		Assert.assertTrue(responseTime < 5000, "response time is too long : " + responseTime);
-
-		//only ids validate
-//		List<String> attendsIds = momAttendeelistResponse.jsonPath().getList("id");
-//		for(String attendeeId : attendsIds) {
-//			if(attendeeId == null || attendeeId.isEmpty()) {
-//				Assert.fail("attendee ids list is empty ya null");
-//			}
-//		}
-//
-//		Set<String> id = new HashSet<>();
-//		for(String attendeeId : attendsIds) {
-//
-//			if(attendeeId == null) {
-//				Assert.fail("attendee id is null");
-//			}
-//
-//			if(!id.add(attendeeId)) {
-//				Assert.fail("attendee id duplicate found : " + attendeeId);
-//			}
-//
-//			try {
-//				UUID.fromString(attendeeId);
-//			} catch(Exception e) {
-//				Assert.fail("invalid UUID format id found : " + attendeeId);
-//			}
-//		}
-//
-//		//object validate (full attendee)
-//		List<Map<String, Object>> attendees = momAttendeelistResponse.jsonPath().getList("$");
-//		int attendeeIndex = 3;
-//		if(attendsIds.size() > attendeeIndex) {
-//			Map<String, Object> selectAttendee = attendees.get(attendeeIndex);
-//
-//			List<String> reqField = Arrays.asList("id", "company_id", "type", "creator",
-//					"name", "user_id", "sequence", "hidden");
-//
-//			for(String key : reqField) {
-//				if(!selectAttendee.containsKey(key)) {
-//					Assert.fail("mandotory field are not avialble in response");
-//				}
-//
-//				Object value = selectAttendee.get(key);
-//				if(value==null) {
-//					Assert.fail("mandatory field is null in response");
-//				}
-//
-//				if(value instanceof String && ((String) value).trim().isEmpty()) {
-//					Assert.fail("mandatory field is empty in response");
-//				}
-//			}
-//
-//			String attendeeId = selectAttendee.get("id").toString();
-//			String attendeeCompanyId = selectAttendee.get("company_id").toString();
-//			String attendeeType = selectAttendee.get("type").toString();
-//			String attendeeCreator = selectAttendee.get("creator").toString();
-//			String attendeeeName = selectAttendee.get("name").toString();
-//			String attendeeUserId = selectAttendee.get("user_id").toString();
-//			String attendeepartyId = selectAttendee.get("party_id").toString();
-//			int attendeeSequence = Integer.parseInt(selectAttendee.get("sequence").toString());
-//			int attendeeHidden = Integer.parseInt(selectAttendee.get("hidden").toString());
-//
-//			if(attendeeHidden==0) {
-//				momRequestPayload.setAttendee_cu_ids(new String[]{attendeeId});
-//			}else {
-//				Assert.fail("attendee is hidden==1");
-//			}
-//		}
 		
 		
 		List<String> attendsIds = momAttendeelistResponse.jsonPath().getList("id");
@@ -269,18 +202,25 @@ public class Edit_MOM_Test {
 	    List<Map<String, Object>> attendees = momAttendeelistResponse.jsonPath().getList("$");
 	    List<String> selectedAttendees = new ArrayList<>();
 
-	    for(Map<String, Object> attendee : attendees) {
-	        String attendeeId = attendee.get("id").toString();
-	        int hiddenflag = Integer.parseInt(attendee.get("hidden").toString());
+	    for(Map<String, Object> selectAttendee : attendees) {
+			String attendeeId = selectAttendee.get("id").toString();
+			String attendeeCompanyId = selectAttendee.get("company_id").toString();
+			String attendeeType = selectAttendee.get("type").toString();
+			String attendeeCreator = selectAttendee.get("creator").toString();
+			String attendeeeName = selectAttendee.get("name").toString();
+			String attendeeUserId = selectAttendee.get("user_id").toString();
+			String attendeepartyId = selectAttendee.get("party_id").toString();
+			int attendeeSequence = Integer.parseInt(selectAttendee.get("sequence").toString());
+			int attendeeHidden = Integer.parseInt(selectAttendee.get("hidden").toString());
 
 	        // validate required fields
 	        List<String> reqField = Arrays.asList("id", "company_id", "type", "creator",
 	                "name", "user_id", "sequence", "hidden");
 	        for(String key : reqField) {
-	            if(!attendee.containsKey(key)) {
+	            if(!selectAttendee.containsKey(key)) {
 	                Assert.fail("mandatory field missing: " + key);
 	            }
-	            Object value = attendee.get(key);
+	            Object value = selectAttendee.get(key);
 	            if(value == null) {
 	                Assert.fail("mandatory field is null: " + key);
 	            }
@@ -289,7 +229,7 @@ public class Edit_MOM_Test {
 	            }
 	        }
 
-	        if(hiddenflag == 0) {  // only active attendees
+	        if(attendeeHidden == 0) {  // only active attendees
 	            selectedAttendees.add(attendeeId);
 	        }
 	    }
@@ -476,7 +416,6 @@ public class Edit_MOM_Test {
 		Assert.assertEquals(getMomObj.getProject_id(), MomDetails.projectId, ": mom project id mismatch");
 		Assert.assertEquals(getMomObj.getCompany_id(), MomDetails.companyId, ": mom company id mismatch");
 		Assert.assertEquals(getMomObj.getCreator(), MomDetails.creatorId, ": mom creator id si mismatch");
-
 	}
 }
 
