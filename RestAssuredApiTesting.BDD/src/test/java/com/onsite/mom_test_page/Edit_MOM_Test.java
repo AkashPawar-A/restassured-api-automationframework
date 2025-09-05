@@ -9,10 +9,14 @@ import com.onsite.context.MomDetails;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Mom_Api;
 import com.onsite.pojo_request.MOM_Request;
+import com.onsite.pojo_response.MOM_Response;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.JsonDataProvider;
+import com.onsite.utilities_page.SchemaValidator;
+
 import static io.restassured.RestAssured.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -172,71 +176,130 @@ public class Edit_MOM_Test {
 		Assert.assertTrue(responseTime < 5000, "response time is too long : " + responseTime);
 
 		//only ids validate
+//		List<String> attendsIds = momAttendeelistResponse.jsonPath().getList("id");
+//		for(String attendeeId : attendsIds) {
+//			if(attendeeId == null || attendeeId.isEmpty()) {
+//				Assert.fail("attendee ids list is empty ya null");
+//			}
+//		}
+//
+//		Set<String> id = new HashSet<>();
+//		for(String attendeeId : attendsIds) {
+//
+//			if(attendeeId == null) {
+//				Assert.fail("attendee id is null");
+//			}
+//
+//			if(!id.add(attendeeId)) {
+//				Assert.fail("attendee id duplicate found : " + attendeeId);
+//			}
+//
+//			try {
+//				UUID.fromString(attendeeId);
+//			} catch(Exception e) {
+//				Assert.fail("invalid UUID format id found : " + attendeeId);
+//			}
+//		}
+//
+//		//object validate (full attendee)
+//		List<Map<String, Object>> attendees = momAttendeelistResponse.jsonPath().getList("$");
+//		int attendeeIndex = 3;
+//		if(attendsIds.size() > attendeeIndex) {
+//			Map<String, Object> selectAttendee = attendees.get(attendeeIndex);
+//
+//			List<String> reqField = Arrays.asList("id", "company_id", "type", "creator",
+//					"name", "user_id", "sequence", "hidden");
+//
+//			for(String key : reqField) {
+//				if(!selectAttendee.containsKey(key)) {
+//					Assert.fail("mandotory field are not avialble in response");
+//				}
+//
+//				Object value = selectAttendee.get(key);
+//				if(value==null) {
+//					Assert.fail("mandatory field is null in response");
+//				}
+//
+//				if(value instanceof String && ((String) value).trim().isEmpty()) {
+//					Assert.fail("mandatory field is empty in response");
+//				}
+//			}
+//
+//			String attendeeId = selectAttendee.get("id").toString();
+//			String attendeeCompanyId = selectAttendee.get("company_id").toString();
+//			String attendeeType = selectAttendee.get("type").toString();
+//			String attendeeCreator = selectAttendee.get("creator").toString();
+//			String attendeeeName = selectAttendee.get("name").toString();
+//			String attendeeUserId = selectAttendee.get("user_id").toString();
+//			String attendeepartyId = selectAttendee.get("party_id").toString();
+//			int attendeeSequence = Integer.parseInt(selectAttendee.get("sequence").toString());
+//			int attendeeHidden = Integer.parseInt(selectAttendee.get("hidden").toString());
+//
+//			if(attendeeHidden==0) {
+//				momRequestPayload.setAttendee_cu_ids(new String[]{attendeeId});
+//			}else {
+//				Assert.fail("attendee is hidden==1");
+//			}
+//		}
+		
+		
 		List<String> attendsIds = momAttendeelistResponse.jsonPath().getList("id");
-		for(String attendeeId : attendsIds) {
-			if(attendeeId == null || attendeeId.isEmpty()) {
-				Assert.fail("attendee ids list is empty ya null");
-			}
-		}
+	    for(String attendeeId : attendsIds) {
+	        if(attendeeId == null || attendeeId.isEmpty()) {
+	            Assert.fail("attendee ids list is empty ya null");
+	        }
+	    }
 
-		Set<String> id = new HashSet<>();
-		for(String attendeeId : attendsIds) {
+	    Set<String> id = new HashSet<>();
+	    for(String attendeeId : attendsIds) {
+	        if(attendeeId == null) {
+	            Assert.fail("attendee id is null");
+	        }
+	        if(!id.add(attendeeId)) {
+	            Assert.fail("attendee id duplicate found : " + attendeeId);
+	        }
+	        try {
+	            UUID.fromString(attendeeId);
+	        } catch(Exception e) {
+	            Assert.fail("invalid UUID format id found : " + attendeeId);
+	        }
+	    }
 
-			if(attendeeId == null) {
-				Assert.fail("attendee id is null");
-			}
+	    // object validate (full attendee)
+	    List<Map<String, Object>> attendees = momAttendeelistResponse.jsonPath().getList("$");
+	    List<String> selectedAttendees = new ArrayList<>();
 
-			if(!id.add(attendeeId)) {
-				Assert.fail("attendee id duplicate found : " + attendeeId);
-			}
+	    for(Map<String, Object> attendee : attendees) {
+	        String attendeeId = attendee.get("id").toString();
+	        int hiddenflag = Integer.parseInt(attendee.get("hidden").toString());
 
-			try {
-				UUID.fromString(attendeeId);
-			} catch(Exception e) {
-				Assert.fail("invalid UUID format id found : " + attendeeId);
-			}
-		}
+	        // validate required fields
+	        List<String> reqField = Arrays.asList("id", "company_id", "type", "creator",
+	                "name", "user_id", "sequence", "hidden");
+	        for(String key : reqField) {
+	            if(!attendee.containsKey(key)) {
+	                Assert.fail("mandatory field missing: " + key);
+	            }
+	            Object value = attendee.get(key);
+	            if(value == null) {
+	                Assert.fail("mandatory field is null: " + key);
+	            }
+	            if(value instanceof String && ((String) value).trim().isEmpty()) {
+	                Assert.fail("mandatory field is empty: " + key);
+	            }
+	        }
 
-		//object validate (full attendee)
-		List<Map<String, Object>> attendees = momAttendeelistResponse.jsonPath().getList("$");
-		int attendeeIndex = 3;
-		if(attendsIds.size() > attendeeIndex) {
-			Map<String, Object> selectAttendee = attendees.get(attendeeIndex);
+	        if(hiddenflag == 0) {  // only active attendees
+	            selectedAttendees.add(attendeeId);
+	        }
+	    }
 
-			List<String> reqField = Arrays.asList("id", "company_id", "type", "creator",
-					"name", "user_id", "sequence", "hidden");
-
-			for(String key : reqField) {
-				if(!selectAttendee.containsKey(key)) {
-					Assert.fail("mandotory field are not avialble in response");
-				}
-
-				Object value = selectAttendee.get(key);
-				if(value==null) {
-					Assert.fail("mandatory field is null in response");
-				}
-
-				if(value instanceof String && ((String) value).trim().isEmpty()) {
-					Assert.fail("mandatory field is empty in response");
-				}
-			}
-
-			String attendeeId = selectAttendee.get("id").toString();
-			String attendeeCompanyId = selectAttendee.get("company_id").toString();
-			String attendeeType = selectAttendee.get("type").toString();
-			String attendeeCreator = selectAttendee.get("creator").toString();
-			String attendeeeName = selectAttendee.get("name").toString();
-			String attendeeUserId = selectAttendee.get("user_id").toString();
-			String attendeepartyId = selectAttendee.get("party_id").toString();
-			int attendeeSequence = Integer.parseInt(selectAttendee.get("sequence").toString());
-			int attendeeHidden = Integer.parseInt(selectAttendee.get("hidden").toString());
-
-			if(attendeeHidden==0) {
-				momRequestPayload.setAttendee_cu_ids(new String[]{attendeeId});
-			}else {
-				Assert.fail("attendee is hidden==1");
-			}
-		}
+	    if(!selectedAttendees.isEmpty()) {
+	        momRequestPayload.setAttendee_cu_ids(selectedAttendees.toArray(new String[0]));
+	        System.out.println("Selected attendees: " + selectedAttendees);
+	    } else {
+	        Assert.fail("No valid attendees found to add in MOM");
+	    }
 	}
 
 	@Test(priority=3, dataProvider="editMomData")
@@ -348,10 +411,32 @@ public class Edit_MOM_Test {
 
 		System.out.println("Get MOM After Edit: " + editMomResponse.asString());
 		MomDetails.momId=editMomResponse.jsonPath().getString("id");
+
+		Assert.assertEquals(editMomResponse.getStatusCode(), 200, "Expc=ected sttaus code not found ");
+
+		long responseTime = editMomResponse.getTime();
+		Assert.assertTrue(responseTime < 5000, "response time is toolong");
+
+		List<String> requireField = Arrays.asList("id", "name", "project_id", "company_id", "creator", "creator_company_user_id", 
+				"attendee_cu_ids");
+		for(String key : requireField) {
+			Assert.assertNotNull(editMomResponse.jsonPath().get(key), "mandatory field is missing:" + requireField);
+		}
+		
+		MomDetails.momId = editMomResponse.jsonPath().getString("id");
+		MomDetails.projectId = editMomResponse.jsonPath().getString("project_id");
+		MomDetails.companyId = editMomResponse.jsonPath().getString("company_id");
+		MomDetails.creatorId = editMomResponse.jsonPath().getString("creator");
+		MomDetails.creatorCompanyUserId = editMomResponse.jsonPath().getString("creator_company_user_id");
+		MomDetails.attendeeCuIds = editMomResponse.jsonPath().getString("attendee_cu_ids");
+		
+		Assert.assertEquals(MomDetails.momId, momRequestPayload.getId(), "mismatch mom id ");
+		Assert.assertEquals(MomDetails.projectId, momRequestPayload.getProject_id(), "mismatch project id");
+		Assert.assertEquals(MomDetails.attendeeCuIds, MomDetails.attendeeCuIds, "mismatch attendee id");
 	}
 
 	@Test(priority=5, dataProvider="editMomData")
-	public void geteditdata(MOM_Request momRequestPayload) {
+	public void geteditdata(MOM_Request momRequestPayload) throws Exception {
 
 		if (MomDetails.momId == null || MomDetails.momId.isEmpty()) {
 			throw new IllegalArgumentException("mom id is null or empty");
@@ -370,6 +455,27 @@ public class Edit_MOM_Test {
 				.extract().response();
 
 		System.out.println("MOM after edit: " + getMomResponse.asString());
+
+		Assert.assertEquals(getMomResponse.getStatusCode(), 200, "Expc=ected sttaus code not found ");
+
+		long responseTime = getMomResponse.getTime();
+		Assert.assertTrue(responseTime < 5000, "response time is toolong");
+
+		List<String> requireField = Arrays.asList("id", "name", "project_id", "company_id", "creator", "creator_company_user_id", 
+				"attendee_cu_ids");
+		for(String key : requireField) {
+			Assert.assertNotNull(getMomResponse.jsonPath().get(key), "mandatory field is missing:" + requireField);
+		}
+		
+		MOM_Response getMomObj = getMomResponse.as(MOM_Response.class);
+		
+		String jsonResponse = getMomResponse.asString();
+		SchemaValidator.validateSchema("schemas_files/mom.json", jsonResponse);
+		
+		Assert.assertEquals(getMomObj.getId(), MomDetails.momId, ": mom id mismatch");
+		Assert.assertEquals(getMomObj.getProject_id(), MomDetails.projectId, ": mom project id mismatch");
+		Assert.assertEquals(getMomObj.getCompany_id(), MomDetails.companyId, ": mom company id mismatch");
+		Assert.assertEquals(getMomObj.getCreator(), MomDetails.creatorId, ": mom creator id si mismatch");
 
 	}
 }
