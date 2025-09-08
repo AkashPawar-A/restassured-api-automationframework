@@ -1,68 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-05T17:07:36 IST" name="Default suite" finished-at="2025-09-05T17:08:13 IST" duration-ms="37001">
+  <suite started-at="2025-09-08T17:29:29 IST" name="Default suite" finished-at="2025-09-08T17:29:41 IST" duration-ms="12106">
     <groups>
     </groups>
-    <test started-at="2025-09-05T17:07:36 IST" name="Default test" finished-at="2025-09-05T17:08:13 IST" duration-ms="37001">
-      <class name="com.onsite.mom_test_page.Edit_MOM_Test">
-        <test-method signature="getlistMom(com.onsite.pojo_request.MOM_Request)[pri:1, instance:com.onsite.mom_test_page.Edit_MOM_Test@1aa7ecca]" started-at="2025-09-05T17:07:36 IST" name="getlistMom" data-provider="editMomData" finished-at="2025-09-05T17:07:45 IST" duration-ms="9055" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.MOM_Request@2609b277]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2025-09-08T17:29:29 IST" name="Default test" finished-at="2025-09-08T17:29:41 IST" duration-ms="12106">
+      <class name="com.onsite.mom_test_page.Delete_MOM_Test">
+        <test-method signature="getValidMoMId()[pri:1, instance:com.onsite.mom_test_page.Delete_MOM_Test@6356695f]" started-at="2025-09-08T17:29:29 IST" name="getValidMoMId" finished-at="2025-09-08T17:29:37 IST" duration-ms="8270" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getlistMom -->
-        <test-method signature="getlistAttendeeMom(com.onsite.pojo_request.MOM_Request)[pri:2, instance:com.onsite.mom_test_page.Edit_MOM_Test@1aa7ecca]" started-at="2025-09-05T17:07:45 IST" name="getlistAttendeeMom" data-provider="editMomData" finished-at="2025-09-05T17:07:49 IST" duration-ms="3957" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.MOM_Request@741741d0]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- getValidMoMId -->
+        <test-method signature="deleteValidMoMId()[pri:2, instance:com.onsite.mom_test_page.Delete_MOM_Test@6356695f]" started-at="2025-09-08T17:29:37 IST" name="deleteValidMoMId" finished-at="2025-09-08T17:29:41 IST" duration-ms="3757" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getlistAttendeeMom -->
-        <test-method signature="getlistProjectMom(com.onsite.pojo_request.MOM_Request)[pri:3, instance:com.onsite.mom_test_page.Edit_MOM_Test@1aa7ecca]" started-at="2025-09-05T17:07:49 IST" name="getlistProjectMom" data-provider="editMomData" finished-at="2025-09-05T17:07:53 IST" duration-ms="3834" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.MOM_Request@2eda2062]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getlistProjectMom -->
-        <test-method signature="editMom(com.onsite.pojo_request.MOM_Request)[pri:4, instance:com.onsite.mom_test_page.Edit_MOM_Test@1aa7ecca]" started-at="2025-09-05T17:07:53 IST" name="editMom" data-provider="editMomData" finished-at="2025-09-05T17:08:08 IST" duration-ms="15214" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.MOM_Request@4a50c746]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- editMom -->
-        <test-method signature="geteditdata(com.onsite.pojo_request.MOM_Request)[pri:5, instance:com.onsite.mom_test_page.Edit_MOM_Test@1aa7ecca]" started-at="2025-09-05T17:08:08 IST" name="geteditdata" data-provider="editMomData" finished-at="2025-09-05T17:08:13 IST" duration-ms="4343" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.MOM_Request@270d5060]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- geteditdata -->
-      </class> <!-- com.onsite.mom_test_page.Edit_MOM_Test -->
+        </test-method> <!-- deleteValidMoMId -->
+      </class> <!-- com.onsite.mom_test_page.Delete_MOM_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

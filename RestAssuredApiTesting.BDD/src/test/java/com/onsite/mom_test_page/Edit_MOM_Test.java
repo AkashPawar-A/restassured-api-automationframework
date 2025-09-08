@@ -50,7 +50,7 @@ public class Edit_MOM_Test {
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
 				.header("Authorization", AuthUtils.getToken())
-				.queryParam("company_id", companyId)  // FIXED
+				.queryParam("company_id", companyId)
 				.contentType(ContentType.JSON)
 				.log().uri()
 

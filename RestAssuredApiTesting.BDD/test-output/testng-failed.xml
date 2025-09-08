@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.mom_test_page.Edit_MOM_Test">
+      <class name="com.onsite.mom_test_page.Delete_MOM_Test">
         <methods>
-          <include name="editMom" invocation-numbers="0"/>
+          <include name="deleteValidMoMId"/>
         </methods>
-      </class> <!-- com.onsite.mom_test_page.Edit_MOM_Test -->
+      </class> <!-- com.onsite.mom_test_page.Delete_MOM_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

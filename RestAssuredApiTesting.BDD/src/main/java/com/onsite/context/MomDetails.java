@@ -8,5 +8,6 @@ public class MomDetails {
 	public static String attendeeCuIds;
 	public static String creatorId;
 	public static String creatorCompanyUserId;
+	public static String userId;
 
 }
