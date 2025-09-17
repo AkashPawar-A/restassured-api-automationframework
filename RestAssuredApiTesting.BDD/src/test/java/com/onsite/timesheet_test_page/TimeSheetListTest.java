@@ -82,9 +82,11 @@ public class TimeSheetListTest extends BaseToken{
 				String id = (String) item.get("id");
 				String partyCompanyUserId = (String) item.get("party_company_user_id");
 				Object deleteFlag = item.get("delete");
+				String name = (String) item.get("name");
 
 				//Logging record for debug purpose
-				recordLogs.add("Id :" + id +
+				recordLogs.add("Name :" + name +
+						", Id :" + id +
 						", PartyCompanyUserId :" + partyCompanyUserId + 
 						", DeleteFlag :" + deleteFlag +
 						", ProjectId :" + projectId + 
@@ -105,7 +107,8 @@ public class TimeSheetListTest extends BaseToken{
 			pageNumber++;
 		}
 
-		System.out.println("All timesheet record"); //PRINT ALL RECORDS
+		//PRINT ALL RECORDS
+		System.out.println("All timesheet record");
 		for(String logs : recordLogs) {
 			System.out.println(logs);
 		}

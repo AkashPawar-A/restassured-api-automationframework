@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-08T17:29:29 IST" name="Default suite" finished-at="2025-09-08T17:29:41 IST" duration-ms="12106">
+  <suite started-at="2025-09-17T19:00:04 IST" name="Default suite" finished-at="2025-09-17T19:00:13 IST" duration-ms="9147">
     <groups>
     </groups>
-    <test started-at="2025-09-08T17:29:29 IST" name="Default test" finished-at="2025-09-08T17:29:41 IST" duration-ms="12106">
-      <class name="com.onsite.mom_test_page.Delete_MOM_Test">
-        <test-method signature="getValidMoMId()[pri:1, instance:com.onsite.mom_test_page.Delete_MOM_Test@6356695f]" started-at="2025-09-08T17:29:29 IST" name="getValidMoMId" finished-at="2025-09-08T17:29:37 IST" duration-ms="8270" status="PASS">
+    <test started-at="2025-09-17T19:00:04 IST" name="Default test" finished-at="2025-09-17T19:00:13 IST" duration-ms="9147">
+      <class name="com.onsite.mom_test_page.List_Mom_Attendee">
+        <test-method signature="listMomAttendee()[pri:0, instance:com.onsite.mom_test_page.List_Mom_Attendee@5ffead27]" started-at="2025-09-17T19:00:04 IST" name="listMomAttendee" finished-at="2025-09-17T19:00:13 IST" duration-ms="9076" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getValidMoMId -->
-        <test-method signature="deleteValidMoMId()[pri:2, instance:com.onsite.mom_test_page.Delete_MOM_Test@6356695f]" started-at="2025-09-08T17:29:37 IST" name="deleteValidMoMId" finished-at="2025-09-08T17:29:41 IST" duration-ms="3757" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteValidMoMId -->
-      </class> <!-- com.onsite.mom_test_page.Delete_MOM_Test -->
+        </test-method> <!-- listMomAttendee -->
+      </class> <!-- com.onsite.mom_test_page.List_Mom_Attendee -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

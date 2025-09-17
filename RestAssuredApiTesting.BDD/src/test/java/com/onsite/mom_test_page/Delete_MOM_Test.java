@@ -18,7 +18,6 @@ import org.testng.annotations.Test;
 import com.onsite.context.MomDetails;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Mom_Api;
-import com.onsite.pojo_request.MOM_Request;
 import com.onsite.utilities_page.AuthUtils;
 
 public class Delete_MOM_Test {
