@@ -1,17 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-17T19:00:04 IST" name="Default suite" finished-at="2025-09-17T19:00:13 IST" duration-ms="9147">
+  <suite started-at="2025-10-22T19:17:30 IST" name="functionalTestSuite" finished-at="2025-10-22T19:17:53 IST" duration-ms="22273">
     <groups>
     </groups>
-    <test started-at="2025-09-17T19:00:04 IST" name="Default test" finished-at="2025-09-17T19:00:13 IST" duration-ms="9147">
-      <class name="com.onsite.mom_test_page.List_Mom_Attendee">
-        <test-method signature="listMomAttendee()[pri:0, instance:com.onsite.mom_test_page.List_Mom_Attendee@5ffead27]" started-at="2025-09-17T19:00:04 IST" name="listMomAttendee" finished-at="2025-09-17T19:00:13 IST" duration-ms="9076" status="PASS">
+    <test started-at="2025-10-22T19:17:30 IST" name="Payroll" finished-at="2025-10-22T19:17:45 IST" duration-ms="14500">
+      <class name="com.onsite.payroll_test_page.Add_Payroll_Test">
+        <test-method signature="addPayroll(com.onsite.pojo_request.Add_Payroll_Request)[pri:1, instance:com.onsite.payroll_test_page.Add_Payroll_Test@1aa7ecca]" started-at="2025-10-22T19:17:31 IST" name="addPayroll" data-provider="payrollData" finished-at="2025-10-22T19:17:40 IST" duration-ms="8572" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.onsite.pojo_request.Add_Payroll_Request@793138bd]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- listMomAttendee -->
-      </class> <!-- com.onsite.mom_test_page.List_Mom_Attendee -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- addPayroll -->
+        <test-method signature="detailPayroll()[pri:2, instance:com.onsite.payroll_test_page.Add_Payroll_Test@1aa7ecca]" started-at="2025-10-22T19:17:40 IST" name="detailPayroll" finished-at="2025-10-22T19:17:45 IST" depends-on-methods="com.onsite.payroll_test_page.Add_Payroll_Test.addPayroll" duration-ms="4925" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- detailPayroll -->
+      </class> <!-- com.onsite.payroll_test_page.Add_Payroll_Test -->
+    </test> <!-- Payroll -->
+    <test started-at="2025-10-22T19:17:45 IST" name="salaryBreakup" finished-at="2025-10-22T19:17:53 IST" duration-ms="7169">
+      <class name="com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test">
+        <test-method signature="salaryBreakup(com.onsite.pojo_request.Salary_BreakupRequest)[pri:1, instance:com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test@a1153bc]" started-at="2025-10-22T19:17:45 IST" name="salaryBreakup" data-provider="salaryData" finished-at="2025-10-22T19:17:49 IST" duration-ms="3860" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.onsite.pojo_request.Salary_BreakupRequest@58bad46f]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- salaryBreakup -->
+        <test-method signature="detailsSalaryBreakup()[pri:2, instance:com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test@a1153bc]" started-at="2025-10-22T19:17:49 IST" name="detailsSalaryBreakup" finished-at="2025-10-22T19:17:53 IST" duration-ms="3260" status="FAIL">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "id" (class com.onsite.endpoints.SalaryBreakup), not marked as ignorable (0 known properties: ])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 8] (through reference chain: com.onsite.endpoints.SalaryBreakup["id"])]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "id" (class com.onsite.endpoints.SalaryBreakup), not marked as ignorable (0 known properties: ])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 8] (through reference chain: com.onsite.endpoints.SalaryBreakup["id"])
+at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:30)
+at io.restassured.path.json.mapping.JsonPathObjectDeserializer$deserialize.call(Unknown Source)
+at io.restassured.internal.mapping.Jackson2Mapper.deserialize(Jackson2Mapper.groovy:58)
+at io.restassured.mapper.ObjectMapper$deserialize.call(Unknown Source)
+at io.restassured.internal.mapping.ObjectMapping.parseWithJackson2(ObjectMapping.groovy:254)
+at io.restassured.internal.mapping.ObjectMapping$parseWithJackson2$0.callStatic(Unknown Source)
+at io.restassured.internal.mapping.ObjectMapping.deserialize(ObjectMapping.groovy:56)
+at io.restassured.internal.mapping.ObjectMapping$deserialize.call(Unknown Source)
+at io.restassured.internal.RestAssuredResponseOptionsGroovyImpl.as(RestAssuredResponseOptionsGroovyImpl.groovy:229)
+at io.restassured.internal.RestAssuredResponseOptionsImpl.as(RestAssuredResponseOptionsImpl.java:169)
+at com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test.detailsSalaryBreakup(Add_SalaryBreakup_Test.java:163)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "id" (class com.onsite.endpoints.SalaryBreakup), not marked as ignorable (0 known properties: ])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 8] (through reference chain: com.onsite.endpoints.SalaryBreakup["id"])
+at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1153)
+at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2241)
+at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1793)
+at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1771)
+at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
+at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)
+at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3848)
+at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:28)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- detailsSalaryBreakup -->
+      </class> <!-- com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test -->
+    </test> <!-- salaryBreakup -->
+  </suite> <!-- functionalTestSuite -->
 </testng-results>

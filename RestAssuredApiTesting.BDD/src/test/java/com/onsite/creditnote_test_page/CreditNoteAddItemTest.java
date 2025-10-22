@@ -213,5 +213,6 @@ public class CreditNoteAddItemTest extends BaseToken {
 		String creditItemId = creditItemResponse.jsonPath().getString("id"); // Or adjust path if nested/array
 		Assert.assertNotNull(creditItemId, "Credit note item creation failed");
 		System.out.println("Credit Note Item created with ID: " + creditItemId);
+
 	}
 }

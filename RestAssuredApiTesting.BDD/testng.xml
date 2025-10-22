@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="functionalTestSuite">
 	
 	<listeners>
 		<listener class-name="com.onsite.reports.ExtentReportManager"/>
 	</listeners>
-  <!-- 
+ <!--
   <test thread-count="5" name="ProjectTest">
       <classes>
           <class name="com.onsite.project_test_page.ProjectCreateTest"/>
@@ -23,13 +23,39 @@
 		  <class name="com.onsite.timesheet_test_page.TimeSheetDeleteTest"/> 
 	  </classes>  
   </test>
-  -->
+ 
   <test thread-count="5" name="CreditNote">
 	  <classes>
-		  <class name="com.onsite.credit_note_test_page.CreditNoteCreateTest"/>
-		  <class name="com.onsite.credit_note_test_page.CreditNoteEditTest"/>
-		  <class name="com.onsite.credit_note_test_page.CreditNoteDeleteTest"/>
+		  <class name="com.onsite.creditnote_test_page.CreditNoteCreateTest"/>
+		  <class name="com.onsite.creditnote_test_page.CreditNoteAddItemTest"/>
+		  <class name="com.onsite.creditnote_test_page.CreditNoteEditTest"/>
+		  <class name="com.onsite.creditnote_test_page.CreditNoteDeleteTest"/>
+		  <class name="com.onsite.creditnote_test_page.CreditNoteUploadFileTest"/>
+		  <class name="com.onsite.creditnote_test_page.CreditNoteApprovalTest"/>
 	  </classes>
   </test>
-    
+
+   <test thread-count="5" name="Mom">
+	   <classes>
+		   <class name="com.onsite.mom_test_page.Create_MOM_Test"/>
+		   <class name="com.onsite.mom_test_page.Edit_MOM_Test"/>
+		   <class name="com.onsite.mom_test_page.Delete_MOM_Test"/>
+		   <class name="com.onsite.mom_test_page.List_Mom_Attendee"/>
+		   <class name="com.onsite.mom_test_page.List_Mom_Project_Test"/>
+		   <class name="com.onsite.mom_test_page.List_MOM_Test"/>
+	   </classes>
+   </test>
+   -->
+   
+   <test thread-count="5" name="Payroll">
+	   <classes>
+		   <class name="com.onsite.payroll_test_page.Add_Payroll_Test"/>
+	   </classes>
+   </test>
+   
+   <test thread-count="5" name="salaryBreakup">
+	   <classes>
+		   <class name="com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test"/>
+	   </classes>
+   </test>
 </suite> <!-- Suite -->

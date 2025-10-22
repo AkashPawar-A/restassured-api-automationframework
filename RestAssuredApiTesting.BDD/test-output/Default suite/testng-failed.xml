@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.mom_test_page.List_Mom_Attendee">
+      <class name="com.onsite.payroll_test_page.Add_Payroll_Test">
         <methods>
-          <include name="listMomAttendee"/>
+          <include name="addPayroll" invocation-numbers="0"/>
+          <include name="detailPayroll"/>
         </methods>
-      </class> <!-- com.onsite.mom_test_page.List_Mom_Attendee -->
+      </class> <!-- com.onsite.payroll_test_page.Add_Payroll_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

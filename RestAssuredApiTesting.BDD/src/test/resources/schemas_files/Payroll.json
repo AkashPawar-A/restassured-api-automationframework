@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Payroll_Response",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "creator": {"type": "string"},
+    "creator_company_user_id": {"type": "string"},
+    "company_id": {"type": "string"},
+    "salary_breakup_id": {"type": "string"},
+    "party_company_user_id": {"type": "string"},
+    "type": {"type": "string"},
+    "punch_effect": {"type": "integer"},
+    "project_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "track_project_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "delete": {"type": "integer"},
+    "created": {"type": "string", "format": "date-time"},
+    "updated": {"type": "string", "format": "date-time"},
+    "monkey_patch_source": {"type": ["null", "object"]},
+    "monkey_patch_party_company_user": {"type": ["null", "object"]}
+  },
+  "required": ["id", "creator"]
+}
