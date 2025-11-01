@@ -11,5 +11,5 @@ public class PayrollDetails {
 	public static String[] project_ids;
 	public static String payroll_type;    //staff, labour, labour contarctor
 	public static int punch_effect;   //0-mark 1 shift on punch in, 1-mark shift based on punch out
-
+    public static String workforce_id;
 }

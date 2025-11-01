@@ -1,5 +1,8 @@
 package com.onsite.pojo_request;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Salary_BreakupRequest {
 	
 	private String id;
@@ -156,6 +159,7 @@ public class Salary_BreakupRequest {
 		this.template_id = template_id;
 	}
 
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class SalaryTemplateComponant {
 		
 		private String company_id;
@@ -166,7 +170,7 @@ public class Salary_BreakupRequest {
 		private Double[] dayoff;
 		private String type;
 		private SalaryTemplateComponant basic;
-		private SalaryTemplateComponant[] allowance;
+		private SalaryTemplateComponant[] allowances;
 		private SalaryTemplateComponant fixed_allowance;
 		private SalaryTemplateComponant[] deductions;
 		private String notes;
@@ -221,10 +225,10 @@ public class Salary_BreakupRequest {
 			this.basic = basic;
 		}
 		public SalaryTemplateComponant[] getAllowance() {
-			return allowance;
+			return allowances;
 		}
-		public void setAllowance(SalaryTemplateComponant[] allowance) {
-			this.allowance = allowance;
+		public void setAllowance(SalaryTemplateComponant[] allowances) {
+			this.allowances = allowances;
 		}
 		public SalaryTemplateComponant getFixed_allowance() {
 			return fixed_allowance;

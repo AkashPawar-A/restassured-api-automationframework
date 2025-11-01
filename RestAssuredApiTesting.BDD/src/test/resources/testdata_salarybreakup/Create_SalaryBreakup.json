@@ -1,11 +1,18 @@
 {
     "gross_salary": 40000,
     "net_salary": 40000,
+    "ctc_amount": "",
+    "fixed_allowance": {},
+    "payroll_id": "022c7b54-d363-49d4-b322-f72015537288",
+    "dayoff": [],
+    "type": "monthly",
+    "deductions": [],
+    "company_user_id": "d684550f-7728-4f06-ac4a-9a434ac51aa8",
     "sub_category_id": "0b14f6d0-7e89-4cc2-80bc-cf522b8d47b7",
-    "payroll_id": "c82cf404-0550-46c4-a0bd-239e26c5d7e8",
     "basic_salary": 40000,
     "overtime_amount": 100,
-    "type": "monthly",
-    "company_user_id": "ed1be5c7-7eaa-411b-9bc5-95935b7f9011",
+    "template_id": "",
+    "allowances": [],
+    "basic": {},
     "shift_hour": 5
 }

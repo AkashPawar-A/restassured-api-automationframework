@@ -1,6 +1,6 @@
 package com.onsite.endpoints;
 
-public class SalaryBreakup {
+public class SalaryBreakup_Api {
 	
 	public static final String ADD_SALARYBREAKUP = "/add/salary-breakup";
 	public static final String EDIT_SALARYBREAKUP = "/edit/salary-breakup";

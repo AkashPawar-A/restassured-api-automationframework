@@ -2,6 +2,9 @@ package com.onsite.pojo_request;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Add_Payroll_Request {
 	
 	private String party_company_user_id;
@@ -40,5 +43,21 @@ public class Add_Payroll_Request {
 	public void setWorkforce_id(String workforce_id) {
 		this.workforce_id = workforce_id;
 	}
-
+	
+	private String id;
+	private String salary_breakup_id;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getSalary_breakup_id() {
+		return salary_breakup_id;
+	}
+	public void setSalary_breakup_id(String salary_breakup_id) {
+		this.salary_breakup_id = salary_breakup_id;
+	}
+	
 }

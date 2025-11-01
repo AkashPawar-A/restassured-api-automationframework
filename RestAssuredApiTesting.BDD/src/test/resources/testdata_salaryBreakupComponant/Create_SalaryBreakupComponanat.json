@@ -1,0 +1,12 @@
+[
+ {
+    "name" : "allowances 1",
+    "type" : "allowance", 
+    "company_id" : "75916659-9cbe-4ca7-812e-181a29229772"
+ },
+ {
+    "name" : "deductions 1",
+    "type" : "deduction", 
+    "company_id" : "75916659-9cbe-4ca7-812e-181a29229772"
+ }
+]

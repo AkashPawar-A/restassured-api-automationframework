@@ -1,5 +1,8 @@
 package com.onsite.pojo_request;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Edit_Payroll_Request {
 	
 	private String id;

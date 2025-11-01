@@ -1,0 +1,33 @@
+{
+   "company_id" : "",
+   "name" : "RestAssured - 1",
+   "ctc_amount" : "",
+   "gross_amount" : "",
+   "net_amount" : "",
+   "dayoff" : [],
+   "type" : "",
+   "basic" : "",
+   "allowances" : [{
+        "amount" : "",
+        "id" : "",
+        "name" : "",
+        "relation_type" : "",
+        "relation_value" : ""
+        }],
+   "fixed_allowances" : {
+       "id" : "",
+       "name" : "",
+       "relation_type" : "",
+       "relation_value" : "",
+       "amount" : 
+   },
+   "deductions" : [{
+        "amount" : "",
+        "id" : "",
+        "name" : "",
+        "relation_type" : "",
+        "relation_value" : ""
+        }],
+   "notes" : "testing - 1",
+   "is_active" : 0
+}

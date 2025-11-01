@@ -4,13 +4,14 @@
   <listeners>
     <listener class-name="com.onsite.reports.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="salaryBreakup(failed)">
+  <test thread-count="5" name="Payroll(failed)">
     <classes>
-      <class name="com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test">
+      <class name="com.onsite.payroll_test_page.List_Payroll_Test">
         <methods>
-          <include name="detailsSalaryBreakup"/>
+          <include name="labour_listpayroll"/>
+          <include name="staff_listpayroll"/>
         </methods>
-      </class> <!-- com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test -->
+      </class> <!-- com.onsite.payroll_test_page.List_Payroll_Test -->
     </classes>
-  </test> <!-- salaryBreakup(failed) -->
+  </test> <!-- Payroll(failed) -->
 </suite> <!-- Failed suite [functionalTestSuite] -->

@@ -1,5 +1,8 @@
 package com.onsite.pojo_response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SalaryTemplate {
 	
 	private String id;
@@ -13,9 +16,9 @@ public class SalaryTemplate {
 	private int[] dayoff;
 	private String type;
 	private SalaryTemplateComponant basic;
-	private SalaryTemplateComponant[] allowance;
+	private SalaryBreakupComponent[] allowance;
 	private SalaryTemplateComponant fixed_allowance;
-	private SalaryTemplateComponant[] deductions;
+	private SalaryBreakupComponent[] deductions;
 	private int is_active;
 	private String notes;
 	private int delete;
@@ -91,10 +94,10 @@ public class SalaryTemplate {
 	public void setBasic(SalaryTemplateComponant basic) {
 		this.basic = basic;
 	}
-	public SalaryTemplateComponant[] getAllowance() {
+	public SalaryBreakupComponent[] getAllowance() {
 		return allowance;
 	}
-	public void setAllowance(SalaryTemplateComponant[] allowance) {
+	public void setAllowance(SalaryBreakupComponent[] allowance) {
 		this.allowance = allowance;
 	}
 	public SalaryTemplateComponant getFixed_allowance() {
@@ -103,10 +106,10 @@ public class SalaryTemplate {
 	public void setFixed_allowance(SalaryTemplateComponant fixed_allowance) {
 		this.fixed_allowance = fixed_allowance;
 	}
-	public SalaryTemplateComponant[] getDeductions() {
+	public SalaryBreakupComponent[] getDeductions() {
 		return deductions;
 	}
-	public void setDeductions(SalaryTemplateComponant[] deductions) {
+	public void setDeductions(SalaryBreakupComponent[] deductions) {
 		this.deductions = deductions;
 	}
 	public int getIs_active() {

@@ -3,9 +3,12 @@ package com.onsite.payroll_test_page;
 import static io.restassured.RestAssured.*;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -13,6 +16,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.onsite.context.PayrollDetails;
@@ -26,6 +30,8 @@ import com.onsite.utilities_page.SchemaValidator;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import net.minidev.json.parser.JSONParser;
+import net.minidev.json.parser.ParseException;
 
 public class Add_Payroll_Test {
 
@@ -44,7 +50,7 @@ public class Add_Payroll_Test {
 	}
 
 	@Test(priority=1, dataProvider="payrollData")
-	public void addPayroll(Add_Payroll_Request addPayrollRequest) throws Exception {
+	public void createPayroll(Add_Payroll_Request addPayrollRequest) throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonPayload = mapper.writeValueAsString(addPayrollRequest);
@@ -98,38 +104,45 @@ public class Add_Payroll_Test {
 		List<String> projectList = addPayrollResponse.jsonPath().getList("project_ids");
 		PayrollDetails.project_ids = projectList.toArray(new String[0]);
 		
-		String salaryBreakupFilePath = "src/test/resources/testdata_salarybreakup/Create_SalaryBreakup.json";
+		List<String> fileUpdateList = Arrays.asList(
+				"src/test/resources/testdata_salarybreakup/Create_SalaryBreakup.json"
+		);
 		
-		// Step 1: Read existing file (if exists)
-		JSONObject existingData = new JSONObject();
-		File objFile = new File(salaryBreakupFilePath);
-		if(objFile.exists()) {
-			String content = new String(Files.readAllBytes(Paths.get(salaryBreakupFilePath)));
-			if(!content.isEmpty()){
-				existingData = new JSONObject(content);
-			}
-		}
+	    //Data to update in all files
+	    JSONObject newData = new JSONObject();
+	    newData.put("company_user_id", PayrollDetails.party_company_user_id);
+	    newData.put("payroll_id", PayrollDetails.id);
 
-		// Step 2: Create new data
-		JSONObject newData = new JSONObject();
-		newData.put("company_user_id", PayrollDetails.party_company_user_id);
-		newData.put("payroll_id", PayrollDetails.id);
+	    //Loop through each file and update
+	    for (String filePath : fileUpdateList) {
+	        File objFile = new File(filePath);
+	        JSONObject existingData = new JSONObject();
 
-		// Step 3: Merge
-		for(String key : newData.keySet()) {
-			existingData.put(key, newData.get(key));
-		}
+	        // Step 1: Read if exists
+	        if (objFile.exists()) {
+	            String content = new String(Files.readAllBytes(Paths.get(filePath)));
+	            if (!content.isEmpty()) {
+	                existingData = new JSONObject(content);
+	            }
+	        }
 
-		// Step 4: Save merged data back
-		try(FileWriter file = new FileWriter(salaryBreakupFilePath)) {
-			file.write(existingData.toString(4));
-			file.flush();
-		}
-		System.out.println("Saved party_company_user_id & payroll_id to Create_SalaryBreakup.json file");
+	        // Step 2: Merge data
+	        for (String key : newData.keySet()) {
+	            existingData.put(key, newData.get(key));
+	        }
+
+	        // Step 3: Save back
+	        try (FileWriter file = new FileWriter(filePath)) {
+	            file.write(existingData.toString(4));
+	            file.flush();
+	        }
+	        System.out.println("Updated file: " + filePath);
+	    }
+	    System.out.println("All JSON files updated with new payroll data.");
 		
 	}
 
-	@Test(priority=2, dependsOnMethods="addPayroll")
+	@Test(priority=2, dependsOnMethods="createPayroll")
 	public void detailPayroll() throws Exception {
 
 		if(PayrollDetails.id==null || PayrollDetails.id.isEmpty()) {
@@ -151,14 +164,16 @@ public class Add_Payroll_Test {
 				.then()
 				.extract().response();
 
-		System.out.println("Response Body :" + DetailPayrollResponse.getBody().asString());
+		String jsonResponse = DetailPayrollResponse.getBody().asString();
+		System.out.println("final json response : " + jsonResponse);
 
 		String message = DetailPayrollResponse.jsonPath().getString("message");
 		if(message != null) {
 			System.out.println("Response message : " + message);
 		}
 
-		System.out.println("Status code : " + DetailPayrollResponse.getStatusCode());
+		int statusCode = DetailPayrollResponse.getStatusCode();
+		System.out.println("final stataus code :" + statusCode);
 		Assert.assertEquals(DetailPayrollResponse.getStatusCode(),  200, 
 				"expected statsus not foud in response" + DetailPayrollResponse.getStatusCode());
 
@@ -191,33 +206,47 @@ public class Add_Payroll_Test {
 		Assert.assertEquals(payrollObj.getParty_company_user_id(), PayrollDetails.party_company_user_id, "party compnay user id missmatch");
 		Assert.assertEquals(payrollObj.getProject_ids(), PayrollDetails.project_ids, "project id mismatch");
 		Assert.assertEquals(payrollObj.getType(), PayrollDetails.payroll_type, "payroll type is missmatch");
+		
+		PayrollDetails.id = DetailPayrollResponse.jsonPath().get("id");
+		PayrollDetails.workforce_id = DetailPayrollResponse.jsonPath().get("workforce_id");
+		PayrollDetails.salary_breakup_id = DetailPayrollResponse.jsonPath().get("salary_breakup_id");
+		
+		List<String> fileUpdateList = Arrays.asList(
+				"src/test/resources/testdata_payroll/Edit_Payroll.json"
+		);
+		
+	    //Data to update in all files
+	    JSONObject newData = new JSONObject();
+	    newData.put("id", PayrollDetails.id);
+	    newData.put("workforce_id", PayrollDetails.workforce_id);
+	    newData.put("salary_breakup_id", PayrollDetails.salary_breakup_id);
+	    
+	    //Loop through each file and update
+	    for (String filePath : fileUpdateList) {
+	        File objFile = new File(filePath);
+	        JSONObject existingData = new JSONObject();
 
-		//Nested objects assertions (optional, add as needed)
-		if (payrollObj.getMonkey_patch_party_company_user() != null) {
-			Payroll_Response.CompanyUserNormal user = payrollObj.getMonkey_patch_party_company_user();
-			System.out.println("Nested monkey_patch_party_company_user: " + mapper.writeValueAsString(user));
-			Assert.assertNotNull(user.getId(), "Nested user id should not be null");
-			Assert.assertNotNull(user.getCompany_id(), "Nested user company_id should not be null");
-		}
+	        // Step 1: Read if exists
+	        if (objFile.exists()) {
+	            String content = new String(Files.readAllBytes(Paths.get(filePath)));
+	            if (!content.isEmpty()) {
+	                existingData = new JSONObject(content);
+	            }
+	        }
 
-		if (payrollObj.getMonkey_patch_workforce() != null) {
-			System.out.println("Nested monkey_patch_workforce: " + mapper.writeValueAsString(payrollObj.getMonkey_patch_workforce()));
-		}
+	        // Step 2: Merge data
+	        for (String key : newData.keySet()) {
+	            existingData.put(key, newData.get(key));
+	        }
 
-		if (payrollObj.getMonkey_patch_associate_project() != null) {
-			System.out.println("Nested monkey_patch_associate_project: " + mapper.writeValueAsString(payrollObj.getMonkey_patch_associate_project()));
-		}
-
-		if (payrollObj.getMonkey_patch_workforcestock() != null) {
-			System.out.println("Nested monkey_patch_workforcestock: " + mapper.writeValueAsString(payrollObj.getMonkey_patch_workforcestock()));
-		}
-
-		if (payrollObj.getMonkey_patch_salary_breakup() != null) {
-			System.out.println("Nested monkey_patch_salary_breakup: " + mapper.writeValueAsString(payrollObj.getMonkey_patch_salary_breakup()));
-		}
-
-		if (payrollObj.getMonkey_patch_face_info() != null) {
-			System.out.println("Nested monkey_patch_face_info: " + mapper.writeValueAsString(payrollObj.getMonkey_patch_face_info()));
-		}
+	        // Step 3: Save back
+	        try (FileWriter file = new FileWriter(filePath)) {
+	            file.write(existingData.toString(4));
+	            file.flush();
+	        }
+	        System.out.println("Updated file: " + filePath);
+	    }
+	    System.out.println("Updated Payroll ID before saving JSON: " + PayrollDetails.id);
 	}
+
 }

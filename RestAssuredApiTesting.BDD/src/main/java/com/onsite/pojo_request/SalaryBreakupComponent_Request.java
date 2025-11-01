@@ -1,16 +1,18 @@
-package com.onsite.pojo_response;
+package com.onsite.pojo_request;
+
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class SalaryBreakupComponent {
-		
+public class SalaryBreakupComponent_Request {
+	
 	private String id;
-	private String name;
+    private String name;
     private String relation_type;
     private String relation_value;
     private String amount;
-
+	
     public String getId() {
 		return id;
 	}
@@ -41,5 +43,5 @@ public class SalaryBreakupComponent {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-
+    
 }

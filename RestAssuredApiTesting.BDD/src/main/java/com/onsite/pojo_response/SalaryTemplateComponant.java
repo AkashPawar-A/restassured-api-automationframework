@@ -1,5 +1,8 @@
 package com.onsite.pojo_response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SalaryTemplateComponant {
 	
 	private String id;

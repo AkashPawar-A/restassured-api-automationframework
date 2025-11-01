@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>RestAssuredAutomationProject</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">test cases update</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Nov 1, 2025 02:44:49 pm</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">labour_listpayroll</p>
+            <p class="text-sm">
+              <span>2:44:49 pm</span> / <span>00:00:08:020</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">labour_listpayroll</h5>
+<span class='badge badge-success'>11.01.2025 2:44:49 pm</span>
+<span class='badge badge-danger'>11.01.2025 2:44:57 pm</span>
+<span class='badge badge-default'>00:00:08:020</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>2:44:57 pm</td>
+        <td>
+          Test Failed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>2:44:57 pm</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.RuntimeException: partyCompanyUserType is missamtch :1 : {id=2596311f-c612-453b-947a-9ec42caec15b, creator=c5b0bdca-6941-4411-aa64-369f6bb8cc32, creator_company_user_id=8f1e9ece-d44c-4ca2-ae3f-986267a8e567, company_id=75916659-9cbe-4ca7-812e-181a29229772, salary_breakup_id=e616e7da-3e67-4544-b046-9d7460e24e09, party_company_user_id=c28a8d76-8e77-4b25-86f5-a3921e36fa65, type=labour, punch_effect=0, project_ids=[243c3d2d-c600-4e05-a44e-e8cd274f7811], track_project_ids=[243c3d2d-c600-4e05-a44e-e8cd274f7811, 05ada91b-2407-4b35-95e2-b3cfa5139863, 20418fbf-2ef6-4576-956d-2b5ec6c5aa16], delete=0, created=2025-06-19T11:14:10.235Z, updated=2025-10-03T12:16:39.347Z, monkey_patch_source=null, monkey_patch_party_company_user={id=c28a8d76-8e77-4b25-86f5-a3921e36fa65, company_id=75916659-9cbe-4ca7-812e-181a29229772, company_role_id=id1, role=admin, type=customer, creator=c5b0bdca-6941-4411-aa64-369f6bb8cc32, name=Abhijit Anand, mobile=9024846943, mobile_verified=1, user_id=b1355a2a-bf9a-4724-b517-d0e4f3763b3e, gstin=, party_id=check36, legal_business_name=, billing_address=, hidden=0, profile_pic=https://onsitedev.blr1.digitaloceanspaces.com/profile/33d9913a-6012-45df-b9ba-82091d85b7fe_b1355a2a-bf9a-4724-b517-d0e4f3763b3e.png, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=abhijeet.anand@onsiteteams.com}, monkey_patch_attendance={id=, company_id=, status=, remark=, party_name=, party_mobile=0, party_id=, workforcestock_id=, payroll_id=, salary_breakup_id=, project_id=, creator=, creator_company_user_id=, party_company_user_id=, wage=0, workforce_count=0, man_day=0, shift_count=0, man_hours=0, shift_hours=0, total_salary_payable=0, total_ot_payable=0, total_lt_payable=0, total_allowance_payable=0, total_deduction_payable=0, total_payable=0, attendance_date=0001-01-01T00:00:00Z, project_meta=null, over_time_hours=0, photos=null, is_engine=0, is_absent=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_workforcestock={id=, type=, name=, party_name=, party_mobile=0, party_id=, creator_company_user_id=, party_company_user_id=, payroll_id=, wage=0, shift_hours=0, project_id=, workforce_id=, creator=, is_engine=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, disabled=0, overtime_wage=0, sub_category_id=, monkey_patch_creator_name=, monkey_patch_party_name=, monkey_patch_party_company_user_name=, monkey_patch_workforce_name=, monkey_patch_workforce_wage=0, monkey_patch_attendance=null, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_project={id=, type=, name=, contractor=, contractor_company_user_id=, creator=, creator_company_user_id=, bg_image=, admins=null, admins_company_user_ids=null, workers_company_user_ids=null, customer_name=, customer_contact=0, customer_email=, customer_company_name=, customer_company_address=, customer_gst=, customer_profile_image=, address=, city=, state=, status=, contact_book=null, is_engine=0, duplicate_from=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, contact_data=null, photos=null, location={type=, coordinates=null}, google_address=null, allowed_features=null, estimated_cost=0, progress=0, start_date=0001-01-01T00:00:00Z, end_date=0001-01-01T00:00:00Z, monkey_patch_contractor_name=, monkey_patch_contractor_company_user_name=, monkey_patch_contractor_contact=0, monkey_patch_contractor_profile_pic=, monkey_patch_in_amount=0, monkey_patch_out_amount=0, monkey_patch_transaction_in_amount=0, monkey_patch_transaction_out_amount=0, company_id=, monkey_patch_my_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_company_name=, monkey_patch_team_member=null, monkey_patch_todo_count=0, attendance_radius=0, distance=0, monkey_patch_primary_address={id=, company_id=, creator_company_user_id=, owner_id=, address_type=, address_title=, address_gst=, address_line_1=, address_line_2=, city=, state=, postal_code=, country_code=, location={type=, coordinates=null}, google_address=null, primary=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, search=, monkey_patch_country_config={country_code=, country_iso=, country_name=, created=0001-01-01T00:00:00Z, minimum_digits=0, maximum_digits=0, login_channels=null, currency=, flag=, tax_slabs=null, tax_display_name=, tax_value_display_name=, published=0, decimal_digit=0, timezone=}}, dimension=, orientation=, code=, key_personnel_cu_ids=null, billed_amount=0, monkey_patch_key_personnel=null}}, monkey_patch_creator_name=, monkey_patch_creator_company_user_name=, monkey_patch_party_company_user_name=, monkey_patch_workforcestock_name=, monkey_patch_allowance_list=null, monkey_patch_overtime_list=null, monkey_patch_project={id=, type=, name=, contractor=, contractor_company_user_id=, creator=, creator_company_user_id=, bg_image=, admins=null, admins_company_user_ids=null, workers_company_user_ids=null, customer_name=, customer_contact=0, customer_email=, customer_company_name=, customer_company_address=, customer_gst=, customer_profile_image=, address=, city=, state=, status=, contact_book=null, is_engine=0, duplicate_from=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, contact_data=null, photos=null, location={type=, coordinates=null}, google_address=null, allowed_features=null, estimated_cost=0, progress=0, start_date=0001-01-01T00:00:00Z, end_date=0001-01-01T00:00:00Z, monkey_patch_contractor_name=, monkey_patch_contractor_company_user_name=, monkey_patch_contractor_contact=0, monkey_patch_contractor_profile_pic=, monkey_patch_in_amount=0, monkey_patch_out_amount=0, monkey_patch_transaction_in_amount=0, monkey_patch_transaction_out_amount=0, company_id=, monkey_patch_my_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_company_name=, monkey_patch_team_member=null, monkey_patch_todo_count=0, attendance_radius=0, distance=0, monkey_patch_primary_address={id=, company_id=, creator_company_user_id=, owner_id=, address_type=, address_title=, address_gst=, address_line_1=, address_line_2=, city=, state=, postal_code=, country_code=, location={type=, coordinates=null}, google_address=null, primary=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, search=, monkey_patch_country_config={country_code=, country_iso=, country_name=, created=0001-01-01T00:00:00Z, minimum_digits=0, maximum_digits=0, login_channels=null, currency=, flag=, tax_slabs=null, tax_display_name=, tax_value_display_name=, published=0, decimal_digit=0, timezone=}}, dimension=, orientation=, code=, key_personnel_cu_ids=null, billed_amount=0, monkey_patch_key_personnel=null}, monkey_patch_punch_list=null, recent_punch={id=, creator=, creator_company_user_id=, company_id=, project_id=, company_user_id=, attendance_id=, status=, punch_date=0001-01-01T00:00:00Z, in_time=0001-01-01T00:00:00Z, duration=0, in_location={type=, coordinates=null}, in_photo=, is_in_photo_verified=0, is_out_photo_verified=0, is_in_location_verified=0, is_out_location_verified=0, out_time=0001-01-01T00:00:00Z, out_location={type=, coordinates=null}, out_photo=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_source=null, monkey_patch_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, punch_notes=, monkey_patch_project={id=, type=, name=, contractor=, contractor_company_user_id=, creator=, creator_company_user_id=, bg_image=, admins=null, admins_company_user_ids=null, workers_company_user_ids=null, customer_name=, customer_contact=0, customer_email=, customer_company_name=, customer_company_address=, customer_gst=, customer_profile_image=, address=, city=, state=, status=, contact_book=null, is_engine=0, duplicate_from=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, contact_data=null, photos=null, location={type=, coordinates=null}, google_address=null, allowed_features=null, estimated_cost=0, progress=0, start_date=0001-01-01T00:00:00Z, end_date=0001-01-01T00:00:00Z, monkey_patch_contractor_name=, monkey_patch_contractor_company_user_name=, monkey_patch_contractor_contact=0, monkey_patch_contractor_profile_pic=, monkey_patch_in_amount=0, monkey_patch_out_amount=0, monkey_patch_transaction_in_amount=0, monkey_patch_transaction_out_amount=0, company_id=, monkey_patch_my_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_company_name=, monkey_patch_team_member=null, monkey_patch_todo_count=0, attendance_radius=0, distance=0, monkey_patch_primary_address={id=, company_id=, creator_company_user_id=, owner_id=, address_type=, address_title=, address_gst=, address_line_1=, address_line_2=, city=, state=, postal_code=, country_code=, location={type=, coordinates=null}, google_address=null, primary=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, search=, monkey_patch_country_config={country_code=, country_iso=, country_name=, created=0001-01-01T00:00:00Z, minimum_digits=0, maximum_digits=0, login_channels=null, currency=, flag=, tax_slabs=null, tax_display_name=, tax_value_display_name=, published=0, decimal_digit=0, timezone=}}, dimension=, orientation=, code=, key_personnel_cu_ids=null, billed_amount=0, monkey_patch_key_personnel=null}, monkey_patch_creator_name=}, payroll_type=, monkey_patch_salary_breakup={id=, template_id=, payroll_id=, creator=, creator_company_user_id=, company_id=, type=, dayoff=null, ctc_amount=0, basic={id=, name=, relation_type=, relation_value=0, amount=0}, basic_salary=0, allowances=null, fixed_allowance={id=, name=, relation_type=, relation_value=0, amount=0}, gross_salary=0, deductions=null, net_salary=0, shift_hour=0, overtime_amount=0, sub_category_id=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_source=null, monkey_patch_creator_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_salarybreakup_components=null, attendance_count=0}, workforce_id=, monkey_patch_workforce={id=, name=, company_id=, creator=, type=, creator_company_user_id=, party_company_user_id=, wage=0, shift_hours=0, is_engine=0, sub_category_id=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_used_by_project=0, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_present_count=0}, monkey_patch_project_list=null, monkey_patch_payroll=null}, monkey_patch_workforcestock=null, monkey_patch_salary_breakup={id=, template_id=, payroll_id=, creator=, creator_company_user_id=, company_id=, type=, dayoff=null, ctc_amount=0, basic={id=, name=, relation_type=, relation_value=0, amount=0}, basic_salary=0, allowances=null, fixed_allowance={id=, name=, relation_type=, relation_value=0, amount=0}, gross_salary=0, deductions=null, net_salary=0, shift_hour=0, overtime_amount=0, sub_category_id=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_source=null, monkey_patch_creator_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_salarybreakup_components=null, attendance_count=0}, monkey_patch_face_info={id=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, company_id=, company_user_id=, creator=, creator_company_user_id=, is_embedded=0, photos=null, embedding_vector=null}, monkey_patch_associate_project=null, recent_project_id=243c3d2d-c600-4e05-a44e-e8cd274f7811, workforce_id=6287ee26-a6c1-43bd-9c3b-32cde7d2b388, monkey_patch_workforce={id=6287ee26-a6c1-43bd-9c3b-32cde7d2b388, name=Labour working, company_id=75916659-9cbe-4ca7-812e-181a29229772, creator=c5b0bdca-6941-4411-aa64-369f6bb8cc32, type=daily, creator_company_user_id=8f1e9ece-d44c-4ca2-ae3f-986267a8e567, party_company_user_id=, wage=100, shift_hours=8, is_engine=0, sub_category_id=3d59084f-003d-4cac-bbad-76305120fbc0, delete=0, created=2024-01-08T11:32:04.787Z, updated=2024-03-07T12:48:08.215Z, monkey_patch_used_by_project=0, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_present_count=0}, hidden=0}
+	at com.onsite.payroll_test_page.List_Payroll_Test.labour_listpayroll(List_Payroll_Test.java:105)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</textarea>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">staff_listpayroll</p>
+            <p class="text-sm">
+              <span>2:44:57 pm</span> / <span>00:00:14:648</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">staff_listpayroll</h5>
+<span class='badge badge-success'>11.01.2025 2:44:57 pm</span>
+<span class='badge badge-danger'>11.01.2025 2:45:12 pm</span>
+<span class='badge badge-default'>00:00:14:648</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>2:45:12 pm</td>
+        <td>
+          Test Failed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>2:45:12 pm</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.RuntimeException: party Type is misamatch : 0 : {id=def4047d-1ea0-4573-a626-af63e6825936, creator=c5b0bdca-6941-4411-aa64-369f6bb8cc32, creator_company_user_id=8f1e9ece-d44c-4ca2-ae3f-986267a8e567, company_id=75916659-9cbe-4ca7-812e-181a29229772, salary_breakup_id=873e430f-97ed-4a4d-913d-631d97e32ef6, party_company_user_id=8215a302-082c-4556-a417-3c90dcedc776, type=staff, punch_effect=1, project_ids=[], track_project_ids=[], delete=0, created=2025-07-22T10:46:28.808Z, updated=2025-10-03T12:16:39.347Z, monkey_patch_source=null, monkey_patch_party_company_user={id=8215a302-082c-4556-a417-3c90dcedc776, company_id=75916659-9cbe-4ca7-812e-181a29229772, company_role_id=, role=, type=labour, creator=c5b0bdca-6941-4411-aa64-369f6bb8cc32, name=njkk, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=check124, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_attendance={id=, company_id=, status=, remark=, party_name=, party_mobile=0, party_id=, workforcestock_id=, payroll_id=, salary_breakup_id=, project_id=, creator=, creator_company_user_id=, party_company_user_id=, wage=0, workforce_count=0, man_day=0, shift_count=0, man_hours=0, shift_hours=0, total_salary_payable=0, total_ot_payable=0, total_lt_payable=0, total_allowance_payable=0, total_deduction_payable=0, total_payable=0, attendance_date=0001-01-01T00:00:00Z, project_meta=null, over_time_hours=0, photos=null, is_engine=0, is_absent=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_workforcestock={id=, type=, name=, party_name=, party_mobile=0, party_id=, creator_company_user_id=, party_company_user_id=, payroll_id=, wage=0, shift_hours=0, project_id=, workforce_id=, creator=, is_engine=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, disabled=0, overtime_wage=0, sub_category_id=, monkey_patch_creator_name=, monkey_patch_party_name=, monkey_patch_party_company_user_name=, monkey_patch_workforce_name=, monkey_patch_workforce_wage=0, monkey_patch_attendance=null, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_project={id=, type=, name=, contractor=, contractor_company_user_id=, creator=, creator_company_user_id=, bg_image=, admins=null, admins_company_user_ids=null, workers_company_user_ids=null, customer_name=, customer_contact=0, customer_email=, customer_company_name=, customer_company_address=, customer_gst=, customer_profile_image=, address=, city=, state=, status=, contact_book=null, is_engine=0, duplicate_from=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, contact_data=null, photos=null, location={type=, coordinates=null}, google_address=null, allowed_features=null, estimated_cost=0, progress=0, start_date=0001-01-01T00:00:00Z, end_date=0001-01-01T00:00:00Z, monkey_patch_contractor_name=, monkey_patch_contractor_company_user_name=, monkey_patch_contractor_contact=0, monkey_patch_contractor_profile_pic=, monkey_patch_in_amount=0, monkey_patch_out_amount=0, monkey_patch_transaction_in_amount=0, monkey_patch_transaction_out_amount=0, company_id=, monkey_patch_my_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_company_name=, monkey_patch_team_member=null, monkey_patch_todo_count=0, attendance_radius=0, distance=0, monkey_patch_primary_address={id=, company_id=, creator_company_user_id=, owner_id=, address_type=, address_title=, address_gst=, address_line_1=, address_line_2=, city=, state=, postal_code=, country_code=, location={type=, coordinates=null}, google_address=null, primary=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, search=, monkey_patch_country_config={country_code=, country_iso=, country_name=, created=0001-01-01T00:00:00Z, minimum_digits=0, maximum_digits=0, login_channels=null, currency=, flag=, tax_slabs=null, tax_display_name=, tax_value_display_name=, published=0, decimal_digit=0, timezone=}}, dimension=, orientation=, code=, key_personnel_cu_ids=null, billed_amount=0, monkey_patch_key_personnel=null}}, monkey_patch_creator_name=, monkey_patch_creator_company_user_name=, monkey_patch_party_company_user_name=, monkey_patch_workforcestock_name=, monkey_patch_allowance_list=null, monkey_patch_overtime_list=null, monkey_patch_project={id=, type=, name=, contractor=, contractor_company_user_id=, creator=, creator_company_user_id=, bg_image=, admins=null, admins_company_user_ids=null, workers_company_user_ids=null, customer_name=, customer_contact=0, customer_email=, customer_company_name=, customer_company_address=, customer_gst=, customer_profile_image=, address=, city=, state=, status=, contact_book=null, is_engine=0, duplicate_from=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, contact_data=null, photos=null, location={type=, coordinates=null}, google_address=null, allowed_features=null, estimated_cost=0, progress=0, start_date=0001-01-01T00:00:00Z, end_date=0001-01-01T00:00:00Z, monkey_patch_contractor_name=, monkey_patch_contractor_company_user_name=, monkey_patch_contractor_contact=0, monkey_patch_contractor_profile_pic=, monkey_patch_in_amount=0, monkey_patch_out_amount=0, monkey_patch_transaction_in_amount=0, monkey_patch_transaction_out_amount=0, company_id=, monkey_patch_my_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_company_name=, monkey_patch_team_member=null, monkey_patch_todo_count=0, attendance_radius=0, distance=0, monkey_patch_primary_address={id=, company_id=, creator_company_user_id=, owner_id=, address_type=, address_title=, address_gst=, address_line_1=, address_line_2=, city=, state=, postal_code=, country_code=, location={type=, coordinates=null}, google_address=null, primary=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, search=, monkey_patch_country_config={country_code=, country_iso=, country_name=, created=0001-01-01T00:00:00Z, minimum_digits=0, maximum_digits=0, login_channels=null, currency=, flag=, tax_slabs=null, tax_display_name=, tax_value_display_name=, published=0, decimal_digit=0, timezone=}}, dimension=, orientation=, code=, key_personnel_cu_ids=null, billed_amount=0, monkey_patch_key_personnel=null}, monkey_patch_punch_list=null, recent_punch={id=, creator=, creator_company_user_id=, company_id=, project_id=, company_user_id=, attendance_id=, status=, punch_date=0001-01-01T00:00:00Z, in_time=0001-01-01T00:00:00Z, duration=0, in_location={type=, coordinates=null}, in_photo=, is_in_photo_verified=0, is_out_photo_verified=0, is_in_location_verified=0, is_out_location_verified=0, out_time=0001-01-01T00:00:00Z, out_location={type=, coordinates=null}, out_photo=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_source=null, monkey_patch_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, punch_notes=, monkey_patch_project={id=, type=, name=, contractor=, contractor_company_user_id=, creator=, creator_company_user_id=, bg_image=, admins=null, admins_company_user_ids=null, workers_company_user_ids=null, customer_name=, customer_contact=0, customer_email=, customer_company_name=, customer_company_address=, customer_gst=, customer_profile_image=, address=, city=, state=, status=, contact_book=null, is_engine=0, duplicate_from=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, contact_data=null, photos=null, location={type=, coordinates=null}, google_address=null, allowed_features=null, estimated_cost=0, progress=0, start_date=0001-01-01T00:00:00Z, end_date=0001-01-01T00:00:00Z, monkey_patch_contractor_name=, monkey_patch_contractor_company_user_name=, monkey_patch_contractor_contact=0, monkey_patch_contractor_profile_pic=, monkey_patch_in_amount=0, monkey_patch_out_amount=0, monkey_patch_transaction_in_amount=0, monkey_patch_transaction_out_amount=0, company_id=, monkey_patch_my_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_company_name=, monkey_patch_team_member=null, monkey_patch_todo_count=0, attendance_radius=0, distance=0, monkey_patch_primary_address={id=, company_id=, creator_company_user_id=, owner_id=, address_type=, address_title=, address_gst=, address_line_1=, address_line_2=, city=, state=, postal_code=, country_code=, location={type=, coordinates=null}, google_address=null, primary=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, search=, monkey_patch_country_config={country_code=, country_iso=, country_name=, created=0001-01-01T00:00:00Z, minimum_digits=0, maximum_digits=0, login_channels=null, currency=, flag=, tax_slabs=null, tax_display_name=, tax_value_display_name=, published=0, decimal_digit=0, timezone=}}, dimension=, orientation=, code=, key_personnel_cu_ids=null, billed_amount=0, monkey_patch_key_personnel=null}, monkey_patch_creator_name=}, payroll_type=, monkey_patch_salary_breakup={id=, template_id=, payroll_id=, creator=, creator_company_user_id=, company_id=, type=, dayoff=null, ctc_amount=0, basic={id=, name=, relation_type=, relation_value=0, amount=0}, basic_salary=0, allowances=null, fixed_allowance={id=, name=, relation_type=, relation_value=0, amount=0}, gross_salary=0, deductions=null, net_salary=0, shift_hour=0, overtime_amount=0, sub_category_id=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_source=null, monkey_patch_creator_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_salarybreakup_components=null, attendance_count=0}, workforce_id=, monkey_patch_workforce={id=, name=, company_id=, creator=, type=, creator_company_user_id=, party_company_user_id=, wage=0, shift_hours=0, is_engine=0, sub_category_id=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_used_by_project=0, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_present_count=0}, monkey_patch_project_list=null, monkey_patch_payroll=null}, monkey_patch_workforcestock=null, monkey_patch_salary_breakup={id=, template_id=, payroll_id=, creator=, creator_company_user_id=, company_id=, type=, dayoff=null, ctc_amount=0, basic={id=, name=, relation_type=, relation_value=0, amount=0}, basic_salary=0, allowances=null, fixed_allowance={id=, name=, relation_type=, relation_value=0, amount=0}, gross_salary=0, deductions=null, net_salary=0, shift_hour=0, overtime_amount=0, sub_category_id=, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_source=null, monkey_patch_creator_company_user={id=, company_id=, company_role_id=, role=, type=, creator=, name=, mobile=0, mobile_verified=0, user_id=, gstin=, party_id=, legal_business_name=, billing_address=, hidden=0, profile_pic=, monkey_patch_policy_ids=null, monkey_patch_company_role={id=, role=, name=, description=, company_id=, creator_company_user_id=, policy_ids=null, hidden=0, delete=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_policies=null}, monkey_patch_user={id=, name=, mobile=0, country_code=, profile_pic=, mobile_verified=0, invited=0, invitation_count=0, profession=}, email=}, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_salarybreakup_components=null, attendance_count=0}, monkey_patch_face_info={id=, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, company_id=, company_user_id=, creator=, creator_company_user_id=, is_embedded=0, photos=null, embedding_vector=null}, monkey_patch_associate_project=null, recent_project_id=, workforce_id=a27f383c-64d9-49f4-a87d-ba496bcf6646, monkey_patch_workforce={id=a27f383c-64d9-49f4-a87d-ba496bcf6646, name=working 1, company_id=75916659-9cbe-4ca7-812e-181a29229772, creator=c5b0bdca-6941-4411-aa64-369f6bb8cc32, type=daily, creator_company_user_id=8f1e9ece-d44c-4ca2-ae3f-986267a8e567, party_company_user_id=, wage=250, shift_hours=8, is_engine=0, sub_category_id=6fa9713d-4455-4fb0-aa6d-a0d53973d43b, delete=0, created=2025-02-07T12:27:08.407Z, updated=2025-02-07T12:27:08.407Z, monkey_patch_used_by_project=0, monkey_patch_sub_category={id=, parent_id=, creator=, creator_company_user_id=, company_id=, type=, text_en=, text_hi=, index=0, hidden=0, created=0001-01-01T00:00:00Z, updated=0001-01-01T00:00:00Z, monkey_patch_children=null, monkey_patch_parent=null, color_hex=}, monkey_patch_present_count=0}, hidden=0}
+	at com.onsite.payroll_test_page.List_Payroll_Test.staff_listpayroll(List_Payroll_Test.java:219)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</textarea>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">java.lang.RuntimeException</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.RuntimeException</h4>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>14:44:49 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>labour_listpayroll</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>14:44:57 pm</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>staff_listpayroll</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Nov 1, 2025 02:44:49 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Nov 1, 2025 02:45:12 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>2</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>2</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div>
+<small data-tooltip='100%'><b>4</b> events failed,
+<b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"labour_listpayroll":8.02,"staff_listpayroll":14.648
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>Project Create</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Windows 10</td>
+</tr>
+<tr>
+<td>User</td>
+<td>Administrator</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>QA</td>
+</tr>
+<tr>
+<td>Rest Assured Automation Tester</td>
+<td>Akash Pawar</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 2,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 0,
+failEvents: 4,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 0
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

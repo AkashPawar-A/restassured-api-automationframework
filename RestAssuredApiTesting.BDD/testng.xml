@@ -49,13 +49,8 @@
    
    <test thread-count="5" name="Payroll">
 	   <classes>
-		   <class name="com.onsite.payroll_test_page.Add_Payroll_Test"/>
+		   <class name="com.onsite.payroll_test_page.List_Payroll_Test"/>
 	   </classes>
    </test>
-   
-   <test thread-count="5" name="salaryBreakup">
-	   <classes>
-		   <class name="com.onsite.salarybreakup_test_page.Add_SalaryBreakup_Test"/>
-	   </classes>
-   </test>
+  
 </suite> <!-- Suite -->

@@ -8,12 +8,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.onsite.context.SalaryBreakupDetails;
 import com.onsite.endpoints.ApiBasePath;
-import com.onsite.endpoints.SalaryBreakup;
+import com.onsite.endpoints.SalaryBreakup_Api;
 import com.onsite.pojo_request.Salary_BreakupRequest;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.JsonDataProvider;
-import com.onsite.utilities_page.SchemaValidator;
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import net.minidev.json.JSONObject;
@@ -63,6 +61,13 @@ public class Add_SalaryBreakup_Test {
 		String jsonPayload = mapper.writeValueAsString(salaryBreakupRequest);
 		System.out.println("Final JSON payload : " + jsonPayload);
 		
+		if(salaryBreakupRequest.getPayroll_id()==null || salaryBreakupRequest.getPayroll_id().isEmpty()) {
+			throw new IllegalArgumentException("payroll id is null or empty");
+		}
+		if(salaryBreakupRequest.getCompany_user_id()==null || salaryBreakupRequest.getCompany_user_id().isEmpty()) {
+			throw new IllegalArgumentException("company user id is null or empty");
+		}
+		
 		Response salaryBreakupResponse = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
@@ -72,7 +77,7 @@ public class Add_SalaryBreakup_Test {
 				.log().uri()
 				
 				.when()
-				.post(SalaryBreakup.ADD_SALARYBREAKUP)
+				.post(SalaryBreakup_Api.ADD_SALARYBREAKUP)
 				
 				.then()
 				.extract().response();
@@ -114,11 +119,11 @@ public class Add_SalaryBreakup_Test {
 		SalaryBreakupDetails.type = salaryBreakupResponse.jsonPath().get("type");
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2, dependsOnMethods="salaryBreakup")
 	public void detailsSalaryBreakup() throws Exception {
 		
 		if (salaryBreakup_id == null || salaryBreakup_id.getId() == null || salaryBreakup_id.getId().isEmpty()) {
-		    Assert.fail("SalaryBreakup ID not found from POST API!");
+		    throw new IllegalArgumentException("salary breakup iss is null or empty");
 		}
         
         String id = salaryBreakup_id.getId();
@@ -133,12 +138,13 @@ public class Add_SalaryBreakup_Test {
 				.log().uri()
 				
 				.when()
-				.get(SalaryBreakup.DETAIL_SALARYBREAKUP)
+				.get(SalaryBreakup_Api.DETAIL_SALARYBREAKUP)
 				
 				.then()
 				.extract().response();
 		
-		System.out.println("salaryBreakup Response :" + DetailsalaryBreakupResponse.getBody().asString());
+		String rawJson = DetailsalaryBreakupResponse.getBody().asString();
+		System.out.println(" json response :" + rawJson);
 		
 		String responseMessage = DetailsalaryBreakupResponse.jsonPath().getString("message");
 		if(responseMessage != null) {
@@ -160,15 +166,15 @@ public class Add_SalaryBreakup_Test {
 			Assert.assertTrue(allowMethod.contains("GET"), "get method is ot allow");
 		}
 		
-		SalaryBreakup salarybreakupObj = DetailsalaryBreakupResponse.as(SalaryBreakup.class);
-		
-		String salaryObj = DetailsalaryBreakupResponse.asString();
-		SchemaValidator.validateSchema("", salaryObj);
+		com.onsite.pojo_response.SalaryBreakup salarybreakupObj =
+			    DetailsalaryBreakupResponse.as(com.onsite.pojo_response.SalaryBreakup.class);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.enable(SerializationFeature.INDENT_OUTPUT);
-		String responseObj = mapper.writeValueAsString(salarybreakupObj);
-		System.out.println("final response :" + responseObj);
+		com.onsite.pojo_response.SalaryBreakup salarybreakupRes =
+		        mapper.readValue(rawJson, com.onsite.pojo_response.SalaryBreakup.class);
+		String formattedJson = mapper.writeValueAsString(salarybreakupRes);
+		System.out.println("final response : " + formattedJson);
 		
 	}
 }

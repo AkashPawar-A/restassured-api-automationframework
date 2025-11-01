@@ -1,5 +1,8 @@
 package com.onsite.pojo_response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SalaryBreakup {
 
 	private String id;
@@ -9,7 +12,7 @@ public class SalaryBreakup {
 	private String creator_company_user_id;
 	private String company_id;
 	private String type;
-	private int[] dayoff;
+	private Double[] dayoff;
 	private SalaryTemplateComponant basic;
 	private float basic_salary;
 	private SalaryTemplateComponant[] allowances;
@@ -75,10 +78,10 @@ public class SalaryBreakup {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int[] getDayoff() {
+	public Double[] getDayoff() {
 		return dayoff;
 	}
-	public void setDayoff(int[] dayoff) {
+	public void setDayoff(Double[] dayoff) {
 		this.dayoff = dayoff;
 	}
 	public SalaryTemplateComponant getBasic() {
