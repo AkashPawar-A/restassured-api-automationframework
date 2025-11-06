@@ -6,6 +6,7 @@ public class Payroll_Api {
 	public static final String EDIT_PAYROLL = "/edit/payroll";
 	public static final String DETAIL_PAYROLL = "/detail/payroll/{id}";
 	public static final String LIST_PAYROLL = "/list/payroll";
+	public static final String PAYROLL_COUNT = "/payroll/count";
 	
 	public static final String HIDE_PAYROLL = "/hide/payroll/{id}";
 	public static final String SHOW_PAYROLL = "/show/payroll/{id}";
@@ -20,6 +21,5 @@ public class Payroll_Api {
 	public static final String LIST_PAYROLL_EXCLUDE_PROJECT = "/list/payroll/exclude_project";
 	public static final String LIST_COMPANYUSER_FOR_PAYROLL = "/list/companyuser/for-payroll";
 	public static final String LIST_COMPANYUSER_FOR_EXIST_PAYROLL = "/list/companyuser/for-exist-payroll/{company_id}";
-	public static final String PAYROLL_COUNT = "/payroll/count";
 
 }
