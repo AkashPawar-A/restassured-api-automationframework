@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-06T17:58:09 IST" name="Default suite" finished-at="2025-11-06T17:58:33 IST" duration-ms="24517">
+  <suite started-at="2025-11-08T19:21:24 IST" name="Default suite" finished-at="2025-11-08T19:21:34 IST" duration-ms="10609">
     <groups>
     </groups>
-    <test started-at="2025-11-06T17:58:09 IST" name="Default test" finished-at="2025-11-06T17:58:33 IST" duration-ms="24517">
-      <class name="com.onsite.payroll_test_page.Payroll_Count_Test">
-        <test-method signature="labour_ActiveCount()[pri:1, instance:com.onsite.payroll_test_page.Payroll_Count_Test@359f7cdf]" started-at="2025-11-06T17:58:09 IST" name="labour_ActiveCount" finished-at="2025-11-06T17:58:19 IST" duration-ms="10584" status="PASS">
+    <test started-at="2025-11-08T19:21:24 IST" name="Default test" finished-at="2025-11-08T19:21:34 IST" duration-ms="10609">
+      <class name="com.onsite.payroll_test_page.Hide_Payroll_Test">
+        <test-method signature="hiddenPayroll()[pri:1, instance:com.onsite.payroll_test_page.Hide_Payroll_Test@5ffead27]" started-at="2025-11-08T19:21:24 IST" name="hiddenPayroll" finished-at="2025-11-08T19:21:34 IST" duration-ms="10536" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- labour_ActiveCount -->
-        <test-method signature="labour_InactiveCount()[pri:2, instance:com.onsite.payroll_test_page.Payroll_Count_Test@359f7cdf]" started-at="2025-11-06T17:58:19 IST" name="labour_InactiveCount" finished-at="2025-11-06T17:58:24 IST" duration-ms="4493" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- labour_InactiveCount -->
-        <test-method signature="staff_ActiveCount()[pri:3, instance:com.onsite.payroll_test_page.Payroll_Count_Test@359f7cdf]" started-at="2025-11-06T17:58:24 IST" name="staff_ActiveCount" finished-at="2025-11-06T17:58:29 IST" duration-ms="4726" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- staff_ActiveCount -->
-        <test-method signature="staff_InactiveCount()[pri:4, instance:com.onsite.payroll_test_page.Payroll_Count_Test@359f7cdf]" started-at="2025-11-06T17:58:29 IST" name="staff_InactiveCount" finished-at="2025-11-06T17:58:33 IST" duration-ms="4581" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- staff_InactiveCount -->
-      </class> <!-- com.onsite.payroll_test_page.Payroll_Count_Test -->
+        </test-method> <!-- hiddenPayroll -->
+      </class> <!-- com.onsite.payroll_test_page.Hide_Payroll_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
