@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-08T19:21:24 IST" name="Default suite" finished-at="2025-11-08T19:21:34 IST" duration-ms="10609">
+  <suite started-at="2025-11-10T17:52:58 IST" name="Default suite" finished-at="2025-11-10T17:53:06 IST" duration-ms="8300">
     <groups>
     </groups>
-    <test started-at="2025-11-08T19:21:24 IST" name="Default test" finished-at="2025-11-08T19:21:34 IST" duration-ms="10609">
-      <class name="com.onsite.payroll_test_page.Hide_Payroll_Test">
-        <test-method signature="hiddenPayroll()[pri:1, instance:com.onsite.payroll_test_page.Hide_Payroll_Test@5ffead27]" started-at="2025-11-08T19:21:24 IST" name="hiddenPayroll" finished-at="2025-11-08T19:21:34 IST" duration-ms="10536" status="PASS">
+    <test started-at="2025-11-10T17:52:58 IST" name="Default test" finished-at="2025-11-10T17:53:06 IST" duration-ms="8300">
+      <class name="com.onsite.payroll_test_page.Show_Payroll_Test">
+        <test-method signature="showPayroll()[pri:1, instance:com.onsite.payroll_test_page.Show_Payroll_Test@5ffead27]" started-at="2025-11-10T17:52:58 IST" name="showPayroll" finished-at="2025-11-10T17:53:06 IST" duration-ms="8215" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- hiddenPayroll -->
-      </class> <!-- com.onsite.payroll_test_page.Hide_Payroll_Test -->
+        </test-method> <!-- showPayroll -->
+      </class> <!-- com.onsite.payroll_test_page.Show_Payroll_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
