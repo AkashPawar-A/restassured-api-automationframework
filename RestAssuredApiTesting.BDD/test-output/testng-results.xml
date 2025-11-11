@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-10T17:52:58 IST" name="Default suite" finished-at="2025-11-10T17:53:06 IST" duration-ms="8300">
+  <suite started-at="2025-11-11T19:07:09 IST" name="Default suite" finished-at="2025-11-11T19:07:18 IST" duration-ms="8369">
     <groups>
     </groups>
-    <test started-at="2025-11-10T17:52:58 IST" name="Default test" finished-at="2025-11-10T17:53:06 IST" duration-ms="8300">
-      <class name="com.onsite.payroll_test_page.Show_Payroll_Test">
-        <test-method signature="showPayroll()[pri:1, instance:com.onsite.payroll_test_page.Show_Payroll_Test@5ffead27]" started-at="2025-11-10T17:52:58 IST" name="showPayroll" finished-at="2025-11-10T17:53:06 IST" duration-ms="8215" status="PASS">
+    <test started-at="2025-11-11T19:07:09 IST" name="Default test" finished-at="2025-11-11T19:07:18 IST" duration-ms="8369">
+      <class name="com.onsite.payroll_test_page.Is_Payroll_Exist_Test">
+        <test-method signature="existPayroll()[pri:1, instance:com.onsite.payroll_test_page.Is_Payroll_Exist_Test@5ffead27]" started-at="2025-11-11T19:07:10 IST" name="existPayroll" finished-at="2025-11-11T19:07:18 IST" duration-ms="8317" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- showPayroll -->
-      </class> <!-- com.onsite.payroll_test_page.Show_Payroll_Test -->
+        </test-method> <!-- existPayroll -->
+      </class> <!-- com.onsite.payroll_test_page.Is_Payroll_Exist_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
