@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.payroll_test_page.Delete_Payroll">
+      <class name="com.onsite.payroll_test_page.ChangePayrollType">
         <methods>
-          <include name="deletePayroll"/>
+          <include name="payrollType" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.onsite.payroll_test_page.Delete_Payroll -->
+      </class> <!-- com.onsite.payroll_test_page.ChangePayrollType -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
