@@ -87,20 +87,33 @@ public class ChangePayrollType {
 		} catch (Exception e) {
 		    Assert.fail("Schema validation failed: " + e.getMessage());
 		}
+	
+		Integer payroll_DeleteFlag = payrolltypeResponse.jsonPath().get("delete");
+		Integer payroll_HiddenFlag = payrolltypeResponse.jsonPath().get("hidden");
+		String payroll_Id = payrolltypeResponse.jsonPath().get("id");
+		String payroll_CreatorId = payrolltypeResponse.jsonPath().get("creator");
+		String payroll_CreatorCompanyUserId= payrolltypeResponse.jsonPath().get("creator_company_user_id");
+		String payroll_SalaryBreakupId = payrolltypeResponse.jsonPath().get("salary_breakup_id");
+		String payroll_PartyCompanyUserId = payrolltypeResponse.jsonPath().get("party_company_user_id");
+		
+		String party_UserType = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.type");
+		String company_PartyUserId = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.id");
+		String party_UserId = payrolltypeResponse.jsonPath().get("user_id");
+		String party_UserName = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.name");
+		String party_CompanyId = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.company_id");
+		Integer party_UserHiddenFlag = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.hidden");
+		String workforce_Id = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.workforce_id");
+		String recentProjectId = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.recent_project_id");
 		
 		Assert.assertNotNull(payroll.getId(), "Payroll ID is missing in response");
 		Assert.assertEquals(payroll.getId(), payrollTypeRequest.getId(), "Payroll ID mismatch");
 		
-		Integer payrollDeleteFlag = payrolltypeResponse.jsonPath().get("delete");
-		Integer payrollHiddenFlag = payrolltypeResponse.jsonPath().get("hidden");
-		if(payrollHiddenFlag != 1 || payrollDeleteFlag != 1) {
+		if(payroll_HiddenFlag != 1 || payroll_DeleteFlag != 1) {
 			System.out.println("payroll is not deleted");
 		}else {
 			System.out.println("payroll is deleted");
 		}
-		
-		String partyUserType = payrolltypeResponse.jsonPath().get("monkey_patch_party_company_user.type");
-		if(partyUserType != null && "staff".equalsIgnoreCase(partyUserType) || "labour".equalsIgnoreCase(partyUserType)) {
+		if(party_UserType != null && "staff".equalsIgnoreCase(party_UserType) || "labour".equalsIgnoreCase(party_UserType)) {
 			Assert.assertEquals(payroll.getType(), payrollTypeRequest.getType(), "payroll type mismatch");
 		}else {
 			System.out.println("party user type is not match with staff or labour");

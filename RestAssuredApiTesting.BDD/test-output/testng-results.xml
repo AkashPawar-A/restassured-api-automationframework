@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-13T17:35:49 IST" name="Default suite" finished-at="2025-11-13T17:35:59 IST" duration-ms="10158">
+  <suite started-at="2025-11-13T18:11:00 IST" name="Default suite" finished-at="2025-11-13T18:11:10 IST" duration-ms="10193">
     <groups>
     </groups>
-    <test started-at="2025-11-13T17:35:49 IST" name="Default test" finished-at="2025-11-13T17:35:59 IST" duration-ms="10158">
+    <test started-at="2025-11-13T18:11:00 IST" name="Default test" finished-at="2025-11-13T18:11:10 IST" duration-ms="10193">
       <class name="com.onsite.payroll_test_page.ChangePayrollType">
-        <test-method signature="payrollType(com.onsite.pojo_request.Edit_payroll_type_Request)[pri:1, instance:com.onsite.payroll_test_page.ChangePayrollType@294425a7]" started-at="2025-11-13T17:35:50 IST" name="payrollType" data-provider="changePayrollType" finished-at="2025-11-13T17:35:59 IST" duration-ms="9673" status="PASS">
+        <test-method signature="payrollType(com.onsite.pojo_request.Edit_payroll_type_Request)[pri:1, instance:com.onsite.payroll_test_page.ChangePayrollType@294425a7]" started-at="2025-11-13T18:11:01 IST" name="payrollType" data-provider="changePayrollType" finished-at="2025-11-13T18:11:10 IST" duration-ms="9675" status="PASS">
           <params>
             <param index="0">
               <value>
