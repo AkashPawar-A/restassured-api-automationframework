@@ -17,7 +17,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class ChangePayrollType {
+public class EditPayrollType {
 	
 	@DataProvider(name="changePayrollType")
 	public Object[][] getPayrolllData(){

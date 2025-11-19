@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-13T18:11:00 IST" name="Default suite" finished-at="2025-11-13T18:11:10 IST" duration-ms="10193">
+  <suite started-at="2025-11-19T22:25:54 IST" name="Default suite" finished-at="2025-11-19T22:26:07 IST" duration-ms="12596">
     <groups>
     </groups>
-    <test started-at="2025-11-13T18:11:00 IST" name="Default test" finished-at="2025-11-13T18:11:10 IST" duration-ms="10193">
-      <class name="com.onsite.payroll_test_page.ChangePayrollType">
-        <test-method signature="payrollType(com.onsite.pojo_request.Edit_payroll_type_Request)[pri:1, instance:com.onsite.payroll_test_page.ChangePayrollType@294425a7]" started-at="2025-11-13T18:11:01 IST" name="payrollType" data-provider="changePayrollType" finished-at="2025-11-13T18:11:10 IST" duration-ms="9675" status="PASS">
+    <test started-at="2025-11-19T22:25:54 IST" name="Default test" finished-at="2025-11-19T22:26:07 IST" duration-ms="12596">
+      <class name="com.onsite.payroll_test_page.EditPayrollAssociateProject">
+        <test-method signature="payrollProject(com.onsite.pojo_request.Edit_Project_Associate_Request)[pri:1, instance:com.onsite.payroll_test_page.EditPayrollAssociateProject@6d763516]" started-at="2025-11-19T22:25:55 IST" name="payrollProject" data-provider="changeProject" finished-at="2025-11-19T22:26:07 IST" duration-ms="11935" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.Edit_payroll_type_Request@57576994]]>
+                <![CDATA[com.onsite.pojo_request.Edit_Project_Associate_Request@2049a9c1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- payrollType -->
-      </class> <!-- com.onsite.payroll_test_page.ChangePayrollType -->
+        </test-method> <!-- payrollProject -->
+      </class> <!-- com.onsite.payroll_test_page.EditPayrollAssociateProject -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
