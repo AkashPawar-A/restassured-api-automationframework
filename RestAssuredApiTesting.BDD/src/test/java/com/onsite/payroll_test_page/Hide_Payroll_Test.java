@@ -36,14 +36,17 @@ public class Hide_Payroll_Test {
 		String partyResponse = hiddenPartyResponse.getBody().asString();
 		
 		int responseStatusCode = hiddenPartyResponse.getStatusCode();
-		System.out.println("response status code :" + responseStatusCode);
-		Assert.assertEquals(responseStatusCode, 200, "expected status code not found in response");
-		
 		String responseMessage = hiddenPartyResponse.jsonPath().getString("message");
-		if(responseMessage != null) {
-			System.out.println("response message : " + responseMessage);
-		}else {
-			System.out.println("No message present in response");
+		
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
+		} else {
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
 		}
 		
 		String responseConentType = hiddenPartyResponse.getContentType();

@@ -37,14 +37,17 @@ public class Show_Payroll_Test {
 		String partyIdResponse = payrollResponse.getBody().asString();
 		
 		int responseStatusCode = payrollResponse.getStatusCode();
-		System.out.println("response status code : " + responseStatusCode);
-		Assert.assertEquals(responseStatusCode, 200, "expected status coed not found in response");
-		
 		String responseMessage = payrollResponse.jsonPath().getString("message");
-		if(responseMessage != null) {
-			System.out.println("response message :" + responseMessage);
-		}else {
-			System.out.println("response message is not added");
+
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
+		} else {
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
 		}
 		
 		String responseContentType = payrollResponse.getContentType();

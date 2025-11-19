@@ -19,24 +19,24 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
 public class EditPayrollAssociateProject {
-	
+
 	@DataProvider(name="changeProject")
 	public Object[][] payrollData(){
-		
+
 		String filepath = "src/test/resources/testdata_payroll/EditPayrollAssociateProject.json";
-		
+
 		Object[][] payrollData = JsonDataProvider.getDataFromJson(filepath, Edit_Project_Associate_Request.class);
-		
+
 		Object[][] projectChange = new Object[payrollData.length][1];
 		for(int i=0; i<projectChange.length; i++) {
 			projectChange[i][0] = payrollData[i][0]; 
 		}
 		return projectChange;
 	}
-	
+
 	@Test(priority=1, dataProvider="changeProject")
 	public void payrollProject(Edit_Project_Associate_Request changeProjectRequest) {
-		
+
 		ObjectMapper mapper = new ObjectMapper();
 		String finalJsonPayload = null;
 		try {
@@ -45,7 +45,7 @@ public class EditPayrollAssociateProject {
 			e.printStackTrace();
 		}
 		System.out.println("final payload :" + finalJsonPayload);
-		
+
 		Response payrollResponse = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
@@ -53,36 +53,39 @@ public class EditPayrollAssociateProject {
 				.body(finalJsonPayload)
 				.contentType(ContentType.JSON)
 				.log().uri()
-				
+
 				.when()
 				.patch(Payroll_Api.EDIT_PAYROLL_ASSOCIATE_PROJECT)
-				
+
 				.then()
 				.log().all()
 				.extract().response();
-		
+
 		String responseData = payrollResponse.getBody().asString();
-		
-		String responseMessage = payrollResponse.jsonPath().getString("message");
-		if(responseMessage != null) {
-			System.out.println("response message :" + responseMessage);
-		}else {
-			System.out.println("response message is null");
-		}
-		
+
 		int responseStatusCode = payrollResponse.getStatusCode();
-		System.out.println("response Status code :" + responseStatusCode);
-		Assert.assertEquals(responseStatusCode, 200, "expected status coed not ofund in response");
+		String responseMessage = payrollResponse.jsonPath().getString("message");
+
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
+		} else {
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
+		}
 
 		long responseTime = payrollResponse.getTime();
 		Assert.assertTrue(responseTime < 5000, "response time is too long");
-		
+
 		String responseContentType = payrollResponse.getContentType();
 		Assert.assertTrue(responseContentType.contains("application/json"), "response content type is missmatch");
-		
+
 		String allowedMethod = payrollResponse.getHeader("Access-Control-Allow-Methods");
 		Assert.assertTrue(allowedMethod.contains("PATCH"), "patch method is not allowed");
-		
+
 		try {
 			Payroll_Response payroll = mapper.readValue(responseData, Payroll_Response.class);
 		} catch (JsonMappingException e) {
@@ -92,7 +95,7 @@ public class EditPayrollAssociateProject {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
+
+
 }

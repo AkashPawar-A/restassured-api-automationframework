@@ -35,16 +35,19 @@ public class Delete_Payroll {
 		
 		String deleteResponse = payrollResponse.getBody().asString();
 		
-		String responseMessage = payrollResponse.jsonPath().getString("message");
-		if(responseMessage != null) {
-			System.out.println("expectes response message :" + responseMessage);
-		}else {
-			System.out.println("expected response is null");
-		}
-		
 		int responseStatusCode = payrollResponse.getStatusCode();
-		System.out.println("response status code :" + responseStatusCode);
-		Assert.assertEquals(responseStatusCode, 200, "expected status code not found in response");
+		String responseMessage = payrollResponse.jsonPath().getString("message");
+		
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
+		} else {
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
+		}
 		
 		long responseTime = payrollResponse.getTime();
 		System.out.println("response Time :" + responseTime);

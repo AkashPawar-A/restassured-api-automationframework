@@ -51,7 +51,18 @@ public class List_Payroll_Test {
 					.extract().response();
 
 			int responseStatusCode = listPayrollResponse.getStatusCode();
-			Assert.assertEquals(responseStatusCode, 200, "expectes status code not found in response");
+			String responseMessage = listPayrollResponse.jsonPath().getString("message");
+			
+			if(responseStatusCode == 200) {
+				System.out.println("success status code is 200");	
+				System.out.println("response Message: " + responseMessage);
+			} else {
+				System.out.println("failure status code is " + responseStatusCode);		
+				System.out.println("failure message :" + responseMessage);
+				
+				Assert.fail("API failed with status code: " + responseStatusCode + 
+		                " and message: " + responseMessage);
+			}
 
 			String payrollList = listPayrollResponse.getBody().asString();	
 			System.out.println("all payroll list :\n" + payrollList);
@@ -152,8 +163,18 @@ public class List_Payroll_Test {
 					.extract().response();
 
 			int responseStatusCode = satffListPayrollResponse.getStatusCode();
-			System.out.println("response statasu code : " + responseStatusCode);
-			Assert.assertEquals(responseStatusCode, 200, "expected status code not found in response");
+			String responseMessage = satffListPayrollResponse.jsonPath().getString("message");
+			
+			if(responseStatusCode == 200) {
+				System.out.println("success status code is 200");	
+				System.out.println("response Message: " + responseMessage);
+			} else {
+				System.out.println("failure status code is " + responseStatusCode);		
+				System.out.println("failure message :" + responseMessage);
+				
+				Assert.fail("API failed with status code: " + responseStatusCode + 
+		                " and message: " + responseMessage);
+			}
 
 			String responseBody = satffListPayrollResponse.getBody().asString();
 			System.out.println("response body :\n " + responseBody);

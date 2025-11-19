@@ -92,13 +92,18 @@ public class Edit_Payroll_Test {
 		String editResponse = editPayrollResponse.getBody().asString();
 		System.out.println("Final PATCH Payload:\n" + finalEditPayload);
 		
-		int statusCode = editPayrollResponse.getStatusCode();
-		System.out.println("final status code :" + statusCode);
-		Assert.assertEquals(editPayrollResponse.getStatusCode(), 200, "expected status code not found in response");
-		
+		int responseStatusCode = editPayrollResponse.getStatusCode();
 		String responseMessage = editPayrollResponse.jsonPath().getString("message");
-		if(responseMessage != null) {
-			System.out.println("response message :" + responseMessage);
+		
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
+		} else {
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
 		}
 		
 		long responseTime = editPayrollResponse.getTime();

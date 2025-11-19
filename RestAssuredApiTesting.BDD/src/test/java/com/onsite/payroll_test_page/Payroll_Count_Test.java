@@ -137,14 +137,17 @@ public class Payroll_Count_Test {
 	    System.out.println(responseData);
 		
 		int responseStatusCode = response_count.getStatusCode();
-		System.out.println("expected status code : " + responseStatusCode);
-		Assert.assertEquals(responseStatusCode, 200, "expected status code not found in response");
-		
 		String responseMessage = response_count.jsonPath().getString("message");
-		if (responseMessage != null) {
-		    System.out.println("Response message: " + responseMessage);
+		
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
 		} else {
-		    System.out.println("No 'message' key present in response");
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
 		}
 		
 		String responseContentType = response_count.getContentType();
@@ -186,14 +189,17 @@ public class Payroll_Count_Test {
 	    System.out.println(responseData);
 		
 		int responseStatusCode = response_count.getStatusCode();
-		System.out.println("expected status code : " + responseStatusCode);
-		Assert.assertEquals(responseStatusCode, 200, "expected status code not found in response");
-		
 		String responseMessage = response_count.jsonPath().getString("message");
-		if (responseMessage != null) {
-		    System.out.println("Response message: " + responseMessage);
+		
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
 		} else {
-		    System.out.println("No 'message' key present in response");
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
 		}
 		
 		String responseContentType = response_count.getContentType();

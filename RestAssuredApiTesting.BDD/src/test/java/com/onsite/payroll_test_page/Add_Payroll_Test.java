@@ -3,9 +3,7 @@ package com.onsite.payroll_test_page;
 import static io.restassured.RestAssured.*;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -16,7 +14,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.onsite.context.PayrollDetails;
@@ -30,8 +27,6 @@ import com.onsite.utilities_page.SchemaValidator;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import net.minidev.json.parser.JSONParser;
-import net.minidev.json.parser.ParseException;
 
 public class Add_Payroll_Test {
 
@@ -167,15 +162,19 @@ public class Add_Payroll_Test {
 		String jsonResponse = DetailPayrollResponse.getBody().asString();
 		System.out.println("final json response : " + jsonResponse);
 
-		String message = DetailPayrollResponse.jsonPath().getString("message");
-		if(message != null) {
-			System.out.println("Response message : " + message);
+		int responseStatusCode = DetailPayrollResponse.getStatusCode();
+		String responseMessage = DetailPayrollResponse.jsonPath().getString("message");
+		
+		if(responseStatusCode == 200) {
+			System.out.println("success status code is 200");	
+			System.out.println("response Message: " + responseMessage);
+		} else {
+			System.out.println("failure status code is " + responseStatusCode);		
+			System.out.println("failure message :" + responseMessage);
+			
+			Assert.fail("API failed with status code: " + responseStatusCode + 
+	                " and message: " + responseMessage);
 		}
-
-		int statusCode = DetailPayrollResponse.getStatusCode();
-		System.out.println("final stataus code :" + statusCode);
-		Assert.assertEquals(DetailPayrollResponse.getStatusCode(),  200, 
-				"expected statsus not foud in response" + DetailPayrollResponse.getStatusCode());
 
 		long responseTime = DetailPayrollResponse.getTime();
 		Assert.assertTrue(responseTime < 2000, "response time is too long");
