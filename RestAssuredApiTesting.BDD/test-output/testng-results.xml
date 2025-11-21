@@ -2,23 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-20T17:00:14 IST" name="Default suite" finished-at="2025-11-20T17:00:21 IST" duration-ms="6720">
+  <suite started-at="2025-11-21T18:26:33 IST" name="Default suite" finished-at="2025-11-21T18:26:43 IST" duration-ms="10339">
     <groups>
     </groups>
-    <test started-at="2025-11-20T17:00:14 IST" name="Default test" finished-at="2025-11-20T17:00:21 IST" duration-ms="6720">
-      <class name="com.onsite.payroll_test_page.EditPayrollDeassociateProject">
-        <test-method signature="removePayrollProject(com.onsite.pojo_request.Edit_Project_Associate_Request)[pri:1, instance:com.onsite.payroll_test_page.EditPayrollDeassociateProject@5876a9af]" started-at="2025-11-20T17:00:15 IST" name="removePayrollProject" data-provider="removeProject" finished-at="2025-11-20T17:00:21 IST" duration-ms="6325" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.Edit_Project_Associate_Request@2049a9c1]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2025-11-21T18:26:33 IST" name="Default test" finished-at="2025-11-21T18:26:43 IST" duration-ms="10339">
+      <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll">
+        <test-method signature="payrollList()[pri:1, instance:com.onsite.payroll_test_page.ListCompanyUserforPayroll@5ffead27]" started-at="2025-11-21T18:26:33 IST" name="payrollList" finished-at="2025-11-21T18:26:43 IST" duration-ms="10251" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- removePayrollProject -->
-      </class> <!-- com.onsite.payroll_test_page.EditPayrollDeassociateProject -->
+        </test-method> <!-- payrollList -->
+      </class> <!-- com.onsite.payroll_test_page.ListCompanyUserforPayroll -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
