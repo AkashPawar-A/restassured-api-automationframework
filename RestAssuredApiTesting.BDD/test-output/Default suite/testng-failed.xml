@@ -5,7 +5,7 @@
     <classes>
       <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll">
         <methods>
-          <include name="payrollList"/>
+          <include name="labourPayrollList"/>
         </methods>
       </class> <!-- com.onsite.payroll_test_page.ListCompanyUserforPayroll -->
     </classes>
