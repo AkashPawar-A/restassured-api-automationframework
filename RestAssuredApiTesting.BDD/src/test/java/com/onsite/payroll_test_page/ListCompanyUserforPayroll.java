@@ -186,10 +186,9 @@ public class ListCompanyUserforPayroll {
 				Assert.fail("response time is too long : " + responseTime);
 			}
 
-			//List<Map<String, Object>> staffList = new ArrayList<>();
 			List<Map<String, Object>> staffList = payrollResponse.jsonPath().getList("data");
-			if(staffList != null || staffList.isEmpty()) {
-				System.out.println("staffList is empty id response ");
+			if(staffList == null || staffList.isEmpty()) {
+				System.out.println("staff List is empty or null in response ");
 				break;
 			}
 
