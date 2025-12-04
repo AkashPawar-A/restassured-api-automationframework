@@ -67,11 +67,34 @@ public class Add_Payroll_Test {
 
 		System.out.println("Response Body: " + addPayrollResponse.getBody().asString());
 
-		String message = addPayrollResponse.jsonPath().getString("message");
-		if(message != null) {
-			System.out.println("Response message : " + message);
+		String responseMessage = addPayrollResponse.jsonPath().getString("message");
+		int responseStatusCode = addPayrollResponse.getStatusCode();
+		
+		if(responseStatusCode==200) {
+			System.out.println("success status code in response :" + responseStatusCode + ": success response message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Invalid data".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Can not fine my company".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Payroll type is not valid".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Not Permitted".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "workforce not found".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "currentcompanyuser err Msg".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "punch setting not found".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Payroll already exist".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "already payroll update error Msg".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else {
+			Assert.fail("failure status code in response :" + responseStatusCode 
+					+ ": failure message in response :" + responseMessage);
 		}
-
+		
 		System.out.println("Status code : " + addPayrollResponse.getStatusCode());
 		Assert.assertEquals(addPayrollResponse.getStatusCode(), 200, 
 				"Expected status code not found. Actual: " + addPayrollResponse.getStatusCode());
@@ -165,15 +188,14 @@ public class Add_Payroll_Test {
 		int responseStatusCode = DetailPayrollResponse.getStatusCode();
 		String responseMessage = DetailPayrollResponse.jsonPath().getString("message");
 		
-		if(responseStatusCode == 200) {
-			System.out.println("success status code is 200");	
-			System.out.println("response Message: " + responseMessage);
-		} else {
-			System.out.println("failure status code is " + responseStatusCode);		
-			System.out.println("failure message :" + responseMessage);
-			
-			Assert.fail("API failed with status code: " + responseStatusCode + 
-	                " and message: " + responseMessage);
+		if(responseStatusCode==200) {
+			System.out.println("success status code in response :" + responseStatusCode + ": success response message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Invalid payroll id".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else if(responseStatusCode==400 && "Not Permitted".equalsIgnoreCase(responseMessage)) {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
+		}else {
+			Assert.fail("failure status code in response :" + responseStatusCode + ": failure message in response :" + responseMessage);
 		}
 
 		long responseTime = DetailPayrollResponse.getTime();

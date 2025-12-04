@@ -1,17 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-04T16:20:33 IST" name="Default suite" finished-at="2025-12-04T16:21:19 IST" duration-ms="45912">
+  <suite started-at="2025-12-04T17:05:37 IST" name="Default suite" finished-at="2025-12-04T17:05:46 IST" duration-ms="9610">
     <groups>
     </groups>
-    <test started-at="2025-12-04T16:20:33 IST" name="Default test" finished-at="2025-12-04T16:21:19 IST" duration-ms="45912">
-      <class name="com.onsite.payroll_test_page.ListPayrollExcludeProject">
-        <test-method signature="listPayrollExcludeProject()[pri:1, instance:com.onsite.payroll_test_page.ListPayrollExcludeProject@5ffead27]" started-at="2025-12-04T16:20:34 IST" name="listPayrollExcludeProject" finished-at="2025-12-04T16:21:19 IST" duration-ms="45833" status="PASS">
+    <test started-at="2025-12-04T17:05:37 IST" name="Default test" finished-at="2025-12-04T17:05:46 IST" duration-ms="9610">
+      <class name="com.onsite.payroll_test_page.Add_Payroll_Test">
+        <test-method signature="createPayroll(com.onsite.pojo_request.Add_Payroll_Request)[pri:1, instance:com.onsite.payroll_test_page.Add_Payroll_Test@12468a38]" started-at="2025-12-04T17:05:37 IST" name="createPayroll" data-provider="payrollData" finished-at="2025-12-04T17:05:46 IST" duration-ms="8795" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.onsite.pojo_request.Add_Payroll_Request@11f0a5a1]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[failure status code in response :400: failure message in response :Payroll already exist]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: failure status code in response :400: failure message in response :Payroll already exist
+at org.testng.Assert.fail(Assert.java:99)
+at com.onsite.payroll_test_page.Add_Payroll_Test.createPayroll(Add_Payroll_Test.java:90)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- listPayrollExcludeProject -->
-      </class> <!-- com.onsite.payroll_test_page.ListPayrollExcludeProject -->
+        </test-method> <!-- createPayroll -->
+        <test-method signature="detailPayroll()[pri:2, instance:com.onsite.payroll_test_page.Add_Payroll_Test@12468a38]" started-at="2025-12-04T17:05:46 IST" name="detailPayroll" finished-at="2025-12-04T17:05:46 IST" depends-on-methods="com.onsite.payroll_test_page.Add_Payroll_Test.createPayroll" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Add_Payroll_Test.detailPayroll()[pri:2, instance:com.onsite.payroll_test_page.Add_Payroll_Test@12468a38] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Add_Payroll_Test.detailPayroll()[pri:2, instance:com.onsite.payroll_test_page.Add_Payroll_Test@12468a38] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- detailPayroll -->
+      </class> <!-- com.onsite.payroll_test_page.Add_Payroll_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
