@@ -111,6 +111,62 @@ public class ListPayrollExcludeProject {
 				Integer hiddenFlag = (Integer) item.get("hidden");
 				List<String> projectIds =(List<String>) item.get("project_ids");
 				List<String> trackProjectIds = (List<String>) item.get("track_project_ids");
+				
+				if(id != null && !id.isEmpty()) {
+					System.out.println("payroll id :" + id);
+				}else {
+					Assert.fail("payrolll id os null or empty :" + id);
+				}
+				if(created_id != null && !created_id.isEmpty()) {
+					System.out.println("payroll created id :" + created_id);
+				}else {
+					Assert.fail("payroll creaed id is empty or null :" + created_id);
+				}
+				if(creatorCompanyUserId != null && !creatorCompanyUserId.isEmpty()) {
+					System.out.println("creator company user id :" + creatorCompanyUserId);
+				}else {
+					Assert.fail("creator company uer is null or empty :" + creatorCompanyUserId);
+				}
+				if(company_id != null && !company_id.isEmpty()) {
+					System.out.println("company id :" + company_id);
+				}else {
+					Assert.fail("company id is null or empty :" + company_id);
+				}
+				if(salaryBreakupId != null && !salaryBreakupId.isEmpty()) {
+					System.out.println("salary breakup id :" + salaryBreakupId);
+				}else {
+					Assert.fail("salary breakup id is null or empty :" + salaryBreakupId);
+				}
+				if(partyCompanyUserId != null && !partyCompanyUserId.isEmpty()) {
+					System.out.println("party company user id :" + partyCompanyUserId);
+				}else {
+					Assert.fail("party compnay user id id null or empty :" + partyCompanyUserId);
+				}
+				if(type != null && type.equalsIgnoreCase("labour")) {
+					System.out.println("payroll type is :" + type);
+				}else {
+					Assert.fail("payroll type is missmatch :" + type);
+				}
+				if(punchEffect != null) {
+					System.out.println("punch effect flag :" + punchEffect);
+				}else {
+					Assert.fail("punch effect flag is null or empty :" + punchEffect);
+				}
+				if(deleteFlag == 0) {
+					System.out.println("Payroll delete flag is :" + deleteFlag);
+				}else {
+					Assert.fail("payroll delete flag is :" + deleteFlag);
+				}
+				if(hiddenFlag == 0) {
+					System.out.println("payroll hidden flag is :" + hiddenFlag);
+				}else {
+					Assert.fail("payroll hidden flag is :" + hiddenFlag);
+				}
+				if(projectIds != null && !projectIds.isEmpty()) {
+					System.out.println("project ids list is :" + projectIds);
+				}else {
+					Assert.fail("project ids list is empty or null :" + projectIds);
+				}
 	
 			}
 			String nextUrl = payrollResponse.jsonPath().getString("page.next_url");

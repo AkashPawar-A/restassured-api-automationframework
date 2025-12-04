@@ -16,7 +16,6 @@ public class Payroll_Api {
 	public static final String EDIT_PAYROLL_ASSOCIATE_PROJECT = "/edit/payroll/associate-project";
 	public static final String EDIT_PAYROLL_DEASSOCIATE_PROJECT = "/edit/payroll/dissociate-project";
 	public static final String LIST_COMPANYUSER_FOR_PAYROLL = "/list/companyuser/for-payroll";
-	
 	public static final String LIST_PAYROLL_EXCLUDE_PROJECT = "/list/payroll/exclude-project";
 	
 	public static final String LIST_COMPANYUSER_FOR_EXIST_PAYROLL = "/list/companyuser/for-exist-payroll/{company_id}";
