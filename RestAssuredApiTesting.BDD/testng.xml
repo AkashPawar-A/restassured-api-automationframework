@@ -50,6 +50,9 @@
    <test thread-count="5" name="Payroll">
 	   <classes>
 		   <class name="com.onsite.payroll_test_page.List_Payroll_Test"/>
+		   <class name="com.onsite.payroll_test_page.Payroll_Count_Test"/>
+		   <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll"/>
+		   <class name="com.onsite.payroll_test_page.Is_Payroll_Exist_Test"/>
 	   </classes>
    </test>
   

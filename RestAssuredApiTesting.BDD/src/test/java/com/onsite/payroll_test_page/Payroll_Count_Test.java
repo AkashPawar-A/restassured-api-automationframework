@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.AuthUtils;
+import com.onsite.utilities_page.CompanyContext;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -13,7 +14,8 @@ import static io.restassured.RestAssured.*;
 
 public class Payroll_Count_Test {
 	
-	String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
+	String token = AuthUtils.getToken();
+	String companyId = CompanyContext.getCompanyId();
 	int count = 0;
 	int num = 0;
 	
@@ -23,7 +25,7 @@ public class Payroll_Count_Test {
 		Response response_ActiveCount = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", "Bearer " + token)
 				.contentType(ContentType.JSON)
 				.queryParam("company_id", companyId)
 				.queryParam("hidden", 0)
@@ -72,7 +74,7 @@ public class Payroll_Count_Test {
 		Response response_InactiveCount = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", "Bearer " + token)
 				.contentType(ContentType.JSON)
 				.queryParam("company_id", companyId)
 				.queryParam("hidden", 1)
@@ -120,7 +122,7 @@ public class Payroll_Count_Test {
 		Response response_count = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", "Bearer " + token)
 				.contentType(ContentType.JSON)
 				.queryParam("company_id", companyId)
 				.queryParam("hidden", 0)
@@ -172,7 +174,7 @@ public class Payroll_Count_Test {
 		Response response_count = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", "Bearer " + token)
 				.contentType(ContentType.JSON)
 				.queryParam("company_id", companyId)
 				.queryParam("hidden", 1)

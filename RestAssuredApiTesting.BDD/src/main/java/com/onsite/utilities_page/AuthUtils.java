@@ -3,6 +3,7 @@ package com.onsite.utilities_page;
 import org.json.JSONObject;
 
 import com.onsite.endpoints.ApiBasePath;
+import com.onsite.endpoints.LoginUser;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -25,7 +26,7 @@ public class AuthUtils {
             .given()
             .contentType(ContentType.JSON)
             .body(firstRequest.toString())
-            .post(ApiBasePath.BASE_URL + "/detail/anon/mobile");
+            .post(ApiBasePath.BASE_URL + LoginUser.UserNumber);
 
         System.out.println("First API Status: " + firstResponse.getStatusCode());
         System.out.println("First API Response: " + firstResponse.asString());
@@ -46,7 +47,9 @@ public class AuthUtils {
             .given()
             .contentType(ContentType.JSON)
             .body(secondRequest.toString())
-            .post(ApiBasePath.BASE_URL + "/login/password/mobile");
+            .post(ApiBasePath.BASE_URL + LoginUser.passowrd);
+        
+        //System.out.println("RAW JSON OBJ: " + secondResponse.getBody().asPrettyString());
 
         System.out.println("Second API Status: " + secondResponse.getStatusCode());
         System.out.println("Second API Response: " + secondResponse.asString());
@@ -55,10 +58,24 @@ public class AuthUtils {
             throw new RuntimeException("Second API failed: " + secondResponse.getStatusLine());
         }
 
+        //Extract token
         String token = secondResponse.jsonPath().getString("token");
         System.out.println("Extracted token: " + token);
-
+ 
+        // Extract company id
+        String companyId = secondResponse.jsonPath().getString("user.monkey_patch_company_user[0].company_id");
+        System.out.println("Extracted Company ID: " + companyId);
+        
+        if (companyId == null || companyId.isEmpty()) {
+            System.out.println("DEBUG: 'user' node from response -> " + secondResponse.jsonPath().getString("user"));
+            throw new RuntimeException("Failed to extract companyId from login response. Check response structure.");
+        }
+        
+        // Store company id globally
+        CompanyContext.setCompanyId(companyId);
+        
         return token;
+  
     }
 }
 

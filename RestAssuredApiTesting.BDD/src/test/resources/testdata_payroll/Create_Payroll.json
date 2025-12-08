@@ -1,7 +1,7 @@
 {
-    "party_company_user_id": "d684550f-7728-4f06-ac4a-9a434ac51aa8",
-    "type": "labour",
-    "project_ids": [],
-    "punch_effect": 0,
-    "workforce_id": "a27f383c-64d9-49f4-a87d-ba496bcf6646"
+  "party_company_user_id" : [ "76f6dacf-4486-4d75-b956-1f37240ecfb5", "d00f62ae-8c10-4524-ae4b-85bd055803b8", "d7702eed-7ee9-4029-b9cf-81b2e51ea7d5", "c1358d8f-3156-48c2-bac1-201b6cd8accd" ],
+  "type" : "labour",
+  "project_ids" : [ ],
+  "punch_effect" : 0,
+  "workforce_id" : "a27f383c-64d9-49f4-a87d-ba496bcf6646"
 }

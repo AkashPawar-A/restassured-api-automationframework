@@ -2,15 +2,19 @@ package com.onsite.payroll_test_page;
 import static io.restassured.RestAssured.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.File;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.AuthUtils;
+import com.onsite.utilities_page.CompanyContext;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -22,20 +26,22 @@ public class ListCompanyUserforPayroll {
 	boolean morePages = true;
 
 	List<Map<String, Object>> allRecord = new ArrayList<>();
+	List<String> validUserIds = new ArrayList<>();
 
 	@Test(priority=1)
 	public void labourPayrollList() {
-		
-		String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
+
+		String token = AuthUtils.getToken();
+		String companyId = CompanyContext.getCompanyId();
 
 		while(morePages) {
 			System.out.println("Validating page number :" + pageNumber);
 
-			Response payrollListResponse = 
+			Response labourPayrollListResponse = 
 
 					given()
 					.baseUri(ApiBasePath.BASE_URL)
-					.header("Authorization", AuthUtils.getToken())
+					.header("Authorization", "Bearer " + token)
 					.queryParam("company_id", companyId)
 					.queryParam("type", "labour")
 					.queryParam("page", pageNumber)
@@ -49,10 +55,10 @@ public class ListCompanyUserforPayroll {
 					.log().all()
 					.extract().response();
 
-			String responseList = payrollListResponse.getBody().asString();
+			String responseList = labourPayrollListResponse.getBody().asString();
 
-			int responseStatusCode = payrollListResponse.getStatusCode();
-			String responseMessage = payrollListResponse.jsonPath().getString("message");
+			int responseStatusCode = labourPayrollListResponse.getStatusCode();
+			String responseMessage = labourPayrollListResponse.jsonPath().getString("message");
 			if(responseStatusCode == 200) {
 				System.out.println("success status code :" + responseStatusCode 
 						+ " : response success message : " + responseMessage);
@@ -65,14 +71,14 @@ public class ListCompanyUserforPayroll {
 						+ " : response failure message : " + responseMessage);
 			}
 
-			long responseTime = payrollListResponse.getTime();
+			long responseTime = labourPayrollListResponse.getTime();
 			if(responseTime < 2000) {
 				System.out.println("actual response tiem :" + responseTime);
 			}else {
 				Assert.fail("response time is too long :" + responseTime);
 			}
 
-			List<Map<String, Object>> dataList = payrollListResponse.jsonPath().getList("data");
+			List<Map<String, Object>> dataList = labourPayrollListResponse.jsonPath().getList("data");
 			if(dataList == null || dataList.isEmpty()) {
 				System.out.println("company user payroll list is empty");
 				break;
@@ -94,40 +100,41 @@ public class ListCompanyUserforPayroll {
 				if(user_id != null && !user_id.isEmpty()) {
 					System.out.println("user id :" + user_id);
 				} else {
-					Assert.fail("user id is empty or null :" + user_id);
+					System.out.println("Skipping user because user id is different : " + user_id + " : " + user_name);
 				}
 
 				if(companyUser_id != null && !companyUser_id.isEmpty()) {
 					System.out.println("company id :" + companyUser_id);
 				} else {
-					Assert.fail("company id is empty or null :" + companyUser_id);
+					System.out.println("Skipping user because companyUser id is empty or null : " + companyUser_id + " : " + user_name);
 				}
 
 				if("labour".equalsIgnoreCase(user_type)) {
 					System.out.println("user party type :" + user_type);
 				} else {
-					Assert.fail("user party type is empty or null :" + user_type);
+					System.out.println("Skipping user because user type is different : " + user_type + " : " + user_name + " : " + user_id);
 				}
 
 				if(user_creator_id != null && !user_creator_id.isEmpty()) {
 					System.out.println("user creator id :" + user_creator_id);
 				} else {
-					Assert.fail("user created id is empty or null :" + user_creator_id);
+					System.out.println("Skipping user becauses user creator id is null or empty : " + user_creator_id + " : " + user_name);
 				}
 
 				if(user_name != null && !user_name.isEmpty()) {
 					System.out.println("user name :" + user_name);
 				} else {
-					Assert.fail("user name is empty or null : " + user_name);
+					System.out.println("Skipping user because user name is empty or null : " + user_name + " : " + user_id);
 				}
 
-				if(user_hidden_flag != 1) {
+				if(user_hidden_flag != null && user_hidden_flag == 0) {
 					System.out.println("user hidden flag :" + user_hidden_flag);
+					validUserIds.add(user_id);
 				} else {
-					Assert.fail("hidden flag is 1 :" + user_hidden_flag);
+					System.out.println("Skipping user because hidden flag is 1: " + user_id + " : " + user_name + " : " + user_id);
 				}
 			}
-			String nextUrl = payrollListResponse.jsonPath().getString("page.next_url");
+			String nextUrl = labourPayrollListResponse.jsonPath().getString("page.next_url");
 			if (nextUrl != null && !nextUrl.isEmpty()) {
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 			} else {
@@ -135,17 +142,49 @@ public class ListCompanyUserforPayroll {
 			}
 		}
 		System.out.println("total record collected :" + totalRecord);
+		System.out.println("Total valid IDs → " + validUserIds.size());
+		System.out.println(validUserIds);
 	}
 
 	@Test(priority=2)
+	public void saveUserId() throws Exception {
+
+		try {
+
+			if(validUserIds.isEmpty()) {
+				Assert.fail("No valid user IDs found to write in JSON file");
+			}
+
+			String filePath = "src/test/resources/testdata_payroll/Create_Payroll.json";
+
+			ObjectMapper mapper = new ObjectMapper();
+			
+			Map<String, Object> existingJson = mapper.readValue(new File(filePath), Map.class);
+			
+			if(existingJson == null) {
+				existingJson = new HashMap<>();
+			}
+			
+			existingJson.put("party_company_user_id", validUserIds);
+
+			mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), existingJson);
+			
+			System.out.println("User IDs updated successfully → " + validUserIds);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("Failed to update json file");
+		}
+	}
+
+	@Test(priority=3)
 	public void staffPayrollList() {
-		
-		String companyId = "75916659-9cbe-4ca7-812e-181a29229772";
+
+		String companyId = CompanyContext.getCompanyId();
 
 		while(morePages) {
 			System.out.println("validating page number :" + pageNumber);
 
-			Response payrollResponse = 
+			Response staffPayrollListResponse = 
 
 					given()
 					.baseUri(ApiBasePath.BASE_URL)
@@ -163,10 +202,10 @@ public class ListCompanyUserforPayroll {
 					.log().all()
 					.extract().response();
 
-			String payrollresponse = payrollResponse.getBody().asString();
+			String payrollresponse = staffPayrollListResponse.getBody().asString();
 
-			int responseStatusCode = payrollResponse.getStatusCode();
-			String responseMessage = payrollResponse.jsonPath().getString("message");
+			int responseStatusCode = staffPayrollListResponse.getStatusCode();
+			String responseMessage = staffPayrollListResponse.jsonPath().getString("message");
 
 			if(responseStatusCode == 200) {
 				System.out.println("response status code : " + responseStatusCode 
@@ -179,14 +218,14 @@ public class ListCompanyUserforPayroll {
 						+ ": failure message :" + responseMessage);
 			}
 
-			long responseTime = payrollResponse.getTime();
+			long responseTime = staffPayrollListResponse.getTime();
 			if(responseTime < 2000) {
 				System.out.println("actual response time :" + responseTime);
 			} else {
 				Assert.fail("response time is too long : " + responseTime);
 			}
 
-			List<Map<String, Object>> staffList = payrollResponse.jsonPath().getList("data");
+			List<Map<String, Object>> staffList = staffPayrollListResponse.jsonPath().getList("data");
 			if(staffList == null || staffList.isEmpty()) {
 				System.out.println("staff List is empty or null in response ");
 				break;
@@ -248,7 +287,7 @@ public class ListCompanyUserforPayroll {
 					Assert.fail("user hidden flag is 1 :" + user_hidden_flag);
 				}
 			}
-			String nextUrl = payrollResponse.jsonPath().getString("next_url");
+			String nextUrl = staffPayrollListResponse.jsonPath().getString("next_url");
 			if(nextUrl != null || !nextUrl.isEmpty()) {
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 			} else {

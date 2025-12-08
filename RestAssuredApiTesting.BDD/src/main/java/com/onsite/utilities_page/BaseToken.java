@@ -10,11 +10,15 @@ public class BaseToken extends Base_Page{
 
 	@BeforeSuite
 	public void generateTokenForSuite() {
+		
 		token = AuthUtils.getToken();
 		if (token == null) {
 			throw new RuntimeException("Token generation failed");
 		}
 		System.out.println("Generated Token (BeforeSuite): " + token);
+		
+		
 	}
+	
 }
 

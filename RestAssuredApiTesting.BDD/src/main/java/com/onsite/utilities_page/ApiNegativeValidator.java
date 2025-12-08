@@ -11,7 +11,6 @@ public class ApiNegativeValidator {
 		int actualStatus = resp.getStatusCode();
 		String actualMsg  = "";
 
-		// कुछ APIs खाली string भी भेज देती हैं, इसलिए try–catch
 		try {
 			actualMsg = resp.jsonPath().getString("message");
 		} catch (Exception e) {
@@ -21,13 +20,11 @@ public class ApiNegativeValidator {
 		System.out.println("Status  : " + actualStatus);
 		System.out.println("Message : " + actualMsg);
 
-		/* ---------- IF-ELSE LOGIC ---------- */
 		if (actualStatus == expectedStatus &&
 				actualMsg   != null &&
 				actualMsg.contains(expectedMsgSubString)) {
 
 			System.out.println("Negative case passed");
-			// Optionally: soft‑assert only log pass
 			Assert.assertTrue(true);
 
 		} else {
@@ -35,7 +32,6 @@ public class ApiNegativeValidator {
 			System.out.println("Expected status : " + expectedStatus);
 			System.out.println("Expected msg    : " + expectedMsgSubString);
 
-			// Hard assert – test will fail in TestNG report
 			Assert.fail("Status/message mismatch");
 		}
 	}
