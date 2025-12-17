@@ -64,10 +64,10 @@ public class AuthUtils {
  
         // Extract company id
         String companyId = secondResponse.jsonPath().getString("user.monkey_patch_company_user[0].company_id");
-        System.out.println("Extracted Company ID: " + companyId);
+        System.out.println("COMPANY ID FROM LOGIN RESPONSE: " + companyId);
         
         if (companyId == null || companyId.isEmpty()) {
-            System.out.println("DEBUG: 'user' node from response -> " + secondResponse.jsonPath().getString("user"));
+        	System.out.println("COMPANY ID FROM LOGIN RESPONSE: " + companyId);
             throw new RuntimeException("Failed to extract companyId from login response. Check response structure.");
         }
         

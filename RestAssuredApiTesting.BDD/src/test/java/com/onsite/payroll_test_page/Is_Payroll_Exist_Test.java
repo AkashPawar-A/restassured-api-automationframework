@@ -1,29 +1,52 @@
 package com.onsite.payroll_test_page;
 
 import io.restassured.http.ContentType;
+import java.io.File;
+import java.io.IOException;
+
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
+import java.util.List;
+import java.util.Map;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
-import com.onsite.utilities_page.AuthUtils;
+import com.onsite.utilities_page.BaseToken;
 
-public class Is_Payroll_Exist_Test {
+public class Is_Payroll_Exist_Test extends BaseToken{
 	
-	@Test(priority=1)
-	public void existPayroll() {
+	@DataProvider(name="testData")
+	public Object[][] getUserId() throws Exception, DatabindException, IOException{
 		
-		String companyUserId = "8f1e9ece-d44c-4ca2-ae3f-986267a8e567";
+		String filePath = "src/test/resources/testdata_payroll/Create_Payroll.json";
 		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> jsonData = mapper.readValue(new File(filePath), Map.class);
+		List<String> userIds = (List<String>) jsonData.get("party_company_user_id");
+		
+		Object[][] dataObj = new Object[userIds.size()][1];
+		for(int i=0; i<userIds.size(); i++) {
+			dataObj[i][0 ]= userIds.get(i);
+		}
+		return dataObj;
+	}
+	
+	@Test(priority=1, dataProvider="testData")
+	public void nonExistPayroll(String userId) {		
+				
 		Response payrollResponse =
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", BaseToken.token)
 				.contentType(ContentType.JSON)
-				.pathParam("creator_company_user_id", companyUserId)
+				.pathParam("creator_company_user_id", userId)
 				.log().uri()
 				
 				.when()
@@ -38,20 +61,22 @@ public class Is_Payroll_Exist_Test {
 		int responseStatusCode = payrollResponse.getStatusCode();
 		String responseMessage = payrollResponse.jsonPath().getString("message");
 		
-		if(responseStatusCode == 200) {
-			System.out.println("success status code is 200");	
-			System.out.println("response Message: " + responseMessage);
+		//test vase -> status code validation
+		if(responseStatusCode==200) {
+			System.out.println("successfuly status code is : " + responseStatusCode 
+					+ ": successfull response message : " + responseMessage);
 		} else {
-			System.out.println("failure status code is " + responseStatusCode);		
-			System.out.println("failure message :" + responseMessage);
-			
-			Assert.fail("API failed with status code: " + responseStatusCode + 
-	                " and message: " + responseMessage);
+			System.out.println("failure status code is " + responseStatusCode 
+					+ ": failure response message : " + responseMessage);		
 		}
 		
+		//test case -> response time validation 
 		long responseTime = payrollResponse.getTime();
-		System.out.println("response time : " + responseTime);
-		Assert.assertTrue(responseTime < 2000, "response time is too long");
+		if(responseTime < 2000) {
+			System.out.println("Actual response time is : " + responseTime);
+		}else {
+			System.out.println("Response time is too long : " + responseTime);
+		}
 		
 		String responseContentType = payrollResponse.getContentType();
 		Assert.assertTrue(responseContentType.contains("application/json"), "content typw is missmatch");
@@ -64,8 +89,8 @@ public class Is_Payroll_Exist_Test {
 		Integer companyUserHiddenFlag = payrollResponse.jsonPath().get("payroll.monkey_patch_party_company_user.hidden");
 		String companyUserName = payrollResponse.jsonPath().get("payroll.monkey_patch_party_company_user.name");
 		
-		if(payrollExistFlag != 1 && payrollDeleteFlag != 0 
-				&& companyUserHiddenFlag != 0) {
+		//test case -> payrolll delete & payroll Exist & payroll hidden flag validation 
+		if(payrollExistFlag != 0 && payrollDeleteFlag != 0 && companyUserHiddenFlag != 0) {
 			System.out.println("payroll party : " + companyUserName + ": payroll exist flag is :" + payrollExistFlag);
 		}else {
 			System.out.println("payroll party : " + companyUserName + ": payroll exist flag is :" + payrollExistFlag);

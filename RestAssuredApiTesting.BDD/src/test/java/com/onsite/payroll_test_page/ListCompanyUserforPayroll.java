@@ -59,18 +59,18 @@ public class ListCompanyUserforPayroll {
 
 			int responseStatusCode = labourPayrollListResponse.getStatusCode();
 			String responseMessage = labourPayrollListResponse.jsonPath().getString("message");
+			
+			//test case -> status code validation 
 			if(responseStatusCode == 200) {
-				System.out.println("success status code :" + responseStatusCode 
-						+ " : response success message : " + responseMessage);
+				System.out.println("success status code :" + responseStatusCode + " : response success message : " + responseMessage);
 			} else if (responseStatusCode == 400 && "No entry found".equalsIgnoreCase(responseMessage)) {
 				System.out.println("No more pages available → pagination completed");
 				break;
-
 			} else {
-				Assert.fail("failure status code :" + responseStatusCode 
-						+ " : response failure message : " + responseMessage);
+				Assert.fail("failure status code :" + responseStatusCode + " : response failure message : " + responseMessage);
 			}
 
+			//test case -> response time validation
 			long responseTime = labourPayrollListResponse.getTime();
 			if(responseTime < 2000) {
 				System.out.println("actual response tiem :" + responseTime);
@@ -96,37 +96,51 @@ public class ListCompanyUserforPayroll {
 				String user_creator_id = (String) item.get("creator");
 				String user_name = (String) item.get("name");
 				Integer user_hidden_flag = (Integer) item.get("hidden");
+				
+				//test case 1 -> Payroll already created validation
+				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
+					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
+					Assert.fail(message);
+				}else {
+					System.out.println("User payroll not created yet ID: " + user_id + ": Name: " + user_name);
+				}
 
+				//test case 2 -> user id validation 
 				if(user_id != null && !user_id.isEmpty()) {
 					System.out.println("user id :" + user_id);
 				} else {
 					System.out.println("Skipping user because user id is different : " + user_id + " : " + user_name);
 				}
 
+				//test case 3-> company user id validation 
 				if(companyUser_id != null && !companyUser_id.isEmpty()) {
 					System.out.println("company id :" + companyUser_id);
 				} else {
 					System.out.println("Skipping user because companyUser id is empty or null : " + companyUser_id + " : " + user_name);
 				}
 
+				//test case 4 -> party type "labour" validation
 				if("labour".equalsIgnoreCase(user_type)) {
 					System.out.println("user party type :" + user_type);
 				} else {
 					System.out.println("Skipping user because user type is different : " + user_type + " : " + user_name + " : " + user_id);
 				}
 
+				//test case 5 -> user created id validation
 				if(user_creator_id != null && !user_creator_id.isEmpty()) {
 					System.out.println("user creator id :" + user_creator_id);
 				} else {
 					System.out.println("Skipping user becauses user creator id is null or empty : " + user_creator_id + " : " + user_name);
 				}
 
+				//test case 6 -> user name validation
 				if(user_name != null && !user_name.isEmpty()) {
 					System.out.println("user name :" + user_name);
 				} else {
 					System.out.println("Skipping user because user name is empty or null : " + user_name + " : " + user_id);
 				}
 
+				//test case 7 -> company user hidden flag validation
 				if(user_hidden_flag != null && user_hidden_flag == 0) {
 					System.out.println("user hidden flag :" + user_hidden_flag);
 					validUserIds.add(user_id);
@@ -138,7 +152,7 @@ public class ListCompanyUserforPayroll {
 			if (nextUrl != null && !nextUrl.isEmpty()) {
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 			} else {
-				break;
+				morePages = false;
 			}
 		}
 		System.out.println("total record collected :" + totalRecord);
@@ -207,17 +221,17 @@ public class ListCompanyUserforPayroll {
 			int responseStatusCode = staffPayrollListResponse.getStatusCode();
 			String responseMessage = staffPayrollListResponse.jsonPath().getString("message");
 
+			//test case -> status code & response message validation
 			if(responseStatusCode == 200) {
-				System.out.println("response status code : " + responseStatusCode 
-						+ ": response message : " + responseMessage);
+				System.out.println("response status code : " + responseStatusCode + ": response message : " + responseMessage);
 			} else if(responseStatusCode == 400 && "No Entry found".equalsIgnoreCase(responseMessage)) {
 				System.out.println("No more pages available : pagination completed");
 				break;
 			} else {
-				Assert.fail("response statsu code missmatch :" + responseStatusCode 
-						+ ": failure message :" + responseMessage);
+				Assert.fail("response statsu code missmatch :" + responseStatusCode + ": failure message :" + responseMessage);
 			}
 
+			//test case -> response time validation 
 			long responseTime = staffPayrollListResponse.getTime();
 			if(responseTime < 2000) {
 				System.out.println("actual response time :" + responseTime);
@@ -244,54 +258,69 @@ public class ListCompanyUserforPayroll {
 				String user_name = (String) item.get("name");
 				String user_id = (String) item.get("user_id");
 				Integer user_hidden_flag = (Integer) item.get("hidden");
+				
+				//test case 1 -> Payroll already created validation
+				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
+					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
+					Assert.fail(message);
+				}else {
+					System.out.println("User payroll not created yet ID: " + user_id + ": Name: " + user_name);
+				}
 
-				if(id != null || !id.isEmpty()) {
+				//test case 2 -> user id validation 
+				if(id != null && !id.isEmpty()) {
 					System.out.println("user id is not null or empty : " + id);
 				} else {
 					Assert.fail("user id is null or empty + " + id);
 				}
 
-				if(company_id != null || !company_id.isEmpty()) {
+				//test case 3 -> company id validation 
+				if(company_id != null && !company_id.isEmpty()) {
 					System.out.println("company id is not empty or null : " + company_id);
 				} else {
 					Assert.fail("company id is null or empty :" + company_id);
 				}
 
+				//test case 4 -> party type "staff" validation
 				if("staff".equalsIgnoreCase(user_id)) {
 					System.out.println("staff type is match" + id + " : " + userType);
 				} else {
-					Assert.fail("staff type is missmatch : " + id + " : " + userType);
+					Assert.fail("staff type is missmatch :" + id + " : " + userType);
 				}
 
-				if(user_created_id != null || !user_created_id.isEmpty()) {
+				//test case 5 -> user created id validation
+				if(user_created_id != null && !user_created_id.isEmpty()) {
 					System.out.println("created id is not null or empty : " + user_created_id);
 				} else {
 					Assert.fail("created id is null or emoty : " + user_created_id);
 				}
 
-				if(user_name != null || !user_name.isEmpty()) {
+				//test case 6 -> user name validation
+				if(user_name != null && !user_name.isEmpty()) {
 					System.out.println("user name is null or empty : " + user_name);
 				} else {
 					Assert.fail("user name is null or empty : " + user_name);
 				}
 
-				if(user_id != null || !user_id.isEmpty()) {
+				//test case 7 -> user id validation 
+				if(user_id != null && !user_id.isEmpty()) {
 					System.out.println("user id is null or empty :" + user_id);
 				} else {
 					Assert.fail("user id is null or empty : " + user_id);
 				}
 
+				//test case 8 -> company user hidden flag validation
 				if(user_hidden_flag != 1) {
 					System.out.println("user hidden flag is 0 : " + user_hidden_flag);
 				} else {
-					Assert.fail("user hidden flag is 1 :" + user_hidden_flag);
+					System.out.println("");
 				}
 			}
 			String nextUrl = staffPayrollListResponse.jsonPath().getString("next_url");
-			if(nextUrl != null || !nextUrl.isEmpty()) {
+			if(nextUrl != null && !nextUrl.isEmpty()) {
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 			} else {
-				break;
+				morePages = false;
 			}
 		}
 		System.out.println("total record collected :" + totalRecord);

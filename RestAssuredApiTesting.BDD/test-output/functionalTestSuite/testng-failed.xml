@@ -6,12 +6,23 @@
   </listeners>
   <test thread-count="5" name="Payroll(failed)">
     <classes>
-      <class name="com.onsite.payroll_test_page.List_Payroll_Test">
+      <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll">
         <methods>
-          <include name="labour_listpayroll"/>
-          <include name="staff_listpayroll"/>
+          <include name="staffPayrollList"/>
         </methods>
-      </class> <!-- com.onsite.payroll_test_page.List_Payroll_Test -->
+      </class> <!-- com.onsite.payroll_test_page.ListCompanyUserforPayroll -->
+      <class name="com.onsite.payroll_test_page.Payroll_Count_Test">
+        <methods>
+          <include name="staff_InactiveCount"/>
+        </methods>
+      </class> <!-- com.onsite.payroll_test_page.Payroll_Count_Test -->
+      <class name="com.onsite.payroll_test_page.Is_Payroll_Exist_Test">
+        <methods>
+          <include name="generateTokenForSuite"/>
+          <include name="existPayroll"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.onsite.payroll_test_page.Is_Payroll_Exist_Test -->
     </classes>
   </test> <!-- Payroll(failed) -->
 </suite> <!-- Failed suite [functionalTestSuite] -->

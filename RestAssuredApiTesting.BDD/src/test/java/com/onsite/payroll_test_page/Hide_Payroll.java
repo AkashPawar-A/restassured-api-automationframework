@@ -11,7 +11,7 @@ import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.AuthUtils;
 
-public class Hide_Payroll_Test {
+public class Hide_Payroll {
 	
 	String partyId = "85685124-6dac-4091-8cb7-d43721bfb5fc";
 	
