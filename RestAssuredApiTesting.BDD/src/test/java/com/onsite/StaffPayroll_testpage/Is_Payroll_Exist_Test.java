@@ -1,4 +1,4 @@
-package com.onsite.payroll_test_page;
+package com.onsite.StaffPayroll_testpage;
 
 import io.restassured.http.ContentType;
 import java.io.File;
@@ -31,10 +31,9 @@ public class Is_Payroll_Exist_Test extends BaseToken{
 		Map<String, Object> jsonData = mapper.readValue(new File(filePath), Map.class);
 		List<String> userIds = (List<String>) jsonData.get("party_company_user_id");
 		
-		Object[][] dataObj = new Object[userIds.size()][1];
-		for(int i=0; i<userIds.size(); i++) {
-			dataObj[i][0 ]= userIds.get(i);
-		}
+		Object[][] dataObj = new Object[1][1];
+		dataObj[0][0] = userIds;
+		
 		return dataObj;
 	}
 	

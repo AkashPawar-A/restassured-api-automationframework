@@ -1,4 +1,4 @@
-package com.onsite.payroll_test_page;
+package com.onsite.StaffPayroll_testpage;
 import static io.restassured.RestAssured.*;
 
 import java.util.ArrayList;
@@ -24,13 +24,25 @@ public class ListCompanyUserforPayroll {
 	int pageNumber = 1;
 	int totalRecord = 0;
 	boolean morePages = true;
+	
+	private void resetPegination() {
+	    this.pageNumber = 1;
+	    this.totalRecord = 0;
+	    this.morePages = true;
+
+	    this.allRecord.clear();
+	    this.validLabourUserIds.clear();
+	    this.validStaffUserIds.clear();
+	}
 
 	List<Map<String, Object>> allRecord = new ArrayList<>();
-	List<String> validUserIds = new ArrayList<>();
+	List<String> validLabourUserIds = new ArrayList<>();
+	List<String> validStaffUserIds = new ArrayList<>();
 
 	@Test(priority=1)
 	public void labourPayrollList() {
 
+		resetPegination();
 		String token = AuthUtils.getToken();
 		String companyId = CompanyContext.getCompanyId();
 
@@ -59,7 +71,7 @@ public class ListCompanyUserforPayroll {
 
 			int responseStatusCode = labourPayrollListResponse.getStatusCode();
 			String responseMessage = labourPayrollListResponse.jsonPath().getString("message");
-			
+
 			//test case -> status code validation 
 			if(responseStatusCode == 200) {
 				System.out.println("success status code :" + responseStatusCode + " : response success message : " + responseMessage);
@@ -96,7 +108,7 @@ public class ListCompanyUserforPayroll {
 				String user_creator_id = (String) item.get("creator");
 				String user_name = (String) item.get("name");
 				Integer user_hidden_flag = (Integer) item.get("hidden");
-				
+
 				//test case 1 -> Payroll already created validation
 				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
 					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
@@ -143,7 +155,7 @@ public class ListCompanyUserforPayroll {
 				//test case 7 -> company user hidden flag validation
 				if(user_hidden_flag != null && user_hidden_flag == 0) {
 					System.out.println("user hidden flag :" + user_hidden_flag);
-					validUserIds.add(user_id);
+					validLabourUserIds.add(user_id);
 				} else {
 					System.out.println("Skipping user because hidden flag is 1: " + user_id + " : " + user_name + " : " + user_id);
 				}
@@ -156,34 +168,34 @@ public class ListCompanyUserforPayroll {
 			}
 		}
 		System.out.println("total record collected :" + totalRecord);
-		System.out.println("Total valid IDs → " + validUserIds.size());
-		System.out.println(validUserIds);
+		System.out.println("Total valid IDs → " + validLabourUserIds.size());
+		System.out.println(validLabourUserIds);
 	}
 
-	@Test(priority=2)
-	public void saveUserId() throws Exception {
+	@Test(priority=2, dependsOnMethods="labourPayrollList")
+	public void saveLabourUserId() throws Exception {
 
 		try {
 
-			if(validUserIds.isEmpty()) {
+			if(validLabourUserIds.isEmpty()) {
 				Assert.fail("No valid user IDs found to write in JSON file");
 			}
 
-			String filePath = "src/test/resources/testdata_payroll/Create_Payroll.json";
+			String filePath = "src/test/resources/testdata_payroll/Staff_Create_Payroll.json";
 
 			ObjectMapper mapper = new ObjectMapper();
-			
+
 			Map<String, Object> existingJson = mapper.readValue(new File(filePath), Map.class);
-			
+
 			if(existingJson == null) {
 				existingJson = new HashMap<>();
 			}
-			
-			existingJson.put("party_company_user_id", validUserIds);
+
+			existingJson.put("party_company_user_id", validLabourUserIds);
 
 			mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), existingJson);
-			
-			System.out.println("User IDs updated successfully → " + validUserIds);
+
+			System.out.println("User IDs updated successfully → " + validLabourUserIds);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("Failed to update json file");
@@ -193,6 +205,8 @@ public class ListCompanyUserforPayroll {
 	@Test(priority=3)
 	public void staffPayrollList() {
 
+		resetPegination();
+		String token = AuthUtils.getToken();
 		String companyId = CompanyContext.getCompanyId();
 
 		while(morePages) {
@@ -202,7 +216,7 @@ public class ListCompanyUserforPayroll {
 
 					given()
 					.baseUri(ApiBasePath.BASE_URL)
-					.header("Authorization", AuthUtils.getToken())
+					.header("Authorization", "Bearer " + token)
 					.contentType(ContentType.JSON)
 					.queryParam("company_id", companyId)
 					.queryParam("type", "staff")
@@ -258,7 +272,7 @@ public class ListCompanyUserforPayroll {
 				String user_name = (String) item.get("name");
 				String user_id = (String) item.get("user_id");
 				Integer user_hidden_flag = (Integer) item.get("hidden");
-				
+
 				//test case 1 -> Payroll already created validation
 				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
 					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
@@ -282,7 +296,7 @@ public class ListCompanyUserforPayroll {
 				}
 
 				//test case 4 -> party type "staff" validation
-				if("staff".equalsIgnoreCase(user_id)) {
+				if("staff".equalsIgnoreCase(userType)) {
 					System.out.println("staff type is match" + id + " : " + userType);
 				} else {
 					Assert.fail("staff type is missmatch :" + id + " : " + userType);
@@ -310,13 +324,14 @@ public class ListCompanyUserforPayroll {
 				}
 
 				//test case 8 -> company user hidden flag validation
-				if(user_hidden_flag != 1) {
+				if(user_hidden_flag != null && user_hidden_flag==0) {
 					System.out.println("user hidden flag is 0 : " + user_hidden_flag);
+					validStaffUserIds.add(user_id);
 				} else {
 					System.out.println("");
 				}
 			}
-			String nextUrl = staffPayrollListResponse.jsonPath().getString("next_url");
+			String nextUrl = staffPayrollListResponse.jsonPath().getString("page.next_url");
 			if(nextUrl != null && !nextUrl.isEmpty()) {
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 			} else {
@@ -324,6 +339,35 @@ public class ListCompanyUserforPayroll {
 			}
 		}
 		System.out.println("total record collected :" + totalRecord);
+		System.out.println("total valid ids :" + validStaffUserIds.size());
+		System.out.println(validStaffUserIds);
+	}
+
+	@Test(priority=4, dependsOnMethods="staffPayrollList")
+	public void saveStaffUserIds() throws RuntimeException  {
+
+		try {
+
+			if(validStaffUserIds.isEmpty()) {
+				System.out.println("No valid user ids found in write json files");
+				return;
+			}
+
+			String filePath = "src/test/resources/testdata_payroll/Staff_Create_Payroll.json";
+			ObjectMapper mapper = new ObjectMapper();
+			Map<String, Object> existData = mapper.readValue(new File(filePath), Map.class);
+			
+			if(existData == null ) {
+				existData = new HashMap<>();
+			}
+			existData.put("party_company_user_id", validStaffUserIds);
+			
+			mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), existData);
+			System.out.println("User IDs updated successfully → " + validStaffUserIds);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("Failed to update json file");
+		}
 	}
 
 }

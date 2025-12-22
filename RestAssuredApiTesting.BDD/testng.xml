@@ -47,13 +47,71 @@
    </test>
    -->
    
-   <test thread-count="5" name="Payroll">
-	   <classes>
-	       <class name="com.onsite.payroll_test_page.List_Payroll_Test"/>
+   <test name="LabourPayroll" parallel="false">
+	  <classes>
+	  
+	     <class name="com.onsite.LabourPayroll_testpage.Payroll_Count_Test">
+	        <methods>
+	           <include name="labourActiveCountBeforeCreate"/>
+	        </methods>
+	     </class>
+	     
+	     <class name="com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll">
+	        <methods>
+	           <include name="labourTypeList"/>
+	           <include name="saveLabourUserId"/>
+	        </methods>
+	     </class>   
+		 
+		 <class name="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test">
+		    <methods>
+		       <include name="nonExistPayroll"/> 
+		    </methods>
+		 </class>
+		    
+		 <class name="com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test">
+		    <methods>
+		       <include name="createLabourPayroll"/>
+		       <include name="detailPayroll"/>
+		    </methods>
+		 </class>  
+		 
+	     <class name="com.onsite.LabourPayroll_testpage.List_Payroll_Test">
+	        <methods>
+	           <include name="labourPayrollList"/>
+	           <include name="payrollIdValiadation"/>
+	        </methods>
+	     </class>
+	     
+	     <class name="com.onsite.LabourPayroll_testpage.Payroll_Count_Test">
+		    <methods>
+		       <include name="labourActiveCountAfterCreate"/>
+		    </methods>
+		 </class>
+		 
+		 <class name="com.onsite.LabourPayroll_testpage.Hide_Payroll">
+		    <methods>
+		       <include name="hiddenPayroll"/>
+		    </methods>
+		 </class>
+		 
+		 <class name="com.onsite.LabourPayroll_testpage.Show_Payroll_Test">
+		    <methods>
+		       <include name="showPayroll"/>
+		    </methods>
+		 </class>
+		 
+	   </classes>
+   </test>
+   <!--
+   <test thread-count="5" name="StaffPayroll">
+       <classes>
+           <class name="com.onsite.payroll_test_page.List_Payroll_Test"/>
 	       <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll"/>
 		   <class name="com.onsite.payroll_test_page.Payroll_Count_Test"/>
 		   <class name="com.onsite.payroll_test_page.Is_Payroll_Exist_Test"/>
-	   </classes>
+		   <class name="com.onsite.payroll_test_page.Add_Payroll_Test"/>
+       </classes>
    </test>
-  
+  -->
 </suite> <!-- Suite -->

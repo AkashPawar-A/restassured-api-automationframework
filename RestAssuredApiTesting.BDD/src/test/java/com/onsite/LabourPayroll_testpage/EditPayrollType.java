@@ -1,4 +1,4 @@
-package com.onsite.payroll_test_page;
+package com.onsite.LabourPayroll_testpage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;

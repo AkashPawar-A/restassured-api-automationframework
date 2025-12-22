@@ -4,25 +4,13 @@
   <listeners>
     <listener class-name="com.onsite.reports.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="Payroll(failed)">
+  <test thread-count="5" name="LabourPayroll(failed)">
     <classes>
-      <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll">
+      <class name="com.onsite.LabourPayroll_testpage.Payroll_Count_Test">
         <methods>
-          <include name="staffPayrollList"/>
+          <include name="labourActiveCountAfterCreate"/>
         </methods>
-      </class> <!-- com.onsite.payroll_test_page.ListCompanyUserforPayroll -->
-      <class name="com.onsite.payroll_test_page.Payroll_Count_Test">
-        <methods>
-          <include name="staff_InactiveCount"/>
-        </methods>
-      </class> <!-- com.onsite.payroll_test_page.Payroll_Count_Test -->
-      <class name="com.onsite.payroll_test_page.Is_Payroll_Exist_Test">
-        <methods>
-          <include name="generateTokenForSuite"/>
-          <include name="existPayroll"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.onsite.payroll_test_page.Is_Payroll_Exist_Test -->
+      </class> <!-- com.onsite.LabourPayroll_testpage.Payroll_Count_Test -->
     </classes>
-  </test> <!-- Payroll(failed) -->
+  </test> <!-- LabourPayroll(failed) -->
 </suite> <!-- Failed suite [functionalTestSuite] -->

@@ -1,4 +1,4 @@
-package com.onsite.payroll_test_page;
+package com.onsite.LabourPayroll_testpage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,6 +9,7 @@ import java.util.Set;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.onsite.context.PayrollDetails;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.BaseToken;
@@ -23,13 +24,14 @@ public class List_Payroll_Test extends BaseToken{
 
 	int pageNumber = 1;
 	boolean morePages = true;
+	boolean payrollFound = false;
 	int totalRecord = 0;
 
 	List<Map<String, Object>> allRecord = new ArrayList<>();
 	public static Set<String> payrollCreatedUser = new HashSet<>();
 
 	@Test(priority=1)
-	public void labour_listpayroll() {
+	public void labourPayrollList() {
 
 		String companyId = CompanyContext.getCompanyId();
 
@@ -83,7 +85,7 @@ public class List_Payroll_Test extends BaseToken{
 			allRecord.addAll(dataList);
 			totalRecord += dataList.size();
 
-			for(int i=0; i<dataList.size(); i++) {
+			for(int i=0; i<dataList.size(); i++) {	
 				Map<String,Object> item = dataList.get(i);
 
 				String payroll_id = (String) item.get("id");
@@ -156,24 +158,32 @@ public class List_Payroll_Test extends BaseToken{
 	}
 
 	@Test(priority=2)
-	public void staff_listpayroll() {
+	public void payrollIdValiadation() {
 
-		String companyId = CompanyContext.getCompanyId();
+		morePages = true;
+		pageNumber = 1;
+		payrollFound = false;
+
+		String cmpanayId = CompanyContext.getCompanyId();
+		String expectedPayrollId = PayrollDetails.id;
+
+		if(expectedPayrollId != null && !expectedPayrollId.isEmpty()) {
+			System.out.println("expectsed payroll id is not null or empty");
+		}else {
+			System.out.println("expectsed payroll id is null or empty");
+		}
 
 		while(morePages) {
 
-			System.out.println("Validating page : " + pageNumber);
-
-			Response  satffListPayrollResponse = 
+			Response listResponse = 
 					given()
 					.baseUri(ApiBasePath.BASE_URL)
 					.header("Authorization", BaseToken.token)
 					.contentType(ContentType.JSON)
-					.queryParam("company_id", companyId)
-					.queryParam("type", "staff")
+					.queryParam("company_id", cmpanayId)
+					.queryParam("type", "labour")
 					.queryParam("hidden", 0)
 					.queryParam("page", pageNumber)
-					.log().uri()
 
 					.when()
 					.get(Payroll_Api.LIST_PAYROLL)
@@ -181,122 +191,51 @@ public class List_Payroll_Test extends BaseToken{
 					.then()
 					.extract().response();
 
-			String responseBody = satffListPayrollResponse.getBody().asString();
-			System.out.println("response body :\n " + responseBody);
 
-			int responseStatusCode = satffListPayrollResponse.getStatusCode();
-			String responseMessage = satffListPayrollResponse.jsonPath().getString("message");
+			int responseStatusCode = listResponse.statusCode();	
+			String responseMessage = listResponse.jsonPath().getString("message");
 
-			//test case -> status code validation 
 			if(responseStatusCode == 200) {
-				System.out.println("success status code is : " + responseStatusCode + ": successfull response message : " + responseMessage);	
+				System.out.println("response status code :" + responseStatusCode + ": response message :" + responseMessage);
 			} else {
-				System.out.println("failure status code is " + responseStatusCode + ": failure message :" + responseMessage);		
+				System.out.println("failure status code :" + responseStatusCode + ": failure response message :" + responseMessage);
 			}
 
-			//test case -> response time validation 
-			long responseTime = satffListPayrollResponse.getTime();
-			if(responseTime < 2000) {
-				System.out.println("actual response time : " + responseTime);
-			}else {
-				System.out.println("response time is too long : " + responseTime);
+			long responsetime = listResponse.getTime();
+			if(responsetime < 2000) {
+				System.out.println("response time :" + responsetime);
+			} else {
+				System.out.println("response time is too long : " + responsetime);
 			}
 
-			List<Map<String, Object>> staffDataList = satffListPayrollResponse.jsonPath().get("data");
-			if(staffDataList == null || staffDataList.isEmpty()) {
-				System.out.println("staff data list is empty or null");
+			List<Map<String, Object>> listData = listResponse.jsonPath().get("data");
+			if(listData == null || listData.isEmpty()) {
+				System.out.println("payroll list is null or empty");
 				break;
 			}
 
-			allRecord.addAll(staffDataList);
-			totalRecord = totalRecord + staffDataList.size();
+			for(int i=0; i<listData.size(); i++) {
+				Map<String, Object> validItem = listData.get(i);
 
-			for(int i=0; i<staffDataList.size(); i++) {
-				Map<String, Object> item = staffDataList.get(i);
+				String payrollId = (String) validItem.get("id");
 
-				String payroll_id = (String) item.get("id");
-				String salary_breakup_Id = (String) item.get("salary_breakup_id");
-				String party_company_user_Id = (String) item.get("party_company_user_id");
-				String payrollType = (String) item.get("type");
-				Integer payroll_hiddenObj = (Integer) item.get("hidden");
-				Integer payroll_deleteObj = (Integer) item .get("delete");
-
-				int payroll_hiddenFlag = payroll_hiddenObj != null ? payroll_hiddenObj : 0;
-				int payroll_deleteFlag = payroll_deleteObj != null ? payroll_deleteObj : 0;
-
-				String partyUserId = satffListPayrollResponse.jsonPath().getString("data[" + i + "].party_company_user_id");
-				String party_Id = (String) satffListPayrollResponse.jsonPath().getString("data[" + i + "].monkey_patch_party_company_user.id");
-				String party_type = (String) satffListPayrollResponse.jsonPath().getString("data[" + i + "].monkey_patch_party_company_user.type");
-				Integer party_hiddenObj = (Integer) satffListPayrollResponse.jsonPath().getInt("data[" + i + "].monkey_patch_party_company_user.hidden");
-
-				int party_hiddenFlag = party_hiddenObj != null ? party_hiddenObj : 0;
-
-				//test case 1 -> payroll id validation
-				if(partyUserId != null && !partyUserId.isEmpty()) {
-					if(payrollCreatedUser.contains(partyUserId)) {
-						Assert.fail("payroll already created for user : " + partyUserId + ": payroll id :" + payroll_id);
-					}else {
-						payrollCreatedUser.add(partyUserId);
-						System.out.println("user payroll i not created : " + partyUserId);
-					}
-				}
-
-				//test case -> payroll id validation 
-				if(payroll_id !=null && !payroll_id.isEmpty()) {
-					System.out.println("payroll id : " + i + " : " + item);
-				}else {
-					System.out.println("payroll id is null or empty :" + i + " : " + item);
-				}
-
-				//test case -> salary breakup id validation
-				if(salary_breakup_Id !=null && !salary_breakup_Id.isEmpty()) {
-					System.out.println("salary_breakup_Id : " + i + " : " + item);
-				}else {
-					System.out.println("salary breakup id is null or empty :" + i + " : " + item);
-				}
-
-				//test case -> party company user id validation 
-				if(party_company_user_Id !=null && !party_company_user_Id.isEmpty()) {
-					System.out.println("party_company_user_Id : " + i + " : " + item);
-				}else {
-					System.out.println("party_company_user_Id is null or empty : " + i + " : " + item);
-				}
-
-				//test case -> payroll type validation 
-				if("staff".equalsIgnoreCase(payrollType)) {
-					System.out.println("payroll type is match :" + payrollType + ": payroll id :" + payroll_id);
-				}else {
-					System.out.println("payroll type is mismatch :" + payrollType + ": payroll id : " + payroll_id);
-				}
-
-				//test case -> payroll delete & hidden flag validation
-				if(payroll_hiddenObj != 0 || payroll_deleteFlag != 0 || party_hiddenObj != 0) {
-					System.out.println("Payroll or party is deleted/hidden → Payroll ID: " + payroll_id);
-				}
-
-				//test case -> party id validation 
-				if(party_Id != null && !party_Id.isEmpty()) {
-					System.out.println("party_id is : " + i + " : " + item);
-				}else {
-					System.out.println("party_id is empty or null : " + i + " : " + item);
-				}
-
-				//test case -> party type validation
-				if("staff".equalsIgnoreCase(party_type)) {
-					System.out.println("party Type is match : " + i + " : " + item);
-				}else {
-					System.out.println("party Type is misamatch : " + i + " : " + item);
+				if(expectedPayrollId.equals(payrollId)) {
+					payrollFound = true;
+					System.out.println("Created payroll ID FOUND " + payrollId + ": page Number :" + pageNumber);
+					break;
 				}
 			}
+			if(payrollFound) {
+				break;
+			}
 
-			String nextUrl = satffListPayrollResponse.jsonPath().getString("page.next_url");
-			if(nextUrl != null && !nextUrl.isEmpty()) {
-				morePages = true;
+			String nextUrl = listResponse.jsonPath().getString("page.next_url");
+			if (nextUrl != null && !nextUrl.isEmpty()) {
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
-			}else {
+			} else {
 				morePages = false;
 			}
 		}
-		System.out.println("total record collected : " + totalRecord);
+		Assert.assertTrue(payrollFound, "Created payroll ID NOT found in payroll list");
 	}
 }

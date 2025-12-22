@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.payroll_test_page.Is_Payroll_Exist_Test">
+      <class name="com.onsite.LabourPayroll_testpage.My_Payroll_Test">
         <methods>
-          <include name="generateTokenForSuite"/>
-          <include name="existPayroll" invocation-numbers="0 1 2 3"/>
-          <include name="setUp"/>
+          <include name="myPayroll"/>
         </methods>
-      </class> <!-- com.onsite.payroll_test_page.Is_Payroll_Exist_Test -->
+      </class> <!-- com.onsite.LabourPayroll_testpage.My_Payroll_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

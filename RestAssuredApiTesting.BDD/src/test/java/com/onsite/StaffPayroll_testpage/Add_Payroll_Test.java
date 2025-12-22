@@ -1,4 +1,4 @@
-package com.onsite.payroll_test_page;
+package com.onsite.StaffPayroll_testpage;
 
 import static io.restassured.RestAssured.*;
 
@@ -30,10 +30,10 @@ import io.restassured.response.Response;
 
 public class Add_Payroll_Test {
 
-	@DataProvider(name="payrollData")
+	@DataProvider(name="StaffPayrollData")
 	public Object[][] getpayrollData(){
 
-		String addPayrollPath = "src/test/resources/testdata_payroll/Create_Payroll.json";
+		String addPayrollPath = "src/test/resources/testdata_payroll/Staff_Create_Payroll.json";
 
 		Object[][] payrollData = JsonDataProvider.getDataFromJson(addPayrollPath, Add_Payroll_Request.class);
 
@@ -44,7 +44,7 @@ public class Add_Payroll_Test {
 		return dataObject;
 	}
 
-	@Test(priority=1, dataProvider="payrollData")
+	@Test(priority=1, dataProvider="StaffPayrollData")
 	public void createPayroll(Add_Payroll_Request addPayrollRequest) throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();

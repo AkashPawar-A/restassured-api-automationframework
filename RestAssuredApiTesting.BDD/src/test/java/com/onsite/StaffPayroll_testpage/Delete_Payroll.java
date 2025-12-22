@@ -1,4 +1,4 @@
-package com.onsite.payroll_test_page;
+package com.onsite.StaffPayroll_testpage;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
