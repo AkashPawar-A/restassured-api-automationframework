@@ -141,7 +141,7 @@ public class List_Payroll_Test extends BaseToken{
 				}
 
 				//test case 5 -> payroll delete & hidden flag validation
-				if (payrollDeleteFlag != 0 || payrollHiddenFlag != 0 || partyHiddenFlag != 0) {
+				if (payrollDeleteFlag != 0 && payrollHiddenFlag != 0 && partyHiddenFlag != 0) {
 					System.out.println("Payroll or party is deleted/hidden → Payroll ID: " + payroll_id);
 				}
 

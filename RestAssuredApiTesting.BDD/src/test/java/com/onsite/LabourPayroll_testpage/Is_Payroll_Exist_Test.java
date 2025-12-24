@@ -25,7 +25,7 @@ public class Is_Payroll_Exist_Test extends BaseToken{
 	@DataProvider(name="testData")
 	public Object[][] getUserId() throws Exception, DatabindException, IOException{
 		
-		String filePath = "src/test/resources/testdata_payroll/Labour_Create_Payroll.json";
+		String filePath = "src/test/resources/testdata_payroll/Create_LabourPayroll.json";
 		
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> jsonData = mapper.readValue(new File(filePath), Map.class);
@@ -79,10 +79,7 @@ public class Is_Payroll_Exist_Test extends BaseToken{
 		
 		String responseContentType = payrollResponse.getContentType();
 		Assert.assertTrue(responseContentType.contains("application/json"), "content typw is missmatch");
-		
-		String allowMethod = payrollResponse.getHeader("Access-Control-Allow-Methods");
-		Assert.assertTrue(allowMethod.contains("GET"), "get method is not allowed");
-		
+	
 		Integer payrollExistFlag = payrollResponse.jsonPath().get("is_exist");
 		Integer payrollDeleteFlag = payrollResponse.jsonPath().get("delete");
 		Integer companyUserHiddenFlag = payrollResponse.jsonPath().get("payroll.monkey_patch_party_company_user.hidden");

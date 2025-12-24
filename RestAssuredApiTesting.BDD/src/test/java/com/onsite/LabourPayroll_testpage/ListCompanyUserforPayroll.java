@@ -192,7 +192,7 @@ public class ListCompanyUserforPayroll {
 				Assert.fail("No valid user IDs found");
 			}
 
-			String filePath = "src/test/resources/testdata_payroll/Labour_Create_Payroll.json";
+			String filePath = "src/test/resources/testdata_payroll/Create_LabourPayroll.json";
 			ObjectMapper mapper = new ObjectMapper();
 
 			Map<String, Object> existingJson = mapper.readValue(new File(filePath), Map.class);

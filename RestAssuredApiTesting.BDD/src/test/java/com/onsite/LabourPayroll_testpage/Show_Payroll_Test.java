@@ -4,27 +4,48 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
+import java.util.Map;
+import java.io.File;
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.AuthUtils;
+import com.onsite.utilities_page.BaseToken;
 
 public class Show_Payroll_Test {
 	
-	@Test(priority=1)
-	public void showPayroll() {
+	@DataProvider(name="payrollIdData")
+	public Object[][] getPayrollId() throws Exception, DatabindException, IOException{
 		
-		String partyId = "2596311f-c612-453b-947a-9ec42caec15b";
+		String filePath = "src/test/resources/testdata_payroll/PayrollDetail.json";
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> jsonData = mapper.readValue(new File(filePath), Map.class);
+		String payrollId = (String) jsonData.get("id");
+		
+		Object[][] dataObj = new Object[1][1];
+		dataObj[0][0] = payrollId;
+		
+	    return dataObj;
+	}
+	
+	@Test(priority=1, dataProvider="payrollIdData")
+	public void showPayroll(String payrollId) {
 		
 		Response payrollResponse =
 				
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", BaseToken.token)
 				.contentType(ContentType.JSON)
-				.pathParam("id", partyId)
+				.pathParam("id", payrollId)
 				.log().uri()
 				
 				.when()
@@ -66,11 +87,11 @@ public class Show_Payroll_Test {
 		int party_id_hidden_flag = payrollResponse.jsonPath().get("monkey_patch_party_company_user.hidden");
 		String partyName = payrollResponse.jsonPath().get("monkey_patch_party_company_user.name");
 		
-		if(party_id_hidden_flag != 1 && payroll_id_delete_flag != 1 
+		if(payroll_id_hidden_flag != 1 && payroll_id_delete_flag != 1 
 				&& party_id_hidden_flag != 1) {
-			System.out.println("party name : " + partyName + " : Payroll party visible in active list");
+			System.out.println("party name : " + partyName + " : Payroll party visible in payroll active list");
 		}else {
-			System.out.println("party name : " + partyName + " : Payroll party visible in active list");
+		    System.out.println("party name : " + partyName + " : Payroll party NOT visible in payroll active list");
 		}
 			
 	}

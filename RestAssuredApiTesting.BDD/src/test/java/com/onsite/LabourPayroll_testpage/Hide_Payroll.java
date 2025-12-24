@@ -4,26 +4,45 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
+import java.util.Map;
+import java.io.File;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
-import com.onsite.utilities_page.AuthUtils;
+import com.onsite.utilities_page.BaseToken;
 
 public class Hide_Payroll {
 	
-	String partyId = "85685124-6dac-4091-8cb7-d43721bfb5fc";
+	@DataProvider(name="payrolldata")
+	public Object[][] getPayrollId() throws Exception, JsonProcessingException{
+		
+		String filePath = "src/test/resources/testdata_payroll/PayrollDetail.json";
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> payrollData = mapper.readValue(new File(filePath), Map.class);
+		String payrillId = (String) payrollData.get("id");
+		
+		Object[][] dataObj = new Object[1][1];
+		dataObj[0][0] = payrillId;
+		
+		return dataObj;
+	}
 	
-	@Test(priority=1)
-	public void hiddenPayroll() {
+	@Test(priority=1, dataProvider="payrolldata")
+	public void hiddenPayroll(String payrollId) {
 		
 		Response hiddenPartyResponse = 
 				given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", AuthUtils.getToken())
+				.header("Authorization", BaseToken.token)
 				.contentType(ContentType.JSON)
-				.pathParam("id", partyId)
+				.pathParam("id", payrollId)
 				.log().uri()
 				
 				.when()

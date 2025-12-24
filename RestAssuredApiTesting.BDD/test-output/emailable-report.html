@@ -8,40 +8,24 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">7,208</td><td></td><td></td></tr>
+<tr><th colspan="8">functionalTestSuite</th></tr>
+<tr><td><a href="#t0">LabourPayroll</a></td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">11,865</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.onsite.LabourPayroll_testpage.My_Payroll_Test</td><td><a href="#m0">myPayroll</a></td><td rowspan="1">1766405942262</td><td rowspan="1">7121</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">functionalTestSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">LabourPayroll &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.onsite.LabourPayroll_testpage.Payroll_Count_Test</td><td><a href="#m0">labourActiveCountAfterCreate</a></td><td rowspan="1">1766582514895</td><td rowspan="1">190</td></tr><tr><th colspan="4">LabourPayroll &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test</td><td><a href="#m1">createLabourPayroll</a></td><td rowspan="1">1766582518809</td><td rowspan="1">1776</td></tr><tr class="passedeven"><td><a href="#m2">detailPayroll</a></td><td rowspan="1">1766582520592</td><td rowspan="1">1887</td></tr><tr class="passedodd"><td rowspan="1">com.onsite.LabourPayroll_testpage.Hide_Payroll</td><td><a href="#m3">hiddenPayroll</a></td><td rowspan="1">1766582525663</td><td rowspan="1">262</td></tr><tr class="passedeven"><td rowspan="1">com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test</td><td><a href="#m4">nonExistPayroll</a></td><td rowspan="1">1766582518388</td><td rowspan="1">352</td></tr><tr class="passedodd"><td rowspan="2">com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll</td><td><a href="#m5">labourTypeList</a></td><td rowspan="1">1766582515106</td><td rowspan="1">1680</td></tr><tr class="passedodd"><td><a href="#m6">saveLabourUserId</a></td><td rowspan="1">1766582516791</td><td rowspan="1">314</td></tr><tr class="passedeven"><td rowspan="2">com.onsite.LabourPayroll_testpage.List_Payroll_Test</td><td><a href="#m7">labourPayrollList</a></td><td rowspan="1">1766582523705</td><td rowspan="1">1623</td></tr><tr class="passedeven"><td><a href="#m8">payrollIdValiadation</a></td><td rowspan="1">1766582525338</td><td rowspan="1">318</td></tr><tr class="passedodd"><td rowspan="1">com.onsite.LabourPayroll_testpage.Payroll_Count_Test</td><td><a href="#m9">labourActiveCountBeforeCreate</a></td><td rowspan="1">1766582514597</td><td rowspan="1">284</td></tr><tr class="passedeven"><td rowspan="1">com.onsite.LabourPayroll_testpage.Show_Payroll_Test</td><td><a href="#m10">showPayroll</a></td><td rowspan="1">1766582525935</td><td rowspan="1">281</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.onsite.LabourPayroll_testpage.My_Payroll_Test#myPayroll</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: API failed with status code: 401 and message: Not Permitted!
-	at org.testng.Assert.fail(Assert.java:99)
-	at com.onsite.LabourPayroll_testpage.My_Payroll_Test.myPayroll(My_Payroll_Test.java:48)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<h2>LabourPayroll</h2><h3 id="m0">com.onsite.LabourPayroll_testpage.Payroll_Count_Test#labourActiveCountAfterCreate</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Active payroll count did NOT increase after payroll creation expected [1] but found [0]
+	at com.onsite.LabourPayroll_testpage.Payroll_Count_Test.labourActiveCountAfterCreate(Payroll_Count_Test.java:112)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test#createLabourPayroll</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>com.onsite.pojo_request.Add_Payroll_Request@4fe8f2ae</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test#detailPayroll</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.onsite.LabourPayroll_testpage.Hide_Payroll#hiddenPayroll</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>4e207200-f33a-4185-bfce-62b199c771b0</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test#nonExistPayroll</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>d7702eed-7ee9-4029-b9cf-81b2e51ea7d5</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll#labourTypeList</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll#saveLabourUserId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">com.onsite.LabourPayroll_testpage.List_Payroll_Test#labourPayrollList</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">com.onsite.LabourPayroll_testpage.List_Payroll_Test#payrollIdValiadation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">com.onsite.LabourPayroll_testpage.Payroll_Count_Test#labourActiveCountBeforeCreate</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">com.onsite.LabourPayroll_testpage.Show_Payroll_Test#showPayroll</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>4e207200-f33a-4185-bfce-62b199c771b0</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

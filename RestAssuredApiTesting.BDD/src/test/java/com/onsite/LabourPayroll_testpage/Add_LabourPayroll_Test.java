@@ -33,7 +33,7 @@ public class Add_LabourPayroll_Test {
 	@DataProvider(name="LabourPayrollData")
 	public Object[][] getpayrollData(){
 
-		String addPayrollPath = "src/test/resources/testdata_payroll/Labour_Create_Payroll.json";
+		String addPayrollPath = "src/test/resources/testdata_payroll/Create_LabourPayroll.json";
 
 		Object[][] payrollData = JsonDataProvider.getDataFromJson(addPayrollPath, Add_Payroll_Request.class);
 
@@ -240,7 +240,7 @@ public class Add_LabourPayroll_Test {
 		PayrollDetails.salary_breakup_id = DetailPayrollResponse.jsonPath().get("salary_breakup_id");
 		
 		List<String> fileUpdateList = Arrays.asList(
-				"src/test/resources/testdata_payroll/Edit_Payroll.json"
+				"src/test/resources/testdata_payroll/PayrollDetail.json"
 		);
 		
 	    //Data to update in all files

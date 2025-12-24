@@ -66,7 +66,7 @@ public class Payroll_Count_Test {
 		
 	}
 	
-	@Test(priority=2, dependsOnMethods="labourActiveCountBeforeCreate")
+	@Test(priority=2)
 	public void labourActiveCountAfterCreate() {
 		
 		String companyId = CompanyContext.getCompanyId();
