@@ -29,10 +29,20 @@ public class List_Payroll_Test extends BaseToken{
 
 	List<Map<String, Object>> allRecord = new ArrayList<>();
 	public static Set<String> payrollCreatedUser = new HashSet<>();
+	
+	private void resetPagination() {
+	    this.pageNumber = 1;
+	    this.morePages = true;
+	    this.payrollFound = false;
+	    this.totalRecord = 0;
+	    this.allRecord.clear();
+	}
 
-	@Test(priority=1)
+	@Test(dependsOnGroups="payrollExit_verified")
 	public void labourPayrollList() {
 
+		payrollCreatedUser.clear();
+		resetPagination();
 		String companyId = CompanyContext.getCompanyId();
 
 		while(morePages) {
@@ -157,7 +167,7 @@ public class List_Payroll_Test extends BaseToken{
 		}
 	}
 
-	@Test(priority=2)
+	@Test(dependsOnMethods="labourPayrollList")
 	public void payrollIdValiadation() {
 
 		morePages = true;

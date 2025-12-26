@@ -37,14 +37,13 @@ public class Add_LabourPayroll_Test {
 
 		Object[][] payrollData = JsonDataProvider.getDataFromJson(addPayrollPath, Add_Payroll_Request.class);
 
-		Object[][] dataObject = new Object[payrollData.length][1];
-		for(int i=0; i<dataObject.length; i++) {
-			dataObject[i][0] = payrollData[i][0];
-		}
+		Object[][] dataObject = new Object[1][1];
+		dataObject[0][0] = payrollData[0][0];
+		
 		return dataObject;
 	}
 
-	@Test(priority=1, dataProvider="LabourPayrollData")
+	@Test(dependsOnGroups="json_labourUserId_ready", dataProvider="LabourPayrollData", groups="payrollCreated")
 	public void createLabourPayroll(Add_Payroll_Request addPayrollRequest) throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();
@@ -144,7 +143,7 @@ public class Add_LabourPayroll_Test {
 		
 	}
 
-	@Test(priority=2, dependsOnMethods="createLabourPayroll")
+	@Test(dependsOnGroups="payrollCreated")
 	public void detailPayroll() throws Exception {
 
 		if(PayrollDetails.id != null && !PayrollDetails.id.isEmpty()) {

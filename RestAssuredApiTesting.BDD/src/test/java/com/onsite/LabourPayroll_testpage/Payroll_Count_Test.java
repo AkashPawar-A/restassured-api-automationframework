@@ -21,7 +21,7 @@ public class Payroll_Count_Test {
 	int count = 0;
 	int num = 0;
 	
-	@Test(priority=1)
+	@Test(dependsOnGroups="payrollCreated")
 	public void labourActiveCountBeforeCreate() {
 		
 		String companyId = CompanyContext.getCompanyId();

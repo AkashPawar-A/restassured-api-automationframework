@@ -66,15 +66,27 @@
 		 <class name="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test">
 		    <methods>
 		       <include name="nonExistPayroll"/> 
+		       <include name="saveUseIds"/>
 		    </methods>
 		 </class>
 		    
 		 <class name="com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test">
 		    <methods>
 		       <include name="createLabourPayroll"/>
-		       <include name="detailPayroll"/>
 		    </methods>
 		 </class>  
+		 
+		 <class name="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test">
+		    <methods>
+		       <include name="existPayroll"/>
+		    </methods>
+		 </class>  
+		 
+		 <class name="com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test">
+		    <methods>
+		       <include name="detailPayroll"/>
+		    </methods>
+		 </class>
 		 
 	     <class name="com.onsite.LabourPayroll_testpage.List_Payroll_Test">
 	        <methods>

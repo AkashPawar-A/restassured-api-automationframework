@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
-import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.BaseToken;
 
 public class Show_Payroll_Test {
@@ -36,7 +35,7 @@ public class Show_Payroll_Test {
 	    return dataObj;
 	}
 	
-	@Test(priority=1, dataProvider="payrollIdData")
+	@Test(dataProvider="payrollIdData")
 	public void showPayroll(String payrollId) {
 		
 		Response payrollResponse =

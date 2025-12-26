@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.onsite.context.PayrollDetails;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.AuthUtils;
@@ -172,44 +173,18 @@ public class ListCompanyUserforPayroll {
 		System.out.println(validLabourUserIds);
 	}
 
-	@Test(priority=2, dependsOnMethods="labourTypeList")
+	@Test(dependsOnMethods="labourTypeList", groups="labourUserId_ready")
 	public void saveLabourUserId() throws Exception {
-
-		try {
-
-			String singleUserId = null;
-
-			if(validLabourUserIds != null || !validLabourUserIds.isEmpty()) {
-				for(String userId : validLabourUserIds) {
-					if(validLabourUserIds != null || !validLabourUserIds.isEmpty()) {
-						singleUserId = userId;
-						break;
-					}
-				}
-			}
-
-			if(singleUserId == null) {
-				Assert.fail("No valid user IDs found");
-			}
-
-			String filePath = "src/test/resources/testdata_payroll/Create_LabourPayroll.json";
-			ObjectMapper mapper = new ObjectMapper();
-
-			Map<String, Object> existingJson = mapper.readValue(new File(filePath), Map.class);
-
-			if(existingJson == null) {
-				existingJson = new HashMap<>();
-			}
-
-			existingJson.put("party_company_user_id", singleUserId);
-
-			mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), existingJson);
-
-			System.out.println("User IDs updated successfully → " + validLabourUserIds);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException("Failed to update json file");
+		
+		if(validLabourUserIds == null || validLabourUserIds.isEmpty()) {
+			Assert.fail("No valid labour user id found to create payroll");
 		}
+		
+		String selectIds = validLabourUserIds.get(0);
+		PayrollDetails.party_company_user_id = selectIds;
+		
+		System.out.println("party company user id store in PayrollDetails.party_company_user_id :" 
+		+ PayrollDetails.party_company_user_id);
 	}
-
+		
 }
