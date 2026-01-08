@@ -1,67 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="15" passed="9" failed="2" skipped="2">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-26T17:18:47 IST" name="functionalTestSuite" finished-at="2025-12-26T17:19:00 IST" duration-ms="13164">
+  <suite started-at="2026-01-08T18:41:06 IST" name="Default suite" finished-at="2026-01-08T18:41:10 IST" duration-ms="3809">
     <groups>
-      <group name="payrollExit_verified">
-        <method signature="Is_Payroll_Exist_Test.existPayroll()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" name="existPayroll" class="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test"/>
-      </group> <!-- payrollExit_verified -->
-      <group name="payrollNotExistVerified">
-        <method signature="Is_Payroll_Exist_Test.nonExistPayroll()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" name="nonExistPayroll" class="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test"/>
-      </group> <!-- payrollNotExistVerified -->
-      <group name="labourUserId_ready">
-        <method signature="ListCompanyUserforPayroll.saveLabourUserId()[pri:0, instance:com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll@58fbd02e]" name="saveLabourUserId" class="com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll"/>
-      </group> <!-- labourUserId_ready -->
-      <group name="payrollCreated">
-        <method signature="Add_LabourPayroll_Test.createLabourPayroll(com.onsite.pojo_request.Add_Payroll_Request)[pri:0, instance:com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test@124dac75]" name="createLabourPayroll" class="com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test"/>
-      </group> <!-- payrollCreated -->
-      <group name="json_labourUserId_ready">
-        <method signature="Is_Payroll_Exist_Test.saveUseIds()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" name="saveUseIds" class="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test"/>
-      </group> <!-- json_labourUserId_ready -->
     </groups>
-    <test started-at="2025-12-26T17:18:47 IST" name="LabourPayroll" finished-at="2025-12-26T17:19:00 IST" duration-ms="13164">
-      <class name="com.onsite.LabourPayroll_testpage.Hide_Payroll">
-        <test-method signature="hiddenPayroll(java.lang.String)[pri:1, instance:com.onsite.LabourPayroll_testpage.Hide_Payroll@7b61bf11]" started-at="2025-12-26T17:18:48 IST" name="hiddenPayroll" data-provider="payrolldata" finished-at="2025-12-26T17:18:48 IST" duration-ms="392" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[b739f8b1-8b87-437f-a61c-b52af4fb40db]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2026-01-08T18:41:06 IST" name="Default test" finished-at="2026-01-08T18:41:10 IST" duration-ms="3809">
+      <class name="com.onsite.StaffPayroll_testpage.List_Payroll_Test">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.StaffPayroll_testpage.List_Payroll_Test@4550bb58]" started-at="2026-01-08T18:40:59 IST" name="generateTokenForSuite" finished-at="2026-01-08T18:41:06 IST" duration-ms="6891" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- hiddenPayroll -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.Hide_Payroll -->
-      <class name="com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll">
-        <test-method signature="labourTypeList()[pri:1, instance:com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll@58fbd02e]" started-at="2025-12-26T17:18:48 IST" name="labourTypeList" finished-at="2025-12-26T17:18:50 IST" duration-ms="2077" status="PASS">
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.StaffPayroll_testpage.List_Payroll_Test@4550bb58]" started-at="2026-01-08T18:41:06 IST" name="setUp" finished-at="2026-01-08T18:41:08 IST" duration-ms="2258" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- labourTypeList -->
-        <test-method signature="saveLabourUserId()[pri:0, instance:com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll@58fbd02e]" started-at="2025-12-26T17:18:50 IST" name="saveLabourUserId" finished-at="2025-12-26T17:18:50 IST" depends-on-methods="com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll.labourTypeList" duration-ms="6" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- saveLabourUserId -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll -->
-      <class name="com.onsite.LabourPayroll_testpage.Payroll_Count_Test">
-        <test-method signature="labourActiveCountBeforeCreate()[pri:0, instance:com.onsite.LabourPayroll_testpage.Payroll_Count_Test@4d9754a8]" started-at="2025-12-26T17:18:58 IST" name="labourActiveCountBeforeCreate" depends-on-groups="payrollCreated" finished-at="2025-12-26T17:18:58 IST" duration-ms="196" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- labourActiveCountBeforeCreate -->
-        <test-method signature="labourActiveCountAfterCreate()[pri:2, instance:com.onsite.LabourPayroll_testpage.Payroll_Count_Test@4d9754a8]" started-at="2025-12-26T17:18:59 IST" name="labourActiveCountAfterCreate" finished-at="2025-12-26T17:19:00 IST" duration-ms="303" status="FAIL">
+        </test-method> <!-- setUp -->
+        <test-method signature="staffPayroll()[pri:0, instance:com.onsite.StaffPayroll_testpage.List_Payroll_Test@4550bb58]" started-at="2026-01-08T18:41:09 IST" name="staffPayroll" finished-at="2026-01-08T18:41:10 IST" duration-ms="1469" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Active payroll count did NOT increase after payroll creation expected [1] but found [0]]]>
+              <![CDATA[JSON schema validation failed: com.github.fge.jsonschema.core.report.ListProcessingReport: failure
+--- BEGIN MESSAGES ---
+warning: the following keywords are unknown and will be ignored: [monkey_patch_salary_breakup, monkey_patch_workforce]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":""}
+    domain: "syntax"
+    ignored: ["monkey_patch_salary_breakup","monkey_patch_workforce"]
+error: object has missing required properties (["company_id","delete","hidden","id","type"])
+    level: "error"
+    schema: {"loadingURI":"#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["company_id","delete","hidden","id","type"]
+    missing: ["company_id","delete","hidden","id","type"]
+---  END MESSAGES  ---
+ expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Active payroll count did NOT increase after payroll creation expected [1] but found [0]
+              <![CDATA[java.lang.AssertionError: JSON schema validation failed: com.github.fge.jsonschema.core.report.ListProcessingReport: failure
+--- BEGIN MESSAGES ---
+warning: the following keywords are unknown and will be ignored: [monkey_patch_salary_breakup, monkey_patch_workforce]
+    level: "warning"
+    schema: {"loadingURI":"#","pointer":""}
+    domain: "syntax"
+    ignored: ["monkey_patch_salary_breakup","monkey_patch_workforce"]
+error: object has missing required properties (["company_id","delete","hidden","id","type"])
+    level: "error"
+    schema: {"loadingURI":"#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["company_id","delete","hidden","id","type"]
+    missing: ["company_id","delete","hidden","id","type"]
+---  END MESSAGES  ---
+ expected [true] but found [false]
 at org.testng.Assert.fail(Assert.java:99)
 at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-at org.testng.Assert.assertEquals(Assert.java:122)
-at org.testng.Assert.assertEquals(Assert.java:907)
-at com.onsite.LabourPayroll_testpage.Payroll_Count_Test.labourActiveCountAfterCreate(Payroll_Count_Test.java:112)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at com.onsite.utilities_page.SchemaValidator.validateSchema(SchemaValidator.java:32)
+at com.onsite.StaffPayroll_testpage.List_Payroll_Test.staffPayroll(List_Payroll_Test.java:56)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -93,166 +90,8 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- labourActiveCountAfterCreate -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.Payroll_Count_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test">
-        <test-method signature="createLabourPayroll(com.onsite.pojo_request.Add_Payroll_Request)[pri:0, instance:com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test@124dac75]" started-at="2025-12-26T17:18:52 IST" name="createLabourPayroll" data-provider="LabourPayrollData" depends-on-groups="json_labourUserId_ready" finished-at="2025-12-26T17:18:55 IST" duration-ms="2407" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[com.onsite.pojo_request.Add_Payroll_Request@25218a4d]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createLabourPayroll -->
-        <test-method signature="detailPayroll()[pri:0, instance:com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test@124dac75]" started-at="2025-12-26T17:18:55 IST" name="detailPayroll" depends-on-groups="payrollCreated" finished-at="2025-12-26T17:18:57 IST" duration-ms="2776" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- detailPayroll -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.Show_Payroll_Test">
-        <test-method signature="showPayroll(java.lang.String)[pri:0, instance:com.onsite.LabourPayroll_testpage.Show_Payroll_Test@40247d48]" started-at="2025-12-26T17:18:47 IST" name="showPayroll" data-provider="payrollIdData" finished-at="2025-12-26T17:18:48 IST" duration-ms="623" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[b739f8b1-8b87-437f-a61c-b52af4fb40db]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- showPayroll -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.Show_Payroll_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.List_Payroll_Test">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f]" started-at="2025-12-26T17:18:58 IST" name="setUp" finished-at="2025-12-26T17:18:59 IST" duration-ms="1670" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="labourPayrollList()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f]" started-at="2025-12-26T17:18:59 IST" name="labourPayrollList" depends-on-groups="payrollExit_verified" finished-at="2025-12-26T17:18:59 IST" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method List_Payroll_Test.labourPayrollList()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f] depends on not successfully finished methods in group "payrollExit_verified"]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method List_Payroll_Test.labourPayrollList()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f] depends on not successfully finished methods in group "payrollExit_verified"
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- labourPayrollList -->
-        <test-method signature="payrollIdValiadation()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f]" started-at="2025-12-26T17:18:59 IST" name="payrollIdValiadation" finished-at="2025-12-26T17:18:59 IST" depends-on-methods="com.onsite.LabourPayroll_testpage.List_Payroll_Test.labourPayrollList" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method List_Payroll_Test.payrollIdValiadation()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method List_Payroll_Test.payrollIdValiadation()[pri:0, instance:com.onsite.LabourPayroll_testpage.List_Payroll_Test@315105f] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- payrollIdValiadation -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.List_Payroll_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test">
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" started-at="2025-12-26T17:18:45 IST" name="generateTokenForSuite" finished-at="2025-12-26T17:18:47 IST" duration-ms="1755" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- generateTokenForSuite -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" started-at="2025-12-26T17:18:50 IST" name="setUp" finished-at="2025-12-26T17:18:52 IST" duration-ms="1614" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="nonExistPayroll()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" started-at="2025-12-26T17:18:52 IST" name="nonExistPayroll" depends-on-groups="labourUserId_ready" finished-at="2025-12-26T17:18:52 IST" duration-ms="264" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- nonExistPayroll -->
-        <test-method signature="saveUseIds()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" started-at="2025-12-26T17:18:52 IST" name="saveUseIds" finished-at="2025-12-26T17:18:52 IST" depends-on-methods="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test.nonExistPayroll" duration-ms="20" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- saveUseIds -->
-        <test-method signature="existPayroll()[pri:0, instance:com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test@2be21396]" started-at="2025-12-26T17:18:57 IST" name="existPayroll" depends-on-groups="payrollCreated" finished-at="2025-12-26T17:18:58 IST" duration-ms="196" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <message>
-              <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because "payrollExistFlag" is null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "payrollExistFlag" is null
-at com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test.existPayroll(Is_Payroll_Exist_Test.java:159)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- existPayroll -->
-      </class> <!-- com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test -->
-    </test> <!-- LabourPayroll -->
-  </suite> <!-- functionalTestSuite -->
+        </test-method> <!-- staffPayroll -->
+      </class> <!-- com.onsite.StaffPayroll_testpage.List_Payroll_Test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

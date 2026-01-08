@@ -2,9 +2,57 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Payroll_Type",
     "type": "object",
+    "required": ["id", "company_id", "type", "delete", "hidden"],
     "properties": {
-        "id" : {"type": "string"},
-        "type" : {"type" : "string"}
-        },
-    "required" : ["id", "type"]
+    
+    "id": { "type": "string", "format": "uuid" },
+    "creator": { "type": "string" },
+    "creator_company_user_id": { "type": "string" },
+    "company_id": { "type": "string" },
+
+    "salary_breakup_id": { "type": "string" },
+    "party_company_user_id": { "type": "string" },
+
+    "type": {
+      "type": "string",
+      "enum": ["staff", "labour", "employee", "customer"]
+    },
+
+    "punch_effect": { "type": "integer" },
+
+    "project_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "track_project_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+
+    "delete": { "type": "integer", "enum": [0, 1] },
+    "hidden": { "type": "integer", "enum": [0, 1] },
+
+    "created": { "type": "string", "format": "date-time" },
+    "updated": { "type": "string", "format": "date-time" }
+   },
+   
+    "monkey_patch_salary_breakup": {
+    "id": "string",
+    "company_id": "string",
+    "ctc_amount": 25000,
+    "gross_salary": 22000,
+    "net_salary": 20000,
+    "delete": 0
+   },
+   
+    "monkey_patch_workforce": {
+    "id": "string",
+    "company_id": "string",
+    "type": "monthly",
+    "wage": 20000,
+    "delete": 0
+  }
+}
+
 }
