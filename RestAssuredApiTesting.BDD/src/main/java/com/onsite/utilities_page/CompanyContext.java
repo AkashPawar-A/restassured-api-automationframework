@@ -2,7 +2,7 @@ package com.onsite.utilities_page;
 
 public class CompanyContext {
 	
-	private static String companyId;
+	public static String companyId;
 
     public static void setCompanyId(String id) {
     	System.out.println("SETTING COMPANY ID: " + id);

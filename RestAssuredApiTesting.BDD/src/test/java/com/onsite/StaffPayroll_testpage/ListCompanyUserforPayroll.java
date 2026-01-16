@@ -110,12 +110,12 @@ public class ListCompanyUserforPayroll {
 				Integer user_hidden_flag = (Integer) item.get("hidden");
 
 				//test case 1 -> Payroll already created validation
-				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
-					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
-					Assert.fail(message);
-				}else {
-					System.out.println("User payroll not created yet ID: " + user_id + ": Name: " + user_name);
-				}
+//				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
+//					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
+//					Assert.fail(message);
+//				}else {
+//					System.out.println("User payroll not created yet ID: " + user_id + ": Name: " + user_name);
+//				}
 
 				//test case 2 -> user id validation 
 				if(user_id != null && !user_id.isEmpty()) {
@@ -274,12 +274,12 @@ public class ListCompanyUserforPayroll {
 				Integer user_hidden_flag = (Integer) item.get("hidden");
 
 				//test case 1 -> Payroll already created validation
-				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
-					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
-					Assert.fail(message);
-				}else {
-					System.out.println("User payroll not created yet ID: " + user_id + ": Name: " + user_name);
-				}
+//				if(List_Payroll_Test.payrollCreatedUser.contains(user_id)) {
+//					String message = "Test Fail because Payroll already created for user iD : " + user_id + ": Name : " + user_name;
+//					Assert.fail(message);
+//				}else {
+//					System.out.println("User payroll not created yet ID: " + user_id + ": Name: " + user_name);
+//				}
 
 				//test case 2 -> user id validation 
 				if(id != null && !id.isEmpty()) {

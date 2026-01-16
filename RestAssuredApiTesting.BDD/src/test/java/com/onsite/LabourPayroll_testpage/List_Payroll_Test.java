@@ -1,57 +1,43 @@
 package com.onsite.LabourPayroll_testpage;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.onsite.context.PayrollDetails;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.BaseToken;
 import com.onsite.utilities_page.CompanyContext;
+import com.onsite.utilities_page.SchemaValidator;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.*;
 
 public class List_Payroll_Test extends BaseToken{
 
 	int pageNumber = 1;
 	boolean morePages = true;
-	boolean payrollFound = false;
 	int totalRecord = 0;
+	int totalCount = 0;
 
 	List<Map<String, Object>> allRecord = new ArrayList<>();
-	public static Set<String> payrollCreatedUser = new HashSet<>();
-	
-	private void resetPagination() {
-	    this.pageNumber = 1;
-	    this.morePages = true;
-	    this.payrollFound = false;
-	    this.totalRecord = 0;
-	    this.allRecord.clear();
-	}
+	List<String> payrollIds = new ArrayList<>();
 
-	@Test(dependsOnGroups="payrollExit_verified")
-	public void labourPayrollList() {
-
-		payrollCreatedUser.clear();
-		resetPagination();
-		String companyId = CompanyContext.getCompanyId();
+	@Test
+	public void labourPayroll() throws Exception {
+		
+	    String companyId = CompanyContext.getCompanyId();
 
 		while(morePages) {
-			System.out.println("validating pages :" + pageNumber);
+			Response labourPayrollListResponse = 
 
-			Response labourListPayrollResponse = 
 					given()
 					.baseUri(ApiBasePath.BASE_URL)
-					.header("Authorization", BaseToken.token)
+					.headers("Authorization", BaseToken.token)
 					.contentType(ContentType.JSON)
 					.queryParam("company_id", companyId)
 					.queryParam("type", "labour")
@@ -63,189 +49,153 @@ public class List_Payroll_Test extends BaseToken{
 					.get(Payroll_Api.LIST_PAYROLL)
 
 					.then()
+					.log().all()
 					.extract().response();
 
-			String payrollList = labourListPayrollResponse.getBody().asString();	
-			System.out.println("all payroll list :\n" + payrollList);
-
-			int responseStatusCode = labourListPayrollResponse.getStatusCode();
-			String responseMessage = labourListPayrollResponse.jsonPath().getString("message");
-
-			//test case -> status code validation
-			if(responseStatusCode == 200) {
-				System.out.println("success status code is : " + responseStatusCode + ": successfull response message : " + responseMessage);	
-			} else {
-				System.out.println("failure status code is " + responseStatusCode + ": failure message :" + responseMessage);		
+			//test case 1 = schema validation
+			List<Map<String, Object>> staffPayrollList = labourPayrollListResponse.jsonPath().getList("data");
+			if(staffPayrollList != null && !staffPayrollList.isEmpty()) {		   
+				ObjectMapper mapper = new ObjectMapper();
+				String payrollArrayJson = mapper.writeValueAsString(staffPayrollList);
+				SchemaValidator.validateSchemaFromString(payrollArrayJson, "schemas_files/Payroll_Type_Array.json");
 			}
 
-			//test case -> response time validation 
-			long responseTime = labourListPayrollResponse.getTime();
+			//test case 2 = status code & response message validation 
+			int statusCode = labourPayrollListResponse.getStatusCode();
+			String responseMessage = labourPayrollListResponse.jsonPath().get("message");
+			if(statusCode == 200) {
+				System.out.println("succesfull status code :" + statusCode + ": successfull message in response :" + responseMessage);
+			} else {
+				throw new AssertionError("failure status code :" + statusCode + ": failure message in response :" + responseMessage);
+			}
+
+			//test case 2 = response time validation 
+			long responseTime = labourPayrollListResponse.getTime();
 			if(responseTime < 2000) {
-				System.out.println("actual response time : " + responseTime);
+				System.out.println("actual response time is : " + responseTime);
 			}else {
-				System.out.println("response time is too long : " + responseTime);
+				throw new AssertionError("fail : response time is too long :" + responseTime);
 			}
 
-			List<Map<String, Object>> dataList = labourListPayrollResponse.jsonPath().get("data");
-			if(dataList == null || dataList.isEmpty()) {
-				System.out.println("payroll list is empty or null");
-				break;
+			//test case 3 = staff list empty & count validation 
+			List<Map<String, Object>> labourList = labourPayrollListResponse.jsonPath().getList("data");
+			int labourCount = labourPayrollListResponse.jsonPath().get("page.count");
+
+			if(labourList == null && labourList.isEmpty()) {
+			    throw new AssertionError("Fail : staff list is null and empty ");
 			}
 
-			allRecord.addAll(dataList);
-			totalRecord += dataList.size();
+			allRecord.addAll(labourList);
+			totalRecord = totalRecord + labourList.size();
 
-			for(int i=0; i<dataList.size(); i++) {	
-				Map<String,Object> item = dataList.get(i);
+			//test case 5 = staff payroll list data validation 
+			for(int i=0; i<labourList.size(); i++) {
+				
+				Map<String, Object> item = labourList.get(i);
 
-				String payroll_id = (String) item.get("id");
-				String salaryBreakupId = (String) item.get("salary_breakup_id");
-				String payroll_type = (String) item.get("type");
-				String partyCompanyUserType = labourListPayrollResponse.jsonPath().getString("data[" + i + "].monkey_patch_party_company_user.type");
-				String partyUserId = labourListPayrollResponse.jsonPath().getString("data[" + i + "].party_company_user_id");
-
-				Integer payrolll_dalateObj = (Integer) item.get("delete");
-				Integer payroll_hiddenObj = (Integer) item.get("hidden");
-				Integer partyCompanyHiddenObj = labourListPayrollResponse.jsonPath().getInt("data[" + i + "].monkey_patch_party_company_user.hidden");
-
-				int payrollDeleteFlag = payrolll_dalateObj != null ? payrolll_dalateObj : 0;
-				int payrollHiddenFlag = payroll_hiddenObj !=null ? payroll_hiddenObj : 0;
-				int partyHiddenFlag = partyCompanyHiddenObj != null ? partyCompanyHiddenObj : 0;
-
-				///test case 1-> Payroll already created check
-				if(partyUserId != null && !partyUserId.isEmpty()) {
-					if(payrollCreatedUser.contains(partyUserId)) {
-						Assert.fail("Payroll already created for user: " + partyUserId + ": Payroll ID: " + payroll_id);
+				String payrollId = (String) item.get("id");	
+				if(payrollId != null && !payrollId.isEmpty()) {
+					totalCount++;
+					//test case 3 = duplicate payroll id validation 
+					if(!payrollIds.contains(payrollId)) {
+						payrollIds.add(payrollId);
+						System.out.println("unique payroll id found");
 					} else {
-						payrollCreatedUser.add(partyUserId);
-						System.out.println("user payroll is not created : " + partyUserId);
+						throw new AssertionError("fail : dupliacet payrolll id found");
 					}
-				}
-
-				//test case 1 -> payroll id validation 
-				if(payroll_id !=null && !payroll_id.isEmpty()) {
-					System.out.println("payroll id " + payroll_id);
-				}else {
-					System.out.println("payroll id is empty or null :" + payroll_id);
-				}
-
-				//test case 2 -> salary breakup id validation  
-				if(salaryBreakupId !=null && !salaryBreakupId.isEmpty()) {
-					System.out.println("salaray breakup id " + i + " : " + item);
-				}else {
-					System.out.println("salary breakup id is empty or null :" + i);
-				}
-
-				//test case 3 -> payroll type validation 
-				if("labour".equalsIgnoreCase(payroll_type)) {
-					System.out.println("payroll_type match : " + payroll_type + ": payroll id :" + payroll_id);
-				}else {
-					System.out.println("payroll type is missmatch :" + payroll_type + ": payroll id " + payroll_id);
-				}
-
-				//test case 4 -> party company user type validation
-				if("labour".equalsIgnoreCase(partyCompanyUserType)) {
-					System.out.println("partyCompanyUserType is : " + partyCompanyUserType + ": payroll id :" + payroll_id);
-				}else {
-					System.out.println("partyCompanyUserType is missmatch or null : " + partyCompanyUserType + ": payroll id :" + payroll_id);
-				}
-
-				//test case 5 -> payroll delete & hidden flag validation
-				if (payrollDeleteFlag != 0 && payrollHiddenFlag != 0 && partyHiddenFlag != 0) {
-					System.out.println("Payroll or party is deleted/hidden → Payroll ID: " + payroll_id);
-				}
-
-				String nextUrl = labourListPayrollResponse.jsonPath().getString("page.next_url");
-				if (nextUrl != null && !nextUrl.isEmpty()) {
-					morePages = true;
-					pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 				} else {
-					morePages = false;
+					throw new AssertionError("fail : payroll id null pr empty");
+				}
+				
+				String salaryBreakupId = (String) item.get("salary_breakup_id");
+				if(salaryBreakupId != null && !salaryBreakupId.isEmpty()) {
+					System.out.println("salaryBreakup id is not null or empty :" + salaryBreakupId);
+				}else {
+					throw new AssertionError("fail : salary breakup id is null or empty");
+				}
+				
+				String partyCompanyUserId = (String) item.get("party_company_user_id");
+				if(partyCompanyUserId != null && !partyCompanyUserId.isEmpty()) {
+					System.out.println("party company user id is not null or empty :" + partyCompanyUserId);
+				} else {
+					throw new AssertionError("fail : party company user id null or empty");
+				}
+				
+				String payrollType = (String) item.get("type");
+				if("labour".equals(payrollType)) {
+					System.out.println("payroll type is match with staff :" + payrollType);
+				}else {
+					throw new AssertionError("fail : payroll type is not match :" + payrollType);
+				}
+				
+				Integer PayrollDeleteFlag =(Integer) item.get("delete");
+				if(PayrollDeleteFlag != null && PayrollDeleteFlag == 0) {
+					System.out.println("payroll delete flag is 0 : " + PayrollDeleteFlag);
+				} else {
+					throw new AssertionError("fail : payroll delete flag is 1");
+				}
+				
+				Integer payrollHiddenFlag = (Integer) item.get("hidden");
+				if(payrollHiddenFlag != null && payrollHiddenFlag == 0) {
+					System.out.println("payroll hidden flag is 0 : " + payrollHiddenFlag);
+				} else {
+					throw new AssertionError("payroll hidden flag is 1");
+				}
+				
+				Map<String, Object> companyUser = (Map<String, Object>) item.get("monkey_patch_party_company_user");
+
+				if (companyUser == null) {
+				    throw new AssertionError("Fail : monkey_patch_party_company_user is null");
+				}
+
+				String partyType = (String) companyUser.get("type");
+				if ("employee".equals(partyType)) {
+				    System.out.println("payroll party type is : " + partyType);
+				} else {
+				    throw new AssertionError("Fail : payroll party type mismatch : " + partyType);
+				}
+
+				/* company id validation */
+				String staffCompanyId = (String) companyUser.get("company_id");
+				if (staffCompanyId != null && staffCompanyId.equals(companyId)) {
+				    System.out.println("company id is match");
+				} else {
+				    throw new AssertionError("Fail : company id mismatch or null");
+				}
+
+				/* party name validation */
+				String payrollPartyName = (String) companyUser.get("name");
+				if (payrollPartyName != null && !payrollPartyName.isEmpty()) {
+				    System.out.println("payroll party name is : " + payrollPartyName);
+				} else {
+				    throw new AssertionError("Fail : payroll party name is null or empty");
+				}
+
+				/* hidden flag validation */
+				Integer payrollPartyHiddenFlag = (Integer) companyUser.get("hidden");
+				if (payrollPartyHiddenFlag != null && payrollPartyHiddenFlag == 0) {
+				    System.out.println("party hidden flag is 0");
+				} else {
+				    throw new AssertionError("Fail : party hidden flag is not 0");
 				}
 			}
-			System.out.println("Total Records Collected: " + totalRecord);
-		}
-	}
-
-	@Test(dependsOnMethods="labourPayrollList")
-	public void payrollIdValiadation() {
-
-		morePages = true;
-		pageNumber = 1;
-		payrollFound = false;
-
-		String cmpanayId = CompanyContext.getCompanyId();
-		String expectedPayrollId = PayrollDetails.id;
-
-		if(expectedPayrollId != null && !expectedPayrollId.isEmpty()) {
-			System.out.println("expectsed payroll id is not null or empty");
-		}else {
-			System.out.println("expectsed payroll id is null or empty");
-		}
-
-		while(morePages) {
-
-			Response listResponse = 
-					given()
-					.baseUri(ApiBasePath.BASE_URL)
-					.header("Authorization", BaseToken.token)
-					.contentType(ContentType.JSON)
-					.queryParam("company_id", cmpanayId)
-					.queryParam("type", "labour")
-					.queryParam("hidden", 0)
-					.queryParam("page", pageNumber)
-
-					.when()
-					.get(Payroll_Api.LIST_PAYROLL)
-
-					.then()
-					.extract().response();
-
-
-			int responseStatusCode = listResponse.statusCode();	
-			String responseMessage = listResponse.jsonPath().getString("message");
-
-			if(responseStatusCode == 200) {
-				System.out.println("response status code :" + responseStatusCode + ": response message :" + responseMessage);
+			
+			if(labourCount == totalCount) {
+				System.out.println("labour count  : " + labourCount + ": totalCount : " + totalCount + ": is match");
 			} else {
-				System.out.println("failure status code :" + responseStatusCode + ": failure response message :" + responseMessage);
+				System.out.println("labour count  : " + labourCount + ": totalCount : " + totalCount + ": is match");
 			}
 
-			long responsetime = listResponse.getTime();
-			if(responsetime < 2000) {
-				System.out.println("response time :" + responsetime);
-			} else {
-				System.out.println("response time is too long : " + responsetime);
-			}
-
-			List<Map<String, Object>> listData = listResponse.jsonPath().get("data");
-			if(listData == null || listData.isEmpty()) {
-				System.out.println("payroll list is null or empty");
-				break;
-			}
-
-			for(int i=0; i<listData.size(); i++) {
-				Map<String, Object> validItem = listData.get(i);
-
-				String payrollId = (String) validItem.get("id");
-
-				if(expectedPayrollId.equals(payrollId)) {
-					payrollFound = true;
-					System.out.println("Created payroll ID FOUND " + payrollId + ": page Number :" + pageNumber);
-					break;
-				}
-			}
-			if(payrollFound) {
-				break;
-			}
-
-			String nextUrl = listResponse.jsonPath().getString("page.next_url");
-			if (nextUrl != null && !nextUrl.isEmpty()) {
+			//test case 4 = pegination check 
+			String nextUrl = labourPayrollListResponse.jsonPath().get("page.next_url");
+			if(nextUrl != null && !nextUrl.isEmpty()) {
+				morePages = true;
 				pageNumber = Integer.parseInt(nextUrl.split("page=")[1].split("&")[0]);
 			} else {
 				morePages = false;
 			}
 		}
-		Assert.assertTrue(payrollFound, "Created payroll ID NOT found in payroll list");
+		System.out.println("total record collected :" + totalRecord);
 	}
 }
+

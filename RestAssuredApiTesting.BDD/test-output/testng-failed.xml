@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.StaffPayroll_testpage.List_Payroll_Test">
+      <class name="com.onsite.LabourPayroll_testpage.List_Payroll_Test">
         <methods>
+          <include name="labourPayroll"/>
           <include name="generateTokenForSuite"/>
           <include name="setUp"/>
-          <include name="staffPayroll"/>
         </methods>
-      </class> <!-- com.onsite.StaffPayroll_testpage.List_Payroll_Test -->
+      </class> <!-- com.onsite.LabourPayroll_testpage.List_Payroll_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

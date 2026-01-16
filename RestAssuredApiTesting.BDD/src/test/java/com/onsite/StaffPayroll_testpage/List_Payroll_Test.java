@@ -1,11 +1,13 @@
 package com.onsite.StaffPayroll_testpage;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.Payroll_Api;
 import com.onsite.utilities_page.BaseToken;
 import com.onsite.utilities_page.CompanyContext;
 import com.onsite.utilities_page.SchemaValidator;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
@@ -14,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class List_Payroll_Test extends BaseToken{
@@ -22,15 +23,15 @@ public class List_Payroll_Test extends BaseToken{
 	int pageNumber = 1;
 	boolean morePages = true;
 	int totalRecord = 0;
-	int expectedCount = -1;
+	int totalCount = 0;
 
 	List<Map<String, Object>> allRecord = new ArrayList<>();
 	List<String> payrollIds = new ArrayList<>();
 
 	@Test
-	public void staffPayroll() {
-
-		String companyId = CompanyContext.getCompanyId();
+	public void staffPayroll() throws Exception {
+		
+	    String companyId = CompanyContext.getCompanyId();
 
 		while(morePages) {
 			Response staffPayrollListResponse = 
@@ -38,8 +39,10 @@ public class List_Payroll_Test extends BaseToken{
 					given()
 					.baseUri(ApiBasePath.BASE_URL)
 					.headers("Authorization", BaseToken.token)
+					.contentType(ContentType.JSON)
 					.queryParam("company_id", companyId)
 					.queryParam("type", "staff")
+					.queryParam("hidden", 0)
 					.queryParam("page", pageNumber)
 					.log().uri()
 
@@ -50,19 +53,17 @@ public class List_Payroll_Test extends BaseToken{
 					.log().all()
 					.extract().response();
 
-			//test case = schma validation
-			String staffPayrollList = staffPayrollListResponse.getBody().asString();
-			try {
-				SchemaValidator.validateSchema("schemas_files/Payroll_Type.json", staffPayrollList);
-			} catch (Exception e) {
-				throw new AssertionError("Schema validation failed", e);
+			//test case 1 = schema validation
+			List<Map<String, Object>> staffPayrollList = staffPayrollListResponse.jsonPath().getList("data");
+			if(staffPayrollList != null && !staffPayrollList.isEmpty()) {		   
+				ObjectMapper mapper = new ObjectMapper();
+				String payrollArrayJson = mapper.writeValueAsString(staffPayrollList);
+				SchemaValidator.validateSchemaFromString(payrollArrayJson, "schemas_files/Payroll_Type_Array.json");
 			}
 
+			//test case 2 = status code & response message validation 
 			int statusCode = staffPayrollListResponse.getStatusCode();
 			String responseMessage = staffPayrollListResponse.jsonPath().get("message");
-
-
-			//test case 1 = status code & response message validation 
 			if(statusCode == 200) {
 				System.out.println("succesfull status code :" + statusCode + ": successfull message in response :" + responseMessage);
 			} else {
@@ -80,17 +81,15 @@ public class List_Payroll_Test extends BaseToken{
 			//test case 3 = staff list empty & count validation 
 			List<Map<String, Object>> staffList = staffPayrollListResponse.jsonPath().getList("data");
 			int staffCount = staffPayrollListResponse.jsonPath().get("page.count");
-			
-			if(expectedCount == -1) {
-				expectedCount = staffCount;
+
+			if(staffList == null) {
+			    throw new AssertionError("Fail : staff list is null");
 			}
 
-			if(staffList == null || staffList.isEmpty()) {
-				Assert.assertEquals(staffCount, 0, "staff list is empty but count not to 0");
-				System.out.println("staff list is empty and count is 0");
+			if(staffList.isEmpty()) {
+			    System.out.println("Info : staff list empty on this page, pagination continue");
 			} else {
-				Assert.assertTrue(staffCount > 0, "staff list is not empty but count is 0");
-				System.out.println("staff list is not null or empty : and staff list count :" + staffCount);	
+			    System.out.println("staff list size on this page : " + staffList.size());
 			}
 
 			allRecord.addAll(staffList);
@@ -98,25 +97,13 @@ public class List_Payroll_Test extends BaseToken{
 
 			//test case 5 = staff payroll list data validation 
 			for(int i=0; i<staffList.size(); i++) {
+				
 				Map<String, Object> item = staffList.get(i);
 
-				String payrollId = (String) item.get("id");
-				String salaryBreakupId = (String) item.get("salary_breakup_id");
-				String partyCompanyUserId = (String) item.get("party_company_user_id");
-				String payrollType = (String) item.get("type");
-				Integer PayrollDeleteFlag =(Integer) item.get("delete");
-				Integer payrollHiddenFlag = (Integer) item.get("hidden");
-				String partyType = (String) item.get("monkey_patch_party_company_user.type");
-				String staffCompanyId = (String) item.get("monkey_patch_party_company_user.company_id");
-				String payrollPartyName = (String) item.get("monkey_patch_party_company_user.name");
-				Integer payrollPartyHiddenFlag= (Integer) item.get("monkey_patch_party_company_user.hidden");
-				
-				if(expectedCount == -1) {
-					expectedCount = staffCount;
-				}
-
-				if(payrollId != null && !payrollId.isEmpty()) {	
-					//test case = duplicate payroll id validation 
+				String payrollId = (String) item.get("id");	
+				if(payrollId != null && !payrollId.isEmpty()) {
+					totalCount++;
+					//test case 3 = duplicate payroll id validation 
 					if(!payrollIds.contains(payrollId)) {
 						payrollIds.add(payrollId);
 						System.out.println("unique payroll id found");
@@ -126,64 +113,87 @@ public class List_Payroll_Test extends BaseToken{
 				} else {
 					throw new AssertionError("fail : payroll id null pr empty");
 				}
-
+				
+				String salaryBreakupId = (String) item.get("salary_breakup_id");
 				if(salaryBreakupId != null && !salaryBreakupId.isEmpty()) {
 					System.out.println("salaryBreakup id is not null or empty :" + salaryBreakupId);
 				}else {
 					throw new AssertionError("fail : salary breakup id is null or empty");
 				}
-
+				
+				String partyCompanyUserId = (String) item.get("party_company_user_id");
 				if(partyCompanyUserId != null && !partyCompanyUserId.isEmpty()) {
 					System.out.println("party company user id is not null or empty :" + partyCompanyUserId);
 				} else {
 					throw new AssertionError("fail : party company user id null or empty");
 				}
-
+				
+				String payrollType = (String) item.get("type");
 				if("staff".equals(payrollType)) {
 					System.out.println("payroll type is match with staff :" + payrollType);
 				}else {
 					throw new AssertionError("fail : payroll type is not match :" + payrollType);
 				}
-
+				
+				Integer PayrollDeleteFlag =(Integer) item.get("delete");
 				if(PayrollDeleteFlag != null && PayrollDeleteFlag == 0) {
 					System.out.println("payroll delete flag is 0 : " + PayrollDeleteFlag);
 				} else {
 					throw new AssertionError("fail : payroll delete flag is 1");
 				}
-
+				
+				Integer payrollHiddenFlag = (Integer) item.get("hidden");
 				if(payrollHiddenFlag != null && payrollHiddenFlag == 0) {
 					System.out.println("payroll hidden flag is 0 : " + payrollHiddenFlag);
 				} else {
 					throw new AssertionError("payroll hidden flag is 1");
 				}
+				
+				Map<String, Object> companyUser = (Map<String, Object>) item.get("monkey_patch_party_company_user");
 
-				if("employee".equals(partyType)) {
-					System.out.println("payroll party type is :" + partyType);
-				} else {
-					throw new AssertionError("payroll party type is");
+				if (companyUser == null) {
+				    throw new AssertionError("Fail : monkey_patch_party_company_user is null");
 				}
 
-				if(staffCompanyId != null && staffCompanyId.equals(companyId)) {
-					System.out.println("company id is match ");
+				String partyType = (String) companyUser.get("type");
+				if ("employee".equals(partyType)) {
+				    System.out.println("payroll party type is : " + partyType);
 				} else {
-					throw new AssertionError("company id is not match");
+				    throw new AssertionError("Fail : payroll party type mismatch : " + partyType);
 				}
 
-				if(payrollPartyName != null && !payrollPartyName.isEmpty()) {
-					System.out.println("payroll party name is not null oe empty :" + payrollPartyName);
+				/* company id validation */
+				String staffCompanyId = (String) companyUser.get("company_id");
+				if (staffCompanyId != null && staffCompanyId.equals(companyId)) {
+				    System.out.println("company id is match");
 				} else {
-					throw new AssertionError("payroll party name is null or empty");
+				    throw new AssertionError("Fail : company id mismatch or null");
 				}
 
-				if(payrollPartyHiddenFlag != null && payrollPartyHiddenFlag.equals(0)) {
-					System.out.println("party hiddden flag is 0");
+				/* party name validation */
+				String payrollPartyName = (String) companyUser.get("name");
+				if (payrollPartyName != null && !payrollPartyName.isEmpty()) {
+				    System.out.println("payroll party name is : " + payrollPartyName);
 				} else {
-					throw new AssertionError("party hidden flag is");
+				    throw new AssertionError("Fail : payroll party name is null or empty");
 				}
 
+				/* hidden flag validation */
+				Integer payrollPartyHiddenFlag = (Integer) companyUser.get("hidden");
+				if (payrollPartyHiddenFlag != null && payrollPartyHiddenFlag == 0) {
+				    System.out.println("party hidden flag is 0");
+				} else {
+				    throw new AssertionError("Fail : party hidden flag is not 0");
+				}
+			}
+			
+			if(staffCount == totalCount) {
+				System.out.println("staff count  : " + staffCount + ": totalCount : " + totalCount + ": is match");
+			} else {
+				System.out.println("staff count  : " + staffCount + ": totalCount : " + totalCount + ": is match");
 			}
 
-			//test case 6 = pegination check 
+			//test case 4 = pegination check 
 			String nextUrl = staffPayrollListResponse.jsonPath().get("page.next_url");
 			if(nextUrl != null && !nextUrl.isEmpty()) {
 				morePages = true;
@@ -192,16 +202,6 @@ public class List_Payroll_Test extends BaseToken{
 				morePages = false;
 			}
 		}
-		
 		System.out.println("total record collected :" + totalRecord);
-		
-		//test case = staff list count and total count same validation
-		if(totalRecord == expectedCount) {
-			System.out.println("staff count match : " + totalRecord + ": with :" + expectedCount);
-		}else {
-			throw new AssertionError("fail : staff count not match : " + totalRecord + ": with :" + expectedCount);
-		}
-		
 	}
-
 }

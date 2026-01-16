@@ -1,58 +1,122 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Payroll_Type",
-    "type": "object",
-    "required": ["id", "company_id", "type", "delete", "hidden"],
-    "properties": {
-    
-    "id": { "type": "string", "format": "uuid" },
-    "creator": { "type": "string" },
-    "creator_company_user_id": { "type": "string" },
-    "company_id": { "type": "string" },
-
-    "salary_breakup_id": { "type": "string" },
-    "party_company_user_id": { "type": "string" },
-
-    "type": {
-      "type": "string",
-      "enum": ["staff", "labour", "employee", "customer"]
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["page", "data"],
+  "properties": {
+    "page": {
+      "type": "object",
+      "required": ["prev_url", "next_url", "count"],
+      "properties": {
+        "prev_url": { "type": "string" },
+        "next_url": { "type": "string" },
+        "count": { "type": "integer" }
+      }
     },
-
-    "punch_effect": { "type": "integer" },
-
-    "project_ids": {
+    "data": {
       "type": "array",
-      "items": { "type": "string" }
-    },
+      "items": {
+        "type": "object",
+        "required": ["id", "company_id", "type", "delete", "hidden"],
+        "properties": {
+          "id": { "type": "string" },
+          "creator": { "type": "string" },
+          "creator_company_user_id": { "type": "string" },
+          "company_id": { "type": "string" },
+          "salary_breakup_id": { "type": "string" },
+          "party_company_user_id": { "type": "string" },
+          "type": { "type": "string" },
+          "punch_effect": { "type": "integer" },
+          "project_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "track_project_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "delete": { "type": "integer" },
+          "created": { "type": "string" },
+          "updated": { "type": "string" },
+          "hidden": { "type": "integer" },
 
-    "track_project_ids": {
-      "type": "array",
-      "items": { "type": "string" }
-    },
+          "monkey_patch_source": {
+            "type": ["object", "null"]
+          },
 
-    "delete": { "type": "integer", "enum": [0, 1] },
-    "hidden": { "type": "integer", "enum": [0, 1] },
+          "monkey_patch_party_company_user": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": { "type": "string" },
+              "company_id": { "type": "string" },
+              "company_role_id": { "type": "string" },
+              "role": { "type": "string" },
+              "type": { "type": "string" },
+              "creator": { "type": "string" },
+              "name": { "type": "string" },
+              "mobile": { "type": "number" },
+              "mobile_verified": { "type": "integer" },
+              "user_id": { "type": "string" },
+              "gstin": { "type": "string" },
+              "party_id": { "type": "string" },
+              "legal_business_name": { "type": "string" },
+              "billing_address": { "type": "string" },
+              "hidden": { "type": "integer" },
+              "profile_pic": { "type": "string" },
+              "email": { "type": "string" },
 
-    "created": { "type": "string", "format": "date-time" },
-    "updated": { "type": "string", "format": "date-time" }
-   },
-   
-    "monkey_patch_salary_breakup": {
-    "id": "string",
-    "company_id": "string",
-    "ctc_amount": 25000,
-    "gross_salary": 22000,
-    "net_salary": 20000,
-    "delete": 0
-   },
-   
-    "monkey_patch_workforce": {
-    "id": "string",
-    "company_id": "string",
-    "type": "monthly",
-    "wage": 20000,
-    "delete": 0
+              "monkey_patch_company_role": {
+                "type": "object"
+              },
+              "monkey_patch_user": {
+                "type": "object"
+              }
+            }
+          },
+
+          "monkey_patch_attendance": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": { "type": "string" },
+              "company_id": { "type": "string" },
+              "status": { "type": "string" },
+              "attendance_date": { "type": "string" },
+              "total_payable": { "type": "number" },
+              "delete": { "type": "integer" },
+              "created": { "type": "string" },
+              "updated": { "type": "string" }
+            }
+          },
+
+          "monkey_patch_salary_breakup": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": { "type": "string" },
+              "template_id": { "type": "string" },
+              "payroll_id": { "type": "string" },
+              "company_id": { "type": "string" },
+              "type": { "type": "string" },
+              "ctc_amount": { "type": "number" },
+              "basic_salary": { "type": "number" },
+              "gross_salary": { "type": "number" },
+              "net_salary": { "type": "number" },
+              "delete": { "type": "integer" }
+            }
+          },
+
+          "monkey_patch_workforce": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "company_id": { "type": "string" },
+              "type": { "type": "string" },
+              "wage": { "type": "number" },
+              "shift_hours": { "type": "number" },
+              "delete": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
   }
-}
-
 }

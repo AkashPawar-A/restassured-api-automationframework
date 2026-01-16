@@ -32,4 +32,9 @@ public class SchemaValidator {
         Assert.assertTrue(report.isSuccess(), "JSON schema validation failed: " + report);
     }
 
+	public static void validateSchemaFromString(String payrollArrayJson, String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

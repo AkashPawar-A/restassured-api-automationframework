@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jan 08 18:41:06 IST 2026</td>
+<td>Started on:</td><td>Fri Jan 16 16:15:14 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>3 seconds (3809 ms)</td>
+<tr><td>Total time:</td><td>11 seconds (11773 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,29 +75,9 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.onsite.StaffPayroll_testpage.List_Payroll_Test.staffPayroll()'><b>staffPayroll</b><br>Test class: com.onsite.StaffPayroll_testpage.List_Payroll_Test</td>
-<td><div><pre>java.lang.AssertionError: JSON schema validation failed: com.github.fge.jsonschema.core.report.ListProcessingReport: failure
---- BEGIN MESSAGES ---
-warning: the following keywords are unknown and will be ignored: [monkey_patch_salary_breakup, monkey_patch_workforce]
-    level: &quot;warning&quot;
-    schema: {&quot;loadingURI&quot;:&quot;#&quot;,&quot;pointer&quot;:&quot;&quot;}
-    domain: &quot;syntax&quot;
-    ignored: [&quot;monkey_patch_salary_breakup&quot;,&quot;monkey_patch_workforce&quot;]
-error: object has missing required properties ([&quot;company_id&quot;,&quot;delete&quot;,&quot;hidden&quot;,&quot;id&quot;,&quot;type&quot;])
-    level: &quot;error&quot;
-    schema: {&quot;loadingURI&quot;:&quot;#&quot;,&quot;pointer&quot;:&quot;&quot;}
-    instance: {&quot;pointer&quot;:&quot;&quot;}
-    domain: &quot;validation&quot;
-    keyword: &quot;required&quot;
-    required: [&quot;company_id&quot;,&quot;delete&quot;,&quot;hidden&quot;,&quot;id&quot;,&quot;type&quot;]
-    missing: [&quot;company_id&quot;,&quot;delete&quot;,&quot;hidden&quot;,&quot;id&quot;,&quot;type&quot;]
----  END MESSAGES  ---
- expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at com.onsite.utilities_page.SchemaValidator.validateSchema(SchemaValidator.java:32)
-	at com.onsite.StaffPayroll_testpage.List_Payroll_Test.staffPayroll(List_Payroll_Test.java:56)
+<td title='com.onsite.LabourPayroll_testpage.List_Payroll_Test.labourPayroll()'><b>labourPayroll</b><br>Test class: com.onsite.LabourPayroll_testpage.List_Payroll_Test</td>
+<td><div><pre>java.lang.AssertionError: Fail : payroll party type mismatch : labour
+	at com.onsite.LabourPayroll_testpage.List_Payroll_Test.labourPayroll(List_Payroll_Test.java:155)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -124,29 +104,9 @@ error: object has missing required properties ([&quot;company_id&quot;,&quot;del
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1319217746", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1319217746'><pre>java.lang.AssertionError: JSON schema validation failed: com.github.fge.jsonschema.core.report.ListProcessingReport: failure
---- BEGIN MESSAGES ---
-warning: the following keywords are unknown and will be ignored: [monkey_patch_salary_breakup, monkey_patch_workforce]
-    level: &quot;warning&quot;
-    schema: {&quot;loadingURI&quot;:&quot;#&quot;,&quot;pointer&quot;:&quot;&quot;}
-    domain: &quot;syntax&quot;
-    ignored: [&quot;monkey_patch_salary_breakup&quot;,&quot;monkey_patch_workforce&quot;]
-error: object has missing required properties ([&quot;company_id&quot;,&quot;delete&quot;,&quot;hidden&quot;,&quot;id&quot;,&quot;type&quot;])
-    level: &quot;error&quot;
-    schema: {&quot;loadingURI&quot;:&quot;#&quot;,&quot;pointer&quot;:&quot;&quot;}
-    instance: {&quot;pointer&quot;:&quot;&quot;}
-    domain: &quot;validation&quot;
-    keyword: &quot;required&quot;
-    required: [&quot;company_id&quot;,&quot;delete&quot;,&quot;hidden&quot;,&quot;id&quot;,&quot;type&quot;]
-    missing: [&quot;company_id&quot;,&quot;delete&quot;,&quot;hidden&quot;,&quot;id&quot;,&quot;type&quot;]
----  END MESSAGES  ---
- expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at com.onsite.utilities_page.SchemaValidator.validateSchema(SchemaValidator.java:32)
-	at com.onsite.StaffPayroll_testpage.List_Payroll_Test.staffPayroll(List_Payroll_Test.java:56)
+</pre></div><a href='#' onClick='toggleBox("stack-trace741431520", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace741431520'><pre>java.lang.AssertionError: Fail : payroll party type mismatch : labour
+	at com.onsite.LabourPayroll_testpage.List_Payroll_Test.labourPayroll(List_Payroll_Test.java:155)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -175,7 +135,7 @@ error: object has missing required properties ([&quot;company_id&quot;,&quot;del
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
 <td>1</td>
-<td>com.onsite.StaffPayroll_testpage.List_Payroll_Test@4550bb58</td></tr>
+<td>com.onsite.LabourPayroll_testpage.List_Payroll_Test@77847718</td></tr>
 </table><p>
 </body>
 </html>
