@@ -99,8 +99,14 @@ public class List_Payroll_Test extends BaseToken{
 			for(int i=0; i<staffList.size(); i++) {
 				
 				Map<String, Object> item = staffList.get(i);
-
+				
 				String payrollId = (String) item.get("id");	
+				String salaryBreakupId = (String) item.get("salary_breakup_id");
+				String partyCompanyUserId = (String) item.get("party_company_user_id");
+				String payrollType = (String) item.get("type");
+				Integer PayrollDeleteFlag =(Integer) item.get("delete");
+				Integer payrollHiddenFlag = (Integer) item.get("hidden");
+
 				if(payrollId != null && !payrollId.isEmpty()) {
 					totalCount++;
 					//test case 3 = duplicate payroll id validation 
@@ -114,76 +120,75 @@ public class List_Payroll_Test extends BaseToken{
 					throw new AssertionError("fail : payroll id null pr empty");
 				}
 				
-				String salaryBreakupId = (String) item.get("salary_breakup_id");
 				if(salaryBreakupId != null && !salaryBreakupId.isEmpty()) {
 					System.out.println("salaryBreakup id is not null or empty :" + salaryBreakupId);
 				}else {
 					throw new AssertionError("fail : salary breakup id is null or empty");
 				}
 				
-				String partyCompanyUserId = (String) item.get("party_company_user_id");
 				if(partyCompanyUserId != null && !partyCompanyUserId.isEmpty()) {
 					System.out.println("party company user id is not null or empty :" + partyCompanyUserId);
 				} else {
 					throw new AssertionError("fail : party company user id null or empty");
 				}
 				
-				String payrollType = (String) item.get("type");
 				if("staff".equals(payrollType)) {
 					System.out.println("payroll type is match with staff :" + payrollType);
 				}else {
 					throw new AssertionError("fail : payroll type is not match :" + payrollType);
 				}
 				
-				Integer PayrollDeleteFlag =(Integer) item.get("delete");
 				if(PayrollDeleteFlag != null && PayrollDeleteFlag == 0) {
 					System.out.println("payroll delete flag is 0 : " + PayrollDeleteFlag);
 				} else {
 					throw new AssertionError("fail : payroll delete flag is 1");
 				}
 				
-				Integer payrollHiddenFlag = (Integer) item.get("hidden");
 				if(payrollHiddenFlag != null && payrollHiddenFlag == 0) {
 					System.out.println("payroll hidden flag is 0 : " + payrollHiddenFlag);
 				} else {
 					throw new AssertionError("payroll hidden flag is 1");
 				}
 				
+				// validate = monkey_patch_party_company_user
 				Map<String, Object> companyUser = (Map<String, Object>) item.get("monkey_patch_party_company_user");
+				String partyType = (String) companyUser.get("type");
+				String staffCompanyId = (String) companyUser.get("company_id");
+				String payrollPartyName = (String) companyUser.get("name");
+				Integer payrollPartyHiddenFlag = (Integer) companyUser.get("hidden");
+				String partyUserId = (String) companyUser.get("user_id");
 
 				if (companyUser == null) {
 				    throw new AssertionError("Fail : monkey_patch_party_company_user is null");
 				}
 
-				String partyType = (String) companyUser.get("type");
 				if ("employee".equals(partyType)) {
 				    System.out.println("payroll party type is : " + partyType);
 				} else {
 				    throw new AssertionError("Fail : payroll party type mismatch : " + partyType);
 				}
-
-				/* company id validation */
-				String staffCompanyId = (String) companyUser.get("company_id");
 				if (staffCompanyId != null && staffCompanyId.equals(companyId)) {
 				    System.out.println("company id is match");
 				} else {
 				    throw new AssertionError("Fail : company id mismatch or null");
 				}
 
-				/* party name validation */
-				String payrollPartyName = (String) companyUser.get("name");
 				if (payrollPartyName != null && !payrollPartyName.isEmpty()) {
 				    System.out.println("payroll party name is : " + payrollPartyName);
 				} else {
 				    throw new AssertionError("Fail : payroll party name is null or empty");
 				}
-
-				/* hidden flag validation */
-				Integer payrollPartyHiddenFlag = (Integer) companyUser.get("hidden");
+				
 				if (payrollPartyHiddenFlag != null && payrollPartyHiddenFlag == 0) {
 				    System.out.println("party hidden flag is 0");
 				} else {
 				    throw new AssertionError("Fail : party hidden flag is not 0");
+				}
+				
+				if(partyUserId != null && !partyUserId.isEmpty()) {
+					System.out.println("payroll party user id :" + partyUserId);
+				} else {
+					throw new AssertionError("Fail : payroll party user is is null or empty");
 				}
 			}
 			
