@@ -1,0 +1,22 @@
+{
+  "material_item_id": "5b6c138e-6e5d-49a2-ba31-10e8ad7f2031",
+  "materialstock_id": "e8601465-d60b-426d-978f-d74de6899062",
+  "type": "deposit",
+  "name": "Cement",
+  "unit": "nos",
+  "quantity": 20,
+  "unit_price": 50,
+  "gst_percent": 11,
+  "gst_amount": 110,
+  "discount_amount": 0,
+  "total_payable": 1000,
+  "receiving_date": "2026-02-05T10:39:32.282Z",
+  "is_purchase": 1,
+  "is_material_returned": null,
+  "is_material_sold": null,
+  "notes": "Birla cement",
+  "hsn_code": "12589",
+  "item_code": "A-01",
+  "photos": []
+}
+

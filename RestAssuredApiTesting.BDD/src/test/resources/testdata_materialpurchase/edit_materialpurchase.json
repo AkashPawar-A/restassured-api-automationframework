@@ -1,0 +1,23 @@
+[
+  {
+    "id" : "",
+    "remark" : "",
+    "party_company_user_id" : "",
+    "project_id" : "",
+    "sub_category_id" : "",
+    "materials" : "",
+    "gst_amount" : "",
+    "other_amount" : "",
+    "material_amount" : "",
+    "discount" : "",
+    "total_payable" : "",
+    "photos" : "",
+    "purchase_date" : "",
+    "vendor_reference_number" : "",
+    "due_days" : "",
+    "ship_to_address_id" : "",
+    "bill_to_address_id" : "",
+    "ship_from_address_id" : "",
+    "bill_from_address_id" : ""
+  }
+]

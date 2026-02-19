@@ -70,7 +70,6 @@ public class AuthUtils {
 				secondResponse.jsonPath().getList("user.monkey_patch_company_user");
 
 		String companyId = null;
-
 		for (Map<String, Object> company : companies) {
 
 			boolean validCompanyId = true;
@@ -80,7 +79,10 @@ public class AuthUtils {
 			String userRole = (String) company.get("role");
 			String userType = (String) company.get("type");
 			String userName = (String) company.get("name");
-			Long userNumber = (Long) company.get("mobile");
+			//Long userNumber = (Long) company.get("mobile");
+			Number mobileNumber = (Number) company.get("mobile");
+			Long userNumber = mobileNumber != null ? mobileNumber.longValue() : null;
+			
 			String roleId = (String) company.get("company_role_id");
 
 			if (hiddenFlag == null || hiddenFlag.intValue() != 0) {
@@ -95,7 +97,7 @@ public class AuthUtils {
 				validCompanyId = false;
 			}
 
-			if (!"employee".equals(userType)) {
+			if (!"customer".equals(userType)) {
 				validCompanyId = false;
 			}
 
