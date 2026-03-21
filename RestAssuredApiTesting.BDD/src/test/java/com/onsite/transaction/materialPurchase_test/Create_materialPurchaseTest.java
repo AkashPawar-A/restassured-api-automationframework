@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.MaterialPurchase;
 import com.onsite.pojo_request.MaterialPurchaseRequest;
@@ -18,6 +20,7 @@ import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.CompanyContext;
 
 import io.restassured.http.ContentType;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import com.onsite.utilities_page.JsonUtils;
 import com.onsite.utilities_page.SchemaValidator;
@@ -35,6 +38,18 @@ public class Create_materialPurchaseTest {
 	
 		purchase.put("materials", materials);
 		System.out.println("final purchase payload : " + purchase);
+		
+		String requestJson = null;
+		try {
+			requestJson = new ObjectMapper().writeValueAsString(purchase);
+		} catch (JsonProcessingException e) {
+			Assert.fail("Schema validation failed: " + e.getMessage());
+		}
+		try {
+			SchemaValidator.validateSchema("requestSchemas_files/MaterialPurchaseRequestSchema.json", requestJson);
+		} catch (Exception e) {
+			Assert.fail("Request Schema validation failed: " + e.getMessage());
+		}
 		
 		MaterialPurchaseRequest purchaseCreate = JsonUtils.converMaptoPojo(purchase, MaterialPurchaseRequest.class);
 		
@@ -65,6 +80,10 @@ public class Create_materialPurchaseTest {
 		
 		MaterialPurchaseResponse response = purchaseResponse.as(MaterialPurchaseResponse.class);
 		
+		JsonSchemaValidator.matchesJsonSchemaInClasspath(
+			    "responseSchema_files/materialPurchaseResponseSchema.json"
+			);
+	
 		int responseStatusCode = purchaseResponse.getStatusCode();
 		if(responseStatusCode == 200) {
 			System.out.println("successfull response status code is :" + responseStatusCode);
@@ -86,31 +105,51 @@ public class Create_materialPurchaseTest {
 			System.out.println("failuer response time is :" + responseTime);
 		}
 		
-		String schemaResponse = purchaseResponse.asString();
-		try {
-			SchemaValidator.validateSchema("schemas_files/MaterialPurchase.json", schemaResponse);
-		} catch(Exception e) {
-			System.out.println("schema response is fail");
-		}
-		
 		String materialPurchaseId = purchaseResponse.jsonPath().get("id");
 		String companyId = purchaseResponse.jsonPath().get("company_id");
 		String creatorCompanyUserId = purchaseResponse.jsonPath().get("creator_company_user_id");
 		String partyCompanyUserId = purchaseResponse.jsonPath().get("party_company_user_id");
 		String projectId = purchaseResponse.jsonPath().get("project_id");
 		String invoiceId = purchaseResponse.jsonPath().get("invoice_id");
-		List<String> materialIds = purchaseResponse.jsonPath().getList("material_ids");
+		Integer discount = purchaseResponse.jsonPath().get("discount");
+		Integer gst_amount = purchaseResponse.jsonPath().get("gst_amount");
+		Integer other_amount = purchaseResponse.jsonPath().get("other_amount");
+		Integer material_amount = purchaseResponse.jsonPath().get("material_amount");
+		Integer total_payable = purchaseResponse.jsonPath().get("total_payable");
+		Integer sequence = purchaseResponse.jsonPath().get("sequence");
+		List<String> photos = purchaseResponse.jsonPath().getList("photos");
+		String purchase_date = purchaseResponse.jsonPath().get("purchase_date");
+		String vendor_reference_number = purchaseResponse.jsonPath().get("vendor_reference_number");
+		String delete = purchaseResponse.jsonPath().get("delete");
+		String approval_flag = purchaseResponse.jsonPath().get("approval_flag");
+		String monkey_patch_materials = purchaseResponse.jsonPath().get("monkey_patch_materials");
+		Integer monkey_patch_is_editable= purchaseResponse.jsonPath().get("monkey_patch_is_editable");
+		Integer monkey_patch_paid_amount= purchaseResponse.jsonPath().get("monkey_patch_paid_amount");
+		String monkey_patch_status = purchaseResponse.jsonPath().get("monkey_patch_status");
+		Integer can_edit = purchaseResponse.jsonPath().get("meta_data.can_edit");
+		Integer can_update_approval_flag = purchaseResponse.jsonPath().get("can_update_approval_flag");
+		String approval_comment = purchaseResponse.jsonPath().get("approval_comment");
+		String approved_by = purchaseResponse.jsonPath().get("approved_by");
+		Integer due_days = purchaseResponse.jsonPath().get("due_days");
+		String ship_to_address_id = purchaseResponse.jsonPath().get("ship_to_address_id");
+		String bill_to_address_id = purchaseResponse.jsonPath().get("bill_to_address_id");
+		String ship_from_address_id = purchaseResponse.jsonPath().get("ship_from_address_id");
+		String bill_from_address_id = purchaseResponse.jsonPath().get("bill_from_address_id");
+		String due_date = purchaseResponse.jsonPath().get("due_date");
+		String pre_tax_deduction_amount = purchaseResponse.jsonPath().get("pre_tax_deduction_amount");
+		String post_tax_deduction_amount = purchaseResponse.jsonPath().get("post_tax_deduction_amount");
+		Integer deduction_amount = purchaseResponse.jsonPath().get("deduction_amount");
+		Integer net_amount = purchaseResponse.jsonPath().get("net_amount");
+		Integer is_roundoff = purchaseResponse.jsonPath().get("is_roundoff");
+		Integer other_amount_gst_percentage = purchaseResponse.jsonPath().get("other_amount_gst_percentage");
+		Integer other_amount_gst_amount = purchaseResponse.jsonPath().get("other_amount_gst_amount");
+		String other_amount_text = purchaseResponse.jsonPath().get("other_amount_text");
+		
 		
 		if(materialPurchaseId != null) {
 			System.out.println("material purchase id :" + materialPurchaseId);
 		} else {
 			Assert.fail("material purchase id is null or empty");
-		}
-		
-		if(loginCompanyId.equals(companyId)) {
-			System.out.println("material purchase company id : " + companyId);
-		} else {
-			System.out.println("company id missamtch");
 		}
 		
 		if(creatorCompanyUserId != null) {
@@ -131,11 +170,57 @@ public class Create_materialPurchaseTest {
 			Assert.fail("project id is missmatch");
 		}
 		
-		if(materialpurchasePayload.getMaterials().equals(materialIds)) {
-			System.out.println("material ids is match :" + materialIds);
+		if(invoiceId != null) {
+			System.out.println("material purchase invoice id :" + invoiceId);
 		} else {
-			Assert.fail("material ids missmatch");
+			Assert.fail("material purchase invoice id is null or empty");
 		}
+		
+		List<String> materialIds = purchaseResponse.jsonPath().getList("material_ids");
+		if(materialIds != null) {
+			int materialitemCount = materialIds.size();
+			if(materialitemCount == materialpurchasePayload.getMaterials().size()) {
+				System.out.println("material count is match with material ids count");
+			} else {
+				Assert.fail("material count is not match with material ids");
+			}
+		} else {
+			Assert.fail("matreial ids null");
+		}
+		
+		Map<String, Object> invoice = purchaseResponse.jsonPath().getMap("monkey_patch_invoice");
+		String invoiceCompanyId = (String) invoice.get("company_id");
+		String invoiceCreator_company_user_id = (String) invoice.get("creator_company_user_id");
+		String invoiceParty_company_user_id = (String) invoice.get("party_company_user_id");
+		String invoiceProject_id = (String) invoice.get("project_id");
+		String invoiceCategory_id = (String) invoice.get("category_id");
+		String invoiceSub_category_id = (String) invoice.get("sub_category_id");
+		String invoiceFeature_type = (String) invoice.get("feature_type");
+		String invoiceFeature_id = (String) invoice.get("feature_id");
+		String invoice_type= (String) invoice.get("invoice_type");
+		String invoiceStatus = (String) invoice.get("status");
+		Integer invoiceTotal_payable = (Integer) invoice.get("total_payable");
+		Integer invoicePaid_amount = (Integer) invoice.get("paid_amount");
+		Integer invoiceSequence = (Integer) invoice.get("sequence");
+		Integer invoiceDelete = (Integer) invoice.get("delete");
+		String invoice_date = (String) invoice.get("invoice_date");
+		String incoiceCreated = (String) invoice.get("created");
+		String invoiceUpdated = (String) invoice.get("updated");
+		String invoiceApproval_flag = (String) invoice.get("approval_flag"); 
+		
+		Map<String, Object> invoiceSettlement = (Map<String, Object>) invoice.get("monkey_patch_settlement");
+		String settlementId = (String) invoiceSettlement.get("id");
+		String settlementCompany_id = (String) invoiceSettlement.get("company_id");
+		String settlementCreator_company_user_id = (String) invoiceSettlement.get("creator_company_user_id");
+		String settlementParty_company_user_id = (String) invoiceSettlement.get("party_company_user_id");
+		String settlementProject_id = (String) invoiceSettlement.get("project_id");
+		String settlementInvoiceId = (String) invoiceSettlement.get("invoice_id");
+		String settlementCashbooktransaction_id = (String) invoiceSettlement.get("cashbooktransaction_id");
+		Integer settled_amount = (Integer) invoiceSettlement.get("settled_amount");
+		Integer settlementDelete = (Integer) invoiceSettlement.get("delete");
+		String settlementCreated = (String) invoiceSettlement.get("created");
+		String settlementUpdated = (String) invoiceSettlement.get("updated");
+		String monkey_patch_settlement_date = (String) invoiceSettlement.get("monkey_patch_settlement_date");
 		
 	}
 
