@@ -5,7 +5,7 @@
     <classes>
       <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
         <methods>
-          <include name="addMaterialPurchase" invocation-numbers="0"/>
+          <include name="addMaterialPurchase"/>
         </methods>
       </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
     </classes>

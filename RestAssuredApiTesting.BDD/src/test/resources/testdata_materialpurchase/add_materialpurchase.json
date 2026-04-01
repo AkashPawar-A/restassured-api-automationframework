@@ -2,7 +2,7 @@
   "remark": "test - 2",
   "purchase_date": "2026-03-21T11:11:45.175Z",
   "vendor_reference_number": "A-01",
-  "party_company_user_id": "2fa2de41-52a4-4a7f-9dcd-4aee6e729761",
+  "party_company_user_id": "ad68f28f-e84c-4ceb-9991-1dffd745f3c1",
   "project_id": "a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9",
   "sub_category_id": null,
   "due_days": null,
@@ -10,10 +10,10 @@
   "bill_to_address_id": null,
   "ship_from_address_id": null,
   "bill_from_address_id": null,
-  "material_amount": 1180,
-  "gst_amount": 180,
+  "material_amount": 980,
+  "gst_amount": 174.6,
   "other_amount": 10,
-  "discount": 0,
+  "discount": 20,
   "total_payable": 1190,
   "net_amount": 1190,
   "is_roundoff": 0,
@@ -21,5 +21,5 @@
   "other_amount_gst_amount": 0,
   "other_amount_text": "Additional Charges - test 1",
   "photos": [],
-  "materials": []
+  "materials": [{}]
 }

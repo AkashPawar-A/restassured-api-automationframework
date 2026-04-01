@@ -54,7 +54,7 @@
     "monkey_patch_ship_to_address" : { "type" : "string" },
     
     "materials": { "type": "array", "minItems": 1,
-      "items": { "type": "object", "additionalProperties": false,
+      "items": { "type": "object", "additionalProperties": true,
         "required": [
           "material_item_id",
           "materialstock_id",
@@ -66,6 +66,8 @@
           "gst_percent",
           "gst_amount",
           "discount_amount",
+          "discount_value",
+          "is_discount_percent",
           "total_payable",
           "receiving_date",
           "is_purchase",
@@ -82,7 +84,9 @@
           "unit_price": { "type": "number" },
           "gst_percent": { "type": "number" },
           "gst_amount": { "type": "number" },
+          "discount_value": { "type": "number" },
           "discount_amount": { "type": "number" },
+          "is_discount_percent" : { "type": "number" },
           "total_payable": { "type": "number" },
           "receiving_date": { "type": "string", "format": "date-time" },
           "is_purchase": { "type": "integer" },
@@ -91,7 +95,7 @@
           "notes": { "type": ["string", "null"] },
           "hsn_code": { "type": ["string", "null"] },
           "item_code": { "type": ["string", "null"] },
-          "photos": { "type": "array", "items": { "type": "string" }
+          "photos": { "type": "array", "items": { "type": "string" }}
           }
         }
       }

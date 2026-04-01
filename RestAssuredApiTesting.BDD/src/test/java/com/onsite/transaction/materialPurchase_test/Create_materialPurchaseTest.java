@@ -41,6 +41,12 @@ public class Create_materialPurchaseTest {
 		purchase.put("materials", materials);
 		System.out.println("final purchase payload : " + purchase);
 
+		Map<String, Object> deductionBulkAdd = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json");
+		Map<String, Object> deductionEntryData = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deduction_entry_data.json");
+
+		deductionBulkAdd.put("deduction_entry_data", deductionEntryData);
+		purchase.put("deduction_entries", deductionEntryData);
+
 		String requestJson = null;
 		try {
 			requestJson = new ObjectMapper().writeValueAsString(purchase);
@@ -82,9 +88,14 @@ public class Create_materialPurchaseTest {
 
 		MaterialPurchaseResponse response = purchaseResponse.as(MaterialPurchaseResponse.class);
 
-		JsonSchemaValidator.matchesJsonSchemaInClasspath(
+		purchaseResponse.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(
 				"responseSchema_files/materialPurchaseResponseSchema.json"
-				);
+				));
+		
+		Map<String, Object> deductionBulkAdd = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json");
+		Map<String, Object> deductionEntryData = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deduction_entry_data.json");
+
+		
 
 		int responseStatusCode = purchaseResponse.getStatusCode();
 		if(responseStatusCode == 200) {
@@ -153,31 +164,31 @@ public class Create_materialPurchaseTest {
 		} else {
 			Assert.fail("material purchase id is null");
 		}
-		
+
 		if(companyId != null) {
 			System.out.println("companyId :" + companyId);
 		} else {
 			Assert.fail("company id is null");
 		}
-		
+
 		if(creatorCompanyUserId != null) {
 			System.out.println("creatorCompanyUserId :" + creatorCompanyUserId);
 		} else {
 			Assert.fail("creator company user id is null");
 		}
-		
+
 		if(partyCompanyUserId != null) {
 			System.out.println("partyCompanyUserId : " + partyCompanyUserId);
 		} else {
 			Assert.fail("party company user is is null");
 		}
-		
+
 		if(invoiceId != null) {
 			System.out.println("invoiceId : " + invoiceId);
 		} else {
 			System.out.println("invoiceId is null or empty");
 		}
-		
+
 		if(sequence != null) {
 			System.out.println("sequence :" + sequence);
 		} else {
@@ -190,28 +201,40 @@ public class Create_materialPurchaseTest {
 		} else {
 			Assert.fail("project id is null or empty");
 		}
-		
+
 		if(discount != null) {
 			Assert.assertEquals(discount, materialpurchasePayload.getDiscount(), "discount is mismatch");
 			System.out.println("discount :" + discount);
 		} else {
 			System.out.println("discount is null or empty");
 		}
-		
-		if(gst_amount != null) {
-			Assert.assertEquals(gst_amount, materialpurchasePayload.getGst_amount(), "gst amount mismatch");
-			System.out.println("gst_amount :" + gst_amount);
-		} else {
+
+		Double expectedGstAmount = 0.0;
+		if(materialpurchasePayload.getMaterials() != null) {
+			for(Material matGstAmount : materialpurchasePayload.getMaterials()) {
+				Double unitPrice = matGstAmount.getUnit_price();
+				Double qty = matGstAmount.getQuantity();
+				Double discountAmount = matGstAmount.getDiscount_amount();
+				Double gstPercent = matGstAmount.getGst_percent();
+
+				expectedGstAmount += (((unitPrice*qty)-discountAmount)*gstPercent)/100;
+			}
+			if(expectedGstAmount.equals(gst_amount)) {
+				System.out.println("expected gstAmount :" + expectedGstAmount + ": actual gst_amount :" + gst_amount);
+			} else {
+				Assert.fail("expected gstAmount :" + expectedGstAmount + ": with actual gst_Amount not match :" + gst_amount);
+			}
+		}else {
 			System.out.println("gst_amount is null or empty");
 		}
-		
+
 		if(other_amount != null) {
 			Assert.assertEquals(other_amount, materialpurchasePayload.getOther_amount(), "other amount is mismatch");
 			System.out.println("other_amount :" + other_amount);
 		} else {
 			System.out.println("other_amount is null or empty");
 		}
-		
+
 		Double expectedMaterialAmount = 0.0;
 		if(materialpurchasePayload.getMaterials() != null) {
 			for(Material matAmount : materialpurchasePayload.getMaterials()) {
@@ -219,8 +242,8 @@ public class Create_materialPurchaseTest {
 				Double unitPrice = matAmount.getUnit_price();
 				Double gstAmount = matAmount.getGst_amount();
 				Double discountAmount = matAmount.getDiscount_amount();
-				
-				expectedMaterialAmount += (qty * unitPrice) - discountAmount + gstAmount;
+
+				expectedMaterialAmount += (qty*unitPrice)-discountAmount+gstAmount;
 			}
 			if(material_amount.equals(expectedMaterialAmount)) {
 				System.out.println("expected material_amount :" + expectedMaterialAmount + ": actual material amount :" + material_amount);
@@ -230,7 +253,7 @@ public class Create_materialPurchaseTest {
 		} else {
 			Assert.fail("material_amount is null or empty");
 		}
-		
+
 		Double expectedTotalPayble = 0.0;
 		if(total_payable != null) {
 			Double materialAmount = expectedMaterialAmount;
@@ -238,8 +261,8 @@ public class Create_materialPurchaseTest {
 			Double purchaseGst = materialpurchasePayload.getGst_amount();
 			Double purchaseOtherAmount = materialpurchasePayload.getOther_amount();
 			Double purchaseOtherGstAmount = materialpurchasePayload.getOther_amount_gst_amount();
-			
-			expectedTotalPayble = expectedMaterialAmount - purchaseDiscount + purchaseOtherAmount + purchaseOtherGstAmount;
+
+			expectedTotalPayble = expectedMaterialAmount-purchaseDiscount+purchaseOtherAmount+purchaseOtherGstAmount;
 			if(total_payable.equals(expectedTotalPayble)) {
 				System.out.println("expected expectedTotalPayble :" + expectedTotalPayble + ": actual total_payable amount :" + total_payable);
 			} else {
@@ -248,14 +271,14 @@ public class Create_materialPurchaseTest {
 		} else {
 			Assert.fail("total_payable is null or empty");
 		}
-		
+
 		if(purchase_date != null && !purchase_date.isEmpty()) {
 			Assert.assertEquals(purchase_date, materialpurchasePayload.getPurchase_date(), "purchase date is mismatch");
 			System.out.println("purchase_date :" + purchase_date);
 		} else {
 			Assert.fail("purchase_date is null or empty");
 		}
-		
+
 		if(materialIds != null && !materialIds.isEmpty()) {
 			Assert.assertEquals(
 					materialIds.size(),
@@ -319,13 +342,13 @@ public class Create_materialPurchaseTest {
 			Assert.fail("monkey_patch_paid_amount field is null");
 		}
 
-//		List<String> statusList = List.of("paid", "unpaid", "partiallypaid");
-//		if(monkey_patch_status != null) {
-//			Assert.assertTrue(statusList.contains(monkey_patch_status.toLowerCase()), "status is invalid" + monkey_patch_status);
-//			System.out.println("monkey_patch_status :" + monkey_patch_status);
-//		} else {
-//			Assert.fail("status field is null");
-//		}
+		//		List<String> statusList = List.of("paid", "unpaid", "partiallypaid");
+		//		if(monkey_patch_status != null) {
+		//			Assert.assertTrue(statusList.contains(monkey_patch_status.toLowerCase()), "status is invalid" + monkey_patch_status);
+		//			System.out.println("monkey_patch_status :" + monkey_patch_status);
+		//		} else {
+		//			Assert.fail("status field is null");
+		//		}
 
 		if(can_edit != null) {
 			Assert.assertEquals(can_edit.intValue(), 0, "can_edit should be 0 at creation time");
@@ -334,25 +357,25 @@ public class Create_materialPurchaseTest {
 			Assert.fail("can_edit filed is null");
 		}
 
-//		if(can_update_approval_flag != null) {
-//			Assert.assertEquals(can_update_approval_flag.intValue(), 0, "can_update_approval_flag value is 0 at creation time");
-//		} else {
-//			Assert.fail("can_update_approval_flag is null");
-//		}
+		//		if(can_update_approval_flag != null) {
+		//			Assert.assertEquals(can_update_approval_flag.intValue(), 0, "can_update_approval_flag value is 0 at creation time");
+		//		} else {
+		//			Assert.fail("can_update_approval_flag is null");
+		//		}
 
-//		if(approval_comment != null) {
-//			Assert.assertFalse(approval_comment.trim().isEmpty(), "approval_comment is not be empty at creation time");
-//			System.out.println("approval_comment: " + approval_comment);
-//		} else {
-//			System.out.println("approval_comment is null at creation time");
-//		}
+		//		if(approval_comment != null) {
+		//			Assert.assertFalse(approval_comment.trim().isEmpty(), "approval_comment is not be empty at creation time");
+		//			System.out.println("approval_comment: " + approval_comment);
+		//		} else {
+		//			System.out.println("approval_comment is null at creation time");
+		//		}
 
-//		if(approved_by != null) {
-//			Assert.assertFalse(approved_by.trim().isEmpty(), "approved_by is not be empty at creation time");
-//			System.out.println("approved_by : " + approved_by);
-//		} else {
-//			System.out.println("approved_by is null at creation time");
-//		}
+		//		if(approved_by != null) {
+		//			Assert.assertFalse(approved_by.trim().isEmpty(), "approved_by is not be empty at creation time");
+		//			System.out.println("approved_by : " + approved_by);
+		//		} else {
+		//			System.out.println("approved_by is null at creation time");
+		//		}
 
 		if(due_days != null) {
 			Assert.assertTrue(due_days >= 0, "due days should not be negative" + due_days);
@@ -466,40 +489,40 @@ public class Create_materialPurchaseTest {
 
 
 
-//
-//		Map<String, Object> invoice = purchaseResponse.jsonPath().getMap("monkey_patch_invoice");
-//		String invoiceCompanyId = (String) invoice.get("company_id");
-//		String invoiceCreator_company_user_id = (String) invoice.get("creator_company_user_id");
-//		String invoiceParty_company_user_id = (String) invoice.get("party_company_user_id");
-//		String invoiceProject_id = (String) invoice.get("project_id");
-//		String invoiceCategory_id = (String) invoice.get("category_id");
-//		String invoiceSub_category_id = (String) invoice.get("sub_category_id");
-//		String invoiceFeature_type = (String) invoice.get("feature_type");
-//		String invoiceFeature_id = (String) invoice.get("feature_id");
-//		String invoice_type= (String) invoice.get("invoice_type");
-//		String invoiceStatus = (String) invoice.get("status");
-//		Integer invoiceTotal_payable = (Integer) invoice.get("total_payable");
-//		Integer invoicePaid_amount = (Integer) invoice.get("paid_amount");
-//		Integer invoiceSequence = (Integer) invoice.get("sequence");
-//		Integer invoiceDelete = (Integer) invoice.get("delete");
-//		String invoice_date = (String) invoice.get("invoice_date");
-//		String incoiceCreated = (String) invoice.get("created");
-//		String invoiceUpdated = (String) invoice.get("updated");
-//		String invoiceApproval_flag = (String) invoice.get("approval_flag"); 
-//
-//		Map<String, Object> invoiceSettlement = (Map<String, Object>) invoice.get("monkey_patch_settlement");
-//		String settlementId = (String) invoiceSettlement.get("id");
-//		String settlementCompany_id = (String) invoiceSettlement.get("company_id");
-//		String settlementCreator_company_user_id = (String) invoiceSettlement.get("creator_company_user_id");
-//		String settlementParty_company_user_id = (String) invoiceSettlement.get("party_company_user_id");
-//		String settlementProject_id = (String) invoiceSettlement.get("project_id");
-//		String settlementInvoiceId = (String) invoiceSettlement.get("invoice_id");
-//		String settlementCashbooktransaction_id = (String) invoiceSettlement.get("cashbooktransaction_id");
-//		Integer settled_amount = (Integer) invoiceSettlement.get("settled_amount");
-//		Integer settlementDelete = (Integer) invoiceSettlement.get("delete");
-//		String settlementCreated = (String) invoiceSettlement.get("created");
-//		String settlementUpdated = (String) invoiceSettlement.get("updated");
-//		String monkey_patch_settlement_date = (String) invoiceSettlement.get("monkey_patch_settlement_date");
+		//
+		//		Map<String, Object> invoice = purchaseResponse.jsonPath().getMap("monkey_patch_invoice");
+		//		String invoiceCompanyId = (String) invoice.get("company_id");
+		//		String invoiceCreator_company_user_id = (String) invoice.get("creator_company_user_id");
+		//		String invoiceParty_company_user_id = (String) invoice.get("party_company_user_id");
+		//		String invoiceProject_id = (String) invoice.get("project_id");
+		//		String invoiceCategory_id = (String) invoice.get("category_id");
+		//		String invoiceSub_category_id = (String) invoice.get("sub_category_id");
+		//		String invoiceFeature_type = (String) invoice.get("feature_type");
+		//		String invoiceFeature_id = (String) invoice.get("feature_id");
+		//		String invoice_type= (String) invoice.get("invoice_type");
+		//		String invoiceStatus = (String) invoice.get("status");
+		//		Integer invoiceTotal_payable = (Integer) invoice.get("total_payable");
+		//		Integer invoicePaid_amount = (Integer) invoice.get("paid_amount");
+		//		Integer invoiceSequence = (Integer) invoice.get("sequence");
+		//		Integer invoiceDelete = (Integer) invoice.get("delete");
+		//		String invoice_date = (String) invoice.get("invoice_date");
+		//		String incoiceCreated = (String) invoice.get("created");
+		//		String invoiceUpdated = (String) invoice.get("updated");
+		//		String invoiceApproval_flag = (String) invoice.get("approval_flag"); 
+		//
+		//		Map<String, Object> invoiceSettlement = (Map<String, Object>) invoice.get("monkey_patch_settlement");
+		//		String settlementId = (String) invoiceSettlement.get("id");
+		//		String settlementCompany_id = (String) invoiceSettlement.get("company_id");
+		//		String settlementCreator_company_user_id = (String) invoiceSettlement.get("creator_company_user_id");
+		//		String settlementParty_company_user_id = (String) invoiceSettlement.get("party_company_user_id");
+		//		String settlementProject_id = (String) invoiceSettlement.get("project_id");
+		//		String settlementInvoiceId = (String) invoiceSettlement.get("invoice_id");
+		//		String settlementCashbooktransaction_id = (String) invoiceSettlement.get("cashbooktransaction_id");
+		//		Integer settled_amount = (Integer) invoiceSettlement.get("settled_amount");
+		//		Integer settlementDelete = (Integer) invoiceSettlement.get("delete");
+		//		String settlementCreated = (String) invoiceSettlement.get("created");
+		//		String settlementUpdated = (String) invoiceSettlement.get("updated");
+		//		String monkey_patch_settlement_date = (String) invoiceSettlement.get("monkey_patch_settlement_date");
 
 	}
 
