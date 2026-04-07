@@ -10,16 +10,16 @@
   "bill_to_address_id": null,
   "ship_from_address_id": null,
   "bill_from_address_id": null,
-  "material_amount": 980,
+  "material_amount": 970,
   "gst_amount": 174.6,
   "other_amount": 10,
   "discount": 20,
-  "total_payable": 1190,
-  "net_amount": 1190,
+  "total_payable": 1134.6,
+  "net_amount": 1134.6,
   "is_roundoff": 0,
   "other_amount_gst_percentage": 0,
   "other_amount_gst_amount": 0,
   "other_amount_text": "Additional Charges - test 1",
   "photos": [],
-  "materials": [{}]
+  "materials": []
 }

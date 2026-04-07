@@ -4,41 +4,18 @@
   <listeners>
     <listener class-name="com.onsite.reports.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="LabourPayroll(failed)">
+  <test thread-count="5" parallel="methods" name="AddMaterialPurchase(failed)">
     <classes>
-      <class name="com.onsite.LabourPayroll_testpage.List_Payroll_Test">
+      <class name="com.onsite.deduction_test.Add_Deduction_test">
         <methods>
-          <include name="labourPayrollList"/>
-          <include name="generateTokenForSuite"/>
-          <include name="setUp"/>
-          <include name="payrollIdValiadation"/>
+          <include name="addDeductionItem"/>
         </methods>
-      </class> <!-- com.onsite.LabourPayroll_testpage.List_Payroll_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test">
+      </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
+      <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
         <methods>
-          <include name="nonExistPayroll"/>
-          <include name="existPayroll"/>
-          <include name="generateTokenForSuite"/>
-          <include name="saveUseIds"/>
-          <include name="setUp"/>
+          <include name="addMaterialPurchase" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.onsite.LabourPayroll_testpage.Is_Payroll_Exist_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll">
-        <methods>
-          <include name="saveLabourUserId"/>
-          <include name="labourTypeList"/>
-        </methods>
-      </class> <!-- com.onsite.LabourPayroll_testpage.ListCompanyUserforPayroll -->
-      <class name="com.onsite.LabourPayroll_testpage.Payroll_Count_Test">
-        <methods>
-          <include name="labourActiveCountAfterCreate"/>
-        </methods>
-      </class> <!-- com.onsite.LabourPayroll_testpage.Payroll_Count_Test -->
-      <class name="com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test">
-        <methods>
-          <include name="createLabourPayroll"/>
-        </methods>
-      </class> <!-- com.onsite.LabourPayroll_testpage.Add_LabourPayroll_Test -->
+      </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
     </classes>
-  </test> <!-- LabourPayroll(failed) -->
+  </test> <!-- AddMaterialPurchase(failed) -->
 </suite> <!-- Failed suite [functionalTestSuite] -->

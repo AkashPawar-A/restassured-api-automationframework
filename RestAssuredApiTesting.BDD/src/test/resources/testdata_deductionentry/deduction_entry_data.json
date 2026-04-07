@@ -1,9 +1,7 @@
-[
-  {
-     "deduction_item_id" : "03cb2e17-10c1-466f-bea6-65964bd1ae78",
-     "salesorder_invoice_id" : "",
-     "project_id" : "a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9",
-     "amount" : 10,
-     "pre_tax" : 0
-  }
-]
+{
+  "deduction_item_id" : "",
+  "salesorder_invoice_id" : "",
+  "project_id" : "a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9",
+  "amount" : "",
+  "pre_tax" : 0
+}

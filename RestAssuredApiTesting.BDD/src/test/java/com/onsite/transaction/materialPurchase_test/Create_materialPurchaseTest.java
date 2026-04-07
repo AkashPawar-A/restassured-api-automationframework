@@ -4,14 +4,18 @@ import static io.restassured.RestAssured.*;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.File;
+import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.MaterialPurchase;
@@ -41,12 +45,6 @@ public class Create_materialPurchaseTest {
 		purchase.put("materials", materials);
 		System.out.println("final purchase payload : " + purchase);
 
-		Map<String, Object> deductionBulkAdd = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json");
-		Map<String, Object> deductionEntryData = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deduction_entry_data.json");
-
-		deductionBulkAdd.put("deduction_entry_data", deductionEntryData);
-		purchase.put("deduction_entries", deductionEntryData);
-
 		String requestJson = null;
 		try {
 			requestJson = new ObjectMapper().writeValueAsString(purchase);
@@ -67,7 +65,7 @@ public class Create_materialPurchaseTest {
 	}
 
 	@Test(dataProvider="purchaseData")
-	public void addMaterialPurchase(MaterialPurchaseRequest materialpurchasePayload) {
+	public void addMaterialPurchase(MaterialPurchaseRequest materialpurchasePayload) throws Exception, DatabindException, IOException {
 
 		String loginCompanyId = CompanyContext.getCompanyId();
 
@@ -88,17 +86,11 @@ public class Create_materialPurchaseTest {
 
 		MaterialPurchaseResponse response = purchaseResponse.as(MaterialPurchaseResponse.class);
 
-		purchaseResponse.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(
-				"responseSchema_files/materialPurchaseResponseSchema.json"
-				));
-		
-		Map<String, Object> deductionBulkAdd = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json");
-		Map<String, Object> deductionEntryData = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deduction_entry_data.json");
-
-		
-
 		int responseStatusCode = purchaseResponse.getStatusCode();
 		if(responseStatusCode == 200) {
+			purchaseResponse.then().assertThat().body(
+					JsonSchemaValidator.matchesJsonSchemaInClasspath(
+							"responseSchema_files/materialPurchaseResponseSchema.json"));
 			System.out.println("successfull response status code is :" + responseStatusCode);
 		} else {
 			System.out.println("failure response status code is :" + responseStatusCode);
@@ -158,6 +150,44 @@ public class Create_materialPurchaseTest {
 		Double other_amount_gst_percentage = purchaseResponse.jsonPath().getDouble("other_amount_gst_percentage");
 		Double other_amount_gst_amount = purchaseResponse.jsonPath().getDouble("other_amount_gst_amount");
 		String other_amount_text = purchaseResponse.jsonPath().get("other_amount_text");
+
+		ObjectMapper writemapper = new ObjectMapper();
+
+		String deductionBulkAddFile = "src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json";
+		String deductionEntryDataFile = "src/test/resources/testdata_deductionentry/deduction_entry_data.json";
+
+		File bulkFile = new File(deductionBulkAddFile);
+		File entryFile = new File(deductionEntryDataFile);
+
+		Map<String, Object> deductionBulkAdd = new HashMap<>();
+		Map<String, Object> deductionEntryData = new HashMap<>();
+
+		if (responseStatusCode == 200 && materialPurchaseId != null && projectId != null) {
+		    try {
+		        if (bulkFile.exists()) {
+		            deductionBulkAdd = writemapper.readValue(bulkFile, Map.class);
+		        }
+		        if (entryFile.exists()) {
+		            deductionEntryData = writemapper.readValue(entryFile, Map.class);
+		        }
+		        deductionBulkAdd.put("feature_id", materialPurchaseId);
+		        deductionBulkAdd.put("project_id", projectId);
+		        deductionEntryData.put("project_id", projectId);
+
+		        writemapper.writerWithDefaultPrettyPrinter()
+		                .writeValue(bulkFile, deductionBulkAdd);
+
+		        writemapper.writerWithDefaultPrettyPrinter()
+		                .writeValue(entryFile, deductionEntryData);
+		        
+		        System.out.println("JSON files updated successfully");
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        Assert.fail("JSON update failed: " + e.getMessage());
+		    }
+		} else {
+		    System.out.println("JSON file not updated due to invalid response");
+		}
 
 		if(materialPurchaseId != null) {
 			System.out.println("material purchase id :" + materialPurchaseId);
@@ -480,12 +510,6 @@ public class Create_materialPurchaseTest {
 		} else {
 			System.out.println("other_amount_text is null or empty");
 		}
-
-
-
-
-
-
 
 
 
