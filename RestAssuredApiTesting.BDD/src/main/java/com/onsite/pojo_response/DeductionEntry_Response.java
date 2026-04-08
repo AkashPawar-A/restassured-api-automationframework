@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 import org.apache.xmlbeans.impl.xb.xmlconfig.Extensionconfig.Interface;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class DeductionEntry_Response {
 	
 	private String id;

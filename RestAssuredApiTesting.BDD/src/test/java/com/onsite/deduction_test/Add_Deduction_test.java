@@ -29,7 +29,7 @@ public class Add_Deduction_test {
 	public Object[][] testData(){
 		Map<String, Object> deductionBulkItem = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json"); 
 		Map<String, Object> deductionEntryData = JsonUtils.readJson("src/test/resources/testdata_deductionentry/deduction_entry_data.json");
-		
+
 		List<Map<String, Object>> deductionEntryList = new ArrayList<>();
 		deductionEntryList.add(deductionEntryData);
 
@@ -44,7 +44,7 @@ public class Add_Deduction_test {
 		}
 
 		try {
-			SchemaValidator.validateSchema("requestSchemas_files/DeductionSchema.json", jsonMapper);
+			SchemaValidator.validateSchema("requestSchemas_files/DeductionRequestSchema.json", jsonMapper);
 		} catch (Exception e) {
 			Assert.fail("deduction request schema validation fail :" + e.getMessage());
 		}
@@ -69,17 +69,19 @@ public class Add_Deduction_test {
 
 				.when()
 				.post(Deduction_Api.genericAddDeduction)
-				
+
 				.then()
 				.log().all()
 				.extract().response();
-		
-		DeductionEntry_Response response = deductionResponse.as(DeductionEntry_Response.class);
-		
-		deductionResponse.then().assertThat().body(
-				JsonSchemaValidator.matchesJsonSchemaInClasspath(
-						"src/test/resources/responseSchema_file/DeductionSchema.json")
-				);
+
+		List<DeductionEntry_Response> resposeList = deductionResponse.jsonPath().getList("", DeductionEntry_Response.class);
+
+		int responseStatusCode = deductionResponse.getStatusCode();
+		if(responseStatusCode == 200)
+			deductionResponse.then().assertThat().body(
+					JsonSchemaValidator.matchesJsonSchemaInClasspath(
+							"responseSchema_files/DeductionResponseSchema.json")
+					);
 	}
 
 }

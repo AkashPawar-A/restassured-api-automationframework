@@ -1,12 +1,23 @@
 package com.onsite.pojo_request;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class DeductionEntryBulkAdd_Request {
 	
 	private String feature_id;
 	private String feature_type;
 	private String project_id;
-	private String deduction_entry_data[];
+	private List<DeductionEntry_Request> deduction_entry_data;
 	
+	public List<DeductionEntry_Request> getDeduction_entry_data() {
+		return deduction_entry_data;
+	}
+	public void setDeduction_entry_data(List<DeductionEntry_Request> deduction_entry_data) {
+		this.deduction_entry_data = deduction_entry_data;
+	}
 	public String getFeature_id() {
 		return feature_id;
 	}
@@ -24,12 +35,6 @@ public class DeductionEntryBulkAdd_Request {
 	}
 	public void setProject_id(String project_id) {
 		this.project_id = project_id;
-	}
-	public String[] getDeduction_entry_data() {
-		return deduction_entry_data;
-	}
-	public void setDeduction_entry_data(String[] deduction_entry_data) {
-		this.deduction_entry_data = deduction_entry_data;
 	}
 
 }

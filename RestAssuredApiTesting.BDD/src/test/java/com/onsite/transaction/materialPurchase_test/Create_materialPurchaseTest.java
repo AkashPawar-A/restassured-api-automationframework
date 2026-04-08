@@ -163,30 +163,28 @@ public class Create_materialPurchaseTest {
 		Map<String, Object> deductionEntryData = new HashMap<>();
 
 		if (responseStatusCode == 200 && materialPurchaseId != null && projectId != null) {
-		    try {
-		        if (bulkFile.exists()) {
-		            deductionBulkAdd = writemapper.readValue(bulkFile, Map.class);
-		        }
-		        if (entryFile.exists()) {
-		            deductionEntryData = writemapper.readValue(entryFile, Map.class);
-		        }
-		        deductionBulkAdd.put("feature_id", materialPurchaseId);
-		        deductionBulkAdd.put("project_id", projectId);
-		        deductionEntryData.put("project_id", projectId);
+			try {
+				if (bulkFile.exists()) {
+					deductionBulkAdd = writemapper.readValue(bulkFile, Map.class);
+				}
+				if (entryFile.exists()) {
+					deductionEntryData = writemapper.readValue(entryFile, Map.class);
+				}
+				deductionBulkAdd.put("feature_id", materialPurchaseId);
+				deductionBulkAdd.put("project_id", projectId);
+				deductionEntryData.put("project_id", projectId);
 
-		        writemapper.writerWithDefaultPrettyPrinter()
-		                .writeValue(bulkFile, deductionBulkAdd);
+				writemapper.writerWithDefaultPrettyPrinter().writeValue(bulkFile, deductionBulkAdd);
 
-		        writemapper.writerWithDefaultPrettyPrinter()
-		                .writeValue(entryFile, deductionEntryData);
-		        
-		        System.out.println("JSON files updated successfully");
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		        Assert.fail("JSON update failed: " + e.getMessage());
-		    }
+				writemapper.writerWithDefaultPrettyPrinter().writeValue(entryFile, deductionEntryData);
+
+				System.out.println("JSON files updated successfully");
+			} catch (Exception e) {
+				e.printStackTrace();
+				Assert.fail("JSON update failed: " + e.getMessage());
+			}
 		} else {
-		    System.out.println("JSON file not updated due to invalid response");
+			System.out.println("JSON file not updated due to invalid response");
 		}
 
 		if(materialPurchaseId != null) {
@@ -302,6 +300,24 @@ public class Create_materialPurchaseTest {
 			Assert.fail("total_payable is null or empty");
 		}
 
+		Double expectedNetAmount = 0.0;
+		if(net_amount != null) {
+			Double materialAmount = expectedMaterialAmount;
+			Double purchaseDiscount = materialpurchasePayload.getDiscount();
+			Double purchaseGst = materialpurchasePayload.getGst_amount();
+			Double purchaseOtherAmount = materialpurchasePayload.getOther_amount();
+			Double purchaseOtherGstAmount = materialpurchasePayload.getOther_amount_gst_amount();
+
+			expectedNetAmount = expectedMaterialAmount-purchaseDiscount+purchaseOtherAmount+purchaseOtherGstAmount;
+			if(expectedNetAmount.equals(net_amount)) {
+				System.out.println("expectedNetAmount :" + expectedNetAmount + ": actual net_amount :" + net_amount);
+			} else {
+				Assert.fail("net_amount not match with expectedNetAmount :" + net_amount + expectedNetAmount);
+			}
+		} else {
+			Assert.fail("net_amount is null");
+		}
+
 		if(purchase_date != null && !purchase_date.isEmpty()) {
 			Assert.assertEquals(purchase_date, materialpurchasePayload.getPurchase_date(), "purchase date is mismatch");
 			System.out.println("purchase_date :" + purchase_date);
@@ -372,40 +388,12 @@ public class Create_materialPurchaseTest {
 			Assert.fail("monkey_patch_paid_amount field is null");
 		}
 
-		//		List<String> statusList = List.of("paid", "unpaid", "partiallypaid");
-		//		if(monkey_patch_status != null) {
-		//			Assert.assertTrue(statusList.contains(monkey_patch_status.toLowerCase()), "status is invalid" + monkey_patch_status);
-		//			System.out.println("monkey_patch_status :" + monkey_patch_status);
-		//		} else {
-		//			Assert.fail("status field is null");
-		//		}
-
 		if(can_edit != null) {
 			Assert.assertEquals(can_edit.intValue(), 0, "can_edit should be 0 at creation time");
 			System.out.println("can_edit :" + can_edit);
 		} else {
 			Assert.fail("can_edit filed is null");
 		}
-
-		//		if(can_update_approval_flag != null) {
-		//			Assert.assertEquals(can_update_approval_flag.intValue(), 0, "can_update_approval_flag value is 0 at creation time");
-		//		} else {
-		//			Assert.fail("can_update_approval_flag is null");
-		//		}
-
-		//		if(approval_comment != null) {
-		//			Assert.assertFalse(approval_comment.trim().isEmpty(), "approval_comment is not be empty at creation time");
-		//			System.out.println("approval_comment: " + approval_comment);
-		//		} else {
-		//			System.out.println("approval_comment is null at creation time");
-		//		}
-
-		//		if(approved_by != null) {
-		//			Assert.assertFalse(approved_by.trim().isEmpty(), "approved_by is not be empty at creation time");
-		//			System.out.println("approved_by : " + approved_by);
-		//		} else {
-		//			System.out.println("approved_by is null at creation time");
-		//		}
 
 		if(due_days != null) {
 			Assert.assertTrue(due_days >= 0, "due days should not be negative" + due_days);
@@ -474,13 +462,6 @@ public class Create_materialPurchaseTest {
 			System.out.println("deduction_amount : " + deduction_amount);
 		} else {
 			Assert.fail("deduction_amount is null");
-		}
-
-		if(net_amount != null) {
-			Assert.assertEquals(net_amount, materialpurchasePayload.getNet_amount(), "net amount is mismatch");
-			System.out.println("net_amount : " + net_amount);
-		} else {
-			Assert.fail("net_amount is null");
 		}
 
 		if(is_roundoff != null) {
