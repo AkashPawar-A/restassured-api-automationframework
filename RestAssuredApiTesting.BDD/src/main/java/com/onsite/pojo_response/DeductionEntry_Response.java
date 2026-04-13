@@ -33,7 +33,7 @@ public class DeductionEntry_Response {
 	private LocalDateTime invoice_date;
 	private String approval_flag;
 	private Integer is_percent;
-	private Double percentag;
+	private Double percentage;
 	private String percent_of;
 	
 	public String getId() {
@@ -168,11 +168,11 @@ public class DeductionEntry_Response {
 	public void setIs_percent(Integer is_percent) {
 		this.is_percent = is_percent;
 	}
-	public Double getPercentag() {
-		return percentag;
+	public Double getPercentage() {
+		return percentage;
 	}
-	public void setPercentag(Double percentag) {
-		this.percentag = percentag;
+	public void setPercentage(Double percentag) {
+		this.percentage = percentag;
 	}
 	public String getPercent_of() {
 		return percent_of;

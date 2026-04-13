@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.MaterialPurchase;
 import com.onsite.pojo_request.Material;
@@ -24,6 +25,7 @@ import com.onsite.pojo_request.MaterialPurchaseRequest;
 import com.onsite.pojo_response.MaterialPurchaseResponse;
 import com.onsite.utilities_page.AuthUtils;
 import com.onsite.utilities_page.CompanyContext;
+import com.onsite.utilities_page.DataFile;
 
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -64,7 +66,7 @@ public class Create_materialPurchaseTest {
 		};
 	}
 
-	@Test(dataProvider="purchaseData")
+	@Test(dataProvider="purchaseData", groups="material")
 	public void addMaterialPurchase(MaterialPurchaseRequest materialpurchasePayload) throws Exception, DatabindException, IOException {
 
 		String loginCompanyId = CompanyContext.getCompanyId();
@@ -131,11 +133,7 @@ public class Create_materialPurchaseTest {
 		String monkey_patch_materials = purchaseResponse.jsonPath().get("monkey_patch_materials");
 		Integer monkey_patch_is_editable= purchaseResponse.jsonPath().get("monkey_patch_is_editable");
 		Integer monkey_patch_paid_amount= purchaseResponse.jsonPath().get("monkey_patch_paid_amount");
-		//String monkey_patch_status = purchaseResponse.jsonPath().get("monkey_patch_status");
 		Integer can_edit = purchaseResponse.jsonPath().get("meta_data.can_edit");
-		//Integer can_update_approval_flag = purchaseResponse.jsonPath().get("can_update_approval_flag");
-		//String approval_comment = purchaseResponse.jsonPath().get("approval_comment");
-		//String approved_by = purchaseResponse.jsonPath().get("approved_by");
 		Integer due_days = purchaseResponse.jsonPath().get("due_days");
 		String ship_to_address_id = purchaseResponse.jsonPath().get("ship_to_address_id");
 		String bill_to_address_id = purchaseResponse.jsonPath().get("bill_to_address_id");
@@ -150,15 +148,26 @@ public class Create_materialPurchaseTest {
 		Double other_amount_gst_percentage = purchaseResponse.jsonPath().getDouble("other_amount_gst_percentage");
 		Double other_amount_gst_amount = purchaseResponse.jsonPath().getDouble("other_amount_gst_amount");
 		String other_amount_text = purchaseResponse.jsonPath().get("other_amount_text");
-
+		
+		//store in materialPurchasejson file		
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		mapper.writerWithDefaultPrettyPrinter()
+		      .writeValue(
+		          new File("src/test/resources/testdata_materialpurchase/details_materialPurchase.json"),
+		          response
+		      );
+	
+		// store in file
+		DataFile.setData("total_amount", total_payable.toString());
+		DataFile.setData("itemSubTotalAmount", material_amount.toString());
+		System.out.println("Stored totalAmount: " + total_payable + " and itemSubTotalAmount" + material_amount);
+		
 		ObjectMapper writemapper = new ObjectMapper();
-
 		String deductionBulkAddFile = "src/test/resources/testdata_deductionentry/deductionEntryBulkAdd.json";
 		String deductionEntryDataFile = "src/test/resources/testdata_deductionentry/deduction_entry_data.json";
-
 		File bulkFile = new File(deductionBulkAddFile);
 		File entryFile = new File(deductionEntryDataFile);
-
 		Map<String, Object> deductionBulkAdd = new HashMap<>();
 		Map<String, Object> deductionEntryData = new HashMap<>();
 
@@ -256,13 +265,6 @@ public class Create_materialPurchaseTest {
 			System.out.println("gst_amount is null or empty");
 		}
 
-		if(other_amount != null) {
-			Assert.assertEquals(other_amount, materialpurchasePayload.getOther_amount(), "other amount is mismatch");
-			System.out.println("other_amount :" + other_amount);
-		} else {
-			System.out.println("other_amount is null or empty");
-		}
-
 		Double expectedMaterialAmount = 0.0;
 		if(materialpurchasePayload.getMaterials() != null) {
 			for(Material matAmount : materialpurchasePayload.getMaterials()) {
@@ -271,7 +273,7 @@ public class Create_materialPurchaseTest {
 				Double gstAmount = matAmount.getGst_amount();
 				Double discountAmount = matAmount.getDiscount_amount();
 
-				expectedMaterialAmount += (qty*unitPrice)-discountAmount+gstAmount;
+				expectedMaterialAmount += ((qty*unitPrice)-discountAmount)+gstAmount;
 			}
 			if(material_amount.equals(expectedMaterialAmount)) {
 				System.out.println("expected material_amount :" + expectedMaterialAmount + ": actual material amount :" + material_amount);
@@ -318,6 +320,13 @@ public class Create_materialPurchaseTest {
 			Assert.fail("net_amount is null");
 		}
 
+		if(other_amount != null) {
+			Assert.assertEquals(other_amount, materialpurchasePayload.getOther_amount(), "other amount is mismatch");
+			System.out.println("other_amount :" + other_amount);
+		} else {
+			System.out.println("other_amount is null or empty");
+		}
+		
 		if(purchase_date != null && !purchase_date.isEmpty()) {
 			Assert.assertEquals(purchase_date, materialpurchasePayload.getPurchase_date(), "purchase date is mismatch");
 			System.out.println("purchase_date :" + purchase_date);
@@ -491,44 +500,5 @@ public class Create_materialPurchaseTest {
 		} else {
 			System.out.println("other_amount_text is null or empty");
 		}
-
-
-
-		//
-		//		Map<String, Object> invoice = purchaseResponse.jsonPath().getMap("monkey_patch_invoice");
-		//		String invoiceCompanyId = (String) invoice.get("company_id");
-		//		String invoiceCreator_company_user_id = (String) invoice.get("creator_company_user_id");
-		//		String invoiceParty_company_user_id = (String) invoice.get("party_company_user_id");
-		//		String invoiceProject_id = (String) invoice.get("project_id");
-		//		String invoiceCategory_id = (String) invoice.get("category_id");
-		//		String invoiceSub_category_id = (String) invoice.get("sub_category_id");
-		//		String invoiceFeature_type = (String) invoice.get("feature_type");
-		//		String invoiceFeature_id = (String) invoice.get("feature_id");
-		//		String invoice_type= (String) invoice.get("invoice_type");
-		//		String invoiceStatus = (String) invoice.get("status");
-		//		Integer invoiceTotal_payable = (Integer) invoice.get("total_payable");
-		//		Integer invoicePaid_amount = (Integer) invoice.get("paid_amount");
-		//		Integer invoiceSequence = (Integer) invoice.get("sequence");
-		//		Integer invoiceDelete = (Integer) invoice.get("delete");
-		//		String invoice_date = (String) invoice.get("invoice_date");
-		//		String incoiceCreated = (String) invoice.get("created");
-		//		String invoiceUpdated = (String) invoice.get("updated");
-		//		String invoiceApproval_flag = (String) invoice.get("approval_flag"); 
-		//
-		//		Map<String, Object> invoiceSettlement = (Map<String, Object>) invoice.get("monkey_patch_settlement");
-		//		String settlementId = (String) invoiceSettlement.get("id");
-		//		String settlementCompany_id = (String) invoiceSettlement.get("company_id");
-		//		String settlementCreator_company_user_id = (String) invoiceSettlement.get("creator_company_user_id");
-		//		String settlementParty_company_user_id = (String) invoiceSettlement.get("party_company_user_id");
-		//		String settlementProject_id = (String) invoiceSettlement.get("project_id");
-		//		String settlementInvoiceId = (String) invoiceSettlement.get("invoice_id");
-		//		String settlementCashbooktransaction_id = (String) invoiceSettlement.get("cashbooktransaction_id");
-		//		Integer settled_amount = (Integer) invoiceSettlement.get("settled_amount");
-		//		Integer settlementDelete = (Integer) invoiceSettlement.get("delete");
-		//		String settlementCreated = (String) invoiceSettlement.get("created");
-		//		String settlementUpdated = (String) invoiceSettlement.get("updated");
-		//		String monkey_patch_settlement_date = (String) invoiceSettlement.get("monkey_patch_settlement_date");
-
 	}
-
 }

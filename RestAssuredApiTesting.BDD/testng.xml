@@ -24,7 +24,7 @@
 	  </classes>  
   </test>
 
-  <test thread-count="5" name="CreditNote">
+  <test name="CreditNote">
 	  <classes>
 		  <class name="com.onsite.creditnote_test_page.CreditNoteCreateTest"/>
 		  <class name="com.onsite.creditnote_test_page.CreditNoteAddItemTest"/>
@@ -46,7 +46,7 @@
 	   </classes>
    </test>
 
-   <test name="LabourPayroll" parallel="false">
+   <test name="LabourPayroll" parallel="false" preserve-order="true">
 	  <classes>
 	  
 	     <class name="com.onsite.LabourPayroll_testpage.Payroll_Count_Test">
@@ -115,7 +115,7 @@
 	   </classes>
    </test>
 
-   <test thread-count="5" name="StaffPayroll">
+   <test name="StaffPayroll" parallel="false" preserve-order="true">
        <classes>
            <class name="com.onsite.payroll_test_page.List_Payroll_Test"/>
 	       <class name="com.onsite.payroll_test_page.ListCompanyUserforPayroll"/>

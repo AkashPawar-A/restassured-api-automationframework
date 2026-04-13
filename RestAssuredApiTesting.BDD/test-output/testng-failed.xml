@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.deduction_test.Add_Deduction_test">
+      <class name="com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test">
         <methods>
-          <include name="addDeductionItem" invocation-numbers="0"/>
+          <include name="detailsMaterialPurchase" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
+      </class> <!-- com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

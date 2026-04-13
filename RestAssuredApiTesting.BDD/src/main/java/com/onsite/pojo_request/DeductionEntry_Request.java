@@ -10,7 +10,28 @@ public class DeductionEntry_Request {
 	private String project_id;
 	private Double amount;
 	private Integer pre_tax;
+	private Integer is_percent;
+	private Double percentage;
+	private String percent_of;
 	
+	public Integer getIs_percent() {
+		return is_percent;
+	}
+	public void setIs_percent(Integer is_percent) {
+		this.is_percent = is_percent;
+	}
+	public Double getPercentage() {
+		return percentage;
+	}
+	public void setPercentage(Double percentage) {
+		this.percentage = percentage;
+	}
+	public String getPercent_of() {
+		return percent_of;
+	}
+	public void setPercent_of(String percent_of) {
+		this.percent_of = percent_of;
+	}
 	public String getDeduction_item_id() {
 		return deduction_item_id;
 	}

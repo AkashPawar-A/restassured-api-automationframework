@@ -4,16 +4,16 @@
   <listeners>
     <listener class-name="com.onsite.reports.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" parallel="methods" name="AddMaterialPurchase(failed)">
+  <test thread-count="5" name="AddMaterialPurchase(failed)">
     <classes>
       <class name="com.onsite.deduction_test.Add_Deduction_test">
         <methods>
-          <include name="addDeductionItem"/>
+          <include name="addDeductionItem" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
       <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
         <methods>
-          <include name="addMaterialPurchase" invocation-numbers="0"/>
+          <include name="addMaterialPurchase"/>
         </methods>
       </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
     </classes>
