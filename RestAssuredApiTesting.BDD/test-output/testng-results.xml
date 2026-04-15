@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-13T17:31:22 IST" name="Default suite" finished-at="2026-04-13T17:31:22 IST" duration-ms="116">
+  <suite started-at="2026-04-15T16:39:58 IST" name="functionalTestSuite" finished-at="2026-04-15T16:40:24 IST" duration-ms="26419">
     <groups>
+      <group name="material">
+        <method signature="Create_materialPurchaseTest.addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" name="addMaterialPurchase" class="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest"/>
+      </group> <!-- material -->
     </groups>
-    <test started-at="2026-04-13T17:31:22 IST" name="Default test" finished-at="2026-04-13T17:31:22 IST" duration-ms="116">
+    <test started-at="2026-04-15T16:39:58 IST" name="AddMaterialPurchase" finished-at="2026-04-15T16:40:24 IST" duration-ms="26419">
+      <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
+        <test-method signature="addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" started-at="2026-04-15T16:39:59 IST" name="addMaterialPurchase" data-provider="purchaseData" finished-at="2026-04-15T16:40:11 IST" duration-ms="11786" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.onsite.pojo_request.MaterialPurchaseRequest@2fa3be26]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addMaterialPurchase -->
+      </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
+      <class name="com.onsite.deduction_test.Add_Deduction_test">
+        <test-method signature="addDeductionItem(com.onsite.pojo_request.DeductionEntryBulkAdd_Request)[pri:0, instance:com.onsite.deduction_test.Add_Deduction_test@10e31a9a]" started-at="2026-04-15T16:40:20 IST" name="addDeductionItem" data-provider="deductionItem" depends-on-groups="material" finished-at="2026-04-15T16:40:24 IST" duration-ms="3446" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.onsite.pojo_request.DeductionEntryBulkAdd_Request@43423d40]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addDeductionItem -->
+      </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
       <class name="com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test">
-        <test-method signature="detailsMaterialPurchase(java.lang.String)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test@5b239d7d]" started-at="2026-04-13T17:31:22 IST" name="detailsMaterialPurchase" data-provider="purchaseData" finished-at="2026-04-13T17:31:22 IST" duration-ms="18" status="FAIL">
+        <test-method signature="detailsMaterialPurchase(java.lang.String)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test@57a3af25]" started-at="2026-04-15T16:40:11 IST" name="detailsMaterialPurchase" data-provider="purchaseData" finished-at="2026-04-15T16:40:20 IST" duration-ms="9137" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -15,94 +44,10 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problems: 
-Cannot make a static reference to the non-static method getProject_id() from the type MaterialPurchaseResponse
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problems: 
-Cannot make a static reference to the non-static method getProject_id() from the type MaterialPurchaseResponse
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-materialpurchasePayload cannot be resolved
-
-at com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test.detailsMaterialPurchase(Details_materialPurchase_Test.java:173)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- detailsMaterialPurchase -->
       </class> <!-- com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- AddMaterialPurchase -->
+  </suite> <!-- functionalTestSuite -->
 </testng-results>

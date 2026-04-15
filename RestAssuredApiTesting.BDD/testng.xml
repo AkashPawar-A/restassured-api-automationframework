@@ -130,6 +130,7 @@
         <classes>
              <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest"/>
              <class name="com.onsite.deduction_test.Add_Deduction_test"/>
+             <class name="com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test"/>
         </classes>
   </test>
 </suite> <!-- Suite -->
