@@ -5,12 +5,15 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.Instant;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -24,7 +27,6 @@ import com.onsite.endpoints.MaterialPurchase;
 import com.onsite.pojo_response.MaterialPurchaseResponse;
 import com.onsite.utilities_page.AuthUtils;
 
-@Test
 public class Details_materialPurchase_Test {
 
 	@DataProvider(name = "purchaseData")
@@ -61,6 +63,7 @@ public class Details_materialPurchase_Test {
 
 		int responseStatusCode = detailsMaterialPurchaseResponse.getStatusCode();
 		if(responseStatusCode == 200) {
+			//deserilization
 			detailsMaterialPurchaseResponse.then().assertThat().body(
 					JsonSchemaValidator.matchesJsonSchemaInClasspath(
 							"responseSchema_files/materialPurchaseResponseSchema.json"));
@@ -123,7 +126,64 @@ public class Details_materialPurchase_Test {
 		Double other_amount_gst_percentage = detailsMaterialPurchaseResponse.jsonPath().getDouble("other_amount_gst_percentage");
 		Double other_amount_gst_amount = detailsMaterialPurchaseResponse.jsonPath().getDouble("other_amount_gst_amount");
 		String other_amount_text = detailsMaterialPurchaseResponse.jsonPath().get("other_amount_text");
+		
+		//material purchase id is store in edit_MaterialPurchaseData.json file
+		ObjectMapper writeMapper = new ObjectMapper();
+		String editJsonFile = "src/test/resources/testdata_materialpurchase/edit_materialPurchase.json";
+		File dataFile = new File(editJsonFile);
+		Map<String, Object> purchaseData = new HashMap<>();
+		
+		if(responseStatusCode == 200 && materialPurchaseId != null) {
+			try {
+				if(dataFile.exists()) {
+					purchaseData = writeMapper.readValue(dataFile, Map.class);
+				}
+				purchaseData.put("id", materialPurchaseId);
+				purchaseData.put("party_company_user_id", partyCompanyUserId);
+				purchaseData.put("project_id", projectId);
+				purchaseData.put("materials", materialIds);
+				purchaseData.put("gst_amount", gst_amount);
+				purchaseData.put("other_amount", other_amount);
+				purchaseData.put("material_amount", material_amount);
+				purchaseData.put("net_amount", net_amount);
+				purchaseData.put("discount", discount);
+				purchaseData.put("total_payable", total_payable);
+				purchaseData.put("photos", photos);
+				purchaseData.put("purchase_date", purchase_date);
+				purchaseData.put("vendor_reference_number", vendor_reference_number);
+				purchaseData.put("due_days", due_days);
+				purchaseData.put("ship_to_address_id", ship_to_address_id);
+				purchaseData.put("bill_to_address_id", bill_to_address_id);
+				purchaseData.put("ship_from_address_id", ship_from_address_id);
+				purchaseData.put("bill_from_address_id", bill_from_address_id);
+				purchaseData.put("is_roundoff", is_roundoff);
+				purchaseData.put("other_amount_text", other_amount_text);
+				purchaseData.put("other_amount_gst_percentage", other_amount_gst_percentage);
+				purchaseData.put("other_amount_gst_amount", other_amount_gst_amount);
+				
+				// Convert material_ids (List of strings) to materials (List of objects)
+				JSONArray materialsArray = new JSONArray();
+                if (materialIds != null && !materialIds.isEmpty()) {
+                    for (String materialId : materialIds) {
+                        JSONObject materialObj = new JSONObject();
+                        materialObj.put("id", materialId);
+                        materialsArray.put(materialObj);
+                    }
+                }
+                purchaseData.put("materials", materialsArray.toList());
+				
+				writeMapper.writerWithDefaultPrettyPrinter().writeValue(dataFile, purchaseData);
+				System.out.println("edit_materialPurchase.json file updated successfully");
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+				Assert.fail("edit_materialPurchase.json file is not updated :" + e.getMessage());
+			}
+		} else {
+			System.out.println("material purchase id is null or empty");
+		}
 
+		//read the key and value in materialPurchaseData.json file and validate the data
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.findAndRegisterModules();
 		MaterialPurchaseResponse materialPurchaseData = mapper.readValue(

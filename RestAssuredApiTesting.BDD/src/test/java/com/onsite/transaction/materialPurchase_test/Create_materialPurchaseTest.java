@@ -149,15 +149,15 @@ public class Create_materialPurchaseTest {
 		Double other_amount_gst_amount = purchaseResponse.jsonPath().getDouble("other_amount_gst_amount");
 		String other_amount_text = purchaseResponse.jsonPath().get("other_amount_text");
 		
-		//store in materialPurchasejson file		
+		//data store in materialPurchaseData.json file		
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 		mapper.writerWithDefaultPrettyPrinter()
 		      .writeValue(
-		          new File("src/test/resources/testdata_materialpurchase/details_materialPurchase.json"),
+		          new File("src/test/resources/testdata_materialpurchase/materialPurchaseData.json"),
 		          response
 		      );
-	
+		
 		// store in file
 		DataFile.setData("total_amount", total_payable.toString());
 		DataFile.setData("itemSubTotalAmount", material_amount.toString());

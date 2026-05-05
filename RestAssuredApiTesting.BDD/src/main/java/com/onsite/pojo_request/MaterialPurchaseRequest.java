@@ -30,8 +30,15 @@ public class MaterialPurchaseRequest {
 	private Integer is_roundoff;
 	private String other_amount_text;
 	private Double other_amount_gst_percentage;
-	private Double other_amount_gst_amount; 
+	private Double other_amount_gst_amount;
+	private String display_unit_id;
 	
+	public String getDisplay_unit_id() {
+		return display_unit_id;
+	}
+	public void setDisplay_unit_id(String display_unit_id) {
+		this.display_unit_id = display_unit_id;
+	}
 	public String getProject_id() {
 		return project_id;
 	}

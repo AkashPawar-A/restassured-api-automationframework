@@ -1,23 +1,28 @@
-[
-  {
-    "id" : "",
-    "remark" : "",
-    "party_company_user_id" : "",
-    "project_id" : "",
-    "sub_category_id" : "",
-    "materials" : "",
-    "gst_amount" : "",
-    "other_amount" : "",
-    "material_amount" : "",
-    "discount" : "",
-    "total_payable" : "",
-    "photos" : "",
-    "purchase_date" : "",
-    "vendor_reference_number" : "",
-    "due_days" : "",
-    "ship_to_address_id" : "",
-    "bill_to_address_id" : "",
-    "ship_from_address_id" : "",
-    "bill_from_address_id" : ""
-  }
-]
+{
+  "id" : "4bfb9781-db99-4940-ad98-e835963e1b2e",
+  "remark" : "test - 3 - UPDATED",
+  "purchase_date" : "2026-05-04T11:11:45.175Z",
+  "vendor_reference_number" : "A-01",
+  "party_company_user_id" : "ad68f28f-e84c-4ceb-9991-1dffd745f3c1",
+  "project_id" : "a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9",
+  "sub_category_id" : null,
+  "due_days" : 0,
+  "ship_to_address_id" : "",
+  "bill_to_address_id" : "498502b3-e052-4d7b-82d3-3617de9a88cb",
+  "ship_from_address_id" : "",
+  "bill_from_address_id" : "",
+  "material_amount" : 1144.6,
+  "gst_amount" : 174.6,
+  "other_amount" : 10.0,
+  "discount" : 20.0,
+  "total_payable" : 1134.6,
+  "net_amount" : 1134.6,
+  "is_roundoff" : 0,
+  "other_amount_gst_percentage" : 0.0,
+  "other_amount_gst_amount" : 0.0,
+  "other_amount_text" : "Additional Charges - test 1",
+  "photos" : [ ],
+  "materials" : [ {
+    "id" : "6de24858-c0f4-4317-8b8f-ae13f9308173"
+  } ]
+}

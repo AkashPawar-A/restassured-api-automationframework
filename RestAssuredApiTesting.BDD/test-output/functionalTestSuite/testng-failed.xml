@@ -16,6 +16,11 @@
           <include name="addMaterialPurchase"/>
         </methods>
       </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
+      <class name="com.onsite.transaction.materialPurchase_test.Edit_materialPurchase_Test">
+        <methods>
+          <include name="editData" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.onsite.transaction.materialPurchase_test.Edit_materialPurchase_Test -->
     </classes>
   </test> <!-- AddMaterialPurchase(failed) -->
 </suite> <!-- Failed suite [functionalTestSuite] -->

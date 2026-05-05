@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-15T16:39:58 IST" name="functionalTestSuite" finished-at="2026-04-15T16:40:24 IST" duration-ms="26419">
+  <suite started-at="2026-05-05T14:19:55 IST" name="functionalTestSuite" finished-at="2026-05-05T14:20:18 IST" duration-ms="23153">
     <groups>
       <group name="material">
         <method signature="Create_materialPurchaseTest.addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" name="addMaterialPurchase" class="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest"/>
       </group> <!-- material -->
     </groups>
-    <test started-at="2026-04-15T16:39:58 IST" name="AddMaterialPurchase" finished-at="2026-04-15T16:40:24 IST" duration-ms="26419">
+    <test started-at="2026-05-05T14:19:55 IST" name="AddMaterialPurchase" finished-at="2026-05-05T14:20:18 IST" duration-ms="23153">
       <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
-        <test-method signature="addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" started-at="2026-04-15T16:39:59 IST" name="addMaterialPurchase" data-provider="purchaseData" finished-at="2026-04-15T16:40:11 IST" duration-ms="11786" status="PASS">
+        <test-method signature="addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" started-at="2026-05-05T14:19:56 IST" name="addMaterialPurchase" data-provider="purchaseData" finished-at="2026-05-05T14:20:07 IST" duration-ms="11051" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.MaterialPurchaseRequest@2fa3be26]]>
+                <![CDATA[com.onsite.pojo_request.MaterialPurchaseRequest@6d868997]]>
               </value>
             </param>
           </params>
@@ -23,11 +23,11 @@
         </test-method> <!-- addMaterialPurchase -->
       </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
       <class name="com.onsite.deduction_test.Add_Deduction_test">
-        <test-method signature="addDeductionItem(com.onsite.pojo_request.DeductionEntryBulkAdd_Request)[pri:0, instance:com.onsite.deduction_test.Add_Deduction_test@10e31a9a]" started-at="2026-04-15T16:40:20 IST" name="addDeductionItem" data-provider="deductionItem" depends-on-groups="material" finished-at="2026-04-15T16:40:24 IST" duration-ms="3446" status="PASS">
+        <test-method signature="addDeductionItem(com.onsite.pojo_request.DeductionEntryBulkAdd_Request)[pri:0, instance:com.onsite.deduction_test.Add_Deduction_test@10e31a9a]" started-at="2026-05-05T14:20:15 IST" name="addDeductionItem" data-provider="deductionItem" depends-on-groups="material" finished-at="2026-05-05T14:20:18 IST" duration-ms="3188" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.DeductionEntryBulkAdd_Request@43423d40]]>
+                <![CDATA[com.onsite.pojo_request.DeductionEntryBulkAdd_Request@603f4e3e]]>
               </value>
             </param>
           </params>
@@ -36,11 +36,11 @@
         </test-method> <!-- addDeductionItem -->
       </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
       <class name="com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test">
-        <test-method signature="detailsMaterialPurchase(java.lang.String)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test@57a3af25]" started-at="2026-04-15T16:40:11 IST" name="detailsMaterialPurchase" data-provider="purchaseData" finished-at="2026-04-15T16:40:20 IST" duration-ms="9137" status="PASS">
+        <test-method signature="detailsMaterialPurchase(java.lang.String)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test@131774fe]" started-at="2026-05-05T14:20:07 IST" name="detailsMaterialPurchase" data-provider="purchaseData" finished-at="2026-05-05T14:20:15 IST" duration-ms="7387" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[8d9732cd-21ca-44f3-9fb4-1993e09e5bfc]]>
+                <![CDATA[4bfb9781-db99-4940-ad98-e835963e1b2e]]>
               </value>
             </param>
           </params>

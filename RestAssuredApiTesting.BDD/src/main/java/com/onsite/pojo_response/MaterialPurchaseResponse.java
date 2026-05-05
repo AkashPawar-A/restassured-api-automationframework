@@ -55,7 +55,106 @@ public class MaterialPurchaseResponse {
 	private Address monkey_patch_ship_from_address;
 	private Address monkey_patch_bill_from_address;
 	private LocalDateTime due_date;
+	private String creator;
+	private Double pre_tax_deduction_amount;
+	private Double post_tax_deduction_amount;
+	private Double deduction_amount;
+	private Double net_amount;
+	private Integer is_roundoff;
+	private Double other_amount_gst_percentage;
+	private Double other_amount_gst_amount;
+	private String other_amount_text;
 	
+	public String getThird_party_transaction_meta_sync_id() {
+		return third_party_transaction_meta_sync_id;
+	}
+	public void setThird_party_transaction_meta_sync_id(String third_party_transaction_meta_sync_id) {
+		this.third_party_transaction_meta_sync_id = third_party_transaction_meta_sync_id;
+	}
+	public String getCreator() {
+		return creator;
+	}
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+	public Double getPre_tax_deduction_amount() {
+		return pre_tax_deduction_amount;
+	}
+	public void setPre_tax_deduction_amount(Double pre_tax_deduction_amount) {
+		this.pre_tax_deduction_amount = pre_tax_deduction_amount;
+	}
+	public Double getPost_tax_deduction_amount() {
+		return post_tax_deduction_amount;
+	}
+	public void setPost_tax_deduction_amount(Double post_tax_deduction_amount) {
+		this.post_tax_deduction_amount = post_tax_deduction_amount;
+	}
+	public Double getDeduction_amount() {
+		return deduction_amount;
+	}
+	public void setDeduction_amount(Double deduction_amount) {
+		this.deduction_amount = deduction_amount;
+	}
+	public Double getNet_amount() {
+		return net_amount;
+	}
+	public void setNet_amount(Double net_amount) {
+		this.net_amount = net_amount;
+	}
+	public Integer getIs_roundoff() {
+		return is_roundoff;
+	}
+	public void setIs_roundoff(Integer is_roundoff) {
+		this.is_roundoff = is_roundoff;
+	}
+	public Double getOther_amount_gst_percentage() {
+		return other_amount_gst_percentage;
+	}
+	public void setOther_amount_gst_percentage(Double other_amount_gst_percentage) {
+		this.other_amount_gst_percentage = other_amount_gst_percentage;
+	}
+	public Double getOther_amount_gst_amount() {
+		return other_amount_gst_amount;
+	}
+	public void setOther_amount_gst_amount(Double other_amount_gst_amount) {
+		this.other_amount_gst_amount = other_amount_gst_amount;
+	}
+	public String getOther_amount_text() {
+		return other_amount_text;
+	}
+	public void setOther_amount_text(String other_amount_text) {
+		this.other_amount_text = other_amount_text;
+	}
+	public void setDiscount(Double discount) {
+		this.discount = discount;
+	}
+	public void setGst_amount(Double gst_amount) {
+		this.gst_amount = gst_amount;
+	}
+	public void setOther_amount(Double other_amount) {
+		this.other_amount = other_amount;
+	}
+	public void setMaterial_amount(Double material_amount) {
+		this.material_amount = material_amount;
+	}
+	public void setTotal_payable(Double total_payable) {
+		this.total_payable = total_payable;
+	}
+	public void setSequence(Integer sequence) {
+		this.sequence = sequence;
+	}
+	public void setDelete(Integer delete) {
+		this.delete = delete;
+	}
+	public void setMonkey_patch_is_editable(Integer monkey_patch_is_editable) {
+		this.monkey_patch_is_editable = monkey_patch_is_editable;
+	}
+	public void setMonkey_patch_paid_amount(Double monkey_patch_paid_amount) {
+		this.monkey_patch_paid_amount = monkey_patch_paid_amount;
+	}
+	public void setDue_days(Double due_days) {
+		this.due_days = due_days;
+	}	
 	public String getId() {
 		return id;
 	}
