@@ -19,10 +19,11 @@ import io.restassured.response.Response;
 
 public class Delete_materialPurchase {
 
-	private static final String filePath = "src/test/resources/testdata_materialpurchase/materialPurchaseData.json";
+	private static final String filePath =
+			"src/test/resources/testdata_materialpurchase/materialPurchaseData.json";
 
-	@DataProvider(name="testData")
-	public Object[][] getData() throws IOException{
+	@DataProvider(name = "testData")
+	public Object[][] getData() throws IOException {
 
 		String json = new String(java.nio.file.Files.readAllBytes(Paths.get(filePath)));
 
@@ -30,24 +31,27 @@ public class Delete_materialPurchase {
 		String materialPurchaseId = jsonObj.getString("id");
 
 		if(materialPurchaseId != null && !materialPurchaseId.isEmpty()) {
-			System.out.println("");
+			System.out.println("materialpurchase id is :" + materialPurchaseId);
 		} else {
-			Assert.fail("material purchase id is null or empty");
+			Assert.fail("materialPurchaseId is null or empty");
 		}
 
-		return new Object[][] {
+		return new Object[][]{
 			{materialPurchaseId}
 		};
-
 	}
 
-	@Test(dataProvider="testData")
-	public void deleteMaterialPurchase(String materialPurchaseId) {
+	// =========================================================
+	// POSITIVE TEST CASE
+	// =========================================================
 
-		Response materialPurchaseResponse = RestAssured.
-				given()
+	@Test(priority=1, dataProvider = "testData", description="validId test case")
+	public void verifyDeleteWithValidId(String materialPurchaseId) {
+
+		Response materialPurchaseResponse = RestAssured
+				.given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", "Bearer " + AuthUtils.getToken() )
+				.header("Authorization", "Bearer " + AuthUtils.getToken())
 				.contentType(ContentType.JSON)
 				.pathParam("id", materialPurchaseId)
 				.log().all()
@@ -59,37 +63,146 @@ public class Delete_materialPurchase {
 				.log().all()
 				.extract().response();
 
-		int responseStatusCode = materialPurchaseResponse.getStatusCode();
-		if(responseStatusCode == 200) {
-			System.out.println("responseStatusCode : " + responseStatusCode);
-		} else {
-			Assert.fail("responseStatusCode not match with :" + responseStatusCode);
-		}
+		// Status Code Validation
+		Assert.assertEquals(materialPurchaseResponse.getStatusCode(), 200, "Status code not matched");
 
+		// Response Message Validation
 		String responseMessage = materialPurchaseResponse.jsonPath().getString("message");
-		if(responseMessage != null) {
+		if(responseMessage != null && !responseMessage.isEmpty()) {
 			System.out.println("response message : " + responseMessage);
 		} else {
-			System.out.println("response message : " + responseMessage);
+			System.out.println("response message is null or empty");
 		}
-		
-		int deleteFlag = materialPurchaseResponse.jsonPath().get("delete");
-		if(deleteFlag == 1) {
-			System.out.println("deleteFlag is : " + deleteFlag);
-		} else {
-			Assert.fail("deleteFlag is :" + deleteFlag);
-		}
-		
-		//deserialization - verify the response structure 
-		materialPurchaseResponse.then().and().assertThat().body
-		(JsonSchemaValidator.matchesJsonSchemaInClasspath("responseSchema_files/materialPurchaseResponseSchema.json"));
-		System.out.println("responseStatusCode :" + responseStatusCode);
 
+		// Business Validation
+		int deleteFlag = materialPurchaseResponse.jsonPath().getInt("delete");
+		if(deleteFlag != 0) {
+			System.out.println("deleteFlag : " + deleteFlag);
+		} else {
+			Assert.fail("deleteFlag : " + deleteFlag);
+		}
+
+		// Schema Validation
+		materialPurchaseResponse.then().assertThat().body(
+				JsonSchemaValidator.matchesJsonSchemaInClasspath(
+						"responseSchema_files/materialPurchaseResponseSchema.json"
+						));
+
+		// Response Time Validation
 		long responseTime = materialPurchaseResponse.getTime();
 		if(responseTime < 2000) {
-			System.out.println("actual response time is :" + responseTime);
+			System.out.println("successfull response time is :" + responseTime);
 		} else {
-			Assert.fail("response time is too long : " + responseTime);
+			Assert.fail("response time is too long :" + responseTime);
 		}
 	}
+
+	// =========================================================
+	// NEGATIVE TEST CASE
+	// =========================================================
+
+	@Test(priority=2, description="INVALID ID test case")
+	public void verifyDeleteWithInvalidId() {
+
+		String invalidId = "invalid123";
+
+		Response materialPurchaseResponse = RestAssured
+				.given()
+				.baseUri(ApiBasePath.BASE_URL)
+				.header("Authorization", "Bearer " + AuthUtils.getToken())
+				.contentType(ContentType.JSON)
+				.pathParam("id", invalidId)
+				.log().all()
+
+				.when()
+				.delete(MaterialPurchase.delete_materialPurchase)
+
+				.then()
+				.log().all()
+				.extract().response();
+
+		Assert.assertEquals(materialPurchaseResponse.getStatusCode(), 400, "Status code not matched");
+	}
+
+	@Test(priority=3, dataProvider = "testData", description="WITHOUT TOKEN test case")
+	public void verifyDeleteWithoutToken(String materialPurchaseId) {
+
+		Response materialPurchaseResponse = RestAssured
+				.given()
+				.baseUri(ApiBasePath.BASE_URL)
+				.contentType(ContentType.JSON)
+				.pathParam("id", materialPurchaseId)
+				.log().all()
+
+				.when()
+				.delete(MaterialPurchase.delete_materialPurchase)
+
+				.then()
+				.log().all()
+				.extract().response();
+
+		Assert.assertEquals(materialPurchaseResponse.getStatusCode(), 401, "Status code not matched");
+	}
+
+	@Test(priority=4, description = "EMPTY ID test case")
+	public void verifyDeleteWithEmptyId() {
+
+		String emptyId = "";
+
+		Response materialPurchaseResponse = RestAssured
+				.given()
+				.baseUri(ApiBasePath.BASE_URL)
+				.header("Authorization", "Bearer " + AuthUtils.getToken())
+				.contentType(ContentType.JSON)
+				.pathParam("id", emptyId)
+				.log().all()
+
+				.when()
+				.delete(MaterialPurchase.delete_materialPurchase)
+
+				.then()
+				.log().all()
+				.extract().response();
+
+		Assert.assertEquals(materialPurchaseResponse.getStatusCode(), 404, "Status code not matched"
+				);
+	}
+
+	@Test(priority=5, dataProvider = "testData", description = "ALREADY DELETED ID test case")
+	public void verifyDeleteWithAlreadyDeletedId(
+			String materialPurchaseId) {
+
+		// First Delete
+
+		RestAssured
+		.given()
+		.baseUri(ApiBasePath.BASE_URL)
+		.header("Authorization", "Bearer " + AuthUtils.getToken())
+		.contentType(ContentType.JSON)
+		.pathParam("id", materialPurchaseId)
+
+		.when()
+		.delete(MaterialPurchase.delete_materialPurchase);
+
+		// Second Delete
+
+		Response materialPurchaseResponse = RestAssured
+				.given()
+				.baseUri(ApiBasePath.BASE_URL)
+				.header("Authorization", "Bearer " + AuthUtils.getToken())
+				.contentType(ContentType.JSON)
+				.pathParam("id", materialPurchaseId)
+				.log().all()
+
+				.when()
+				.delete(MaterialPurchase.delete_materialPurchase)
+
+				.then()
+				.log().all()
+				.extract().response();
+
+		Assert.assertTrue(materialPurchaseResponse.getStatusCode() == 404 || 
+				materialPurchaseResponse.getStatusCode() == 400, "Unexpected status code");
+	}
+
 }

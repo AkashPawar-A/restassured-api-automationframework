@@ -1,5 +1,5 @@
 {
-  "id" : "4bfb9781-db99-4940-ad98-e835963e1b2e",
+  "id" : "e13740cc-38c3-4843-91c2-490248d64b56",
   "remark" : "test - 3 - UPDATED",
   "purchase_date" : "2026-05-04T11:11:45.175Z",
   "vendor_reference_number" : "A-01",
@@ -23,6 +23,6 @@
   "other_amount_text" : "Additional Charges - test 1",
   "photos" : [ ],
   "materials" : [ {
-    "id" : "6de24858-c0f4-4317-8b8f-ae13f9308173"
+    "id" : "52bfac1e-f473-4ba7-9af9-59ce5455db55"
   } ]
 }

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.transaction.materialPurchase_test.Edit_materialPurchase_Test">
+      <class name="com.onsite.transaction.materialPurchase_test.Delete_materialPurchase">
         <methods>
-          <include name="editData" invocation-numbers="0"/>
+          <include name="verifyDeleteWithValidId" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.onsite.transaction.materialPurchase_test.Edit_materialPurchase_Test -->
+      </class> <!-- com.onsite.transaction.materialPurchase_test.Delete_materialPurchase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

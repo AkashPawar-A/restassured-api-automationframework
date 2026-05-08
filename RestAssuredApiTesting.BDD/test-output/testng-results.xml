@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-05T14:19:55 IST" name="functionalTestSuite" finished-at="2026-05-05T14:20:18 IST" duration-ms="23153">
+  <suite started-at="2026-05-05T16:38:56 IST" name="Default suite" finished-at="2026-05-05T16:39:18 IST" duration-ms="21800">
     <groups>
-      <group name="material">
-        <method signature="Create_materialPurchaseTest.addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" name="addMaterialPurchase" class="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest"/>
-      </group> <!-- material -->
     </groups>
-    <test started-at="2026-05-05T14:19:55 IST" name="AddMaterialPurchase" finished-at="2026-05-05T14:20:18 IST" duration-ms="23153">
-      <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
-        <test-method signature="addMaterialPurchase(com.onsite.pojo_request.MaterialPurchaseRequest)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest@36bc55de]" started-at="2026-05-05T14:19:56 IST" name="addMaterialPurchase" data-provider="purchaseData" finished-at="2026-05-05T14:20:07 IST" duration-ms="11051" status="PASS">
+    <test started-at="2026-05-05T16:38:56 IST" name="Default test" finished-at="2026-05-05T16:39:18 IST" duration-ms="21800">
+      <class name="com.onsite.transaction.materialPurchase_test.Delete_materialPurchase">
+        <test-method signature="verifyDeleteWithValidId(java.lang.String)[pri:1, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:38:56 IST" name="verifyDeleteWithValidId" description="validId" data-provider="testData" finished-at="2026-05-05T16:39:07 IST" duration-ms="10535" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.MaterialPurchaseRequest@6d868997]]>
+                <![CDATA[e13740cc-38c3-4843-91c2-490248d64b56]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addMaterialPurchase -->
-      </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
-      <class name="com.onsite.deduction_test.Add_Deduction_test">
-        <test-method signature="addDeductionItem(com.onsite.pojo_request.DeductionEntryBulkAdd_Request)[pri:0, instance:com.onsite.deduction_test.Add_Deduction_test@10e31a9a]" started-at="2026-05-05T14:20:15 IST" name="addDeductionItem" data-provider="deductionItem" depends-on-groups="material" finished-at="2026-05-05T14:20:18 IST" duration-ms="3188" status="PASS">
+        </test-method> <!-- verifyDeleteWithValidId -->
+        <test-method signature="verifyDeleteWithInvalidId()[pri:2, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:07 IST" name="verifyDeleteWithInvalidId" description="INVALID ID" finished-at="2026-05-05T16:39:10 IST" duration-ms="3402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDeleteWithInvalidId -->
+        <test-method signature="verifyDeleteWithoutToken(java.lang.String)[pri:3, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:10 IST" name="verifyDeleteWithoutToken" description="WITHOUT TOKEN" data-provider="testData" finished-at="2026-05-05T16:39:10 IST" duration-ms="130" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.DeductionEntryBulkAdd_Request@603f4e3e]]>
+                <![CDATA[e13740cc-38c3-4843-91c2-490248d64b56]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addDeductionItem -->
-      </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
-      <class name="com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test">
-        <test-method signature="detailsMaterialPurchase(java.lang.String)[pri:0, instance:com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test@131774fe]" started-at="2026-05-05T14:20:07 IST" name="detailsMaterialPurchase" data-provider="purchaseData" finished-at="2026-05-05T14:20:15 IST" duration-ms="7387" status="PASS">
+        </test-method> <!-- verifyDeleteWithoutToken -->
+        <test-method signature="verifyDeleteWithEmptyId()[pri:4, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:10 IST" name="verifyDeleteWithEmptyId" description="EMPTY ID" finished-at="2026-05-05T16:39:13 IST" duration-ms="2549" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDeleteWithEmptyId -->
+        <test-method signature="verifyDeleteWithAlreadyDeletedId(java.lang.String)[pri:5, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:13 IST" name="verifyDeleteWithAlreadyDeletedId" description="ALREADY DELETED ID" data-provider="testData" finished-at="2026-05-05T16:39:18 IST" duration-ms="5004" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[4bfb9781-db99-4940-ad98-e835963e1b2e]]>
+                <![CDATA[e13740cc-38c3-4843-91c2-490248d64b56]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- detailsMaterialPurchase -->
-      </class> <!-- com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test -->
-    </test> <!-- AddMaterialPurchase -->
-  </suite> <!-- functionalTestSuite -->
+        </test-method> <!-- verifyDeleteWithAlreadyDeletedId -->
+      </class> <!-- com.onsite.transaction.materialPurchase_test.Delete_materialPurchase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

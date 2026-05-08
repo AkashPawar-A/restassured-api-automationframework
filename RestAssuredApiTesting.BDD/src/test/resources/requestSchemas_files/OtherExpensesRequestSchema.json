@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title" : "Other Expenses Request",
+  "type": "object",
+  "additionalProperties": true,
+  
+  "required" : [
+     "project_id",
+     "party_company_user_id",
+     "earning_amount",
+     "gst_amount",
+     "amount",
+     "payment_date",
+     "net_amount",
+     "net_amount",
+     "is_gst_percent",
+     "gst_percent",
+  ],
+  
+  "properties" : {
+      "project_id" : { "type" : "string" },
+      "party_company_user_id" : { "type" : "string" },
+      "remark" : { "type" : "string" },
+      "earning_"amount" : { "type" : "number" },
+      "discount" : { "type" : "number" },
+      "gst_amount" : { "type" : "number" },
+      "other_amount" : { "type" : "number" },
+      "amount" : { "type" : "number" },
+      "photos" : { "type" : "array", "items" : {"type" : "string"} },
+      "sub_category_id" : { "type" : "string" },
+      "category_id" : { "type" : "string" },
+      "payment_date" : { "type" : "string" },
+      "unit_id" : { "type" : "string" },
+      "unit_price" : { "type" : "number" },
+      "quantity" : { "type" : "number" },
+      "earning_type" : { "type" : "string" },
+      "due_days" : { "type" : "number" },
+      "ship_to_address_id" : { "type" : "string" },
+      "bill_to_address_id" : { "type" : "string" },
+      "ship_from_address_id" : { "type" : "string" },
+      "bill_from_address_id" : { "type" : "string" },
+      "net_amount" : { "type" : "number" },
+      "gst_percent" : { "type" : "number" },
+      "is_gst_percent" : { "type" : "number" },
+      "is_roundoff" : { "type" : "number" },
+      "vendor_bill_number" : { "type" : "string" },
+      "equipment_stock_id" : { "type" : "string" },
+      "billing_activity_id" : { "type" : "string" }
+
+      }
+  
+ }
+  
