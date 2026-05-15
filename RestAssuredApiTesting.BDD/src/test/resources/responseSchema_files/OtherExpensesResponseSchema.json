@@ -12,9 +12,8 @@
      "amount",
      "payment_date",
      "net_amount",
-     "net_amount",
      "is_gst_percent",
-     "gst_percent",
+     "gst_percent"
   ],
   
   "properties" : {
@@ -23,7 +22,7 @@
       "invoice_id" : { "type" : "string" },
       "project_id" : { "type" : "string" },
       "remark" : { "type" : "string" },
-      "earning_"amount" : { "type" : "number" },
+      "earning_amount" : { "type" : "number" },
       "discount" : { "type" : "number" },
       "gst_amount" : { "type" : "number" },
       "other_amount" : { "type" : "number" },
@@ -43,16 +42,16 @@
       "payment_date" : { "type" : "string" },
       "created" : { "type" : "string" },
       "updated" : { "type" : "string" },
-      "approval_flag" : { "tyep" : "string" },
+      "approval_flag" : { "type" : "string" },
       "approved_by" : { "type" : "string" },
       "search" : { "type" : "string" },
       "earning_type" : { "type" :"string" },
       "monkey_patch_is_editable" : { "type" : "number" },
-      "monkey_patch_paid_amount" : { "type" : "string" },
+      "monkey_patch_paid_amount" : { "type" : "number" },
       "monkey_patch_status" : { "type" : "string" },
       "unit" : { "type" : "string" },
       "source_add" : { "type" : "string" },
-      "source_edit : { "type" : "string" },
+      "source_edit" : { "type" : "string" },
       "due_days" : { "type" : "number" },
       "ship_to_address_id" : { "type" : "string" },
       "bill_to_address_id" : { "type" : "string" },
@@ -66,7 +65,8 @@
       "is_roundoff" : { "type" : "number" },
       "vendor_bill_number" : { "type" : "string" },
       "equipment_stock_id" : { "type" : "string" },
-      "billing_activity_id" : { "type" : "string" }
+      "billing_activity_id" : { "type" : "string" },
+      "gst_percent" : { "type" : "number" }
 
       }
   

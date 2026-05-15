@@ -2,8 +2,10 @@ package com.onsite.pojo_response;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.onsite.pojo_response.TimeSheetResponseBody.MonkeyPatchPartyCompanyUser.CustomField;
 
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class OtherExpenseResponse {
 	
 	private String id;

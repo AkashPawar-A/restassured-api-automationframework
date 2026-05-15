@@ -1,54 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-05T16:38:56 IST" name="Default suite" finished-at="2026-05-05T16:39:18 IST" duration-ms="21800">
+  <suite started-at="2026-05-15T16:51:33 IST" name="Default suite" finished-at="2026-05-15T16:51:43 IST" duration-ms="9901">
     <groups>
     </groups>
-    <test started-at="2026-05-05T16:38:56 IST" name="Default test" finished-at="2026-05-05T16:39:18 IST" duration-ms="21800">
-      <class name="com.onsite.transaction.materialPurchase_test.Delete_materialPurchase">
-        <test-method signature="verifyDeleteWithValidId(java.lang.String)[pri:1, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:38:56 IST" name="verifyDeleteWithValidId" description="validId" data-provider="testData" finished-at="2026-05-05T16:39:07 IST" duration-ms="10535" status="PASS">
+    <test started-at="2026-05-15T16:51:33 IST" name="Default test" finished-at="2026-05-15T16:51:43 IST" duration-ms="9901">
+      <class name="com.onsite.transaction.otherexpenses.Create_otherExpensesTest">
+        <test-method signature="createotherExpense(com.onsite.pojo_request.OtherExpensesRequest)[pri:0, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@a514af7]" started-at="2026-05-15T16:51:34 IST" name="createotherExpense" description="valid test cases" data-provider="testData" finished-at="2026-05-15T16:51:43 IST" duration-ms="9348" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[e13740cc-38c3-4843-91c2-490248d64b56]]>
+                <![CDATA[com.onsite.pojo_request.OtherExpensesRequest@327af41b]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyDeleteWithValidId -->
-        <test-method signature="verifyDeleteWithInvalidId()[pri:2, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:07 IST" name="verifyDeleteWithInvalidId" description="INVALID ID" finished-at="2026-05-05T16:39:10 IST" duration-ms="3402" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeleteWithInvalidId -->
-        <test-method signature="verifyDeleteWithoutToken(java.lang.String)[pri:3, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:10 IST" name="verifyDeleteWithoutToken" description="WITHOUT TOKEN" data-provider="testData" finished-at="2026-05-05T16:39:10 IST" duration-ms="130" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[e13740cc-38c3-4843-91c2-490248d64b56]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeleteWithoutToken -->
-        <test-method signature="verifyDeleteWithEmptyId()[pri:4, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:10 IST" name="verifyDeleteWithEmptyId" description="EMPTY ID" finished-at="2026-05-05T16:39:13 IST" duration-ms="2549" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeleteWithEmptyId -->
-        <test-method signature="verifyDeleteWithAlreadyDeletedId(java.lang.String)[pri:5, instance:com.onsite.transaction.materialPurchase_test.Delete_materialPurchase@4fb61f4a]" started-at="2026-05-05T16:39:13 IST" name="verifyDeleteWithAlreadyDeletedId" description="ALREADY DELETED ID" data-provider="testData" finished-at="2026-05-05T16:39:18 IST" duration-ms="5004" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[e13740cc-38c3-4843-91c2-490248d64b56]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeleteWithAlreadyDeletedId -->
-      </class> <!-- com.onsite.transaction.materialPurchase_test.Delete_materialPurchase -->
+        </test-method> <!-- createotherExpense -->
+      </class> <!-- com.onsite.transaction.otherexpenses.Create_otherExpensesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
