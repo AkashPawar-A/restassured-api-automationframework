@@ -5,7 +5,9 @@
     <classes>
       <class name="com.onsite.transaction.otherexpenses.Create_otherExpensesTest">
         <methods>
-          <include name="createotherExpense" invocation-numbers="0"/>
+          <include name="createOtherExpense"/>
+          <include name="setUp"/>
+          <include name="validatePartyCompanyUserId"/>
         </methods>
       </class> <!-- com.onsite.transaction.otherexpenses.Create_otherExpensesTest -->
     </classes>

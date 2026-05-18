@@ -1,23 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="7" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-15T16:51:33 IST" name="Default suite" finished-at="2026-05-15T16:51:43 IST" duration-ms="9901">
+  <suite started-at="2026-05-18T17:49:19 IST" name="Default suite" finished-at="2026-05-18T17:49:28 IST" duration-ms="9458">
     <groups>
     </groups>
-    <test started-at="2026-05-15T16:51:33 IST" name="Default test" finished-at="2026-05-15T16:51:43 IST" duration-ms="9901">
+    <test started-at="2026-05-18T17:49:19 IST" name="Default test" finished-at="2026-05-18T17:49:28 IST" duration-ms="9458">
       <class name="com.onsite.transaction.otherexpenses.Create_otherExpensesTest">
-        <test-method signature="createotherExpense(com.onsite.pojo_request.OtherExpensesRequest)[pri:0, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@a514af7]" started-at="2026-05-15T16:51:34 IST" name="createotherExpense" description="valid test cases" data-provider="testData" finished-at="2026-05-15T16:51:43 IST" duration-ms="9348" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:19 IST" name="setUp" finished-at="2026-05-18T17:49:20 IST" duration-ms="458" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest)[pri:1, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:20 IST" name="createOtherExpense" description="other expense creation" data-provider="testData" finished-at="2026-05-18T17:49:28 IST" duration-ms="7974" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.OtherExpensesRequest@327af41b]]>
+                <![CDATA[com.onsite.pojo_request.OtherExpensesRequest@58326051]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createotherExpense -->
+        </test-method> <!-- createOtherExpense -->
+        <test-method signature="validateStatusCode()[pri:2, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="validateStatusCode" description="validateStatusCode" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateStatusCode -->
+        <test-method signature="valiadateResponseMessage()[pri:3, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="valiadateResponseMessage" description="valiadateResponseMessage" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valiadateResponseMessage -->
+        <test-method signature="validateResponseTime()[pri:4, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="validateResponseTime" description="validateResponseTime" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateResponseTime -->
+        <test-method signature="valiadetResponseSchema()[pri:5, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="valiadetResponseSchema" description="valiadetResponseSchema" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="447" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valiadetResponseSchema -->
+        <test-method signature="valiadetId()[pri:6, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="valiadetId" description="id validation" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valiadetId -->
+        <test-method signature="validateProjectId()[pri:7, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="validateProjectId" description="projectId validate" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateProjectId -->
+        <test-method signature="validatePartyCompanyUserId()[pri:8, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@130d63be]" started-at="2026-05-18T17:49:28 IST" name="validatePartyCompanyUserId" description="validatePartyCompanyUserId" finished-at="2026-05-18T17:49:28 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="13" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "String.isEmpty()" because "resPartyCompanyUserId" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "resPartyCompanyUserId" is null
+at com.onsite.transaction.otherexpenses.Create_otherExpensesTest.validatePartyCompanyUserId(Create_otherExpensesTest.java:164)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validatePartyCompanyUserId -->
       </class> <!-- com.onsite.transaction.otherexpenses.Create_otherExpensesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

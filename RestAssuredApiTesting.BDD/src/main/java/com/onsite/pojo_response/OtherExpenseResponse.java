@@ -65,6 +65,7 @@ public class OtherExpenseResponse {
 	private Double deduction_amount;
 	private Double net_amount;
 	private Integer is_gst_percent;
+	private Double gst_percent;
 	private Integer is_roundoff;
 	private String vendor_bill_number;
 	private CustomField[] custom_field;
@@ -73,6 +74,43 @@ public class OtherExpenseResponse {
 //	private EquipmentStock monkey_patch_equipment_stock;
 //	private BillingActivity monkey_patch_billing_activity;
 	
+	
+	public Double getGst_percent() {
+		return gst_percent;
+	}
+	public void setGst_percent(Double gst_percent) {
+		this.gst_percent = gst_percent;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getCompany_id() {
+		return company_id;
+	}
+	public void setCompany_id(String company_id) {
+		this.company_id = company_id;
+	}
+	public String getProject_id() {
+		return project_id;
+	}
+	public void setProject_id(String project_id) {
+		this.project_id = project_id;
+	}
+	public String getInvoice_id() {
+		return invoice_id;
+	}
+	public void setInvoice_id(String invoice_id) {
+		this.invoice_id = invoice_id;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 	public Double getEarning_amount() {
 		return earning_amount;
 	}
@@ -97,6 +135,30 @@ public class OtherExpenseResponse {
 	public void setOther_amount(Double other_amount) {
 		this.other_amount = other_amount;
 	}
+	public Double getAmount() {
+		return amount;
+	}
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+	public String[] getPhotos() {
+		return photos;
+	}
+	public void setPhotos(String[] photos) {
+		this.photos = photos;
+	}
+	public String getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
+	}
+	public String getSub_category_id() {
+		return sub_category_id;
+	}
+	public void setSub_category_id(String sub_category_id) {
+		this.sub_category_id = sub_category_id;
+	}
 	public String getUnit_id() {
 		return unit_id;
 	}
@@ -109,11 +171,53 @@ public class OtherExpenseResponse {
 	public void setUnit_price(Double unit_price) {
 		this.unit_price = unit_price;
 	}
+	public String getApproval_comment() {
+		return approval_comment;
+	}
+	public void setApproval_comment(String approval_comment) {
+		this.approval_comment = approval_comment;
+	}
 	public Double getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
+	}
+	public Integer getDelete() {
+		return delete;
+	}
+	public void setDelete(Integer delete) {
+		this.delete = delete;
+	}
+	public Integer getIs_engine() {
+		return is_engine;
+	}
+	public void setIs_engine(Integer is_engine) {
+		this.is_engine = is_engine;
+	}
+	public String getCreator() {
+		return creator;
+	}
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+	public String getCreator_company_user_id() {
+		return creator_company_user_id;
+	}
+	public void setCreator_company_user_id(String creator_company_user_id) {
+		this.creator_company_user_id = creator_company_user_id;
+	}
+	public String getParty_compay_user_id() {
+		return party_compay_user_id;
+	}
+	public void setParty_compay_user_id(String party_compay_user_id) {
+		this.party_compay_user_id = party_compay_user_id;
+	}
+	public LocalDateTime getPayment_date() {
+		return payment_date;
+	}
+	public void setPayment_date(LocalDateTime payment_date) {
+		this.payment_date = payment_date;
 	}
 	public LocalDateTime getCreated() {
 		return created;
@@ -121,17 +225,65 @@ public class OtherExpenseResponse {
 	public void setCreated(LocalDateTime created) {
 		this.created = created;
 	}
+	public LocalDateTime getUpdated() {
+		return updated;
+	}
+	public void setUpdated(LocalDateTime updated) {
+		this.updated = updated;
+	}
+	public String getApproval_flag() {
+		return approval_flag;
+	}
+	public void setApproval_flag(String approval_flag) {
+		this.approval_flag = approval_flag;
+	}
+	public String getApproved_by() {
+		return approved_by;
+	}
+	public void setApproved_by(String approved_by) {
+		this.approved_by = approved_by;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	public String getEarning_type() {
 		return earning_type;
 	}
 	public void setEarning_type(String earning_type) {
 		this.earning_type = earning_type;
 	}
+	public CompanyUserNormal getMonkey_patch_creator_company_user() {
+		return monkey_patch_creator_company_user;
+	}
+	public void setMonkey_patch_creator_company_user(CompanyUserNormal monkey_patch_creator_company_user) {
+		this.monkey_patch_creator_company_user = monkey_patch_creator_company_user;
+	}
+	public CompanyUserNormal getMonkey_patch_party_company_user() {
+		return monkey_patch_party_company_user;
+	}
+	public void setMonkey_patch_party_company_user(CompanyUserNormal monkey_patch_party_company_user) {
+		this.monkey_patch_party_company_user = monkey_patch_party_company_user;
+	}
+	public Integer getMonkey_patch_is_editable() {
+		return monkey_patch_is_editable;
+	}
+	public void setMonkey_patch_is_editable(Integer monkey_patch_is_editable) {
+		this.monkey_patch_is_editable = monkey_patch_is_editable;
+	}
 	public Double getMonkey_patch_paid_amount() {
 		return monkey_patch_paid_amount;
 	}
 	public void setMonkey_patch_paid_amount(Double monkey_patch_paid_amount) {
 		this.monkey_patch_paid_amount = monkey_patch_paid_amount;
+	}
+	public String getMonkey_patch_status() {
+		return monkey_patch_status;
+	}
+	public void setMonkey_patch_status(String monkey_patch_status) {
+		this.monkey_patch_status = monkey_patch_status;
 	}
 	public String getUnit() {
 		return unit;
@@ -150,6 +302,36 @@ public class OtherExpenseResponse {
 	}
 	public void setSource_edit(String source_edit) {
 		this.source_edit = source_edit;
+	}
+	public SubCategory getMonkey_patch_sub_category() {
+		return monkey_patch_sub_category;
+	}
+	public void setMonkey_patch_sub_category(SubCategory monkey_patch_sub_category) {
+		this.monkey_patch_sub_category = monkey_patch_sub_category;
+	}
+	public Project getMonkey_patch_project() {
+		return monkey_patch_project;
+	}
+	public void setMonkey_patch_project(Project monkey_patch_project) {
+		this.monkey_patch_project = monkey_patch_project;
+	}
+	public CompanyUserNormal getMonkey_patch_approved_by() {
+		return monkey_patch_approved_by;
+	}
+	public void setMonkey_patch_approved_by(CompanyUserNormal monkey_patch_approved_by) {
+		this.monkey_patch_approved_by = monkey_patch_approved_by;
+	}
+	public Invoice getMonkey_patch_invoice() {
+		return monkey_patch_invoice;
+	}
+	public void setMonkey_patch_invoice(Invoice monkey_patch_invoice) {
+		this.monkey_patch_invoice = monkey_patch_invoice;
+	}
+	public MetaData getMeta_data() {
+		return meta_data;
+	}
+	public void setMeta_data(MetaData meta_data) {
+		this.meta_data = meta_data;
 	}
 	public Double getDue_days() {
 		return due_days;
