@@ -30,7 +30,7 @@ public class OtherExpenseResponse {
 	private String creator;
 	private String creator_company_user_id;
 	private String party_compay_user_id;
-	private LocalDateTime payment_date;
+	private String payment_date;
 	private LocalDateTime created;
 	private LocalDateTime updated;
 	private String approval_flag;
@@ -213,10 +213,10 @@ public class OtherExpenseResponse {
 	public void setParty_compay_user_id(String party_compay_user_id) {
 		this.party_compay_user_id = party_compay_user_id;
 	}
-	public LocalDateTime getPayment_date() {
+	public String getPayment_date() {
 		return payment_date;
 	}
-	public void setPayment_date(LocalDateTime payment_date) {
+	public void setPayment_date(String payment_date) {
 		this.payment_date = payment_date;
 	}
 	public LocalDateTime getCreated() {
