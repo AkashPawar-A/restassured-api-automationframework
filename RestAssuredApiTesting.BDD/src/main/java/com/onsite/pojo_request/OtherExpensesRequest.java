@@ -36,6 +36,7 @@ public class OtherExpensesRequest {
 	private String billing_activity_id;
 	
 	private String id;
+	private Double post_tax_deduction_amount;
 	
 	public String getProject_id() {
 		return project_id;
@@ -268,5 +269,14 @@ public class OtherExpensesRequest {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public Double getPost_tax_deduction_amount() {
+		return post_tax_deduction_amount;
+	}
+
+	public void setPost_tax_deduction_amount(Double post_tax_deduction_amount) {
+		this.post_tax_deduction_amount = post_tax_deduction_amount;
+	}
+
 
 }
