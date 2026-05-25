@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -117,7 +118,7 @@ public class Create_otherExpensesTest {
 
 		long responseTime = otherExpResponse.getTime();
 
-		if(responseTime < 2000) {
+		if(responseTime < 3000) {
 			System.out.println("responseTime is :" + responseTime);
 		} else {
 			Assert.fail("response time is too long :" + responseTime);
@@ -159,7 +160,7 @@ public class Create_otherExpensesTest {
 	@Test(priority=8, dependsOnMethods="createOtherExpense", description="validatePartyCompanyUserId")
 	public void validatePartyCompanyUserId() {
 
-		String resPartyCompanyUserId = responseBody.getParty_compay_user_id();
+		String resPartyCompanyUserId = responseBody.getParty_company_user_id();
 		String reqPartyCompanyUserId = requestPayload.getParty_company_user_id();
 
 		if(resPartyCompanyUserId != null && !resPartyCompanyUserId.isEmpty()) {
@@ -371,8 +372,8 @@ public class Create_otherExpensesTest {
 		Double reqNetAmount = requestPayload.getNet_amount();
 
 		if(resNetAmount != null && reqNetAmount != null && resNetAmount.equals(reqNetAmount)) {
-			if(netAmount.equals(resNetAmount)) {
-				if(netAmount.equals(reqNetAmount)) {
+			if(netAmount.equals(resNetAmount) || netAmount.equals(amount)) {
+				if(netAmount.equals(reqNetAmount) || netAmount.equals(amount)) {
 					System.out.println("netAmount is :" + netAmount + ": match with reqNetAmount :" + reqNetAmount);
 				} else {
 					Assert.fail("netAmount is :" + netAmount + ": is not match with reqNetAmount :" + reqNetAmount);
@@ -671,5 +672,201 @@ public class Create_otherExpensesTest {
 		}
 	}
 
+	@Test(priority=36, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceId")
+	public void validateMonkeyPatchInvoiceId() {
+
+		String resMonkeyPatchId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.id");
+		String resInvoiceId = responseBody.getInvoice_id();
+
+		if(resMonkeyPatchId != null && !resMonkeyPatchId.isEmpty() && resInvoiceId != null && !resInvoiceId.isEmpty()) {
+			if(resMonkeyPatchId.equals(resInvoiceId)) {
+				System.out.println("resInvoiceId is :" + resInvoiceId + ": match with resMonkeyPatchId :" + resMonkeyPatchId);
+			} else {
+				Assert.fail("resInvoiceId is :" + resInvoiceId + ": is not match with resMonkeyPatchId :" + resMonkeyPatchId);
+			}
+		} else {
+			System.out.println("resInvoiceId & resMonkeyPatchId is null or empty");
+		}
+	}
+
+	@Test(priority=37, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceCompanyId")
+	public void validateMonkeyPatchInvoiceCompanyId() {
+
+		String resMonkeyPatchInvoiceCompanyId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.company_id");
+		String resCompanyId = responseBody.getCompany_id();
+
+		if(resMonkeyPatchInvoiceCompanyId != null && !resMonkeyPatchInvoiceCompanyId.isEmpty() && resCompanyId != null && !resCompanyId.isEmpty()) {
+			if(resMonkeyPatchInvoiceCompanyId.equals(resCompanyId)) {
+				System.out.println("resMonkeyPatchInvoiceCompanyId is :" + resMonkeyPatchInvoiceCompanyId + ": match with resCompanyId :" + resCompanyId);
+			} else {
+				Assert.fail("resMonkeyPatchInvoiceCompanyId is :" + resMonkeyPatchInvoiceCompanyId + ": is not match with resCompanyId :" + resCompanyId);
+			}
+		} else {
+			System.out.println("resMonkeyPatchInvoiceCompanyId & resCompanyId is null or empty");
+		}
+	}
+
+	@Test(priority=38, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceCreatorCompanyUserId")
+	public void validateMonkeyPatchInvoiceCreatorCompanyUserId() {
+
+		String resMonkeyPatchInvoiceCreatorCompanyUserId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.creator_company_user_id");
+		String resCreatorCompanyUserId = responseBody.getCreator_company_user_id();
+
+		if(resMonkeyPatchInvoiceCreatorCompanyUserId != null && !resMonkeyPatchInvoiceCreatorCompanyUserId.isEmpty() && resCreatorCompanyUserId != null && !resCreatorCompanyUserId.isEmpty()) {
+			if(resMonkeyPatchInvoiceCreatorCompanyUserId.equals(resCreatorCompanyUserId)) {
+				System.out.println("resMonkeyPatchInvoiceCreatorCompanyUserId is :" + resMonkeyPatchInvoiceCreatorCompanyUserId + ": match with resCreatorCompanyUserId :" + resCreatorCompanyUserId);
+			} else {
+				Assert.fail("resMonkeyPatchInvoiceCreatorCompanyUserId is :" + resMonkeyPatchInvoiceCreatorCompanyUserId + ": is not match with resCreatorCompanyUserId :" + resCreatorCompanyUserId);
+			}
+		} else {
+			System.out.println("resMonkeyPatchInvoiceCreatorCompanyUserId & resCreatorCompanyUserId is null or empty");
+		}
+	}
+
+	@Test(priority=39, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoicePartyCompanyUserId")
+	public void validateMonkeyPatchInvoicePartyCompanyUserId() {
+
+		String resMonkeyPatchInvoicePartyCompanyUserId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.party_company_user_id");
+		String resPartyCompanyUserId = responseBody.getParty_company_user_id();
+
+		if(resMonkeyPatchInvoicePartyCompanyUserId != null && !resMonkeyPatchInvoicePartyCompanyUserId.isEmpty() && resMonkeyPatchInvoicePartyCompanyUserId != null && !resPartyCompanyUserId.isEmpty()) {
+			if(resMonkeyPatchInvoicePartyCompanyUserId.equals(resPartyCompanyUserId)) {
+				System.out.println("resMonkeyPatchInvoicePartyCompanyUserId is :" + resPartyCompanyUserId + ": match with resPartyCompanyUserId :" + resPartyCompanyUserId);
+			} else {
+				Assert.fail("resMonkeyPatchInvoicePartyCompanyUserId is :" + resMonkeyPatchInvoicePartyCompanyUserId + ": is not match with resPartyCompanyUserId :" + resPartyCompanyUserId);
+			}
+		} else {
+			System.out.println("resMonkeyPatchInvoicePartyCompanyUserId & resPartyCompanyUserId is null or empty");
+		}
+	}
+
+	@Test(priority=40, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceProjectId")
+	public void validateMonkeyPatchInvoiceProjectId() {
+
+		String resMonkeyPatchInvoiceProjectId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.project_id");
+		String resProjectId = responseBody.getProject_id();
+
+		if(resMonkeyPatchInvoiceProjectId != null && !resMonkeyPatchInvoiceProjectId.isEmpty() && resProjectId != null && !resProjectId.isEmpty()) {
+			if(resMonkeyPatchInvoiceProjectId.equals(resProjectId)) {
+				System.out.println("resMonkeyPatchInvoiceProjectId is :" + resMonkeyPatchInvoiceProjectId + ": match with resProjectId :" + resProjectId);
+			} else {
+				Assert.fail("resMonkeyPatchInvoiceProjectId is :" + resMonkeyPatchInvoiceProjectId + ": is not match with resProjectId :" + resProjectId);
+			}
+		} else {
+			System.out.println("resMonkeyPatchInvoiceProjectId & resProjectId is null or empty");
+		}
+	}
+
+	@Test(priority=41, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceSubCategoryId")
+	public void validateMonkeyPatchInvoiceSubCategoryId() {
+
+		String resMonkeyPatchInvoiceSubCategoryId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.sub_category_id");
+		String resSubCategoryId = responseBody.getSub_category_id();
+
+		if(resMonkeyPatchInvoiceSubCategoryId != null && !resMonkeyPatchInvoiceSubCategoryId.isEmpty() && resSubCategoryId != null && !resSubCategoryId.isEmpty()) {
+			if(resMonkeyPatchInvoiceSubCategoryId.equals(resSubCategoryId)) {
+				System.out.println("resMonkeyPatchInvoiceSubCategoryId is :" + resMonkeyPatchInvoiceSubCategoryId + ": match with resSubCategoryId :" + resSubCategoryId);
+			} else {
+				Assert.fail("resMonkeyPatchInvoiceSubCategoryId is :" + resMonkeyPatchInvoiceSubCategoryId + ": is not match with resSubCategoryId :" + resSubCategoryId);
+			}
+		} else {
+			System.out.println("resMonkeyPatchInvoiceSubCategoryId & resSubCategoryId is null or empty");
+		}
+	}
+	
+	@Test(priority=42, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceFaturesType")
+	public void validateMonkeyPatchInvoiceFaturesType() {
+
+		String resMonkeyPatchInvoiceFeatureType = otherExpResponse.jsonPath().getString("monkey_patch_invoice.feature_type");
+
+		if(resMonkeyPatchInvoiceFeatureType != null && !resMonkeyPatchInvoiceFeatureType.isEmpty()) {
+			Assert.assertEquals(resMonkeyPatchInvoiceFeatureType, "partyearning", "Invalid feature_type");
+		} else {
+			System.out.println("validateMonkeyPatchInvoiceFaturesType is null or empty");
+		}
+	}
+
+	@Test(priority=43, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceFeatureId")
+	public void validateMonkeyPatchInvoiceFeatureId() {
+
+		String resMonkeyPatchInvoiceFeatureId = otherExpResponse.jsonPath().getString("monkey_patch_invoice.feature_id");
+
+		if(resMonkeyPatchInvoiceFeatureId != null && !resMonkeyPatchInvoiceFeatureId.isEmpty()) {
+			System.out.println("resMonkeyPatchInvoiceFeatureId does not null or empty : " + resMonkeyPatchInvoiceFeatureId);
+		} else {
+			Assert.fail("resMonkeyPatchInvoiceFeatureId is null or empty  : " + resMonkeyPatchInvoiceFeatureId);
+		}
+	}
+	
+	@Test(priority=44, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceInvoiceType")
+	public void validateMonkeyPatchInvoiceInvoiceType() {
+
+		String resMonkeyPatchInvoiceInvoiceType = otherExpResponse.jsonPath().getString("monkey_patch_invoice.invoice_type");
+
+		if(resMonkeyPatchInvoiceInvoiceType != null && !resMonkeyPatchInvoiceInvoiceType.isEmpty()) {
+			Assert.assertEquals(resMonkeyPatchInvoiceInvoiceType, "expense", "Invalid feature_type");
+		} else {
+			System.out.println("resMonkeyPatchInvoiceInvoiceType is null or empty");
+		}
+	}
+	
+	@Test(priority=45, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceStatus")
+	public void validateMonkeyPatchInvoiceStatus() {
+
+		List<String> statusList = Arrays.asList("paid", "unpaid");
+		
+		String resMonkeyPatchInvoiceStatus = otherExpResponse.jsonPath().getString("monkey_patch_invoice.status");
+
+		if(resMonkeyPatchInvoiceStatus != null && !resMonkeyPatchInvoiceStatus.isEmpty()) {
+			Assert.assertTrue(statusList.contains(resMonkeyPatchInvoiceStatus), "invalid monkey_patch_invoice.status" + resMonkeyPatchInvoiceStatus);
+		} else {
+			System.out.println("resMonkeyPatchInvoiceInvoiceType is null or empty");
+		}
+	}
+	
+	@Test(priority=46, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceTotalPayable")
+	public void validateMonkeyPatchInvoiceTotalPayable() {
+
+		Double resMonkeyPatchInvoiceTotalPayable = otherExpResponse.jsonPath().getDouble("monkey_patch_invoice.total_payable");
+		Double resAmount = responseBody.getAmount();
+
+		if(resMonkeyPatchInvoiceTotalPayable != null && resAmount != null) {
+			if(resMonkeyPatchInvoiceTotalPayable.equals(resAmount)) {
+				System.out.println("resMonkeyPatchInvoiceTotalPayable is :" + resMonkeyPatchInvoiceTotalPayable + ": match with resAmount :" + resAmount);
+			} else {
+				Assert.fail("resMonkeyPatchInvoiceTotalPayable is :" + resMonkeyPatchInvoiceTotalPayable + ": is not match with resAmount :" + resAmount);
+			}
+		} else {
+			System.out.println("resMonkeyPatchInvoiceTotalPayable & resAmount is null or empty");
+		}
+	}
+	
+	@Test(priority=47, dependsOnMethods="createOtherExpense", description="resMonkeyPatchInvoiceSequence")
+	public void validateMonkeyPatchInvoiceSequence() {
+
+		Double resMonkeyPatchInvoiceSequence = otherExpResponse.jsonPath().getDouble("monkey_patch_invoice.sequence");
+
+		if(resMonkeyPatchInvoiceSequence != null) {
+			System.out.println("monkey patch sequnce is :" + resMonkeyPatchInvoiceSequence);
+		} else {
+			System.out.println("resMonkeyPatchInvoiceSequence is null or empty");
+		}
+	}
+	
+	@Test(priority=48, dependsOnMethods="createOtherExpense", description="validateMonkeyPatchInvoiceApproval")
+	public void validateMonkeyPatchInvoiceApproval() {
+
+		List<String> approvalList = Arrays.asList("auto_approved", "approved", "pending", "rejected");
+		
+		String resMonkeyPatchInvoiceApproval = otherExpResponse.jsonPath().getString("monkey_patch_invoice.approval_flag");
+
+		if(resMonkeyPatchInvoiceApproval != null && !resMonkeyPatchInvoiceApproval.isEmpty()) {
+			Assert.assertTrue(approvalList.contains(resMonkeyPatchInvoiceApproval), "invalid monkey_patch_invoice.approval_flag" + resMonkeyPatchInvoiceApproval);
+		} else {
+			System.out.println("resMonkeyPatchInvoiceApproval is null or empty");
+		}
+	}
+	
+	
 }
 

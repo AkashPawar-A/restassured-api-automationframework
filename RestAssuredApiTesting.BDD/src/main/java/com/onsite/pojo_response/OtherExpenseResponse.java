@@ -29,7 +29,7 @@ public class OtherExpenseResponse {
 	private Integer is_engine;
 	private String creator;
 	private String creator_company_user_id;
-	private String party_compay_user_id;
+	private String party_company_user_id;
 	private String payment_date;
 	private LocalDateTime created;
 	private LocalDateTime updated;
@@ -207,11 +207,11 @@ public class OtherExpenseResponse {
 	public void setCreator_company_user_id(String creator_company_user_id) {
 		this.creator_company_user_id = creator_company_user_id;
 	}
-	public String getParty_compay_user_id() {
-		return party_compay_user_id;
+	public String getParty_company_user_id() {
+		return party_company_user_id;
 	}
-	public void setParty_compay_user_id(String party_compay_user_id) {
-		this.party_compay_user_id = party_compay_user_id;
+	public void setParty_company_user_id(String party_company_user_id) {
+		this.party_company_user_id = party_company_user_id;
 	}
 	public String getPayment_date() {
 		return payment_date;

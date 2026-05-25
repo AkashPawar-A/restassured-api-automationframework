@@ -8,9 +8,6 @@
           <include name="createOtherExpense"/>
           <include name="validateNetAmount"/>
           <include name="setUp"/>
-          <include name="validatePartyCompanyUserId"/>
-          <include name="validatePostTaxDeductionAmount"/>
-          <include name="validateResponseTime"/>
         </methods>
       </class> <!-- com.onsite.transaction.otherexpenses.Create_otherExpensesTest -->
     </classes>
