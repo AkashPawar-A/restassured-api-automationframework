@@ -1196,8 +1196,8 @@ class Invoice {
 	private String feature_id;
 	private String invoice_type;
 	private String status;
-	private int total_payable;
-	private int paid_amount;
+	private Double total_payable;
+	private Double paid_amount;
 	private int sequence;
 	private int delete;
 	private String invoice_date;
@@ -1275,16 +1275,16 @@ class Invoice {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getTotal_payable() {
+	public Double getTotal_payable() {
 		return total_payable;
 	}
-	public void setTotal_payable(int total_payable) {
+	public void setTotal_payable(Double total_payable) {
 		this.total_payable = total_payable;
 	}
-	public int getPaid_amount() {
+	public Double getPaid_amount() {
 		return paid_amount;
 	}
-	public void setPaid_amount(int paid_amount) {
+	public void setPaid_amount(Double paid_amount) {
 		this.paid_amount = paid_amount;
 	}
 	public int getSequence() {

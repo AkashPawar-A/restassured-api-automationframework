@@ -827,16 +827,16 @@ public class Details_otherExpensesTest {
 	public void validateMonkeyPatchInvoiceTotalPayable() {
 
 		Double resMonkeyPatchInvoiceTotalPayable = otherExpDetails.jsonPath().getDouble("monkey_patch_invoice.total_payable");
-		Double reqInvoiceTotal_payable = monkeyPatchInvoice.getDouble("total_payable");
+		Double resTotalPayable = monkeyPatchInvoice.getDouble("total_payable");
 
-		if(resMonkeyPatchInvoiceTotalPayable != null && reqInvoiceTotal_payable != null) {
-			if(resMonkeyPatchInvoiceTotalPayable.equals(reqInvoiceTotal_payable)) {
-				System.out.println("resMonkeyPatchInvoiceTotalPayable is :" + resMonkeyPatchInvoiceTotalPayable + ": match with reqInvoiceTotal_payable :" + reqInvoiceTotal_payable);
+		if(resMonkeyPatchInvoiceTotalPayable != null && resTotalPayable != null) {
+			if(resMonkeyPatchInvoiceTotalPayable.equals(resTotalPayable)) {
+				System.out.println("resMonkeyPatchInvoiceTotalPayable is :" + resMonkeyPatchInvoiceTotalPayable + ": match with resTotalPayable :" + resTotalPayable);
 			} else {
-				Assert.fail("resMonkeyPatchInvoiceTotalPayable is :" + resMonkeyPatchInvoiceTotalPayable + ": is not match with reqInvoiceTotal_payable :" + reqInvoiceTotal_payable);
+				Assert.fail("resMonkeyPatchInvoiceTotalPayable is :" + resMonkeyPatchInvoiceTotalPayable + ": is not match with resTotalPayable :" + resTotalPayable);
 			}
 		} else {
-			System.out.println("resMonkeyPatchInvoiceTotalPayable & resAmount is null or empty");
+			System.out.println("resMonkeyPatchInvoiceTotalPayable & resTotalPayable is null or empty");
 		}
 	}
 
