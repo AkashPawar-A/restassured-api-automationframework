@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-1360872698\testng-customsuite.xml</span>
+                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-198793870\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">48 methods,   48 passed</span>
+                    <span class="method-stats">48 methods, 1 failed,   47 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceTotalPayable">validateMonkeyPatchInvoiceTotalPayable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,242 +118,237 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest@4b40f651)">createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest@4b40f651)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="detailsOtherExpenses(5d7dbdc3-6878-4b37-8246-7fb7a8021c24)">detailsOtherExpenses(5d7dbdc3-6878-4b37-8246-7fb7a8021c24)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="valiadateResponseMessage">valiadateResponseMessage</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="valiadetId">valiadetId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="valiadetId">valiadetId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="valiadetResponseSchema">valiadetResponseSchema</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="valiadetResponseSchema">valiadetResponseSchema</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateAmount">validateAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateAmount">validateAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateBillFromAddressId">validateBillFromAddressId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateBillFromAddressId">validateBillFromAddressId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateBillToAddressId">validateBillToAddressId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateBillToAddressId">validateBillToAddressId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateBillingActivityId">validateBillingActivityId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateBillingActivityId">validateBillingActivityId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateCategoryId">validateCategoryId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateCategoryId">validateCategoryId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateDiscount">validateDiscount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateDiscount">validateDiscount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateDueDays">validateDueDays</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateDueDays">validateDueDays</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateEarningAmount">validateEarningAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateEarningAmount">validateEarningAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateEarningType">validateEarningType</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateEarningType">validateEarningType</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateEquipmentStockId">validateEquipmentStockId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateEquipmentStockId">validateEquipmentStockId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateGSTAmount">validateGSTAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateGSTAmount">validateGSTAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateGSTpercent">validateGSTpercent</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateGSTpercent">validateGSTpercent</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateIsGstPercent">validateIsGstPercent</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateIsGstPercent">validateIsGstPercent</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateIsRoundOff">validateIsRoundOff</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateIsRoundOff">validateIsRoundOff</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMessage">validateMessage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceApproval">validateMonkeyPatchInvoiceApproval</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceApproval">validateMonkeyPatchInvoiceApproval</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceCompanyId">validateMonkeyPatchInvoiceCompanyId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceCompanyId">validateMonkeyPatchInvoiceCompanyId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceCreatorCompanyUserId">validateMonkeyPatchInvoiceCreatorCompanyUserId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceCreatorCompanyUserId">validateMonkeyPatchInvoiceCreatorCompanyUserId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceFaturesType">validateMonkeyPatchInvoiceFaturesType</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceFaturesType">validateMonkeyPatchInvoiceFaturesType</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceFeatureId">validateMonkeyPatchInvoiceFeatureId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceFeatureId">validateMonkeyPatchInvoiceFeatureId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceId">validateMonkeyPatchInvoiceId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceId">validateMonkeyPatchInvoiceId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceInvoiceType">validateMonkeyPatchInvoiceInvoiceType</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceInvoiceType">validateMonkeyPatchInvoiceInvoiceType</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoicePartyCompanyUserId">validateMonkeyPatchInvoicePartyCompanyUserId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoicePartyCompanyUserId">validateMonkeyPatchInvoicePartyCompanyUserId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceProjectId">validateMonkeyPatchInvoiceProjectId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceProjectId">validateMonkeyPatchInvoiceProjectId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceSequence">validateMonkeyPatchInvoiceSequence</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceSequence">validateMonkeyPatchInvoiceSequence</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceStatus">validateMonkeyPatchInvoiceStatus</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceStatus">validateMonkeyPatchInvoiceStatus</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceSubCategoryId">validateMonkeyPatchInvoiceSubCategoryId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceSubCategoryId">validateMonkeyPatchInvoiceSubCategoryId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateMonkeyPatchInvoiceTotalPayable">validateMonkeyPatchInvoiceTotalPayable</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateNetAmount">validateNetAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateNetAmount">validateNetAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateOtherAmount">validateOtherAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateOtherAmount">validateOtherAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validatePartyCompanyUserId">validatePartyCompanyUserId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validatePartyCompanyUserId">validatePartyCompanyUserId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validatePaymentDate">validatePaymentDate</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validatePaymentDate">validatePaymentDate</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validatePhoto">validatePhoto</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validatePhoto">validatePhoto</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validatePostTaxDeductionAmount">validatePostTaxDeductionAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validatePostTaxDeductionAmount">validatePostTaxDeductionAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateProjectId">validateProjectId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateProjectId">validateProjectId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateQuantity">validateQuantity</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateQuantity">validateQuantity</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateRemark">validateRemark</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateRemark">validateRemark</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateResponseTime">validateResponseTime</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateResponseTime">validateResponseTime</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateShipFromAddressId">validateShipFromAddressId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateShipFromAddressId">validateShipFromAddressId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateShipToAddressId">validateShipToAddressId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateShipToAddressId">validateShipToAddressId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateStatusCode">validateStatusCode</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateStatusCode">validateStatusCode</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateSubCategoryId">validateSubCategoryId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateSubCategoryId">validateSubCategoryId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateUnitId">validateUnitId</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateUnitId">validateUnitId</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateUnitPrice">validateUnitPrice</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateUnitPrice">validateUnitPrice</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Create_otherExpensesTest" class="method navigator-link" hash-for-method="validateVendorBillNumber">validateVendorBillNumber</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.transaction.otherexpenses.Details_otherExpensesTest" class="method navigator-link" hash-for-method="validateVendorBillNumber">validateVendorBillNumber</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -354,29 +363,68 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.onsite.transaction.otherexpenses.Create_otherExpensesTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.onsite.transaction.otherexpenses.Details_otherExpensesTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest@4b40f651)">
-                  </a> <!-- createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest@4b40f651) -->
-                  <span class="method-name">createOtherExpense</span>
-                  <span class="parameters">(com.onsite.pojo_request.OtherExpensesRequest@4b40f651)</span>
+                  <a name="validateMonkeyPatchInvoiceTotalPayable">
+                  </a> <!-- validateMonkeyPatchInvoiceTotalPayable -->
+                  <span class="method-name">validateMonkeyPatchInvoiceTotalPayable</span>
+                  <div class="stack-trace">java.lang.AssertionError: resMonkeyPatchInvoiceTotalPayable is :1191.8: is not match with reqInvoiceTotal_payable :1191.0
+	at org.testng.Assert.fail(Assert.java:99)
+	at com.onsite.transaction.otherexpenses.Details_otherExpensesTest.validateMonkeyPatchInvoiceTotalPayable(Details_otherExpensesTest.java:836)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
                   <em>
-(other expense creation)                  </em>
+(validateMonkeyPatchInvoiceTotalPayable)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.onsite.transaction.otherexpenses.Details_otherExpensesTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="valiadateResponseMessage">
-                  </a> <!-- valiadateResponseMessage -->
-                  <span class="method-name">valiadateResponseMessage</span>
+                  <a name="detailsOtherExpenses(5d7dbdc3-6878-4b37-8246-7fb7a8021c24)">
+                  </a> <!-- detailsOtherExpenses(5d7dbdc3-6878-4b37-8246-7fb7a8021c24) -->
+                  <span class="method-name">detailsOtherExpenses</span>
+                  <span class="parameters">(5d7dbdc3-6878-4b37-8246-7fb7a8021c24)</span>
                   <em>
-(valiadateResponseMessage)                  </em>
+(Details Other Expeses)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -394,7 +442,7 @@
                   </a> <!-- valiadetResponseSchema -->
                   <span class="method-name">valiadetResponseSchema</span>
                   <em>
-(valiadetResponseSchema)                  </em>
+(valiadet Response Schema)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -403,7 +451,7 @@
                   </a> <!-- validateAmount -->
                   <span class="method-name">validateAmount</span>
                   <em>
-(validateAmount)                  </em>
+(validate Amount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -412,7 +460,7 @@
                   </a> <!-- validateBillFromAddressId -->
                   <span class="method-name">validateBillFromAddressId</span>
                   <em>
-(validateBillFromAddressId)                  </em>
+(validate BillFromAddressId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -421,7 +469,7 @@
                   </a> <!-- validateBillToAddressId -->
                   <span class="method-name">validateBillToAddressId</span>
                   <em>
-(validateBillToAddressId)                  </em>
+(validate BillToAddressId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -430,7 +478,7 @@
                   </a> <!-- validateBillingActivityId -->
                   <span class="method-name">validateBillingActivityId</span>
                   <em>
-(validateBillingActivityId)                  </em>
+(validate BillingActivityId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -439,7 +487,7 @@
                   </a> <!-- validateCategoryId -->
                   <span class="method-name">validateCategoryId</span>
                   <em>
-(validateCategoryId)                  </em>
+(validate CategoryId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -448,7 +496,7 @@
                   </a> <!-- validateDiscount -->
                   <span class="method-name">validateDiscount</span>
                   <em>
-(validateDiscount)                  </em>
+(validate Discount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -457,7 +505,7 @@
                   </a> <!-- validateDueDays -->
                   <span class="method-name">validateDueDays</span>
                   <em>
-(validateDueDays)                  </em>
+(validate DueDays)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -466,7 +514,7 @@
                   </a> <!-- validateEarningAmount -->
                   <span class="method-name">validateEarningAmount</span>
                   <em>
-(validateEarningAmount)                  </em>
+(validate Earning Amount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -475,7 +523,7 @@
                   </a> <!-- validateEarningType -->
                   <span class="method-name">validateEarningType</span>
                   <em>
-(validateEarningType)                  </em>
+(validate EarningType)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -484,7 +532,7 @@
                   </a> <!-- validateEquipmentStockId -->
                   <span class="method-name">validateEquipmentStockId</span>
                   <em>
-(validateEquipmentStockId)                  </em>
+(validate EquipmentStockId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -493,7 +541,7 @@
                   </a> <!-- validateGSTAmount -->
                   <span class="method-name">validateGSTAmount</span>
                   <em>
-(validateGSTAmount)                  </em>
+(validate GST Amount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -502,7 +550,7 @@
                   </a> <!-- validateGSTpercent -->
                   <span class="method-name">validateGSTpercent</span>
                   <em>
-(validateGSTpercent)                  </em>
+(validate GST percent)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -511,7 +559,7 @@
                   </a> <!-- validateIsGstPercent -->
                   <span class="method-name">validateIsGstPercent</span>
                   <em>
-(validateIsGstPercent)                  </em>
+(validate IsGstPercent)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -520,7 +568,16 @@
                   </a> <!-- validateIsRoundOff -->
                   <span class="method-name">validateIsRoundOff</span>
                   <em>
-(validateIsRoundOff)                  </em>
+(validate IsRoundOff)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validateMessage">
+                  </a> <!-- validateMessage -->
+                  <span class="method-name">validateMessage</span>
+                  <em>
+(validate message)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -538,7 +595,7 @@
                   </a> <!-- validateMonkeyPatchInvoiceCompanyId -->
                   <span class="method-name">validateMonkeyPatchInvoiceCompanyId</span>
                   <em>
-(validateMonkeyPatchInvoiceCompanyId)                  </em>
+(validateMonkeyPatchInvoice CompanyId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -547,7 +604,7 @@
                   </a> <!-- validateMonkeyPatchInvoiceCreatorCompanyUserId -->
                   <span class="method-name">validateMonkeyPatchInvoiceCreatorCompanyUserId</span>
                   <em>
-(validateMonkeyPatchInvoiceCreatorCompanyUserId)                  </em>
+(validate MonkeyPatchInvoice CreatorCompanyUserId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -574,7 +631,7 @@
                   </a> <!-- validateMonkeyPatchInvoiceId -->
                   <span class="method-name">validateMonkeyPatchInvoiceId</span>
                   <em>
-(validateMonkeyPatchInvoiceId)                  </em>
+(validate MonkeyPatchInvoice Id)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -592,7 +649,7 @@
                   </a> <!-- validateMonkeyPatchInvoicePartyCompanyUserId -->
                   <span class="method-name">validateMonkeyPatchInvoicePartyCompanyUserId</span>
                   <em>
-(validateMonkeyPatchInvoicePartyCompanyUserId)                  </em>
+(validateMonkeyPatchInvoice PartyCompanyUserId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -633,20 +690,11 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="validateMonkeyPatchInvoiceTotalPayable">
-                  </a> <!-- validateMonkeyPatchInvoiceTotalPayable -->
-                  <span class="method-name">validateMonkeyPatchInvoiceTotalPayable</span>
-                  <em>
-(validateMonkeyPatchInvoiceTotalPayable)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="validateNetAmount">
                   </a> <!-- validateNetAmount -->
                   <span class="method-name">validateNetAmount</span>
                   <em>
-(validateNetAmount)                  </em>
+(validate Net Amount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -655,7 +703,7 @@
                   </a> <!-- validateOtherAmount -->
                   <span class="method-name">validateOtherAmount</span>
                   <em>
-(validateOtherAmount)                  </em>
+(validate Other Amount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -664,7 +712,7 @@
                   </a> <!-- validatePartyCompanyUserId -->
                   <span class="method-name">validatePartyCompanyUserId</span>
                   <em>
-(validatePartyCompanyUserId)                  </em>
+(validate Party CompanyUser Id)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -673,7 +721,7 @@
                   </a> <!-- validatePaymentDate -->
                   <span class="method-name">validatePaymentDate</span>
                   <em>
-(validatePaymentDate)                  </em>
+(validate PaymentDate)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -682,7 +730,7 @@
                   </a> <!-- validatePhoto -->
                   <span class="method-name">validatePhoto</span>
                   <em>
-(validatePhoto)                  </em>
+(validate Photo)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -691,7 +739,7 @@
                   </a> <!-- validatePostTaxDeductionAmount -->
                   <span class="method-name">validatePostTaxDeductionAmount</span>
                   <em>
-(validatePostTaxDeductionAmount)                  </em>
+(validate Post Tax Deduction Amount)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -700,7 +748,7 @@
                   </a> <!-- validateProjectId -->
                   <span class="method-name">validateProjectId</span>
                   <em>
-(projectId validate)                  </em>
+(project Id validate)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -709,7 +757,7 @@
                   </a> <!-- validateQuantity -->
                   <span class="method-name">validateQuantity</span>
                   <em>
-(validateQuantity)                  </em>
+(validate Quantity)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -718,7 +766,7 @@
                   </a> <!-- validateRemark -->
                   <span class="method-name">validateRemark</span>
                   <em>
-(validateRemark)                  </em>
+(validate Remark)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -727,7 +775,7 @@
                   </a> <!-- validateResponseTime -->
                   <span class="method-name">validateResponseTime</span>
                   <em>
-(validateResponseTime)                  </em>
+(validate Response Time)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -736,7 +784,7 @@
                   </a> <!-- validateShipFromAddressId -->
                   <span class="method-name">validateShipFromAddressId</span>
                   <em>
-(validateShipFromAddressId)                  </em>
+(validate ShipFromAddressId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -745,7 +793,7 @@
                   </a> <!-- validateShipToAddressId -->
                   <span class="method-name">validateShipToAddressId</span>
                   <em>
-(validateShipToAddressId)                  </em>
+(validate ShipToAddressId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -754,7 +802,7 @@
                   </a> <!-- validateStatusCode -->
                   <span class="method-name">validateStatusCode</span>
                   <em>
-(validateStatusCode)                  </em>
+(validate status code)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -772,7 +820,7 @@
                   </a> <!-- validateUnitId -->
                   <span class="method-name">validateUnitId</span>
                   <em>
-(validateUnitId)                  </em>
+(validate UnitId)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -781,7 +829,7 @@
                   </a> <!-- validateUnitPrice -->
                   <span class="method-name">validateUnitPrice</span>
                   <em>
-(createOtherExpense)                  </em>
+(create Other Expense)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -790,7 +838,7 @@
                   </a> <!-- validateVendorBillNumber -->
                   <span class="method-name">validateVendorBillNumber</span>
                   <em>
-(validateVendorBillNumber)                  </em>
+(validate VendorBillNumber)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -798,7 +846,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-1360872698\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-198793870\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -807,7 +855,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.onsite.transaction.otherexpenses.Create_otherExpensesTest&quot;/&gt;
+      &lt;class name=&quot;com.onsite.transaction.otherexpenses.Details_otherExpensesTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -849,202 +897,202 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(48);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createOtherExpense')
-data.setCell(0, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(0, 3, 10888);
+data.setCell(0, 1, 'detailsOtherExpenses')
+data.setCell(0, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(0, 3, 8150);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'valiadetResponseSchema')
-data.setCell(1, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(1, 3, 505);
+data.setCell(1, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(1, 3, 869);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'validateMonkeyPatchInvoiceCreatorCompanyUserId')
-data.setCell(2, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
+data.setCell(2, 1, 'validateGSTAmount')
+data.setCell(2, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
 data.setCell(2, 3, 317);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'validateMonkeyPatchInvoiceId')
-data.setCell(3, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(3, 3, 247);
+data.setCell(3, 1, 'validateAmount')
+data.setCell(3, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(3, 3, 263);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'valiadateResponseMessage')
-data.setCell(4, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(4, 3, 227);
+data.setCell(4, 1, 'validateMessage')
+data.setCell(4, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(4, 3, 233);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'validateMonkeyPatchInvoiceCompanyId')
-data.setCell(5, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(5, 3, 154);
+data.setCell(5, 1, 'validateEarningAmount')
+data.setCell(5, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(5, 3, 197);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'validateMonkeyPatchInvoiceSubCategoryId')
-data.setCell(6, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(6, 3, 148);
+data.setCell(6, 1, 'validateNetAmount')
+data.setCell(6, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(6, 3, 193);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'validateMonkeyPatchInvoicePartyCompanyUserId')
-data.setCell(7, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(7, 3, 132);
+data.setCell(7, 1, 'valiadetId')
+data.setCell(7, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(7, 3, 119);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'validateMonkeyPatchInvoiceFeatureId')
-data.setCell(8, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(8, 3, 128);
+data.setCell(8, 1, 'validateProjectId')
+data.setCell(8, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(8, 3, 116);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'validateMonkeyPatchInvoiceFaturesType')
-data.setCell(9, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(9, 3, 116);
+data.setCell(9, 1, 'validatePartyCompanyUserId')
+data.setCell(9, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(9, 3, 110);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'validateMonkeyPatchInvoiceProjectId')
-data.setCell(10, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(10, 3, 111);
+data.setCell(10, 1, 'validateRemark')
+data.setCell(10, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(10, 3, 98);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'validateMonkeyPatchInvoiceTotalPayable')
-data.setCell(11, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(11, 3, 109);
+data.setCell(11, 1, 'validateUnitPrice')
+data.setCell(11, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(11, 3, 91);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'validateMonkeyPatchInvoiceInvoiceType')
-data.setCell(12, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(12, 3, 107);
+data.setCell(12, 1, 'validateMonkeyPatchInvoiceCompanyId')
+data.setCell(12, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(12, 3, 89);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'validateMonkeyPatchInvoiceApproval')
-data.setCell(13, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(13, 3, 101);
+data.setCell(13, 1, 'validateIsGstPercent')
+data.setCell(13, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(13, 3, 85);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'validateMonkeyPatchInvoiceSequence')
-data.setCell(14, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(14, 3, 92);
+data.setCell(14, 1, 'validateQuantity')
+data.setCell(14, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(14, 3, 82);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'validateMonkeyPatchInvoiceStatus')
-data.setCell(15, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
+data.setCell(15, 1, 'validateDiscount')
+data.setCell(15, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
 data.setCell(15, 3, 79);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'validateResponseTime')
-data.setCell(16, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(16, 3, 34);
+data.setCell(16, 1, 'validateMonkeyPatchInvoicePartyCompanyUserId')
+data.setCell(16, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(16, 3, 78);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'validatePartyCompanyUserId')
-data.setCell(17, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(17, 3, 14);
+data.setCell(17, 1, 'validateShipToAddressId')
+data.setCell(17, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(17, 3, 76);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'validateProjectId')
-data.setCell(18, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(18, 3, 11);
+data.setCell(18, 1, 'validateMonkeyPatchInvoiceCreatorCompanyUserId')
+data.setCell(18, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(18, 3, 74);
 data.setCell(19, 0, 19)
-data.setCell(19, 1, 'validateDiscount')
-data.setCell(19, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(19, 3, 11);
+data.setCell(19, 1, 'validatePhoto')
+data.setCell(19, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(19, 3, 74);
 data.setCell(20, 0, 20)
-data.setCell(20, 1, 'validateBillFromAddressId')
-data.setCell(20, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(20, 3, 8);
+data.setCell(20, 1, 'validateOtherAmount')
+data.setCell(20, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(20, 3, 69);
 data.setCell(21, 0, 21)
-data.setCell(21, 1, 'validateCategoryId')
-data.setCell(21, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(21, 3, 8);
+data.setCell(21, 1, 'validatePostTaxDeductionAmount')
+data.setCell(21, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(21, 3, 66);
 data.setCell(22, 0, 22)
-data.setCell(22, 1, 'validateSubCategoryId')
-data.setCell(22, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(22, 3, 8);
+data.setCell(22, 1, 'validateBillFromAddressId')
+data.setCell(22, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(22, 3, 66);
 data.setCell(23, 0, 23)
-data.setCell(23, 1, 'validateGSTAmount')
-data.setCell(23, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(23, 3, 7);
+data.setCell(23, 1, 'validatePaymentDate')
+data.setCell(23, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(23, 3, 65);
 data.setCell(24, 0, 24)
-data.setCell(24, 1, 'validateEarningType')
-data.setCell(24, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(24, 3, 7);
+data.setCell(24, 1, 'validateUnitId')
+data.setCell(24, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(24, 3, 65);
 data.setCell(25, 0, 25)
-data.setCell(25, 1, 'validateStatusCode')
-data.setCell(25, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(25, 3, 7);
+data.setCell(25, 1, 'validateMonkeyPatchInvoiceFaturesType')
+data.setCell(25, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(25, 3, 65);
 data.setCell(26, 0, 26)
-data.setCell(26, 1, 'validateIsRoundOff')
-data.setCell(26, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(26, 3, 6);
+data.setCell(26, 1, 'validateMonkeyPatchInvoiceSequence')
+data.setCell(26, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(26, 3, 63);
 data.setCell(27, 0, 27)
-data.setCell(27, 1, 'validateBillToAddressId')
-data.setCell(27, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(27, 3, 6);
+data.setCell(27, 1, 'validateIsRoundOff')
+data.setCell(27, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(27, 3, 63);
 data.setCell(28, 0, 28)
-data.setCell(28, 1, 'validateEarningAmount')
-data.setCell(28, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(28, 3, 6);
+data.setCell(28, 1, 'validateGSTpercent')
+data.setCell(28, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(28, 3, 62);
 data.setCell(29, 0, 29)
-data.setCell(29, 1, 'valiadetId')
-data.setCell(29, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(29, 3, 6);
+data.setCell(29, 1, 'validateMonkeyPatchInvoiceFeatureId')
+data.setCell(29, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(29, 3, 62);
 data.setCell(30, 0, 30)
-data.setCell(30, 1, 'validatePostTaxDeductionAmount')
-data.setCell(30, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(30, 3, 6);
+data.setCell(30, 1, 'validateShipFromAddressId')
+data.setCell(30, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(30, 3, 61);
 data.setCell(31, 0, 31)
-data.setCell(31, 1, 'validateAmount')
-data.setCell(31, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(31, 3, 5);
+data.setCell(31, 1, 'validateMonkeyPatchInvoiceId')
+data.setCell(31, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(31, 3, 61);
 data.setCell(32, 0, 32)
-data.setCell(32, 1, 'validateIsGstPercent')
-data.setCell(32, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(32, 3, 4);
+data.setCell(32, 1, 'validateMonkeyPatchInvoiceProjectId')
+data.setCell(32, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(32, 3, 58);
 data.setCell(33, 0, 33)
-data.setCell(33, 1, 'validateShipToAddressId')
-data.setCell(33, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(33, 3, 3);
+data.setCell(33, 1, 'validateMonkeyPatchInvoiceSubCategoryId')
+data.setCell(33, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(33, 3, 58);
 data.setCell(34, 0, 34)
-data.setCell(34, 1, 'validateNetAmount')
-data.setCell(34, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(34, 3, 3);
+data.setCell(34, 1, 'validateDueDays')
+data.setCell(34, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(34, 3, 58);
 data.setCell(35, 0, 35)
-data.setCell(35, 1, 'validateRemark')
-data.setCell(35, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(35, 3, 3);
+data.setCell(35, 1, 'validateBillToAddressId')
+data.setCell(35, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(35, 3, 57);
 data.setCell(36, 0, 36)
-data.setCell(36, 1, 'validateDueDays')
-data.setCell(36, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(36, 3, 3);
+data.setCell(36, 1, 'validateMonkeyPatchInvoiceApproval')
+data.setCell(36, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(36, 3, 57);
 data.setCell(37, 0, 37)
-data.setCell(37, 1, 'validateQuantity')
-data.setCell(37, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(37, 3, 2);
+data.setCell(37, 1, 'validateEarningType')
+data.setCell(37, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(37, 3, 56);
 data.setCell(38, 0, 38)
-data.setCell(38, 1, 'validateShipFromAddressId')
-data.setCell(38, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(38, 3, 2);
+data.setCell(38, 1, 'validateMonkeyPatchInvoiceTotalPayable')
+data.setCell(38, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(38, 3, 56);
 data.setCell(39, 0, 39)
-data.setCell(39, 1, 'validatePaymentDate')
-data.setCell(39, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(39, 3, 2);
+data.setCell(39, 1, 'validateVendorBillNumber')
+data.setCell(39, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(39, 3, 47);
 data.setCell(40, 0, 40)
-data.setCell(40, 1, 'validatePhoto')
-data.setCell(40, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(40, 3, 2);
+data.setCell(40, 1, 'validateSubCategoryId')
+data.setCell(40, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(40, 3, 47);
 data.setCell(41, 0, 41)
-data.setCell(41, 1, 'validateUnitId')
-data.setCell(41, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(41, 3, 2);
+data.setCell(41, 1, 'validateBillingActivityId')
+data.setCell(41, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(41, 3, 47);
 data.setCell(42, 0, 42)
-data.setCell(42, 1, 'validateGSTpercent')
-data.setCell(42, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(42, 3, 2);
+data.setCell(42, 1, 'validateEquipmentStockId')
+data.setCell(42, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(42, 3, 44);
 data.setCell(43, 0, 43)
-data.setCell(43, 1, 'validateEquipmentStockId')
-data.setCell(43, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(43, 3, 2);
+data.setCell(43, 1, 'validateMonkeyPatchInvoiceInvoiceType')
+data.setCell(43, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(43, 3, 43);
 data.setCell(44, 0, 44)
-data.setCell(44, 1, 'validateBillingActivityId')
-data.setCell(44, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(44, 3, 1);
+data.setCell(44, 1, 'validateMonkeyPatchInvoiceStatus')
+data.setCell(44, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(44, 3, 43);
 data.setCell(45, 0, 45)
-data.setCell(45, 1, 'validateUnitPrice')
-data.setCell(45, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(45, 3, 1);
+data.setCell(45, 1, 'validateCategoryId')
+data.setCell(45, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(45, 3, 43);
 data.setCell(46, 0, 46)
-data.setCell(46, 1, 'validateOtherAmount')
-data.setCell(46, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(46, 3, 1);
+data.setCell(46, 1, 'validateResponseTime')
+data.setCell(46, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(46, 3, 18);
 data.setCell(47, 0, 47)
-data.setCell(47, 1, 'validateVendorBillNumber')
-data.setCell(47, 2, 'com.onsite.transaction.otherexpenses.Create_otherExpensesTest')
-data.setCell(47, 3, 1);
+data.setCell(47, 1, 'validateStatusCode')
+data.setCell(47, 2, 'com.onsite.transaction.otherexpenses.Details_otherExpensesTest')
+data.setCell(47, 3, 6);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 13 seconds</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -1070,202 +1118,200 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.onsite.transaction.otherexpenses.Create_otherExpensesTest</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-class before -->
+              <div class="chronological-class-name">com.onsite.transaction.otherexpenses.Details_otherExpensesTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest@4b40f651)</span>
-                <span class="method-start">1019 ms</span>
+                <span class="method-name">detailsOtherExpenses(5d7dbdc3-6878-4b37-8246-7fb7a8021c24)</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateStatusCode</span>
-                <span class="method-start">11924 ms</span>
+                <span class="method-start">8172 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">valiadateResponseMessage</span>
-                <span class="method-start">11936 ms</span>
+                <span class="method-name">validateMessage</span>
+                <span class="method-start">8197 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateResponseTime</span>
-                <span class="method-start">12180 ms</span>
+                <span class="method-start">8441 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">valiadetResponseSchema</span>
-                <span class="method-start">12229 ms</span>
+                <span class="method-start">8465 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">valiadetId</span>
-                <span class="method-start">12739 ms</span>
+                <span class="method-start">9336 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateProjectId</span>
-                <span class="method-start">12751 ms</span>
+                <span class="method-start">9463 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validatePartyCompanyUserId</span>
-                <span class="method-start">12772 ms</span>
+                <span class="method-start">9589 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateRemark</span>
-                <span class="method-start">12793 ms</span>
+                <span class="method-start">9706 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateUnitPrice</span>
-                <span class="method-start">12812 ms</span>
+                <span class="method-start">9814 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateQuantity</span>
-                <span class="method-start">12817 ms</span>
+                <span class="method-start">9907 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateEarningAmount</span>
-                <span class="method-start">12822 ms</span>
+                <span class="method-start">9992 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateOtherAmount</span>
-                <span class="method-start">12831 ms</span>
+                <span class="method-start">10193 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateDiscount</span>
-                <span class="method-start">12835 ms</span>
+                <span class="method-start">10267 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateGSTpercent</span>
-                <span class="method-start">12850 ms</span>
+                <span class="method-start">10349 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateGSTAmount</span>
-                <span class="method-start">12857 ms</span>
+                <span class="method-start">10421 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateAmount</span>
-                <span class="method-start">12879 ms</span>
+                <span class="method-start">10754 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validatePostTaxDeductionAmount</span>
-                <span class="method-start">12897 ms</span>
+                <span class="method-start">11027 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateNetAmount</span>
-                <span class="method-start">12914 ms</span>
+                <span class="method-start">11098 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validatePhoto</span>
-                <span class="method-start">12920 ms</span>
+                <span class="method-start">11294 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateSubCategoryId</span>
-                <span class="method-start">12937 ms</span>
+                <span class="method-start">11371 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateCategoryId</span>
-                <span class="method-start">12956 ms</span>
+                <span class="method-start">11422 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validatePaymentDate</span>
-                <span class="method-start">12967 ms</span>
+                <span class="method-start">11468 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateUnitId</span>
-                <span class="method-start">12971 ms</span>
+                <span class="method-start">11540 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateEarningType</span>
-                <span class="method-start">12981 ms</span>
+                <span class="method-start">11608 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateDueDays</span>
-                <span class="method-start">12998 ms</span>
+                <span class="method-start">11667 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateShipToAddressId</span>
-                <span class="method-start">13034 ms</span>
+                <span class="method-start">11729 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateBillToAddressId</span>
-                <span class="method-start">13040 ms</span>
+                <span class="method-start">11807 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateShipFromAddressId</span>
-                <span class="method-start">13049 ms</span>
+                <span class="method-start">11867 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateBillFromAddressId</span>
-                <span class="method-start">13056 ms</span>
+                <span class="method-start">11930 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateIsGstPercent</span>
-                <span class="method-start">13067 ms</span>
+                <span class="method-start">11998 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateIsRoundOff</span>
-                <span class="method-start">13074 ms</span>
+                <span class="method-start">12087 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateVendorBillNumber</span>
-                <span class="method-start">13084 ms</span>
+                <span class="method-start">12154 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateEquipmentStockId</span>
-                <span class="method-start">13088 ms</span>
+                <span class="method-start">12203 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateBillingActivityId</span>
-                <span class="method-start">13096 ms</span>
+                <span class="method-start">12248 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceId</span>
-                <span class="method-start">13100 ms</span>
+                <span class="method-start">12298 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceCompanyId</span>
-                <span class="method-start">13350 ms</span>
+                <span class="method-start">12362 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceCreatorCompanyUserId</span>
-                <span class="method-start">13506 ms</span>
+                <span class="method-start">12457 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoicePartyCompanyUserId</span>
-                <span class="method-start">13832 ms</span>
+                <span class="method-start">12534 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceProjectId</span>
-                <span class="method-start">13967 ms</span>
+                <span class="method-start">12614 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceSubCategoryId</span>
-                <span class="method-start">14082 ms</span>
+                <span class="method-start">12676 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceFaturesType</span>
-                <span class="method-start">14234 ms</span>
+                <span class="method-start">12739 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceFeatureId</span>
-                <span class="method-start">14354 ms</span>
+                <span class="method-start">12808 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceInvoiceType</span>
-                <span class="method-start">14488 ms</span>
+                <span class="method-start">12874 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceStatus</span>
-                <span class="method-start">14599 ms</span>
+                <span class="method-start">12920 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">validateMonkeyPatchInvoiceTotalPayable</span>
-                <span class="method-start">14682 ms</span>
+                <span class="method-start">12965 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceSequence</span>
-                <span class="method-start">14794 ms</span>
+                <span class="method-start">13025 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">validateMonkeyPatchInvoiceApproval</span>
-                <span class="method-start">14888 ms</span>
+                <span class="method-start">13089 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

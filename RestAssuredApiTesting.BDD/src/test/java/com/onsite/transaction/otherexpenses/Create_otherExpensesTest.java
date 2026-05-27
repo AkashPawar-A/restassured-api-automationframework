@@ -77,6 +77,7 @@ public class Create_otherExpensesTest {
 				.post(OtherExpenses.addPartyEarning)
 
 				.then()
+				.statusCode(200)
 				.log().all()
 				.extract().response();
 
@@ -553,6 +554,7 @@ public class Create_otherExpensesTest {
 
 		if(resShipFromAddressId != null && !resShipFromAddressId.isEmpty() && reqShipFromAddressId != null && !reqShipFromAddressId.isEmpty()) {
 			if(resShipFromAddressId.equals(reqShipFromAddressId)) {
+				Assert.assertTrue(DEFAULT_URL_ENCODING_ENABLED);
 				System.out.println("resShipFromAddressId is :" + resShipFromAddressId + ": match with reqShipFromAddressId :" + reqShipFromAddressId);
 			} else {
 				Assert.fail("resShipFromAddressId is :" + resShipFromAddressId + ": is not match with reqShipFromAddressId :" + reqShipFromAddressId);
