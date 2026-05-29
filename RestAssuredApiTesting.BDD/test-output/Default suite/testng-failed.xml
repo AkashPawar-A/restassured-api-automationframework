@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.transaction.otherexpenses.Details_otherExpensesTest">
+      <class name="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest">
         <methods>
+          <include name="setUp"/>
+          <include name="createOtherExpense"/>
           <include name="validateMonkeyPatchInvoiceTotalPayable"/>
-          <include name="detailsOtherExpenses"/>
+          <include name="validateNetAmount"/>
         </methods>
-      </class> <!-- com.onsite.transaction.otherexpenses.Details_otherExpensesTest -->
+      </class> <!-- com.onsite.transaction.otherexpenses.Edit_otherExpenseTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

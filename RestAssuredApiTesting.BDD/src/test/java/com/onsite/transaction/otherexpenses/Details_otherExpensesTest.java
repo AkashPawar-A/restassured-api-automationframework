@@ -1,10 +1,10 @@
 package com.onsite.transaction.otherexpenses;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static io.restassured.RestAssured.*;
@@ -19,8 +19,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.OtherExpenses;
+import com.onsite.pojo_request.OtherExpensesRequest;
+import com.onsite.pojo_response.OtherExpenseResponse;
 import com.onsite.utilities_page.AuthUtils;
 
 public class Details_otherExpensesTest {
@@ -62,7 +66,7 @@ public class Details_otherExpensesTest {
 
 				.then()
 				.log().all()
-				.extract().response();	
+				.extract().response();
 	}
 
 	@Test(priority=2, dependsOnMethods="detailsOtherExpenses", description="validate status code")
@@ -71,12 +75,36 @@ public class Details_otherExpensesTest {
 		int responseStatusCode = otherExpDetails.getStatusCode();
 		if(responseStatusCode == 200) {
 			System.out.println("response StatusCode :" + responseStatusCode);
+
 		} else {
 			Assert.fail("failure response status code :" + responseStatusCode);
 		}
+		
+	}
+	
+	@Test(priority=3, dependsOnMethods="validateStatusCode", description="perform deserilization & store data in file")
+	public void storeEditData() throws IOException {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		OtherExpenseResponse responseBody = mapper.readValue(otherExpDetails.asString(), OtherExpenseResponse.class);
+		
+		String editFilePath = "src/test/resources/testdata_otherExpenses/edit_otherexpenses.json"; 
+		File datafile = new File(editFilePath);
+		
+		//Existing JSON read
+		OtherExpensesRequest editRequest = mapper.readValue(datafile, OtherExpensesRequest.class);
+		
+		// Response se ID set
+		editRequest.setId(responseBody.getId());
+		editRequest.setProject_id(responseBody.getProject_id());
+		editRequest.setParty_company_user_id(responseBody.getParty_company_user_id());
+		
+		// Updated JSON write
+		mapper.writerWithDefaultPrettyPrinter().writeValue(datafile, editRequest);
 	}
 
-	@Test(priority=3, dependsOnMethods="detailsOtherExpenses", description="validate message")
+	@Test(priority=4, dependsOnMethods="detailsOtherExpenses", description="validate message")
 	public void validateMessage() {
 
 		String responseMessage = otherExpDetails.jsonPath().getString("message");
@@ -88,7 +116,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=4, dependsOnMethods="detailsOtherExpenses", description="validate Response Time")
+	@Test(priority=5, dependsOnMethods="detailsOtherExpenses", description="validate Response Time")
 	public void validateResponseTime() {
 
 		long responseTime = otherExpDetails.getTime();
@@ -100,14 +128,14 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=5, dependsOnMethods="detailsOtherExpenses", description="valiadet Response Schema")
+	@Test(priority=6, dependsOnMethods="detailsOtherExpenses", description="valiadet Response Schema")
 	public void valiadetResponseSchema() {
 
 		otherExpDetails.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(
 				"responseSchema_files/OtherExpensesResponseSchema.json"));
 	}
 
-	@Test(priority=6, dependsOnMethods="detailsOtherExpenses", description="id validation")
+	@Test(priority=7, dependsOnMethods="detailsOtherExpenses", description="id validation")
 	public void valiadetId() {
 
 		String resOtherExpId = otherExpDetails.jsonPath().getString("id");
@@ -124,7 +152,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=7, dependsOnMethods="detailsOtherExpenses", description ="project Id validate")
+	@Test(priority=8, dependsOnMethods="detailsOtherExpenses", description ="project Id validate")
 	public void validateProjectId() {
 
 		String resDetails_ProjectId = otherExpDetails.jsonPath().getString("project_id");
@@ -137,7 +165,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=8, dependsOnMethods="detailsOtherExpenses", description="validate Party CompanyUser Id")
+	@Test(priority=9, dependsOnMethods="detailsOtherExpenses", description="validate Party CompanyUser Id")
 	public void validatePartyCompanyUserId() {
 
 		String resDetails_PartyCompanyUserId = otherExpDetails.jsonPath().getString("party_company_user_id");
@@ -154,7 +182,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=9, dependsOnMethods="detailsOtherExpenses", description="validate Remark")
+	@Test(priority=10, dependsOnMethods="detailsOtherExpenses", description="validate Remark")
 	public void validateRemark() {
 
 		String resDetails_Remark = otherExpDetails.jsonPath().getString("remark");
@@ -171,7 +199,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=10, dependsOnMethods="detailsOtherExpenses", description="create Other Expense")
+	@Test(priority=11, dependsOnMethods="detailsOtherExpenses", description="create Other Expense")
 	public void validateUnitPrice() {
 
 		Double resDetails_unitPrice = otherExpDetails.jsonPath().getDouble("unit_price");
@@ -184,7 +212,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=11, dependsOnMethods="detailsOtherExpenses", description="validate Quantity")
+	@Test(priority=12, dependsOnMethods="detailsOtherExpenses", description="validate Quantity")
 	public void validateQuantity() {
 
 		Double resDetails_Quantity = otherExpDetails.jsonPath().getDouble("quantity");
@@ -197,7 +225,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=12, dependsOnMethods="detailsOtherExpenses", description="validate Earning Amount")
+	@Test(priority=13, dependsOnMethods="detailsOtherExpenses", description="validate Earning Amount")
 	public void validateEarningAmount() {
 
 		Double getUnitPrice = otherExpDetails.jsonPath().getDouble("unit_price");
@@ -219,7 +247,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=13, dependsOnMethods="detailsOtherExpenses", description="validate Other Amount")
+	@Test(priority=14, dependsOnMethods="detailsOtherExpenses", description="validate Other Amount")
 	public void validateOtherAmount() {
 
 		Double resDetails_OtherAmount = otherExpDetails.jsonPath().getDouble("other_amount");
@@ -232,7 +260,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=14, dependsOnMethods="detailsOtherExpenses", description="validate Discount")
+	@Test(priority=15, dependsOnMethods="detailsOtherExpenses", description="validate Discount")
 	public void validateDiscount() {
 
 		Double resDetails_Discount = otherExpDetails.jsonPath().getDouble("discount");
@@ -245,7 +273,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=15, dependsOnMethods="detailsOtherExpenses", description="validate GST percent")
+	@Test(priority=16, dependsOnMethods="detailsOtherExpenses", description="validate GST percent")
 	public void validateGSTpercent() {
 
 		Double resDetails_GstPercent = otherExpDetails.jsonPath().getDouble("gst_percent");
@@ -259,7 +287,7 @@ public class Details_otherExpensesTest {
 	}
 
 	Double gstAmount;
-	@Test(priority=16, dependsOnMethods="detailsOtherExpenses", description="validate GST Amount")
+	@Test(priority=17, dependsOnMethods="detailsOtherExpenses", description="validate GST Amount")
 	public void validateGSTAmount() {
 
 		Double unitPrice = otherExpDetails.jsonPath().getDouble("unit_price");
@@ -290,7 +318,7 @@ public class Details_otherExpensesTest {
 	}
 
 	Double totalAmount;
-	@Test(priority=17, dependsOnMethods="detailsOtherExpenses", description="validate Amount")
+	@Test(priority=18, dependsOnMethods="detailsOtherExpenses", description="validate Amount")
 	public void validateAmount() {
 
 		Double unitPrice = otherExpDetails.jsonPath().getDouble("unit_price");
@@ -323,7 +351,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=18, dependsOnMethods="detailsOtherExpenses", description="validate Post Tax Deduction Amount")
+	@Test(priority=19, dependsOnMethods="detailsOtherExpenses", description="validate Post Tax Deduction Amount")
 	public void validatePostTaxDeductionAmount() {
 
 		Double resPostTaxDeductionAmount = otherExpDetails.jsonPath().getDouble("post_tax_deduction_amount");
@@ -340,7 +368,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=19, dependsOnMethods="detailsOtherExpenses", description="validate Net Amount")
+	@Test(priority=20, dependsOnMethods="detailsOtherExpenses", description="validate Net Amount")
 	public void validateNetAmount() {
 
 		Double amount = otherExpDetails.jsonPath().getDouble("amount");
@@ -368,7 +396,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=20, dependsOnMethods="detailsOtherExpenses", description="validate Photo")
+	@Test(priority=21, dependsOnMethods="detailsOtherExpenses", description="validate Photo")
 	public void validatePhoto() {
 
 		List<String> resDetails_PhotoList = otherExpDetails.jsonPath().get("photos");
@@ -391,7 +419,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=21, dependsOnMethods="detailsOtherExpenses", description="validateSubCategoryId")
+	@Test(priority=22, dependsOnMethods="detailsOtherExpenses", description="validateSubCategoryId")
 	public void validateSubCategoryId() {
 
 		String resDetails_SubcatgoryId = otherExpDetails.jsonPath().getString("sub_category_id");
@@ -408,7 +436,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=22, dependsOnMethods="detailsOtherExpenses", description="validate CategoryId")
+	@Test(priority=23, dependsOnMethods="detailsOtherExpenses", description="validate CategoryId")
 	public void validateCategoryId() {
 
 		String resDetails_CatgoryId = otherExpDetails.jsonPath().getString("category_id");
@@ -425,7 +453,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=23, dependsOnMethods="detailsOtherExpenses", description="validate PaymentDate")
+	@Test(priority=24, dependsOnMethods="detailsOtherExpenses", description="validate PaymentDate")
 	public void validatePaymentDate() {
 
 		String resDetails_PaymentDate = otherExpDetails.jsonPath().getString("payment_date");
@@ -442,7 +470,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=24, dependsOnMethods="detailsOtherExpenses", description="validate UnitId")
+	@Test(priority=25, dependsOnMethods="detailsOtherExpenses", description="validate UnitId")
 	public void validateUnitId() {
 
 		String resDetails_UnitId = otherExpDetails.jsonPath().getString("unit_id");
@@ -459,7 +487,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=25, dependsOnMethods="detailsOtherExpenses", description="validate EarningType")
+	@Test(priority=26, dependsOnMethods="detailsOtherExpenses", description="validate EarningType")
 	public void validateEarningType() {
 
 		String resDetails_EarningType = otherExpDetails.jsonPath().getString("earning_type");
@@ -476,7 +504,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=26, dependsOnMethods="detailsOtherExpenses", description="validate DueDays")
+	@Test(priority=27, dependsOnMethods="detailsOtherExpenses", description="validate DueDays")
 	public void validateDueDays() {
 
 		Double resDetails_DueDays = otherExpDetails.jsonPath().getDouble("due_days");
@@ -493,7 +521,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=27, dependsOnMethods="detailsOtherExpenses", description="validate ShipToAddressId")
+	@Test(priority=28, dependsOnMethods="detailsOtherExpenses", description="validate ShipToAddressId")
 	public void validateShipToAddressId() {
 
 		String resDetails_ShipToAddressId = otherExpDetails.jsonPath().getString("ship_to_address_id");
@@ -510,7 +538,7 @@ public class Details_otherExpensesTest {
 		}	
 	}
 
-	@Test(priority=28, dependsOnMethods="detailsOtherExpenses", description="validate BillToAddressId")
+	@Test(priority=29, dependsOnMethods="detailsOtherExpenses", description="validate BillToAddressId")
 	public void validateBillToAddressId() {
 
 		String resDetails_BillToAddressId = otherExpDetails.jsonPath().getString("bill_to_address_id");
@@ -527,7 +555,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=29, dependsOnMethods="detailsOtherExpenses", description="validate ShipFromAddressId")
+	@Test(priority=30, dependsOnMethods="detailsOtherExpenses", description="validate ShipFromAddressId")
 	public void validateShipFromAddressId() {
 
 		String resDetails_ShipFromAddressId = otherExpDetails.jsonPath().getString("ship_from_address_id");
@@ -544,7 +572,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=30, dependsOnMethods="detailsOtherExpenses", description="validate BillFromAddressId")
+	@Test(priority=31, dependsOnMethods="detailsOtherExpenses", description="validate BillFromAddressId")
 	public void validateBillFromAddressId() {
 
 		String resDetails_BillFromAddressId = otherExpDetails.jsonPath().getString("bill_from_address_id");
@@ -561,7 +589,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=31, dependsOnMethods="detailsOtherExpenses", description="validate IsGstPercent")
+	@Test(priority=32, dependsOnMethods="detailsOtherExpenses", description="validate IsGstPercent")
 	public void validateIsGstPercent() {
 
 		Integer resDetails_IsGstPercent = otherExpDetails.jsonPath().getInt("is_gst_percent");
@@ -580,7 +608,7 @@ public class Details_otherExpensesTest {
 		} 
 	}
 
-	@Test(priority=32, dependsOnMethods="detailsOtherExpenses", description="validate IsRoundOff")
+	@Test(priority=33, dependsOnMethods="detailsOtherExpenses", description="validate IsRoundOff")
 	public void validateIsRoundOff() {
 
 		Integer resDetails_IsRoundOff = otherExpDetails.jsonPath().getInt("is_roundoff");
@@ -599,7 +627,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=33, dependsOnMethods="detailsOtherExpenses", description="validate VendorBillNumber")
+	@Test(priority=34, dependsOnMethods="detailsOtherExpenses", description="validate VendorBillNumber")
 	public void validateVendorBillNumber() {
 
 		String resDetails_VendorBillNumber = otherExpDetails.jsonPath().getString("vendor_bill_number");
@@ -616,7 +644,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=34, dependsOnMethods="detailsOtherExpenses", description="validate EquipmentStockId")
+	@Test(priority=35, dependsOnMethods="detailsOtherExpenses", description="validate EquipmentStockId")
 	public void validateEquipmentStockId() {
 
 		String resDetails_EquipmentStockId = otherExpDetails.jsonPath().getString("equipment_stock_id");
@@ -633,7 +661,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=35, dependsOnMethods="detailsOtherExpenses", description="validate BillingActivityId")
+	@Test(priority=36, dependsOnMethods="detailsOtherExpenses", description="validate BillingActivityId")
 	public void validateBillingActivityId() {
 
 		String resDetails_BillingActivityId = otherExpDetails.jsonPath().getString("billing_activity_id");
@@ -650,7 +678,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=36, dependsOnMethods="detailsOtherExpenses", description="validate MonkeyPatchInvoice Id")
+	@Test(priority=37, dependsOnMethods="detailsOtherExpenses", description="validate MonkeyPatchInvoice Id")
 	public void validateMonkeyPatchInvoiceId() {
 
 		String resDetails_MonkeyPatchId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.invoice_id");
@@ -667,7 +695,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=37, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoice CompanyId")
+	@Test(priority=38, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoice CompanyId")
 	public void validateMonkeyPatchInvoiceCompanyId() {
 
 		String resDetails_MonkeyPatchInvoiceCompanyId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.company_id");
@@ -684,7 +712,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=38, dependsOnMethods="detailsOtherExpenses", description="validate MonkeyPatchInvoice CreatorCompanyUserId")
+	@Test(priority=39, dependsOnMethods="detailsOtherExpenses", description="validate MonkeyPatchInvoice CreatorCompanyUserId")
 	public void validateMonkeyPatchInvoiceCreatorCompanyUserId() {
 
 		String resMonkeyPatchInvoiceCreatorCompanyUserId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.creator_company_user_id");
@@ -701,7 +729,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=39, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoice PartyCompanyUserId")
+	@Test(priority=40, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoice PartyCompanyUserId")
 	public void validateMonkeyPatchInvoicePartyCompanyUserId() {
 
 		String resMonkeyPatchInvoicePartyCompanyUserId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.party_company_user_id");
@@ -718,7 +746,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=40, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceProjectId")
+	@Test(priority=41, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceProjectId")
 	public void validateMonkeyPatchInvoiceProjectId() {
 
 		String resMonkeyPatchInvoiceProjectId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.project_id");
@@ -735,7 +763,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=41, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceSubCategoryId")
+	@Test(priority=42, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceSubCategoryId")
 	public void validateMonkeyPatchInvoiceSubCategoryId() {
 
 		String resMonkeyPatchInvoiceSubCategoryId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.sub_category_id");
@@ -752,7 +780,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=42, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceFaturesType")
+	@Test(priority=43, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceFaturesType")
 	public void validateMonkeyPatchInvoiceFaturesType() {
 
 		String resMonkeyPatchInvoiceFeatureType = otherExpDetails.jsonPath().getString("monkey_patch_invoice.feature_type");
@@ -770,7 +798,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=43, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceFeatureId")
+	@Test(priority=44, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceFeatureId")
 	public void validateMonkeyPatchInvoiceFeatureId() {
 
 		String resMonkeyPatchInvoiceFeatureId = otherExpDetails.jsonPath().getString("monkey_patch_invoice.feature_id");
@@ -788,7 +816,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=44, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceInvoiceType")
+	@Test(priority=45, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceInvoiceType")
 	public void validateMonkeyPatchInvoiceInvoiceType() {
 
 		String resMonkeyPatchInvoiceInvoiceType = otherExpDetails.jsonPath().getString("monkey_patch_invoice.invoice_type");
@@ -806,7 +834,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=45, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceStatus")
+	@Test(priority=46, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceStatus")
 	public void validateMonkeyPatchInvoiceStatus() {
 
 		String resMonkeyPatchInvoiceStatus = otherExpDetails.jsonPath().getString("monkey_patch_invoice.status");
@@ -823,7 +851,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=46, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceTotalPayable")
+	@Test(priority=47, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceTotalPayable")
 	public void validateMonkeyPatchInvoiceTotalPayable() {
 
 		Double resMonkeyPatchInvoiceTotalPayable = otherExpDetails.jsonPath().getDouble("monkey_patch_invoice.total_payable");
@@ -840,7 +868,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=47, dependsOnMethods="detailsOtherExpenses", description="resMonkeyPatchInvoiceSequence")
+	@Test(priority=48, dependsOnMethods="detailsOtherExpenses", description="resMonkeyPatchInvoiceSequence")
 	public void validateMonkeyPatchInvoiceSequence() {
 
 		Double resMonkeyPatchInvoiceSequence = otherExpDetails.jsonPath().getDouble("monkey_patch_invoice.sequence");
@@ -858,7 +886,7 @@ public class Details_otherExpensesTest {
 		}
 	}
 
-	@Test(priority=48, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceApproval")
+	@Test(priority=49, dependsOnMethods="detailsOtherExpenses", description="validateMonkeyPatchInvoiceApproval")
 	public void validateMonkeyPatchInvoiceApproval() {
 
 		String resMonkeyPatchInvoiceApproval = otherExpDetails.jsonPath().getString("monkey_patch_invoice.approval_flag");
