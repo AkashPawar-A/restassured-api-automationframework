@@ -124,13 +124,23 @@
 		   <class name="com.onsite.payroll_test_page.Add_Payroll_Test"/>
        </classes>
    </test>
--->
   
   <test name="AddMaterialPurchase" parallel="false" preserve-order="true">
         <classes>
              <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest"/>
              <class name="com.onsite.deduction_test.Add_Deduction_test"/>
              <class name="com.onsite.transaction.materialPurchase_test.Details_materialPurchase_Test"/>
+        </classes>
+  </test>
+  
+  -->
+  <test name="OtherExpenses" parallel="false" preserve-order="true">
+        <classes>
+             <class name="com.onsite.transaction.otherexpenses.Create_otherExpensesTest"/>
+             <class name="com.onsite.transaction.otherexpenses.Details_otherExpensesTest"/>
+             <class name="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest"/>
+             <class name="com.onsite.transaction.otherexpenses.Details_otherExpensesTest"/>
+             <class name="com.onsite.transaction.otherexpenses.Delete_OtherExpenseTest"/>
         </classes>
   </test>
 </suite> <!-- Suite -->

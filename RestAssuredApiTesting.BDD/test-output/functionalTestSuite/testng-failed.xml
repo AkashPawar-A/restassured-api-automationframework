@@ -4,23 +4,13 @@
   <listeners>
     <listener class-name="com.onsite.reports.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="AddMaterialPurchase(failed)">
+  <test thread-count="5" name="OtherExpenses(failed)">
     <classes>
-      <class name="com.onsite.deduction_test.Add_Deduction_test">
+      <class name="com.onsite.transaction.otherexpenses.Delete_OtherExpenseTest">
         <methods>
-          <include name="addDeductionItem" invocation-numbers="0"/>
+          <include name="deleteOtherExp" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.onsite.deduction_test.Add_Deduction_test -->
-      <class name="com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest">
-        <methods>
-          <include name="addMaterialPurchase"/>
-        </methods>
-      </class> <!-- com.onsite.transaction.materialPurchase_test.Create_materialPurchaseTest -->
-      <class name="com.onsite.transaction.materialPurchase_test.Edit_materialPurchase_Test">
-        <methods>
-          <include name="editData" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.onsite.transaction.materialPurchase_test.Edit_materialPurchase_Test -->
+      </class> <!-- com.onsite.transaction.otherexpenses.Delete_OtherExpenseTest -->
     </classes>
-  </test> <!-- AddMaterialPurchase(failed) -->
+  </test> <!-- OtherExpenses(failed) -->
 </suite> <!-- Failed suite [functionalTestSuite] -->

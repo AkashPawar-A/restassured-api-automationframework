@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title" : "Material Return Request Schema",
+  "type": "object",
+  "additionalProperties": true,
+  
+  "required" : [
+     "id",
+     "project_id",
+     "party_company_user_id",
+     "material",
+     "material_amount",
+     "total_payable",
+     "return_date",
+  ],
+  
+  "properties" : {
+      "id" : { "type" : "string" },
+      "company_id" : { "type" : "string" },
+      "remark" : { "type" : "string" },
+      "party_company_user_id" : { "type" : "string" },
+      "creator_company_user_id" : { "type" : "string" },    
+      "project_id" : { "type" : "string" },
+      "sub_category_id" : { "type" : "string" },
+      "invoice_id" : { "type" : "string" },
+      "material" : { "type" : "string[]" },
+      "discount" : { "type" : "number" },
+      "gst_amount" : { "type" : "number" },
+      "other_amount" : { "type" : "number" },
+      "material_amount" : { "type" : "number" },
+      "total_payable" : { "type" : "number" },
+      "sequence" : { "type" : "number" },
+      "photos" : { "type" : "array", "items" : {"type" : "string"} },
+      "return_date" : { "type" : "string" },
+      "vendor_reference_number" : { "type" : "string" },
+      "delete" : { "type" : "number" },
+      "created" : { "type" : "string" }, 
+      "updated" : { "type" : "string" }, 
+      "approval_flag" : { "type" : "string" },
+      "monkey_patch_is_editable" : { "type" : "number" },
+      "monkey_patch_is_paid_amount" : { "type" : "number" },
+      "monkey_patch_status" : { "type" : "string" },
+      "source_add" : { "type" : "string" },
+      "source_edit" : { "type" : "string" },
+      "approval_comment" : { "type" : "string" },
+      "approved_by" : { "type" : "string" },   
+      "due_days" : { "type" : "number" },
+  
+    }
+  
+ }

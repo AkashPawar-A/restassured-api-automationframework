@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title" : "Material Return Request Schema",
+  "type": "object",
+  "additionalProperties": true,
+  
+  "required" : [
+     "project_id",
+     "party_company_user_id",
+     "material",
+     "material_amount",
+     "total_payable",
+     "return_date",
+  ],
+  
+  "properties" : {
+      "remark" : { "type" : "string" },
+      "party_company_user_id" : { "type" : "string" },
+      "project_id" : { "type" : "string" },
+      "sub_category_id" : { "type" : "string" },
+      "material" : { "type" : "string[]" },
+      "gst_amount" : { "type" : "number" },
+      "other_amount" : { "type" : "number" },
+      "material_amount" : { "type" : "number" },
+      "discount" : { "type" : "number" },
+      "total_payable" : { "type" : "number" },
+      "photos" : { "type" : "array", "items" : {"type" : "string"} },
+      "return_date" : { "type" : "string" },
+      "vendor_reference_number" : { "type" : "string" },
+      "due_days" : { "type" : "number" },
+    }
+  
+ }

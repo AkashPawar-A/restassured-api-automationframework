@@ -1,216 +1,1602 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="48" passed="48" failed="0" skipped="0">
+<testng-results ignored="0" total="48" passed="0" failed="1" skipped="47">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-29T15:47:54 IST" name="Default suite" finished-at="2026-05-29T15:48:06 IST" duration-ms="12246">
+  <suite started-at="2026-06-04T13:12:07 IST" name="Default suite" finished-at="2026-06-04T13:12:12 IST" duration-ms="4814">
     <groups>
     </groups>
-    <test started-at="2026-05-29T15:47:54 IST" name="Default test" finished-at="2026-05-29T15:48:06 IST" duration-ms="12246">
-      <class name="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:47:54 IST" name="setUp" finished-at="2026-05-29T15:47:55 IST" duration-ms="536" status="PASS">
+    <test started-at="2026-06-04T13:12:07 IST" name="Default test" finished-at="2026-06-04T13:12:12 IST" duration-ms="4814">
+      <class name="com.onsite.transaction.otherexpenses.Create_otherExpensesTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:07 IST" name="setUp" finished-at="2026-06-04T13:12:08 IST" duration-ms="345" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest)[pri:1, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:47:55 IST" name="createOtherExpense" description="other expense creation" data-provider="testData" finished-at="2026-05-29T15:48:04 IST" duration-ms="9301" status="PASS">
+        <test-method signature="createOtherExpense(com.onsite.pojo_request.OtherExpensesRequest)[pri:1, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:08 IST" name="createOtherExpense" description="other expense creation" data-provider="testData" finished-at="2026-06-04T13:12:12 IST" duration-ms="3901" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.OtherExpensesRequest@2bd08376]]>
+                <![CDATA[com.onsite.pojo_request.OtherExpensesRequest@4b40f651]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[1 expectation failed.
+Expected status code <200> but was <400>.
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <200> but was <400>.
+
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
+at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
+at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
+at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
+at com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense(Create_otherExpensesTest.java:80)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createOtherExpense -->
-        <test-method signature="validateStatusCode()[pri:2, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:04 IST" name="validateStatusCode" description="validateStatusCode" finished-at="2026-05-29T15:48:04 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="3" status="PASS">
+        <test-method signature="validateStatusCode()[pri:2, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateStatusCode" description="validateStatusCode" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateStatusCode()[pri:2, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateStatusCode()[pri:2, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateStatusCode -->
-        <test-method signature="valiadateResponseMessage()[pri:3, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:04 IST" name="valiadateResponseMessage" description="valiadateResponseMessage" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="187" status="PASS">
+        <test-method signature="valiadateResponseMessage()[pri:3, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="valiadateResponseMessage" description="valiadateResponseMessage" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.valiadateResponseMessage()[pri:3, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.valiadateResponseMessage()[pri:3, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- valiadateResponseMessage -->
-        <test-method signature="validateResponseTime()[pri:4, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateResponseTime" description="validateResponseTime" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="10" status="PASS">
+        <test-method signature="validateResponseTime()[pri:4, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateResponseTime" description="validateResponseTime" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateResponseTime()[pri:4, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateResponseTime()[pri:4, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateResponseTime -->
-        <test-method signature="valiadetResponseSchema()[pri:5, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="valiadetResponseSchema" description="valiadetResponseSchema" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="460" status="PASS">
+        <test-method signature="valiadetResponseSchema()[pri:5, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="valiadetResponseSchema" description="valiadetResponseSchema" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.valiadetResponseSchema()[pri:5, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.valiadetResponseSchema()[pri:5, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- valiadetResponseSchema -->
-        <test-method signature="valiadetId()[pri:6, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="valiadetId" description="id validation" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="3" status="PASS">
+        <test-method signature="valiadetId()[pri:6, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="valiadetId" description="id validation" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.valiadetId()[pri:6, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.valiadetId()[pri:6, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- valiadetId -->
-        <test-method signature="validateProjectId()[pri:7, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateProjectId" description="projectId validate" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="8" status="PASS">
+        <test-method signature="validateProjectId()[pri:7, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateProjectId" description="projectId validate" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateProjectId()[pri:7, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateProjectId()[pri:7, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateProjectId -->
-        <test-method signature="validatePartyCompanyUserId()[pri:8, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validatePartyCompanyUserId" description="validatePartyCompanyUserId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="3" status="PASS">
+        <test-method signature="validatePartyCompanyUserId()[pri:8, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validatePartyCompanyUserId" description="validatePartyCompanyUserId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validatePartyCompanyUserId()[pri:8, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validatePartyCompanyUserId()[pri:8, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validatePartyCompanyUserId -->
-        <test-method signature="validateRemark()[pri:9, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateRemark" description="validateRemark" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="6" status="PASS">
+        <test-method signature="validateRemark()[pri:9, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateRemark" description="validateRemark" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateRemark()[pri:9, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateRemark()[pri:9, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateRemark -->
-        <test-method signature="validateUnitPrice()[pri:10, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateUnitPrice" description="createOtherExpense" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="9" status="PASS">
+        <test-method signature="validateUnitPrice()[pri:10, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateUnitPrice" description="createOtherExpense" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateUnitPrice()[pri:10, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateUnitPrice()[pri:10, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateUnitPrice -->
-        <test-method signature="validateQuantity()[pri:11, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateQuantity" description="validateQuantity" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="4" status="PASS">
+        <test-method signature="validateQuantity()[pri:11, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateQuantity" description="validateQuantity" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateQuantity()[pri:11, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateQuantity()[pri:11, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateQuantity -->
-        <test-method signature="validateEarningAmount()[pri:12, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateEarningAmount" description="validateEarningAmount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="3" status="PASS">
+        <test-method signature="validateEarningAmount()[pri:12, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateEarningAmount" description="validateEarningAmount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateEarningAmount()[pri:12, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateEarningAmount()[pri:12, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateEarningAmount -->
-        <test-method signature="validateOtherAmount()[pri:13, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateOtherAmount" description="validateOtherAmount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateOtherAmount()[pri:13, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateOtherAmount" description="validateOtherAmount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateOtherAmount()[pri:13, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateOtherAmount()[pri:13, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateOtherAmount -->
-        <test-method signature="validateDiscount()[pri:14, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateDiscount" description="validateDiscount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="4" status="PASS">
+        <test-method signature="validateDiscount()[pri:14, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateDiscount" description="validateDiscount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateDiscount()[pri:14, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateDiscount()[pri:14, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateDiscount -->
-        <test-method signature="validateGSTpercent()[pri:15, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateGSTpercent" description="validateGSTpercent" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="3" status="PASS">
+        <test-method signature="validateGSTpercent()[pri:15, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateGSTpercent" description="validateGSTpercent" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateGSTpercent()[pri:15, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateGSTpercent()[pri:15, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateGSTpercent -->
-        <test-method signature="validateGSTAmount()[pri:16, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateGSTAmount" description="validateGSTAmount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateGSTAmount()[pri:16, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateGSTAmount" description="validateGSTAmount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateGSTAmount()[pri:16, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateGSTAmount()[pri:16, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateGSTAmount -->
-        <test-method signature="validateAmount()[pri:17, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateAmount" description="validateAmount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="3" status="PASS">
+        <test-method signature="validateAmount()[pri:17, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateAmount" description="validateAmount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateAmount()[pri:17, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateAmount()[pri:17, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateAmount -->
-        <test-method signature="validatePostTaxDeductionAmount()[pri:18, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validatePostTaxDeductionAmount" description="validatePostTaxDeductionAmount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="1" status="PASS">
+        <test-method signature="validatePostTaxDeductionAmount()[pri:18, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validatePostTaxDeductionAmount" description="validatePostTaxDeductionAmount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validatePostTaxDeductionAmount()[pri:18, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validatePostTaxDeductionAmount()[pri:18, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validatePostTaxDeductionAmount -->
-        <test-method signature="validateNetAmount()[pri:19, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateNetAmount" description="validateNetAmount" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="7" status="PASS">
+        <test-method signature="validateNetAmount()[pri:19, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateNetAmount" description="validateNetAmount" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateNetAmount()[pri:19, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateNetAmount()[pri:19, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateNetAmount -->
-        <test-method signature="validatePhoto()[pri:20, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validatePhoto" description="validatePhoto" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="1" status="PASS">
+        <test-method signature="validatePhoto()[pri:20, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validatePhoto" description="validatePhoto" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validatePhoto()[pri:20, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validatePhoto()[pri:20, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validatePhoto -->
-        <test-method signature="validateSubCategoryId()[pri:21, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateSubCategoryId" description="validateSubCategoryId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateSubCategoryId()[pri:21, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateSubCategoryId" description="validateSubCategoryId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateSubCategoryId()[pri:21, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateSubCategoryId()[pri:21, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateSubCategoryId -->
-        <test-method signature="validateCategoryId()[pri:22, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateCategoryId" description="validateCategoryId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="4" status="PASS">
+        <test-method signature="validateCategoryId()[pri:22, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateCategoryId" description="validateCategoryId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateCategoryId()[pri:22, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateCategoryId()[pri:22, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateCategoryId -->
-        <test-method signature="validatePaymentDate()[pri:23, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validatePaymentDate" description="validatePaymentDate" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="1" status="PASS">
+        <test-method signature="validatePaymentDate()[pri:23, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validatePaymentDate" description="validatePaymentDate" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validatePaymentDate()[pri:23, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validatePaymentDate()[pri:23, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validatePaymentDate -->
-        <test-method signature="validateUnitId()[pri:24, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateUnitId" description="validateUnitId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateUnitId()[pri:24, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateUnitId" description="validateUnitId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateUnitId()[pri:24, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateUnitId()[pri:24, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateUnitId -->
-        <test-method signature="validateEarningType()[pri:25, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateEarningType" description="validateEarningType" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateEarningType()[pri:25, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateEarningType" description="validateEarningType" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateEarningType()[pri:25, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateEarningType()[pri:25, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateEarningType -->
-        <test-method signature="validateDueDays()[pri:26, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateDueDays" description="validateDueDays" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateDueDays()[pri:26, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateDueDays" description="validateDueDays" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateDueDays()[pri:26, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateDueDays()[pri:26, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateDueDays -->
-        <test-method signature="validateShipToAddressId()[pri:27, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateShipToAddressId" description="validateShipToAddressId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateShipToAddressId()[pri:27, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateShipToAddressId" description="validateShipToAddressId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateShipToAddressId()[pri:27, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateShipToAddressId()[pri:27, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateShipToAddressId -->
-        <test-method signature="validateBillToAddressId()[pri:28, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateBillToAddressId" description="validateBillToAddressId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateBillToAddressId()[pri:28, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateBillToAddressId" description="validateBillToAddressId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateBillToAddressId()[pri:28, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateBillToAddressId()[pri:28, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateBillToAddressId -->
-        <test-method signature="validateShipFromAddressId()[pri:29, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateShipFromAddressId" description="validateShipFromAddressId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="1" status="PASS">
+        <test-method signature="validateShipFromAddressId()[pri:29, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateShipFromAddressId" description="validateShipFromAddressId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateShipFromAddressId()[pri:29, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateShipFromAddressId()[pri:29, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateShipFromAddressId -->
-        <test-method signature="validateBillFromAddressId()[pri:30, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateBillFromAddressId" description="validateBillFromAddressId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="1" status="PASS">
+        <test-method signature="validateBillFromAddressId()[pri:30, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateBillFromAddressId" description="validateBillFromAddressId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateBillFromAddressId()[pri:30, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateBillFromAddressId()[pri:30, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateBillFromAddressId -->
-        <test-method signature="validateIsGstPercent()[pri:31, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateIsGstPercent" description="validateIsGstPercent" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateIsGstPercent()[pri:31, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateIsGstPercent" description="validateIsGstPercent" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateIsGstPercent()[pri:31, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateIsGstPercent()[pri:31, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateIsGstPercent -->
-        <test-method signature="validateIsRoundOff()[pri:32, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateIsRoundOff" description="validateIsRoundOff" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="4" status="PASS">
+        <test-method signature="validateIsRoundOff()[pri:32, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateIsRoundOff" description="validateIsRoundOff" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateIsRoundOff()[pri:32, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateIsRoundOff()[pri:32, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateIsRoundOff -->
-        <test-method signature="validateVendorBillNumber()[pri:33, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateVendorBillNumber" description="validateVendorBillNumber" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateVendorBillNumber()[pri:33, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateVendorBillNumber" description="validateVendorBillNumber" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateVendorBillNumber()[pri:33, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateVendorBillNumber()[pri:33, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateVendorBillNumber -->
-        <test-method signature="validateEquipmentStockId()[pri:34, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateEquipmentStockId" description="validateEquipmentStockId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="2" status="PASS">
+        <test-method signature="validateEquipmentStockId()[pri:34, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateEquipmentStockId" description="validateEquipmentStockId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateEquipmentStockId()[pri:34, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateEquipmentStockId()[pri:34, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateEquipmentStockId -->
-        <test-method signature="validateBillingActivityId()[pri:35, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateBillingActivityId" description="validateBillingActivityId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="1" status="PASS">
+        <test-method signature="validateBillingActivityId()[pri:35, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateBillingActivityId" description="validateBillingActivityId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateBillingActivityId()[pri:35, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateBillingActivityId()[pri:35, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateBillingActivityId -->
-        <test-method signature="validateMonkeyPatchInvoiceId()[pri:36, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateMonkeyPatchInvoiceId" description="validateMonkeyPatchInvoiceId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="150" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceId()[pri:36, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceId" description="validateMonkeyPatchInvoiceId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceId()[pri:36, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceId()[pri:36, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceId -->
-        <test-method signature="validateMonkeyPatchInvoiceCompanyId()[pri:37, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateMonkeyPatchInvoiceCompanyId" description="validateMonkeyPatchInvoiceCompanyId" finished-at="2026-05-29T15:48:05 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="95" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceCompanyId()[pri:37, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceCompanyId" description="validateMonkeyPatchInvoiceCompanyId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceCompanyId()[pri:37, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceCompanyId()[pri:37, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceCompanyId -->
-        <test-method signature="validateMonkeyPatchInvoiceCreatorCompanyUserId()[pri:38, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:05 IST" name="validateMonkeyPatchInvoiceCreatorCompanyUserId" description="validateMonkeyPatchInvoiceCreatorCompanyUserId" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="90" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceCreatorCompanyUserId()[pri:38, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceCreatorCompanyUserId" description="validateMonkeyPatchInvoiceCreatorCompanyUserId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceCreatorCompanyUserId()[pri:38, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceCreatorCompanyUserId()[pri:38, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceCreatorCompanyUserId -->
-        <test-method signature="validateMonkeyPatchInvoicePartyCompanyUserId()[pri:39, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoicePartyCompanyUserId" description="validateMonkeyPatchInvoicePartyCompanyUserId" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="65" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoicePartyCompanyUserId()[pri:39, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoicePartyCompanyUserId" description="validateMonkeyPatchInvoicePartyCompanyUserId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoicePartyCompanyUserId()[pri:39, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoicePartyCompanyUserId()[pri:39, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoicePartyCompanyUserId -->
-        <test-method signature="validateMonkeyPatchInvoiceProjectId()[pri:40, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceProjectId" description="validateMonkeyPatchInvoiceProjectId" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="82" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceProjectId()[pri:40, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceProjectId" description="validateMonkeyPatchInvoiceProjectId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceProjectId()[pri:40, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceProjectId()[pri:40, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceProjectId -->
-        <test-method signature="validateMonkeyPatchInvoiceSubCategoryId()[pri:41, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceSubCategoryId" description="validateMonkeyPatchInvoiceSubCategoryId" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="90" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceSubCategoryId()[pri:41, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceSubCategoryId" description="validateMonkeyPatchInvoiceSubCategoryId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceSubCategoryId()[pri:41, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceSubCategoryId()[pri:41, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceSubCategoryId -->
-        <test-method signature="validateMonkeyPatchInvoiceFaturesType()[pri:42, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceFaturesType" description="validateMonkeyPatchInvoiceFaturesType" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="81" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceFaturesType()[pri:42, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceFaturesType" description="validateMonkeyPatchInvoiceFaturesType" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceFaturesType()[pri:42, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceFaturesType()[pri:42, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceFaturesType -->
-        <test-method signature="validateMonkeyPatchInvoiceFeatureId()[pri:43, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceFeatureId" description="validateMonkeyPatchInvoiceFeatureId" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="76" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceFeatureId()[pri:43, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceFeatureId" description="validateMonkeyPatchInvoiceFeatureId" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceFeatureId()[pri:43, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceFeatureId()[pri:43, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceFeatureId -->
-        <test-method signature="validateMonkeyPatchInvoiceInvoiceType()[pri:44, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceInvoiceType" description="validateMonkeyPatchInvoiceInvoiceType" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="86" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceInvoiceType()[pri:44, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceInvoiceType" description="validateMonkeyPatchInvoiceInvoiceType" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceInvoiceType()[pri:44, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceInvoiceType()[pri:44, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceInvoiceType -->
-        <test-method signature="validateMonkeyPatchInvoiceStatus()[pri:45, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceStatus" description="validateMonkeyPatchInvoiceStatus" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="78" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceStatus()[pri:45, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceStatus" description="validateMonkeyPatchInvoiceStatus" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceStatus()[pri:45, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceStatus()[pri:45, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceStatus -->
-        <test-method signature="validateMonkeyPatchInvoiceTotalPayable()[pri:46, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceTotalPayable" description="validateMonkeyPatchInvoiceTotalPayable" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="86" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceTotalPayable()[pri:46, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceTotalPayable" description="validateMonkeyPatchInvoiceTotalPayable" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceTotalPayable()[pri:46, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceTotalPayable()[pri:46, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceTotalPayable -->
-        <test-method signature="validateMonkeyPatchInvoiceSequence()[pri:47, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceSequence" description="resMonkeyPatchInvoiceSequence" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="80" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceSequence()[pri:47, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceSequence" description="resMonkeyPatchInvoiceSequence" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceSequence()[pri:47, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceSequence()[pri:47, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceSequence -->
-        <test-method signature="validateMonkeyPatchInvoiceApproval()[pri:48, instance:com.onsite.transaction.otherexpenses.Edit_otherExpenseTest@48f2bd5b]" started-at="2026-05-29T15:48:06 IST" name="validateMonkeyPatchInvoiceApproval" description="validateMonkeyPatchInvoiceApproval" finished-at="2026-05-29T15:48:06 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest.createOtherExpense" duration-ms="81" status="PASS">
+        <test-method signature="validateMonkeyPatchInvoiceApproval()[pri:48, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b]" started-at="2026-06-04T13:12:12 IST" name="validateMonkeyPatchInvoiceApproval" description="validateMonkeyPatchInvoiceApproval" finished-at="2026-06-04T13:12:12 IST" depends-on-methods="com.onsite.transaction.otherexpenses.Create_otherExpensesTest.createOtherExpense" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Create_otherExpensesTest.validateMonkeyPatchInvoiceApproval()[pri:48, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Create_otherExpensesTest.validateMonkeyPatchInvoiceApproval()[pri:48, instance:com.onsite.transaction.otherexpenses.Create_otherExpensesTest@48f2bd5b] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMonkeyPatchInvoiceApproval -->
-      </class> <!-- com.onsite.transaction.otherexpenses.Edit_otherExpenseTest -->
+      </class> <!-- com.onsite.transaction.otherexpenses.Create_otherExpensesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

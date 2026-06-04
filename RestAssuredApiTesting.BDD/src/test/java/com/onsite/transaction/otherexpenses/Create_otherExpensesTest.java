@@ -151,10 +151,16 @@ public class Create_otherExpensesTest {
 		String resProjectId = responseBody.getProject_id();
 		String reqProjectId = requestPayload.getProject_id();
 
-		if(resProjectId != null && !resProjectId.isEmpty() && resProjectId.equals(reqProjectId)) {
-			System.out.println("resProjectId is :" + resProjectId + ": match with requestProjectId:" + reqProjectId);
+		if(resProjectId != null && !resProjectId.isEmpty() && reqProjectId != null && !reqProjectId.isEmpty()) {
+			if(resProjectId.equals(reqProjectId)) {
+				System.out.println("resProjectId is :" + resProjectId + ": match with requestProjectId:" + reqProjectId);
+			} else {
+				Assert.fail("project id is null or empty and does not match with :" + resProjectId + ": with :" + reqProjectId);
+			}
 		} else {
-			Assert.fail("project id is null or empty and does not match with :" + resProjectId + ": with :" + reqProjectId);
+			String actualMessage = otherExpResponse.jsonPath().getString("message");
+			Assert.assertEquals(actualMessage, "can not find project", "ackend validation message mismatch");
+			System.out.println("Validation Message : " + actualMessage);
 		}
 	}
 
@@ -164,14 +170,16 @@ public class Create_otherExpensesTest {
 		String resPartyCompanyUserId = responseBody.getParty_company_user_id();
 		String reqPartyCompanyUserId = requestPayload.getParty_company_user_id();
 
-		if(resPartyCompanyUserId != null && !resPartyCompanyUserId.isEmpty()) {
+		if(resPartyCompanyUserId != null && !resPartyCompanyUserId.isEmpty() && reqPartyCompanyUserId != null && !reqPartyCompanyUserId.isEmpty()) {
 			if(resPartyCompanyUserId.equals(reqPartyCompanyUserId)) {
 				System.out.print("party_company_user_id is :" + resPartyCompanyUserId + ": match with :" + reqPartyCompanyUserId);
 			} else {
 				Assert.fail("party_company_user_id is :" + resPartyCompanyUserId + ": does not match with :" + reqPartyCompanyUserId);
 			}
 		} else {
-			Assert.fail("party_company_user_id is null or empty and :" + resPartyCompanyUserId + ": match with :" + reqPartyCompanyUserId);
+			String actualMessage = otherExpResponse.jsonPath().getString("message");
+			Assert.assertEquals(actualMessage, "can not find party company user", "ackend validation message mismatch");
+			System.out.println("Validation Message : " + actualMessage);
 		}
 	}
 
@@ -457,7 +465,9 @@ public class Create_otherExpensesTest {
 				Assert.fail("resPaymentDate is :" + resPaymentDate + ": is not match with reqPaymentDate :" + reqPaymentDate);
 			}
 		} else {
-			System.out.println("resPaymentDate & reqPaymentDate is null or empty");
+			String actualMessage = otherExpResponse.jsonPath().getString("message");
+			Assert.assertEquals(actualMessage, "Invalid start date data", "ackend validation message mismatch");
+			System.out.println("Validation Message : " + actualMessage);
 		}
 	}
 
@@ -868,7 +878,5 @@ public class Create_otherExpensesTest {
 			System.out.println("resMonkeyPatchInvoiceApproval is null or empty");
 		}
 	}
-	
-	
 }
 

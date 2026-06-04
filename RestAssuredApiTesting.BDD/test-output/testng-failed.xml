@@ -3,14 +3,59 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.transaction.otherexpenses.Edit_otherExpenseTest">
+      <class name="com.onsite.transaction.otherexpenses.Create_otherExpensesTest">
         <methods>
-          <include name="setUp"/>
-          <include name="createOtherExpense"/>
-          <include name="validateMonkeyPatchInvoiceTotalPayable"/>
+          <include name="validateMonkeyPatchInvoiceId"/>
+          <include name="validateSubCategoryId"/>
           <include name="validateNetAmount"/>
+          <include name="validateEarningType"/>
+          <include name="validateQuantity"/>
+          <include name="validateMonkeyPatchInvoicePartyCompanyUserId"/>
+          <include name="validateMonkeyPatchInvoiceTotalPayable"/>
+          <include name="valiadetId"/>
+          <include name="setUp"/>
+          <include name="validateBillingActivityId"/>
+          <include name="validateVendorBillNumber"/>
+          <include name="validateDiscount"/>
+          <include name="validateShipToAddressId"/>
+          <include name="validatePostTaxDeductionAmount"/>
+          <include name="validateCategoryId"/>
+          <include name="validateShipFromAddressId"/>
+          <include name="validateMonkeyPatchInvoiceSequence"/>
+          <include name="valiadetResponseSchema"/>
+          <include name="validateGSTpercent"/>
+          <include name="validateIsRoundOff"/>
+          <include name="validateEquipmentStockId"/>
+          <include name="validateRemark"/>
+          <include name="validateEarningAmount"/>
+          <include name="validateAmount"/>
+          <include name="validateBillToAddressId"/>
+          <include name="validateOtherAmount"/>
+          <include name="validateBillFromAddressId"/>
+          <include name="validatePaymentDate"/>
+          <include name="validateMonkeyPatchInvoiceSubCategoryId"/>
+          <include name="validateMonkeyPatchInvoiceFeatureId"/>
+          <include name="validateMonkeyPatchInvoiceApproval"/>
+          <include name="validateUnitPrice"/>
+          <include name="validateStatusCode"/>
+          <include name="validateMonkeyPatchInvoiceProjectId"/>
+          <include name="validatePhoto"/>
+          <include name="validateMonkeyPatchInvoiceStatus"/>
+          <include name="validateMonkeyPatchInvoiceCompanyId"/>
+          <include name="validatePartyCompanyUserId"/>
+          <include name="validateMonkeyPatchInvoiceFaturesType"/>
+          <include name="validateUnitId"/>
+          <include name="validateProjectId"/>
+          <include name="validateGSTAmount"/>
+          <include name="createOtherExpense" invocation-numbers="0"/>
+          <include name="validateMonkeyPatchInvoiceInvoiceType"/>
+          <include name="validateIsGstPercent"/>
+          <include name="validateDueDays"/>
+          <include name="validateResponseTime"/>
+          <include name="validateMonkeyPatchInvoiceCreatorCompanyUserId"/>
+          <include name="valiadateResponseMessage"/>
         </methods>
-      </class> <!-- com.onsite.transaction.otherexpenses.Edit_otherExpenseTest -->
+      </class> <!-- com.onsite.transaction.otherexpenses.Create_otherExpensesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
