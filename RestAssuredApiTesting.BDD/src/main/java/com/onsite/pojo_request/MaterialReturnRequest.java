@@ -9,7 +9,7 @@ public class MaterialReturnRequest {
 	private String party_company_user_id;
 	private String project_id;
 	private String sub_category_id;
-	private Material[] material;
+	private Material[] materials;
 	private Double gst_amount;
 	private Double other_amount;
 	private Double material_amount;
@@ -53,11 +53,11 @@ public class MaterialReturnRequest {
 	public void setSub_category_id(String sub_category_id) {
 		this.sub_category_id = sub_category_id;
 	}
-	public Material[] getMaterial() {
-		return material;
+	public Material[] getMaterials() {
+		return materials;
 	}
-	public void setMaterial(Material[] material) {
-		this.material = material;
+	public void setMaterials(Material[] materials) {
+		this.materials = materials;
 	}
 	public Double getGst_amount() {
 		return gst_amount;
