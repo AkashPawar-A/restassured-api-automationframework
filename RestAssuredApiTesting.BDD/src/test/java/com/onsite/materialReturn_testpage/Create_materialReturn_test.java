@@ -103,7 +103,7 @@ public class Create_materialReturn_test {
 		String responseMessage = materialReturnResponse.jsonPath().getString("message");
 
 		if(responseMessage == null || responseMessage.trim().isEmpty()) {
-			System.out.println("Response message is null or empty");
+			System.out.println("Response message is not provided");
 		} else {
 			System.out.println("response message :" + responseMessage);
 		}
@@ -148,11 +148,7 @@ public class Create_materialReturn_test {
 		Assert.assertNotNull(companyId, "company id should not be null");
 		Assert.assertFalse(companyId.trim().isEmpty(), "company id should not be empty");
 
-		if(companyId.equals(loginCompanyId)) {
-			System.out.println("both company id are match");
-		} else {
-			Assert.fail("companyId does not match with loginCompanyId");
-		}		
+		Assert.assertEquals(companyId, loginCompanyId, "Company ID mismatch");
 	}
 
 	@Test(priority=7)
@@ -162,10 +158,13 @@ public class Create_materialReturn_test {
 		String reqRemark = materialReturnPayload.getRemark();
 
 		if(reqRemark == null || reqRemark.trim().isEmpty()) {
-			System.out.println("reqRemark field is null or empty");
+			
+			System.out.println("remark is not provided");
 		} else {
+			
 			Assert.assertNotNull(resRemark, "Response remark should not be null");
 			Assert.assertFalse(resRemark.trim().isEmpty(), "Response remark should not be empty");
+			
 			Assert.assertEquals(resRemark, reqRemark, "Response remark does not match the request remark");
 
 			System.out.println("Request Remark  : " + reqRemark);
@@ -201,11 +200,10 @@ public class Create_materialReturn_test {
 
 		String resCreatorCompanyUserId = materialReturnResponse.jsonPath().getString("creator_company_user_id");
 
-		if(resCreatorCompanyUserId != null && !resCreatorCompanyUserId.trim().isEmpty()) {
-			System.out.println("resCreatorCompanyUserId : " + resCreatorCompanyUserId);
-		} else {
-			System.out.println("resPartyCompanyUserId is null or empty");
-		}
+		Assert.assertNotNull(resCreatorCompanyUserId, "Creator Company User ID should not be null");
+		Assert.assertFalse(resCreatorCompanyUserId.trim().isEmpty(), "Creator Company User ID should not be empty");
+		
+		System.out.println("creator company user id :" + resCreatorCompanyUserId);
 	}
 
 	@Test(priority=10)
@@ -250,25 +248,53 @@ public class Create_materialReturn_test {
 
 		Material[] reqMaterialList = materialReturnPayload.getMaterials();
 
-		Assert.assertEquals(resMaterialList.size(), reqMaterialList.length, "Material count mismatch");
+		Assert.assertNotNull(reqMaterialList, "Request material list should not be null");
+		Assert.assertTrue(reqMaterialList.length > 0, "Request material list should not be empty");
+		
+		Assert.assertNotNull(resMaterialList, "Response material list should not be null");
+		Assert.assertFalse(resMaterialList.isEmpty(), "Response material list should not be empty");
+		
+		Assert.assertEquals(resMaterialList.size(), reqMaterialList.length, "count is missmatch");
 
 		for (int i = 0; i < reqMaterialList.length; i++) {
 
 			Material resMaterial = resMaterialList.get(i);
 			Material reqMaterial = reqMaterialList[i];
-
-			Assert.assertEquals(resMaterial.getMaterial_item_id(), reqMaterial.getMaterial_item_id(), 
-					"Material ID mismatch at index" + i);
-
-			Assert.assertEquals(resMaterial.getQuantity(), reqMaterial.getQuantity(), 
-					"Quantity mismatch at index" + i);
-
-			Assert.assertEquals(resMaterial.getUnit_price(), reqMaterial.getUnit_price(), "Unit price mismatch at index" + i);
-
-			Double reqExpectedMaterialAmount = reqMaterial.getQuantity() * reqMaterial.getUnit_price();
-			Double resActualMaterialAmount = resMaterial.getQuantity() * resMaterial.getUnit_price();
-
-			Assert.assertEquals(reqExpectedMaterialAmount, resActualMaterialAmount, "material amount missmatch");
+			
+			// Object validation
+			Assert.assertNotNull(reqMaterial, "Request material object should not be null at index " + i);
+	        Assert.assertNotNull(resMaterial, "Response material object should not be null at index " + i);
+	        
+	        // Field validation
+	        Assert.assertNotNull(reqMaterial.getMaterial_item_id(), "Request Material ID should not be null");
+	        Assert.assertNotNull(resMaterial.getMaterial_item_id(), "Response Material ID should not be null");
+	        Assert.assertNotNull(reqMaterial.getQuantity(), "Request Quantity should not be null");
+	        Assert.assertNotNull(resMaterial.getQuantity(), "Response Quantity should not be null");
+	        Assert.assertNotNull(reqMaterial.getUnit_price(), "Request Unit Price should not be null");
+	        Assert.assertNotNull(resMaterial.getUnit_price(), "Response Unit Price should not be null");
+	        
+	        // Negative value validation
+	        Assert.assertTrue(reqMaterial.getQuantity() >= 0, "Request Quantity should not be negative");
+	        Assert.assertTrue(resMaterial.getQuantity() >= 0, "Response Quantity should not be negative");
+	        Assert.assertTrue(reqMaterial.getUnit_price() >= 0, "Request Unit Price should not be negative");
+	        Assert.assertTrue(resMaterial.getUnit_price() >= 0, "Response Unit Price should not be negative");
+	        
+	        // Value validation
+	        Assert.assertEquals(resMaterial.getMaterial_item_id(), reqMaterial.getMaterial_item_id(), "Material ID mismatch at index " + i);
+	        Assert.assertEquals(resMaterial.getQuantity(), reqMaterial.getQuantity(), "Quantity mismatch at index " + i);
+	        Assert.assertEquals(resMaterial.getUnit_price(), reqMaterial.getUnit_price(), 0.01, "Unit Price mismatch at index " + i);
+			
+	        // Expected material amount
+	        Double expectedMaterialAmount = reqMaterial.getQuantity() * reqMaterial.getUnit_price();
+	        Double actualMaterialAmount = resMaterial.getQuantity() * resMaterial.getUnit_price();
+	        Assert.assertEquals(actualMaterialAmount, expectedMaterialAmount, 0.01, "Material Amount mismatch at index " + i);
+	        
+	        System.out.println("Material Index      : " + i);
+	        System.out.println("Material Item ID    : " + reqMaterial.getMaterial_item_id());
+	        System.out.println("Quantity            : " + reqMaterial.getQuantity());
+	        System.out.println("Unit Price          : " + reqMaterial.getUnit_price());
+	        System.out.println("Expected Amount     : " + expectedMaterialAmount);
+	        System.out.println("Response Amount     : " + actualMaterialAmount);
 		}	
 	}
 
@@ -277,16 +303,10 @@ public class Create_materialReturn_test {
 	@Test(priority=13)
 	public void validMaterialAmount() {
 
-		Double resMaterialAmount = materialReturnResponse.jsonPath().getDouble("material_amount");
-		Double reqMaterialAmount = materialReturnPayload.getMaterial_amount();
+		resMaterialAmount = materialReturnResponse.jsonPath().getDouble("material_amount");
+		reqMaterialAmount = materialReturnPayload.getMaterial_amount();
 
 		Material[] reqMaterialList = materialReturnPayload.getMaterials();
-		Double expectedMaterialAmount = 0.0;
-
-		for(Material material : reqMaterialList) {
-			Double expMaterialAmount = material.getQuantity()*material.getUnit_price();
-			expectedMaterialAmount += expMaterialAmount;
-		}
 
 		if(reqMaterialAmount == null) {
 
@@ -295,11 +315,35 @@ public class Create_materialReturn_test {
 			Assert.assertEquals(errorMessage, "material amount required", "incorrect validation message");
 			System.out.println("material amount error message :" + errorMessage);
 		} else {
+			
+			Assert.assertNotNull(reqMaterialList, "Material list should not be null");
+			Assert.assertTrue(reqMaterialList.length > 0, "Material list should not be empty");
+			
+			Double expectedMaterialAmount = 0.0;
+			
+			for(Material materialItem : reqMaterialList) {
+				
+				Assert.assertNotNull(materialItem.getQuantity(), "Material item quantity should not be null");
+				Assert.assertNotNull(materialItem.getUnit_price(), "Material item unit price should not be null");
+				
+	            Double itemAmount = materialItem.getQuantity() * materialItem.getUnit_price();
 
-			Assert.assertNotNull(resMaterialAmount, "material amount should not be null");
-			Assert.assertEquals(resMaterialAmount, expectedMaterialAmount, "material amount missmatch");
-			Assert.assertEquals(reqMaterialAmount, expectedMaterialAmount, "material amount missmatch");
+	            expectedMaterialAmount += itemAmount;
+			}
+			
+			// Response validation
+	        Assert.assertNotNull(resMaterialAmount, "Response material amount should not be null");
+	        Assert.assertTrue(resMaterialAmount >= 0, "Response material amount should not be negative");
 
+	        // Expected vs Request
+	        Assert.assertEquals(reqMaterialAmount, expectedMaterialAmount, 0.01, "Request material amount mismatch");
+	        
+	        // Expected vs Response
+	        Assert.assertEquals(resMaterialAmount, expectedMaterialAmount, 0.01, "Response material amount mismatch");
+
+	        // Request vs Response
+	        Assert.assertEquals(reqMaterialAmount, resMaterialAmount, 0.01, "Request and Response material amount mismatch");
+	        
 			System.out.println("Expected Material Amount : " + expectedMaterialAmount);
 			System.out.println("Request Material Amount  : " + reqMaterialAmount);
 			System.out.println("Response Material Amount : " + resMaterialAmount);
@@ -311,8 +355,8 @@ public class Create_materialReturn_test {
 	@Test(priority=14)
 	public void validDiscount() {
 
-		Double resDiscount = materialReturnResponse.jsonPath().getDouble("discount");
-		Double reqDiscount = materialReturnPayload.getDiscount();
+		resDiscount = materialReturnResponse.jsonPath().getDouble("discount");
+		reqDiscount = materialReturnPayload.getDiscount();
 
 		if(reqDiscount == null) {
 			System.out.println("discount is not provided");
@@ -330,8 +374,8 @@ public class Create_materialReturn_test {
 	@Test(priority=15)
 	public void validGstAmount() {
 
-		Double resGstAmount = materialReturnResponse.jsonPath().getDouble("gst_amount");
-		Double reqGstAmount = materialReturnPayload.getGst_amount();
+		resGstAmount = materialReturnResponse.jsonPath().getDouble("gst_amount");
+		reqGstAmount = materialReturnPayload.getGst_amount();
 
 		if(reqGstAmount == null) {
 
@@ -351,8 +395,8 @@ public class Create_materialReturn_test {
 	@Test(priority=16)
 	public void validOtherAmount() {
 
-		Double resOtherAmount = materialReturnResponse.jsonPath().getDouble("other_amount");
-		Double reqOtherAmount = materialReturnPayload.getOther_amount();
+		resOtherAmount = materialReturnResponse.jsonPath().getDouble("other_amount");
+		reqOtherAmount = materialReturnPayload.getOther_amount();
 
 		if(reqOtherAmount == null) {
 
@@ -407,11 +451,13 @@ public class Create_materialReturn_test {
 	public void validPhoto() {
 
 		List<String> resPhotoList = materialReturnResponse.jsonPath().getList("photos");
-		List<String> reqPhotosList = Arrays.asList(materialReturnPayload.getPhotos());
+		String[] reqPhotos = materialReturnPayload.getPhotos();
 
-		if(reqPhotosList == null || reqPhotosList.isEmpty()) {
+		if(reqPhotos == null || reqPhotos.length==0) {
 			System.out.println("photos not provided");
 		} else {
+			
+			List<String> reqPhotosList = Arrays.asList(reqPhotos);
 
 			Assert.assertNotNull(resPhotoList, "photos list should not be null");
 			Assert.assertFalse(resPhotoList.isEmpty(), "photos list should not be empty");
@@ -467,9 +513,9 @@ public class Create_materialReturn_test {
 		} else {
 
 			Assert.assertNotNull(resRefrenceNumber, "vendor refrence number should not be null");
-			Assert.assertEquals(resRefrenceNumber.trim().isEmpty(), "vendor refrence number should not be empty");
+			Assert.assertFalse(resRefrenceNumber.trim().isEmpty(), "vendor refrence number should not be empty");
 
-			Assert.assertEquals(resRefrenceNumber, resRefrenceNumber, "vendor refrence number should not be match");
+			Assert.assertEquals(reqRefrenceNumber, resRefrenceNumber, "Vendor reference number mismatch");
 
 			System.out.println("Request refrence number :" + reqRefrenceNumber);
 			System.out.println("Response refrence number :" + resRefrenceNumber);

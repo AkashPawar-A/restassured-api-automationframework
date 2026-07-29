@@ -8,9 +8,7 @@
           <include name="validMaterial"/>
           <include name="validResponseMessage"/>
           <include name="validResponseSchema"/>
-          <include name="validRefrenceNumber"/>
           <include name="validCompanyId"/>
-          <include name="validTotalPayable"/>
         </methods>
       </class> <!-- com.onsite.materialReturn_testpage.Create_materialReturn_test -->
     </classes>
