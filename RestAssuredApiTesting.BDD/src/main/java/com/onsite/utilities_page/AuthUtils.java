@@ -62,60 +62,38 @@ public class AuthUtils {
 		//Extract token
 		String token = secondResponse.jsonPath().getString("token");
 		System.out.println("Extracted token: " + token);
-		
-		// System.out.println("RAW JSON OBJ: " + secondResponse.getBody().asPrettyString());
-		
-		// Extract company id
+
+		// Extract Current Company ID
+		String currentCompanyId =
+		        secondResponse.jsonPath().getString("user.current_company_id");
+
+		// Extract Company List
 		List<Map<String, Object>> companies =
-				secondResponse.jsonPath().getList("user.monkey_patch_company_user");
+		        secondResponse.jsonPath().getList("user.monkey_patch_company_user");
 
 		String companyId = null;
+
 		for (Map<String, Object> company : companies) {
 
-			boolean validCompanyId = true;
+		    String id = (String) company.get("company_id");
 
-			Integer hiddenFlag = (Integer) company.get("hidden");
-			String companyid = (String) company.get("company_id");
-			String userRole = (String) company.get("role");
-			String userType = (String) company.get("type");
-			String userName = (String) company.get("name");
-			//Long userNumber = (Long) company.get("mobile");
-			Number mobileNumber = (Number) company.get("mobile");
-			Long userNumber = mobileNumber != null ? mobileNumber.longValue() : null;
-			
-			String roleId = (String) company.get("company_role_id");
+		    Number hidden = (Number) company.get("hidden");
+		    int hiddenFlag = hidden != null ? hidden.intValue() : -1;
 
-			if (hiddenFlag == null || hiddenFlag.intValue() != 0) {
-				validCompanyId = false;
-			}
-
-			if (companyid == null || companyid.isEmpty()) {
-				validCompanyId = false;
-			}
-
-			if (!"admin".equals(userRole)) {
-				validCompanyId = false;
-			}
-
-			if (!"customer".equals(userType)) {
-				validCompanyId = false;
-			}
-
-			if (userName == null || userName.isEmpty()) {
-				validCompanyId = false;
-			}
-
-			if (userNumber == null) {
-				validCompanyId = false;
-			}
-
-			if (validCompanyId) {
-				companyId = companyid;
-				break;
-			}
+		    if (currentCompanyId.equals(id) && hiddenFlag == 0) {
+		        companyId = id;
+		        break;
+		    }
 		}
-		
-		System.out.println("COMPANY ID FROM LOGIN RESPONSE (NON-DELETED): " + companyId);
+
+		// Validation
+		if (companyId == null) {
+		    throw new RuntimeException("Current company not found or company is hidden.");
+		}
+
+		System.out.println("CURRENT COMPANY ID : " + companyId);
+
+		// Save in CompanyContext
 		CompanyContext.setCompanyId(companyId);
 		return token;
 

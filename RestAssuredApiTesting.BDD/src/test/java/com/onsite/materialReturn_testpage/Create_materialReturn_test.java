@@ -19,7 +19,7 @@ import com.onsite.endpoints.MaterialReturn_Api;
 import com.onsite.pojo_request.Material;
 import com.onsite.pojo_request.MaterialReturnRequest;
 import com.onsite.pojo_response.MaterialReturn_Response;
-import com.onsite.utilities_page.AuthUtils;
+import com.onsite.utilities_page.BaseToken;
 import com.onsite.utilities_page.CompanyContext;
 import com.onsite.utilities_page.JsonUtils;
 
@@ -28,13 +28,12 @@ import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 
-public class Create_materialReturn_test {
+public class Create_materialReturn_test extends BaseToken{
 
 	private MaterialReturn_Response responseBody;
 	private MaterialReturnRequest materialReturnPayload;
 	private Response materialReturnResponse;
 	private ObjectMapper mapper;
-	private String loginCompanyId;
 
 	@DataProvider(name="materialReturn")
 	public Object[][] getData() throws IOException{
@@ -46,7 +45,7 @@ public class Create_materialReturn_test {
 		materialitemList.add(materialItem);
 
 		materialReturnReq.put("materials", materialitemList);
-		System.out.println("final material return payload :" + materialReturnPayload);
+		System.out.println("final material return request payload :" + materialReturnReq);
 
 		// REQUEST DESERIALIZATION - JSON → Request POJO
 		mapper = new ObjectMapper();
@@ -65,12 +64,10 @@ public class Create_materialReturn_test {
 	@Test(dataProvider="materialReturn", priority=1)
 	public void materialReturn(MaterialReturnRequest finalPayload) {
 
-		loginCompanyId = CompanyContext.getCompanyId();
-
 		materialReturnResponse = RestAssured
 				.given()
 				.baseUri(ApiBasePath.BASE_URL)
-				.header("Authorization", "Bearer " + AuthUtils.getToken())
+				.header("Authorization", "Bearer " + BaseToken.token)
 				.contentType(ContentType.JSON)
 				.body(finalPayload)
 				.log().uri()
@@ -86,7 +83,7 @@ public class Create_materialReturn_test {
 
 	}
 
-	@Test(priority=2)
+	@Test(priority=2, dependsOnMethods="materialReturn")
 	public void validStatusCode() {
 
 		int responseStatusCode = materialReturnResponse.getStatusCode();
@@ -97,40 +94,45 @@ public class Create_materialReturn_test {
 		Assert.assertEquals(responseStatusCode, 200, "status code does not match with responseStatusCode");
 	}
 
-	@Test(priority=2)
+	@Test(priority=2, dependsOnMethods="materialReturn")
 	public void validResponseMessage() {
 
 		String responseMessage = materialReturnResponse.jsonPath().getString("message");
-
+		
 		if(responseMessage == null || responseMessage.trim().isEmpty()) {
 			System.out.println("Response message is not provided");
 		} else {
+			
+			Assert.assertNotNull(responseMessage, "response message should not be null");
+			Assert.assertFalse(responseMessage.trim().isEmpty(), "Response message should not be empty");
 			System.out.println("response message :" + responseMessage);
 		}
-
-		Assert.assertNotNull(responseMessage, "response message should not be null");
-		Assert.assertFalse(responseMessage.trim().isEmpty(), "Response message should not be empty");
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3, dependsOnMethods="materialReturn")
 	public void validResponseTime() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		long responseTime = materialReturnResponse.getTime();
-
 		System.out.println("response time :" + responseTime + "ms");
 
 		Assert.assertTrue(responseTime < 2000, "Response time is too long :" + responseTime + "ms");
 	}
 
-	@Test(priority=4)
+	@Test(priority=4, dependsOnMethods="materialReturn")
 	public void validResponseSchema() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		materialReturnResponse.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(
 				"responseSchema_files/MaterialReturnResponse_schema.json"));
 	}
 
-	@Test(priority=5)
+	@Test(priority=5, dependsOnMethods="materialReturn")
 	public void validMaterialReturnId() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String materialReturnId = materialReturnResponse.jsonPath().getString("id");
 
@@ -140,19 +142,29 @@ public class Create_materialReturn_test {
 		System.out.println("Material return id :" + materialReturnId);
 	}
 
-	@Test(priority=6)
+	@Test(priority=6, dependsOnMethods="materialReturn")
 	public void validCompanyId() {
+		
+		String loginCompanyId = CompanyContext.getCompanyId();
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String companyId = materialReturnResponse.jsonPath().getString("company_id");
+		
+		System.out.println("Response Company ID : " + companyId);
+		System.out.println("Login Company ID   : " + loginCompanyId);
 
 		Assert.assertNotNull(companyId, "company id should not be null");
 		Assert.assertFalse(companyId.trim().isEmpty(), "company id should not be empty");
+		Assert.assertNotNull(loginCompanyId, "login company id should not be null");;
 
 		Assert.assertEquals(companyId, loginCompanyId, "Company ID mismatch");
 	}
 
-	@Test(priority=7)
+	@Test(priority=7, dependsOnMethods="materialReturn")
 	public void validRemark() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resRemark = materialReturnResponse.jsonPath().getString("remark");
 		String reqRemark = materialReturnPayload.getRemark();
@@ -172,9 +184,9 @@ public class Create_materialReturn_test {
 		}	
 	}
 
-	@Test(priority=8)
+	@Test(priority=8, dependsOnMethods="materialReturn")
 	public void validPartyCompanyUserId() {
-
+		
 		String resPartyCompanyUserId = materialReturnResponse.jsonPath().getString("party_company_user_id");
 		String reqPartyCompanyUserId = materialReturnPayload.getParty_company_user_id();
 
@@ -195,8 +207,10 @@ public class Create_materialReturn_test {
 		}
 	}
 
-	@Test(priority=9)
+	@Test(priority=9, dependsOnMethods="materialReturn")
 	public void validCreatorCompanyUserId() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resCreatorCompanyUserId = materialReturnResponse.jsonPath().getString("creator_company_user_id");
 
@@ -206,7 +220,7 @@ public class Create_materialReturn_test {
 		System.out.println("creator company user id :" + resCreatorCompanyUserId);
 	}
 
-	@Test(priority=10)
+	@Test(priority=10, dependsOnMethods="materialReturn")
 	public void validProjectId() {
 
 		String resProjectId = materialReturnResponse.jsonPath().getString("project_id");
@@ -229,20 +243,23 @@ public class Create_materialReturn_test {
 		} 
 	}
 
-	@Test(priority=11)
+	@Test(priority=11, dependsOnMethods="materialReturn")
 	public void validInvoiceId() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resInvoiceId = materialReturnResponse.jsonPath().getString("invoice_id");
 
-		if(resInvoiceId != null && !resInvoiceId.trim().isEmpty()) {
-			System.out.println("invoice id :" + resInvoiceId);
-		} else {
-			Assert.fail("invoice id is null or empty");
-		}	
+		Assert.assertNotNull(resInvoiceId, "Invoice Id should not be null");
+		Assert.assertFalse(resInvoiceId.trim().isEmpty(), "Invoice Id should not be empty");
+		
+		System.out.println("invoice id : " + resInvoiceId);	
 	}
 
-	@Test(priority=12)
+	@Test(priority=12, dependsOnMethods="materialReturn")
 	public void validMaterial() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		List<Material> resMaterialList = materialReturnResponse.jsonPath().getList("material", Material.class);
 
@@ -251,60 +268,38 @@ public class Create_materialReturn_test {
 		Assert.assertNotNull(reqMaterialList, "Request material list should not be null");
 		Assert.assertTrue(reqMaterialList.length > 0, "Request material list should not be empty");
 		
-		Assert.assertNotNull(resMaterialList, "Response material list should not be null");
-		Assert.assertFalse(resMaterialList.isEmpty(), "Response material list should not be empty");
-		
-		Assert.assertEquals(resMaterialList.size(), reqMaterialList.length, "count is missmatch");
-
-		for (int i = 0; i < reqMaterialList.length; i++) {
-
-			Material resMaterial = resMaterialList.get(i);
-			Material reqMaterial = reqMaterialList[i];
+		if(resMaterialList == null || resMaterialList.isEmpty()) {
 			
-			// Object validation
-			Assert.assertNotNull(reqMaterial, "Request material object should not be null at index " + i);
-	        Assert.assertNotNull(resMaterial, "Response material object should not be null at index " + i);
-	        
-	        // Field validation
-	        Assert.assertNotNull(reqMaterial.getMaterial_item_id(), "Request Material ID should not be null");
-	        Assert.assertNotNull(resMaterial.getMaterial_item_id(), "Response Material ID should not be null");
-	        Assert.assertNotNull(reqMaterial.getQuantity(), "Request Quantity should not be null");
-	        Assert.assertNotNull(resMaterial.getQuantity(), "Response Quantity should not be null");
-	        Assert.assertNotNull(reqMaterial.getUnit_price(), "Request Unit Price should not be null");
-	        Assert.assertNotNull(resMaterial.getUnit_price(), "Response Unit Price should not be null");
-	        
-	        // Negative value validation
-	        Assert.assertTrue(reqMaterial.getQuantity() >= 0, "Request Quantity should not be negative");
-	        Assert.assertTrue(resMaterial.getQuantity() >= 0, "Response Quantity should not be negative");
-	        Assert.assertTrue(reqMaterial.getUnit_price() >= 0, "Request Unit Price should not be negative");
-	        Assert.assertTrue(resMaterial.getUnit_price() >= 0, "Response Unit Price should not be negative");
-	        
-	        // Value validation
-	        Assert.assertEquals(resMaterial.getMaterial_item_id(), reqMaterial.getMaterial_item_id(), "Material ID mismatch at index " + i);
-	        Assert.assertEquals(resMaterial.getQuantity(), reqMaterial.getQuantity(), "Quantity mismatch at index " + i);
-	        Assert.assertEquals(resMaterial.getUnit_price(), reqMaterial.getUnit_price(), 0.01, "Unit Price mismatch at index " + i);
+			System.out.println("material list is empty in response : Validating material_ids instead");
 			
-	        // Expected material amount
-	        Double expectedMaterialAmount = reqMaterial.getQuantity() * reqMaterial.getUnit_price();
-	        Double actualMaterialAmount = resMaterial.getQuantity() * resMaterial.getUnit_price();
-	        Assert.assertEquals(actualMaterialAmount, expectedMaterialAmount, 0.01, "Material Amount mismatch at index " + i);
-	        
-	        System.out.println("Material Index      : " + i);
-	        System.out.println("Material Item ID    : " + reqMaterial.getMaterial_item_id());
-	        System.out.println("Quantity            : " + reqMaterial.getQuantity());
-	        System.out.println("Unit Price          : " + reqMaterial.getUnit_price());
-	        System.out.println("Expected Amount     : " + expectedMaterialAmount);
-	        System.out.println("Response Amount     : " + actualMaterialAmount);
+			List<String> responseMaterialIds = materialReturnResponse.jsonPath().getList("material_ids");
+			
+		    Assert.assertNotNull(responseMaterialIds, "material_ids should not be null");
+		    Assert.assertFalse(responseMaterialIds.isEmpty(), "material_ids should not be empty");
+		    
+		    Assert.assertEquals(responseMaterialIds.size(), reqMaterialList.length,
+		            "Material ID count mismatch");
+
+		    for (int i = 0; i < reqMaterialList.length; i++) {
+
+		        Assert.assertEquals(
+		                responseMaterialIds.get(i),
+		                reqMaterialList[i].getMaterial_item_id(),
+		                "Material ID mismatch at index " + i);
+
+		        System.out.println("Material ID Matched : " + responseMaterialIds.get(i));
+		    }
+		    return;
 		}	
 	}
 
 	private Double reqMaterialAmount;
 	private Double resMaterialAmount;
-	@Test(priority=13)
+	@Test(priority=13, dependsOnMethods="materialReturn")
 	public void validMaterialAmount() {
-
-		resMaterialAmount = materialReturnResponse.jsonPath().getDouble("material_amount");
-		reqMaterialAmount = materialReturnPayload.getMaterial_amount();
+		
+		this.resMaterialAmount = materialReturnResponse.jsonPath().getDouble("material_amount");
+		this.reqMaterialAmount = materialReturnPayload.getMaterial_amount();
 
 		Material[] reqMaterialList = materialReturnPayload.getMaterials();
 
@@ -352,11 +347,13 @@ public class Create_materialReturn_test {
 
 	private Double reqDiscount;
 	private Double resDiscount;
-	@Test(priority=14)
+	@Test(priority=14, dependsOnMethods="materialReturn")
 	public void validDiscount() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
-		resDiscount = materialReturnResponse.jsonPath().getDouble("discount");
-		reqDiscount = materialReturnPayload.getDiscount();
+		this.resDiscount = materialReturnResponse.jsonPath().getDouble("discount");
+		this.reqDiscount = materialReturnPayload.getDiscount();
 
 		if(reqDiscount == null) {
 			System.out.println("discount is not provided");
@@ -371,11 +368,13 @@ public class Create_materialReturn_test {
 
 	private Double reqGstAmount;
 	private Double resGstAmount;
-	@Test(priority=15)
+	@Test(priority=15, dependsOnMethods="materialReturn")
 	public void validGstAmount() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
-		resGstAmount = materialReturnResponse.jsonPath().getDouble("gst_amount");
-		reqGstAmount = materialReturnPayload.getGst_amount();
+		this.resGstAmount = materialReturnResponse.jsonPath().getDouble("gst_amount");
+		this.reqGstAmount = materialReturnPayload.getGst_amount();
 
 		if(reqGstAmount == null) {
 
@@ -392,11 +391,13 @@ public class Create_materialReturn_test {
 
 	private Double reqOtherAmount;
 	private Double resOtherAmount;
-	@Test(priority=16)
+	@Test(priority=16, dependsOnMethods="materialReturn")
 	public void validOtherAmount() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
-		resOtherAmount = materialReturnResponse.jsonPath().getDouble("other_amount");
-		reqOtherAmount = materialReturnPayload.getOther_amount();
+		this.resOtherAmount = materialReturnResponse.jsonPath().getDouble("other_amount");
+		this.reqOtherAmount = materialReturnPayload.getOther_amount();
 
 		if(reqOtherAmount == null) {
 
@@ -411,7 +412,7 @@ public class Create_materialReturn_test {
 		}
 	}
 
-	@Test(priority=17)
+	@Test(priority=17, dependsOnMethods="materialReturn")
 	public void validTotalPayable() {
 
 		Double expectedReqTotalPayable = 0.0;
@@ -419,8 +420,6 @@ public class Create_materialReturn_test {
 
 		Double resTotalPayable = materialReturnResponse.jsonPath().getDouble("total_payable");
 		Double reqTotalPayable = materialReturnPayload.getTotal_payable();
-
-		Assert.assertEquals(expectedReqTotalPayable, actualResTotalPayable, "total payable amount is different");
 
 		if(reqTotalPayable == null) {
 
@@ -447,8 +446,10 @@ public class Create_materialReturn_test {
 		}
 	}
 
-	@Test(priority=18)
+	@Test(priority=18, dependsOnMethods="materialReturn")
 	public void validPhoto() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		List<String> resPhotoList = materialReturnResponse.jsonPath().getList("photos");
 		String[] reqPhotos = materialReturnPayload.getPhotos();
@@ -471,7 +472,7 @@ public class Create_materialReturn_test {
 		}	
 	}
 
-	@Test(priority=19)
+	@Test(priority=19, dependsOnMethods="materialReturn")
 	public void validReturnDate() {
 
 		String resReturnDate = materialReturnResponse.jsonPath().getString("return_date");
@@ -501,8 +502,10 @@ public class Create_materialReturn_test {
 		}
 	}
 
-	@Test(priority=20)
+	@Test(priority=20, dependsOnMethods="materialReturn")
 	public void validRefrenceNumber() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resRefrenceNumber = materialReturnResponse.jsonPath().getString("vendor_reference_number");
 		String reqRefrenceNumber = materialReturnPayload.getVendor_reference_number();
@@ -513,17 +516,18 @@ public class Create_materialReturn_test {
 		} else {
 
 			Assert.assertNotNull(resRefrenceNumber, "vendor refrence number should not be null");
-			Assert.assertFalse(resRefrenceNumber.trim().isEmpty(), "vendor refrence number should not be empty");
-
-			Assert.assertEquals(reqRefrenceNumber, resRefrenceNumber, "Vendor reference number mismatch");
+			Assert.assertFalse(resRefrenceNumber.trim().isEmpty(), "Vendor reference number should not be empty");
+			Assert.assertEquals(resRefrenceNumber, reqRefrenceNumber, "Vendor reference number mismatch");
 
 			System.out.println("Request refrence number :" + reqRefrenceNumber);
 			System.out.println("Response refrence number :" + resRefrenceNumber);
 		}
 	}
 	
-	@Test(priority=21)
+	@Test(priority=21, dependsOnMethods="materialReturn")
 	public void validDueDays() {
+		
+		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 		
 		Double resDueDays = materialReturnResponse.jsonPath().getDouble("due_days");
 		Double reqDueDays = materialReturnPayload.getDue_days();

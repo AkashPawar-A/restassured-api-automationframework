@@ -5,10 +5,11 @@
     <classes>
       <class name="com.onsite.materialReturn_testpage.Create_materialReturn_test">
         <methods>
+          <include name="generateTokenForSuite"/>
           <include name="validMaterial"/>
-          <include name="validResponseMessage"/>
           <include name="validResponseSchema"/>
-          <include name="validCompanyId"/>
+          <include name="materialReturn"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.onsite.materialReturn_testpage.Create_materialReturn_test -->
     </classes>

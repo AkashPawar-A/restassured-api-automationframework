@@ -11,7 +11,7 @@
      "material",
      "material_amount",
      "total_payable",
-     "return_date",
+     "return_date"
   ],
   
   "properties" : {
@@ -23,7 +23,7 @@
       "project_id" : { "type" : "string" },
       "sub_category_id" : { "type" : "string" },
       "invoice_id" : { "type" : "string" },
-      "material" : { "type" : "string[]" },
+      "material" : { "type" : "array", "items" : {"type" : "object"}},
       "discount" : { "type" : "number" },
       "gst_amount" : { "type" : "number" },
       "other_amount" : { "type" : "number" },
@@ -44,8 +44,6 @@
       "source_edit" : { "type" : "string" },
       "approval_comment" : { "type" : "string" },
       "approved_by" : { "type" : "string" },   
-      "due_days" : { "type" : "number" },
-  
+      "due_days" : { "type" : "number" }
     }
-  
  }

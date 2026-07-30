@@ -1,106 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="22" passed="18" failed="4" skipped="0">
+<testng-results ignored="0" total="22" passed="20" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-29T19:20:40 IST" name="Default suite" finished-at="2026-07-29T19:20:48 IST" duration-ms="8156">
+  <suite started-at="2026-07-30T18:56:09 IST" name="Default suite" finished-at="2026-07-30T18:56:34 IST" duration-ms="24631">
     <groups>
     </groups>
-    <test started-at="2026-07-29T19:20:40 IST" name="Default test" finished-at="2026-07-29T19:20:48 IST" duration-ms="8156">
+    <test started-at="2026-07-30T18:56:09 IST" name="Default test" finished-at="2026-07-30T18:56:34 IST" duration-ms="24631">
       <class name="com.onsite.materialReturn_testpage.Create_materialReturn_test">
-        <test-method signature="materialReturn(com.onsite.pojo_request.MaterialReturnRequest)[pri:1, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:41 IST" name="materialReturn" data-provider="materialReturn" finished-at="2026-07-29T19:20:46 IST" duration-ms="5594" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:09 IST" name="setUp" finished-at="2026-07-30T18:56:16 IST" duration-ms="6458" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:16 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:19 IST" duration-ms="2576" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="materialReturn(com.onsite.pojo_request.MaterialReturnRequest)[pri:1, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:19 IST" name="materialReturn" data-provider="materialReturn" finished-at="2026-07-30T18:56:19 IST" duration-ms="744" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.onsite.pojo_request.MaterialReturnRequest@2ea6e30c]]>
+                <![CDATA[com.onsite.pojo_request.MaterialReturnRequest@4f081b5d]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- materialReturn -->
-        <test-method signature="validResponseMessage()[pri:2, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:46 IST" name="validResponseMessage" finished-at="2026-07-29T19:20:46 IST" duration-ms="81" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[response message should not be null expected object to not be null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: response message should not be null expected object to not be null
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.assertNotNull(Assert.java:942)
-at com.onsite.materialReturn_testpage.Create_materialReturn_test.validResponseMessage(Create_materialReturn_test.java:111)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:19 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:20 IST" duration-ms="642" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validResponseMessage()[pri:2, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:20 IST" name="validResponseMessage" finished-at="2026-07-30T18:56:20 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="49" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseMessage -->
-        <test-method signature="validStatusCode()[pri:2, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:46 IST" name="validStatusCode" finished-at="2026-07-29T19:20:46 IST" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:20 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:21 IST" duration-ms="714" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validStatusCode()[pri:2, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:21 IST" name="validStatusCode" finished-at="2026-07-30T18:56:21 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validStatusCode -->
-        <test-method signature="validResponseTime()[pri:3, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:46 IST" name="validResponseTime" finished-at="2026-07-29T19:20:46 IST" duration-ms="11" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:21 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:21 IST" duration-ms="610" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validResponseTime()[pri:3, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:21 IST" name="validResponseTime" finished-at="2026-07-30T18:56:21 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseTime -->
-        <test-method signature="validResponseSchema()[pri:4, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validResponseSchema" finished-at="2026-07-29T19:20:47 IST" duration-ms="460" status="FAIL">
-          <exception class="io.restassured.module.jsv.JsonSchemaValidationException">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:21 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:22 IST" duration-ms="711" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validResponseSchema()[pri:4, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:22 IST" name="validResponseSchema" finished-at="2026-07-30T18:56:22 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="269" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[com.github.fge.jsonschema.core.exceptions.ProcessingException: fatal: content at URI "file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#" is not valid JSON
-    level: "fatal"
-    uri: "file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#"
-    parsingMessage: "Unexpected character (']' (code 93)): expected a value"
+              <![CDATA[1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: object has missing required properties (["material"])
+    level: "error"
+    schema: {"loadingURI":"file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["id","material","material_amount","party_company_user_id","project_id","return_date","total_payable"]
+    missing: ["material"]
+
+  Actual: {"id":"c402b334-17b4-4643-9e3f-f5c314e86a4e","company_id":"eb603e4c-3d94-4b37-9a23-1f5e89ca8f17","remark":"test - 1","creator_company_user_id":"f52caf46-41e0-4ab7-a143-86873203fecd","party_company_user_id":"92478da4-a1ea-44b7-b0ab-a3e9534b7240","project_id":"a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9","sub_category_id":"eed3baf3-b8ff-4182-8d96-f1d1cad008b6","invoice_id":"ff2d16e7-3957-4f83-9094-ea5ec8f52a91","material_ids":["dc48c565-dfe6-4434-a07c-d3be7e00b783"],"discount":100,"gst_amount":10,"other_amount":20,"material_amount":1000,"total_payable":930,"prefix":"MRET-","sequence":17,"return_number":"MRET-17","photos":[],"return_date":"2026-07-29T10:39:32.282Z","vendor_reference_number":"A-01","delete":0,"created":"2026-07-30T13:26:24.72607901Z","updated":"2026-07-30T13:26:24.739380756Z","updated_by_cu_id":"","approval_flag":"auto_approved","monkey_patch_materials":null,"monkey_patch_creator_company_user":{"id":"f52caf46-41e0-4ab7-a143-86873203fecd","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"Ghansham Lokhande","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_party_company_user":{"id":"92478da4-a1ea-44b7-b0ab-a3e9534b7240","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"RaviRaj","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_is_editable":0,"monkey_patch_paid_amount":0,"monkey_patch_status":"","monkey_patch_sub_category":{"id":"eed3baf3-b8ff-4182-8d96-f1d1cad008b6","parent_id":"","creator":"2925744f-4466-429c-b9eb-0177b0d04515","creator_company_user_id":"f52caf46-41e0-4ab7-a143-86873203fecd","company_id":"eb603e4c-3d94-4b37-9a23-1f5e89ca8f17","type":"costcode","text_en":"Electrical","text_hi":"Electrical","index":0,"hidden":0,"created":"2026-03-30T07:59:19.744Z","updated":"2026-03-30T07:59:19.744Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"#000000","is_project_phase":0},"monkey_patch_project":{"id":"","type":"","name":"","contractor":"","contractor_company_user_id":"","creator":"","creator_company_user_id":"","bg_image":"","admins":null,"admins_company_user_ids":null,"workers_company_user_ids":null,"customer_name":"","customer_contact":0,"customer_email":"","customer_company_name":"","customer_company_address":"","customer_gst":"","customer_profile_image":"","address":"","city":"","state":"","status":"","contact_book":null,"is_engine":0,"duplicate_from":"","created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","updated_by_cu_id":"","contact_data":null,"photos":null,"location":{"type":"","coordinates":null},"google_address":null,"allowed_features":null,"estimated_cost":0,"progress":0,"start_date":"0001-01-01T00:00:00Z","end_date":"0001-01-01T00:00:00Z","monkey_patch_contractor_name":"","monkey_patch_contractor_company_user_name":"","monkey_patch_contractor_contact":0,"monkey_patch_contractor_profile_pic":"","monkey_patch_in_amount":0,"monkey_patch_out_amount":0,"monkey_patch_transaction_in_amount":0,"monkey_patch_transaction_out_amount":0,"company_id":"","monkey_patch_my_company_user":{"id":"","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_company_name":"","monkey_patch_team_member":null,"monkey_patch_todo_count":0,"attendance_radius":0,"distance":0,"monkey_patch_primary_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"dimension":"","orientation":"","code":"","key_personnel_cu_ids":null,"billed_amount":0,"monkey_patch_key_personnel":null,"custom_fields":null,"entry_time":"0001-01-01T00:00:00Z","sub_category_id":"","monkey_patch_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"phase_sub_category_ids":null,"phase_sub_category_id":"","monkey_patch_phase_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"scope_of_work":null,"grn_prefix_list":null,"default_grn_prefix":{"prefix":"","sequence":0},"material_request_prefix_list":null,"default_material_request_prefix":{"prefix":"","sequence":0},"company_address_id":"","monkey_patch_company_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"total_estimated_budget":0},"monkey_patch_invoice":{"id":"ff2d16e7-3957-4f83-9094-ea5ec8f52a91","company_id":"eb603e4c-3d94-4b37-9a23-1f5e89ca8f17","creator_company_user_id":"f52caf46-41e0-4ab7-a143-86873203fecd","party_company_user_id":"92478da4-a1ea-44b7-b0ab-a3e9534b7240","project_id":"a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9","category_id":"c4881f7f-6345-405e-a4ee-f5c4088d47b2","sub_category_id":"eed3baf3-b8ff-4182-8d96-f1d1cad008b6","feature_type":"materialreturn","feature_id":"c402b334-17b4-4643-9e3f-f5c314e86a4e","invoice_type":"income","status":"unpaid","total_payable":930,"paid_amount":0,"sequence":183,"delete":0,"invoice_date":"2026-07-29T10:39:32.282Z","created":"2026-07-30T13:26:24.733895212Z","updated":"2026-07-30T13:26:24.733895312Z","updated_by_cu_id":"","approval_flag":"auto_approved","monkey_patch_settlement":{"id":"","company_id":"","creator_company_user_id":"","party_company_user_id":"","project_id":"","invoice_id":"","cashbooktransaction_id":"","settled_amount":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_settlement_date":"0001-01-01T00:00:00Z"},"monkey_patch_retention_entry":null,"monkey_patch_feature":null,"monkey_patch_project":{"id":"","type":"","name":"","contractor":"","contractor_company_user_id":"","creator":"","creator_company_user_id":"","bg_image":"","admins":null,"admins_company_user_ids":null,"workers_company_user_ids":null,"customer_name":"","customer_contact":0,"customer_email":"","customer_company_name":"","customer_company_address":"","customer_gst":"","customer_profile_image":"","address":"","city":"","state":"","status":"","contact_book":null,"is_engine":0,"duplicate_from":"","created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","updated_by_cu_id":"","contact_data":null,"photos":null,"location":{"type":"","coordinates":null},"google_address":null,"allowed_features":null,"estimated_cost":0,"progress":0,"start_date":"0001-01-01T00:00:00Z","end_date":"0001-01-01T00:00:00Z","monkey_patch_contractor_name":"","monkey_patch_contractor_company_user_name":"","monkey_patch_contractor_contact":0,"monkey_patch_contractor_profile_pic":"","monkey_patch_in_amount":0,"monkey_patch_out_amount":0,"monkey_patch_transaction_in_amount":0,"monkey_patch_transaction_out_amount":0,"company_id":"","monkey_patch_my_company_user":{"id":"","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_company_name":"","monkey_patch_team_member":null,"monkey_patch_todo_count":0,"attendance_radius":0,"distance":0,"monkey_patch_primary_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"dimension":"","orientation":"","code":"","key_personnel_cu_ids":null,"billed_amount":0,"monkey_patch_key_personnel":null,"custom_fields":null,"entry_time":"0001-01-01T00:00:00Z","sub_category_id":"","monkey_patch_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"phase_sub_category_ids":null,"phase_sub_category_id":"","monkey_patch_phase_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"scope_of_work":null,"grn_prefix_list":null,"default_grn_prefix":{"prefix":"","sequence":0},"material_request_prefix_list":null,"default_material_request_prefix":{"prefix":"","sequence":0},"company_address_id":"","monkey_patch_company_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"total_estimated_budget":0},"gst_amount":10},"meta_data":{"can_edit":0,"can_update_approval_flag":0},"approval_comment":"","approved_by":"","monkey_patch_approved_by":{"id":"","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"due_days":7}
 ]]>
             </message>
             <full-stacktrace>
-              <![CDATA[io.restassured.module.jsv.JsonSchemaValidationException: com.github.fge.jsonschema.core.exceptions.ProcessingException: fatal: content at URI "file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#" is not valid JSON
-    level: "fatal"
-    uri: "file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#"
-    parsingMessage: "Unexpected character (']' (code 93)): expected a value"
+              <![CDATA[java.lang.AssertionError: 1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: object has missing required properties (["material"])
+    level: "error"
+    schema: {"loadingURI":"file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["id","material","material_amount","party_company_user_id","project_id","return_date","total_payable"]
+    missing: ["material"]
 
-at io.restassured.module.jsv.JsonSchemaValidator.matchesSafely(JsonSchemaValidator.java:233)
-at io.restassured.module.jsv.JsonSchemaValidator.matchesSafely(JsonSchemaValidator.java:75)
-at org.hamcrest.TypeSafeMatcher.matches(TypeSafeMatcher.java:67)
-at io.restassured.internal.assertion.BodyMatcher.validate(BodyMatcher.java:82)
-at io.restassured.internal.assertion.BodyMatcherGroup.lambda$validate$0(BodyMatcherGroup.java:30)
-at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
-at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-at io.restassured.internal.assertion.BodyMatcherGroup.validate(BodyMatcherGroup.java:30)
-at io.restassured.internal.assertion.BodyMatcherGroup$validate$3.call(Unknown Source)
-at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
-at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:157)
-at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:499)
+  Actual: {"id":"c402b334-17b4-4643-9e3f-f5c314e86a4e","company_id":"eb603e4c-3d94-4b37-9a23-1f5e89ca8f17","remark":"test - 1","creator_company_user_id":"f52caf46-41e0-4ab7-a143-86873203fecd","party_company_user_id":"92478da4-a1ea-44b7-b0ab-a3e9534b7240","project_id":"a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9","sub_category_id":"eed3baf3-b8ff-4182-8d96-f1d1cad008b6","invoice_id":"ff2d16e7-3957-4f83-9094-ea5ec8f52a91","material_ids":["dc48c565-dfe6-4434-a07c-d3be7e00b783"],"discount":100,"gst_amount":10,"other_amount":20,"material_amount":1000,"total_payable":930,"prefix":"MRET-","sequence":17,"return_number":"MRET-17","photos":[],"return_date":"2026-07-29T10:39:32.282Z","vendor_reference_number":"A-01","delete":0,"created":"2026-07-30T13:26:24.72607901Z","updated":"2026-07-30T13:26:24.739380756Z","updated_by_cu_id":"","approval_flag":"auto_approved","monkey_patch_materials":null,"monkey_patch_creator_company_user":{"id":"f52caf46-41e0-4ab7-a143-86873203fecd","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"Ghansham Lokhande","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_party_company_user":{"id":"92478da4-a1ea-44b7-b0ab-a3e9534b7240","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"RaviRaj","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_is_editable":0,"monkey_patch_paid_amount":0,"monkey_patch_status":"","monkey_patch_sub_category":{"id":"eed3baf3-b8ff-4182-8d96-f1d1cad008b6","parent_id":"","creator":"2925744f-4466-429c-b9eb-0177b0d04515","creator_company_user_id":"f52caf46-41e0-4ab7-a143-86873203fecd","company_id":"eb603e4c-3d94-4b37-9a23-1f5e89ca8f17","type":"costcode","text_en":"Electrical","text_hi":"Electrical","index":0,"hidden":0,"created":"2026-03-30T07:59:19.744Z","updated":"2026-03-30T07:59:19.744Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"#000000","is_project_phase":0},"monkey_patch_project":{"id":"","type":"","name":"","contractor":"","contractor_company_user_id":"","creator":"","creator_company_user_id":"","bg_image":"","admins":null,"admins_company_user_ids":null,"workers_company_user_ids":null,"customer_name":"","customer_contact":0,"customer_email":"","customer_company_name":"","customer_company_address":"","customer_gst":"","customer_profile_image":"","address":"","city":"","state":"","status":"","contact_book":null,"is_engine":0,"duplicate_from":"","created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","updated_by_cu_id":"","contact_data":null,"photos":null,"location":{"type":"","coordinates":null},"google_address":null,"allowed_features":null,"estimated_cost":0,"progress":0,"start_date":"0001-01-01T00:00:00Z","end_date":"0001-01-01T00:00:00Z","monkey_patch_contractor_name":"","monkey_patch_contractor_company_user_name":"","monkey_patch_contractor_contact":0,"monkey_patch_contractor_profile_pic":"","monkey_patch_in_amount":0,"monkey_patch_out_amount":0,"monkey_patch_transaction_in_amount":0,"monkey_patch_transaction_out_amount":0,"company_id":"","monkey_patch_my_company_user":{"id":"","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_company_name":"","monkey_patch_team_member":null,"monkey_patch_todo_count":0,"attendance_radius":0,"distance":0,"monkey_patch_primary_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"dimension":"","orientation":"","code":"","key_personnel_cu_ids":null,"billed_amount":0,"monkey_patch_key_personnel":null,"custom_fields":null,"entry_time":"0001-01-01T00:00:00Z","sub_category_id":"","monkey_patch_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"phase_sub_category_ids":null,"phase_sub_category_id":"","monkey_patch_phase_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"scope_of_work":null,"grn_prefix_list":null,"default_grn_prefix":{"prefix":"","sequence":0},"material_request_prefix_list":null,"default_material_request_prefix":{"prefix":"","sequence":0},"company_address_id":"","monkey_patch_company_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"total_estimated_budget":0},"monkey_patch_invoice":{"id":"ff2d16e7-3957-4f83-9094-ea5ec8f52a91","company_id":"eb603e4c-3d94-4b37-9a23-1f5e89ca8f17","creator_company_user_id":"f52caf46-41e0-4ab7-a143-86873203fecd","party_company_user_id":"92478da4-a1ea-44b7-b0ab-a3e9534b7240","project_id":"a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9","category_id":"c4881f7f-6345-405e-a4ee-f5c4088d47b2","sub_category_id":"eed3baf3-b8ff-4182-8d96-f1d1cad008b6","feature_type":"materialreturn","feature_id":"c402b334-17b4-4643-9e3f-f5c314e86a4e","invoice_type":"income","status":"unpaid","total_payable":930,"paid_amount":0,"sequence":183,"delete":0,"invoice_date":"2026-07-29T10:39:32.282Z","created":"2026-07-30T13:26:24.733895212Z","updated":"2026-07-30T13:26:24.733895312Z","updated_by_cu_id":"","approval_flag":"auto_approved","monkey_patch_settlement":{"id":"","company_id":"","creator_company_user_id":"","party_company_user_id":"","project_id":"","invoice_id":"","cashbooktransaction_id":"","settled_amount":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_settlement_date":"0001-01-01T00:00:00Z"},"monkey_patch_retention_entry":null,"monkey_patch_feature":null,"monkey_patch_project":{"id":"","type":"","name":"","contractor":"","contractor_company_user_id":"","creator":"","creator_company_user_id":"","bg_image":"","admins":null,"admins_company_user_ids":null,"workers_company_user_ids":null,"customer_name":"","customer_contact":0,"customer_email":"","customer_company_name":"","customer_company_address":"","customer_gst":"","customer_profile_image":"","address":"","city":"","state":"","status":"","contact_book":null,"is_engine":0,"duplicate_from":"","created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","updated_by_cu_id":"","contact_data":null,"photos":null,"location":{"type":"","coordinates":null},"google_address":null,"allowed_features":null,"estimated_cost":0,"progress":0,"start_date":"0001-01-01T00:00:00Z","end_date":"0001-01-01T00:00:00Z","monkey_patch_contractor_name":"","monkey_patch_contractor_company_user_name":"","monkey_patch_contractor_contact":0,"monkey_patch_contractor_profile_pic":"","monkey_patch_in_amount":0,"monkey_patch_out_amount":0,"monkey_patch_transaction_in_amount":0,"monkey_patch_transaction_out_amount":0,"company_id":"","monkey_patch_my_company_user":{"id":"","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"monkey_patch_company_name":"","monkey_patch_team_member":null,"monkey_patch_todo_count":0,"attendance_radius":0,"distance":0,"monkey_patch_primary_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"dimension":"","orientation":"","code":"","key_personnel_cu_ids":null,"billed_amount":0,"monkey_patch_key_personnel":null,"custom_fields":null,"entry_time":"0001-01-01T00:00:00Z","sub_category_id":"","monkey_patch_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"phase_sub_category_ids":null,"phase_sub_category_id":"","monkey_patch_phase_sub_category":{"id":"","parent_id":"","creator":"","creator_company_user_id":"","company_id":"","type":"","text_en":"","text_hi":"","index":0,"hidden":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_children":null,"monkey_patch_parent":null,"color_hex":"","is_project_phase":0},"scope_of_work":null,"grn_prefix_list":null,"default_grn_prefix":{"prefix":"","sequence":0},"material_request_prefix_list":null,"default_material_request_prefix":{"prefix":"","sequence":0},"company_address_id":"","monkey_patch_company_address":{"id":"","company_id":"","creator_company_user_id":"","owner_id":"","address_type":"","address_title":"","address_gst":"","address_line_1":"","address_line_2":"","city":"","state":"","postal_code":"","country_code":"","location":{"type":"","coordinates":null},"google_address":null,"primary":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","search":"","monkey_patch_country_config":{"country_code":"","country_iso":"","country_name":"","created":"0001-01-01T00:00:00Z","minimum_digits":0,"maximum_digits":0,"login_channels":null,"currency":"","flag":"","tax_slabs":null,"tax_display_name":"","tax_value_display_name":"","published":0,"decimal_digit":0,"timezone":""}},"total_estimated_budget":0},"gst_amount":10},"meta_data":{"can_edit":0,"can_update_approval_flag":0},"approval_comment":"","approved_by":"","monkey_patch_approved_by":{"id":"","company_id":"","company_role_id":"","role":"","type":"","creator":"","name":"","mobile":0,"mobile_verified":0,"user_id":"","gstin":"","party_id":"","legal_business_name":"","billing_address":"","hidden":0,"profile_pic":"","monkey_patch_policy_ids":null,"monkey_patch_company_role":{"id":"","role":"","name":"","description":"","company_id":"","creator_company_user_id":"","policy_ids":null,"hidden":0,"delete":0,"created":"0001-01-01T00:00:00Z","updated":"0001-01-01T00:00:00Z","monkey_patch_policies":null},"monkey_patch_user":{"id":"","name":"","mobile":0,"country_code":"","profile_pic":"","mobile_verified":0,"invited":0,"invitation_count":0,"profession":""},"email":""},"due_days":7}
+
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
 at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
 at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
 at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
@@ -144,112 +139,85 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.github.fge.jsonschema.core.exceptions.ProcessingException: fatal: content at URI "file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#" is not valid JSON
-    level: "fatal"
-    uri: "file:/C:/Users/Administrator/git/Api_repository/RestAssuredApiTesting.BDD/target/test-classes/responseSchema_files/MaterialReturnResponse_schema.json#"
-    parsingMessage: "Unexpected character (']' (code 93)): expected a value"
-
-at com.github.fge.jsonschema.core.load.URIManager.getContent(URIManager.java:113)
-at com.github.fge.jsonschema.core.load.SchemaLoader$1.load(SchemaLoader.java:114)
-at com.github.fge.jsonschema.core.load.SchemaLoader$1.load(SchemaLoader.java:108)
-at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3574)
-at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2316)
-at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2189)
-at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2079)
-at com.google.common.cache.LocalCache.get(LocalCache.java:4017)
-at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4040)
-at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4989)
-at com.github.fge.jsonschema.core.load.SchemaLoader.get(SchemaLoader.java:171)
-at com.github.fge.jsonschema.main.JsonValidator.buildJsonSchema(JsonValidator.java:211)
-at com.github.fge.jsonschema.main.JsonSchemaFactory.getJsonSchema(JsonSchemaFactory.java:224)
-at io.restassured.module.jsv.JsonSchemaValidator.matchesSafely(JsonSchemaValidator.java:221)
-... 60 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.restassured.module.jsv.JsonSchemaValidationException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validResponseSchema -->
-        <test-method signature="validMaterialReturnId()[pri:5, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validMaterialReturnId" finished-at="2026-07-29T19:20:47 IST" duration-ms="66" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validMaterialReturnId -->
-        <test-method signature="validCompanyId()[pri:6, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validCompanyId" finished-at="2026-07-29T19:20:47 IST" duration-ms="72" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Company ID mismatch expected [null] but found [eb603e4c-3d94-4b37-9a23-1f5e89ca8f17]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Company ID mismatch expected [null] but found [eb603e4c-3d94-4b37-9a23-1f5e89ca8f17]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-at org.testng.Assert.assertEquals(Assert.java:122)
-at org.testng.Assert.assertEquals(Assert.java:629)
-at com.onsite.materialReturn_testpage.Create_materialReturn_test.validCompanyId(Create_materialReturn_test.java:151)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- validResponseSchema -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:22 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:23 IST" duration-ms="663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validMaterialReturnId()[pri:5, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:23 IST" name="validMaterialReturnId" finished-at="2026-07-30T18:56:23 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="18" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validMaterialReturnId -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:23 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:24 IST" duration-ms="640" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validCompanyId()[pri:6, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:24 IST" name="validCompanyId" finished-at="2026-07-30T18:56:24 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="20" status="PASS">
+          <reporter-output>
+          </reporter-output>
         </test-method> <!-- validCompanyId -->
-        <test-method signature="validRemark()[pri:7, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validRemark" finished-at="2026-07-29T19:20:47 IST" duration-ms="49" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:24 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:24 IST" duration-ms="628" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validRemark()[pri:7, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:24 IST" name="validRemark" finished-at="2026-07-30T18:56:24 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validRemark -->
-        <test-method signature="validPartyCompanyUserId()[pri:8, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validPartyCompanyUserId" finished-at="2026-07-29T19:20:47 IST" duration-ms="40" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:24 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:25 IST" duration-ms="662" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validPartyCompanyUserId()[pri:8, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:25 IST" name="validPartyCompanyUserId" finished-at="2026-07-30T18:56:25 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="20" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validPartyCompanyUserId -->
-        <test-method signature="validCreatorCompanyUserId()[pri:9, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validCreatorCompanyUserId" finished-at="2026-07-29T19:20:47 IST" duration-ms="90" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:25 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:26 IST" duration-ms="620" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validCreatorCompanyUserId()[pri:9, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:26 IST" name="validCreatorCompanyUserId" finished-at="2026-07-30T18:56:26 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="26" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validCreatorCompanyUserId -->
-        <test-method signature="validProjectId()[pri:10, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validProjectId" finished-at="2026-07-29T19:20:47 IST" duration-ms="92" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:26 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:26 IST" duration-ms="520" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validProjectId()[pri:10, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:26 IST" name="validProjectId" finished-at="2026-07-30T18:56:26 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validProjectId -->
-        <test-method signature="validInvoiceId()[pri:11, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validInvoiceId" finished-at="2026-07-29T19:20:47 IST" duration-ms="40" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:26 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:27 IST" duration-ms="570" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validInvoiceId()[pri:11, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:27 IST" name="validInvoiceId" finished-at="2026-07-30T18:56:27 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validInvoiceId -->
-        <test-method signature="validMaterial()[pri:12, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:47 IST" name="validMaterial" finished-at="2026-07-29T19:20:48 IST" duration-ms="38" status="FAIL">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:27 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:28 IST" duration-ms="562" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validMaterial()[pri:12, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:28 IST" name="validMaterial" finished-at="2026-07-30T18:56:28 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="39" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Response material list should not be empty expected [false] but found [true]]]>
+              <![CDATA[Material ID mismatch at index 0 expected [de0827d1-aaab-44b3-8f64-ae551d23c3bd] but found [dc48c565-dfe6-4434-a07c-d3be7e00b783]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Response material list should not be empty expected [false] but found [true]
+              <![CDATA[java.lang.AssertionError: Material ID mismatch at index 0 expected [de0827d1-aaab-44b3-8f64-ae551d23c3bd] but found [dc48c565-dfe6-4434-a07c-d3be7e00b783]
 at org.testng.Assert.fail(Assert.java:99)
 at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertFalse(Assert.java:67)
-at com.onsite.materialReturn_testpage.Create_materialReturn_test.validMaterial(Create_materialReturn_test.java:255)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at com.onsite.materialReturn_testpage.Create_materialReturn_test.validMaterial(Create_materialReturn_test.java:285)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -282,39 +250,75 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validMaterial -->
-        <test-method signature="validMaterialAmount()[pri:13, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validMaterialAmount" finished-at="2026-07-29T19:20:48 IST" duration-ms="40" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:28 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:28 IST" duration-ms="597" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validMaterialAmount()[pri:13, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:28 IST" name="validMaterialAmount" finished-at="2026-07-30T18:56:28 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validMaterialAmount -->
-        <test-method signature="validDiscount()[pri:14, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validDiscount" finished-at="2026-07-29T19:20:48 IST" duration-ms="34" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:28 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:29 IST" duration-ms="658" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validDiscount()[pri:14, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:29 IST" name="validDiscount" finished-at="2026-07-30T18:56:29 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="17" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validDiscount -->
-        <test-method signature="validGstAmount()[pri:15, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validGstAmount" finished-at="2026-07-29T19:20:48 IST" duration-ms="45" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:29 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:29 IST" duration-ms="607" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validGstAmount()[pri:15, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:29 IST" name="validGstAmount" finished-at="2026-07-30T18:56:30 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="40" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validGstAmount -->
-        <test-method signature="validOtherAmount()[pri:16, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validOtherAmount" finished-at="2026-07-29T19:20:48 IST" duration-ms="37" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:30 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:30 IST" duration-ms="590" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validOtherAmount()[pri:16, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:30 IST" name="validOtherAmount" finished-at="2026-07-30T18:56:30 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validOtherAmount -->
-        <test-method signature="validTotalPayable()[pri:17, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validTotalPayable" finished-at="2026-07-29T19:20:48 IST" duration-ms="36" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:30 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:31 IST" duration-ms="642" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validTotalPayable()[pri:17, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:31 IST" name="validTotalPayable" finished-at="2026-07-30T18:56:31 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validTotalPayable -->
-        <test-method signature="validPhoto()[pri:18, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validPhoto" finished-at="2026-07-29T19:20:48 IST" duration-ms="48" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:31 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:31 IST" duration-ms="697" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validPhoto()[pri:18, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:31 IST" name="validPhoto" finished-at="2026-07-30T18:56:31 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validPhoto -->
-        <test-method signature="validReturnDate()[pri:19, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validReturnDate" finished-at="2026-07-29T19:20:48 IST" duration-ms="36" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:31 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:32 IST" duration-ms="682" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validReturnDate()[pri:19, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:32 IST" name="validReturnDate" finished-at="2026-07-30T18:56:32 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validReturnDate -->
-        <test-method signature="validRefrenceNumber()[pri:20, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validRefrenceNumber" finished-at="2026-07-29T19:20:48 IST" duration-ms="38" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:32 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:33 IST" duration-ms="680" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validRefrenceNumber()[pri:20, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:33 IST" name="validRefrenceNumber" finished-at="2026-07-30T18:56:33 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validRefrenceNumber -->
-        <test-method signature="validDueDays()[pri:21, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@399f45b1]" started-at="2026-07-29T19:20:48 IST" name="validDueDays" finished-at="2026-07-29T19:20:48 IST" duration-ms="122" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:33 IST" name="generateTokenForSuite" finished-at="2026-07-30T18:56:34 IST" duration-ms="800" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validDueDays()[pri:21, instance:com.onsite.materialReturn_testpage.Create_materialReturn_test@35d019a3]" started-at="2026-07-30T18:56:34 IST" name="validDueDays" finished-at="2026-07-30T18:56:34 IST" depends-on-methods="com.onsite.materialReturn_testpage.Create_materialReturn_test.materialReturn" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validDueDays -->
