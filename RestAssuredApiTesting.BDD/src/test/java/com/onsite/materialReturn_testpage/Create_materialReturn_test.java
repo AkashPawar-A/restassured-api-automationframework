@@ -1,10 +1,12 @@
 package com.onsite.materialReturn_testpage;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -144,7 +146,7 @@ public class Create_materialReturn_test extends BaseToken{
 	}
 
 	@Test(priority=5, dependsOnMethods="materialReturn")
-	public void validMaterialReturnId() {
+	public void validMaterialReturnId() throws IOException {
 		
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
@@ -152,6 +154,17 @@ public class Create_materialReturn_test extends BaseToken{
 
 		Assert.assertNotNull(materialReturnId, "material retunt id should not be null");
 		Assert.assertFalse(materialReturnId.trim().isEmpty(), "material return id should not be empty");
+		
+		ObjectMapper writemapper = new ObjectMapper();
+		String detailsMaterialRreturnFilePath = "src/test/resources/testdata_materialReturn/details_materialReturn.json";
+		File materialReturnData = new File(detailsMaterialRreturnFilePath);
+		Map<String, Object> addId = new HashMap<>();
+		if(materialReturnData.exists()) {
+			addId = writemapper.readValue(materialReturnData, Map.class);
+		}
+		addId.put("id", materialReturnId);
+		writemapper.writerWithDefaultPrettyPrinter().writeValue(materialReturnData, addId);
+		System.out.println("JSON files updated successfully :" + addId);
 
 		System.out.println("Material return id :" + materialReturnId);
 	}
