@@ -1,15 +1,14 @@
-[
- {
-  "id" : "",
-  "name" : "",
-  "unit" : "",
-  "company_id" : "",
-  "sub_category_id" : "",
-  "unit_id" : "",
-  "delete" : ,
-  "gst_percent" : ,
-  "notes" : "",
-  "material_sub_category_id" : "",
-  "hsn_code" : ""
- }
-]
+{
+  "name": "Cement",
+  "company_id": "09defe58-d41f-4435-9f99-0d03be6220dc",
+  "unit": "Barrel",
+  "sub_category_id": "6b50ddf5-1f09-41f5-b0da-3ac3f1c82056",
+  "unit_id": "1ddc1957-081d-4ae7-97a3-9f1d30f15932",
+  "gst_percent": 18,
+  "notes": "Birla cement",
+  "material_sub_category_id": "",
+  "hsn_code": "12589",
+  "item_code": "A-01",
+  "unit_cost_price" : "",
+  "lead_days" " : ""
+}

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.MaterialPurchase;
-import com.onsite.pojo_request.Material;
+import com.onsite.pojo_request.Materials;
 import com.onsite.pojo_request.MaterialPurchaseRequest;
 import com.onsite.pojo_response.MaterialPurchaseResponse;
 import com.onsite.utilities_page.AuthUtils;
@@ -248,7 +248,7 @@ public class Create_materialPurchaseTest {
 
 		Double expectedGstAmount = 0.0;
 		if(materialpurchasePayload.getMaterials() != null) {
-			for(Material matGstAmount : materialpurchasePayload.getMaterials()) {
+			for(Materials matGstAmount : materialpurchasePayload.getMaterials()) {
 				Double unitPrice = matGstAmount.getUnit_price();
 				Double qty = matGstAmount.getQuantity();
 				Double discountAmount = matGstAmount.getDiscount_amount();
@@ -267,7 +267,7 @@ public class Create_materialPurchaseTest {
 
 		Double expectedMaterialAmount = 0.0;
 		if(materialpurchasePayload.getMaterials() != null) {
-			for(Material matAmount : materialpurchasePayload.getMaterials()) {
+			for(Materials matAmount : materialpurchasePayload.getMaterials()) {
 				Double qty = matAmount.getQuantity();
 				Double unitPrice = matAmount.getUnit_price();
 				Double gstAmount = matAmount.getGst_amount();

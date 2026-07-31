@@ -1,12 +1,14 @@
 {
   "name": "Cement",
-  "company_id": "09defe58-d41f-4435-9f99-0d03be6220dc",
+  "company_id": "eb603e4c-3d94-4b37-9a23-1f5e89ca8f17",
   "unit": "nos",
   "sub_category_id": "6b50ddf5-1f09-41f5-b0da-3ac3f1c82056",
-  "unit_id": "f765ea23-40a5-46ca-acd2-b0f3b20383af",
-  "gst_percent": 11,
+  "unit_id": "1ddc1957-081d-4ae7-97a3-9f1d30f15932",
+  "gst_percent": 18,
   "notes": "Birla cement",
   "material_sub_category_id": "",
   "hsn_code": "12589",
-  "item_code": "A-01"
+  "item_code": "A-01",
+  "unit_cost_price" : 0,
+  "lead_days" : 0
 }

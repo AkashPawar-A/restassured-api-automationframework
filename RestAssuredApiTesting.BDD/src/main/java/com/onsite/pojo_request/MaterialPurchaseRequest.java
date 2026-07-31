@@ -11,7 +11,7 @@ public class MaterialPurchaseRequest {
 	private String sub_category_id;
 	private String remark;
 	private String party_company_user_id;
-	private List<Material> materials;
+	private List<Materials> materials;
 	private Double gst_amount;
 	private Double other_amount;
 	private Double material_amount;
@@ -99,10 +99,10 @@ public class MaterialPurchaseRequest {
 	public void setParty_company_user_id(String party_company_user_id) {
 		this.party_company_user_id = party_company_user_id;
 	}
-	public List<Material> getMaterials() {
+	public List<Materials> getMaterials() {
 		return materials;
 	}
-	public void setMaterials(List<Material> materials) {
+	public void setMaterials(List<Materials> materials) {
 		this.materials = materials;
 	}
 	public Double getGst_amount() {

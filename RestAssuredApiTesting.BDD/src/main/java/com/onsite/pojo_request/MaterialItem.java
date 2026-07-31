@@ -15,7 +15,21 @@ public class MaterialItem {
 	private String material_sub_category_id;
 	private String hsn_code;
 	private String item_code;
+	private Double unit_cost_price;
+	private Double lead_days;
 	
+	public Double getUnit_cost_price() {
+		return unit_cost_price;
+	}
+	public void setUnit_cost_price(Double unit_cost_price) {
+		this.unit_cost_price = unit_cost_price;
+	}
+	public Double getLead_days() {
+		return lead_days;
+	}
+	public void setLead_days(Double lead_days) {
+		this.lead_days = lead_days;
+	}
 	public String getName() {
 		return name;
 	}

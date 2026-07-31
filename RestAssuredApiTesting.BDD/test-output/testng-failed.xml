@@ -6,8 +6,7 @@
       <class name="com.onsite.materialReturn_testpage.Create_materialReturn_test">
         <methods>
           <include name="generateTokenForSuite"/>
-          <include name="validMaterial"/>
-          <include name="validResponseSchema"/>
+          <include name="validMaterialAmount"/>
           <include name="materialReturn"/>
           <include name="setUp"/>
         </methods>

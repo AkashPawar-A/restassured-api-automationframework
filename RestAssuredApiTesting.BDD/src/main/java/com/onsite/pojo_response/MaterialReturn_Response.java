@@ -29,7 +29,7 @@ public class MaterialReturn_Response {
 	private LocalDateTime created;
 	private LocalDateTime updated;
 	private String approval_flag;
-	private Material[] monkey_patch_materials;
+	private Materials[] monkey_patch_materials;
 	private CompanyUserNormal monkey_patch_creator_company_user;
 	private CompanyUserNormal monkey_patch_party_company_user;
 	private Integer monkey_patch_is_editable;
@@ -177,10 +177,10 @@ public class MaterialReturn_Response {
 	public void setApproval_flag(String approval_flag) {
 		this.approval_flag = approval_flag;
 	}
-	public Material[] getMonkey_patch_materials() {
+	public Materials[] getMonkey_patch_materials() {
 		return monkey_patch_materials;
 	}
-	public void setMonkey_patch_materials(Material[] monkey_patch_materials) {
+	public void setMonkey_patch_materials(Materials[] monkey_patch_materials) {
 		this.monkey_patch_materials = monkey_patch_materials;
 	}
 	public CompanyUserNormal getMonkey_patch_creator_company_user() {

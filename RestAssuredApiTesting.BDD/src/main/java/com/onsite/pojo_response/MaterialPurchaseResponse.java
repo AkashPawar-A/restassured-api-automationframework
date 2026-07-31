@@ -29,7 +29,7 @@ public class MaterialPurchaseResponse {
 	private LocalDateTime updated;
 	private String approval_flag;
 	private String third_party_transaction_meta_sync_id;
-	private Material[] monkey_patch_materials;
+	private Materials[] monkey_patch_materials;
 	private CompanyUserNormal monkey_patch_creator_company_user;
 	private CompanyUserNormal monkey_patch_party_company_user;
 	private Integer monkey_patch_is_editable;
@@ -293,10 +293,10 @@ public class MaterialPurchaseResponse {
 	public void setThird_party_transaction_sync_data_id(String third_party_transaction_sync_data_id) {
 		this.third_party_transaction_meta_sync_id = third_party_transaction_sync_data_id;
 	}
-	public Material[] getMonkey_patch_materials() {
+	public Materials[] getMonkey_patch_materials() {
 		return monkey_patch_materials;
 	}
-	public void setMonkey_patch_materials(Material[] monkey_patch_materials) {
+	public void setMonkey_patch_materials(Materials[] monkey_patch_materials) {
 		this.monkey_patch_materials = monkey_patch_materials;
 	}
 	public CompanyUserNormal getMonkey_patch_creator_company_user() {

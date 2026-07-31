@@ -3,10 +3,10 @@ package com.onsite.pojo_request;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Material {
+public class Materials {
 	
 	private String id;
-	private String material_item_id;
+	private String materialItem_id;
 	private String type;
 	private String materialstock_id;
 	private String remark;
@@ -42,11 +42,11 @@ public class Material {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getMaterial_item_id() {
-		return material_item_id;
+	public String getMaterialItem_id() {
+		return materialItem_id;
 	}
-	public void setMaterial_item_id(String material_item_id) {
-		this.material_item_id = material_item_id;
+	public void setMaterialItem_id(String materialItem_id) {
+		this.materialItem_id = materialItem_id;
 	}
 	public String getType() {
 		return type;

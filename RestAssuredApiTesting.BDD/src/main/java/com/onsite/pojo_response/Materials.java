@@ -6,7 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Material {
+public class Materials {
 	
 	private String id;
 	private String company_id;
@@ -78,7 +78,7 @@ public class Material {
 	private String parent_material_id;
 	private String poduction_type;
 	private CompanyUserNormal monkey_patch_party_company_user;
-	private Material[] monkey_patch_production_breakup_material_entry;
+	private Materials[] monkey_patch_production_breakup_material_entry;
 	
 	public String getId() {
 		return id;
