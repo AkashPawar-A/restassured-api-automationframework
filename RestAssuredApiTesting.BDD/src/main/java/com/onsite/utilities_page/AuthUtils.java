@@ -62,6 +62,8 @@ public class AuthUtils {
 		//Extract token
 		String token = secondResponse.jsonPath().getString("token");
 		System.out.println("Extracted token: " + token);
+		System.out.println("Token Length : " + token.length());
+		System.out.println("Token Parts : " + token.split("\\.").length);
 
 		// Extract Current Company ID
 		String currentCompanyId =

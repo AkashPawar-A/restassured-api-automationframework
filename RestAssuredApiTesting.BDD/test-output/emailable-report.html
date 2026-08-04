@@ -9,10 +9,115 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">5,285</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">18</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">17,739</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td><td><a href="#m0">detailMaterialReturn</a></td><td rowspan="1">1785501054363</td><td rowspan="1">5183</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td><td><a href="#m0">validMaterial</a></td><td rowspan="1">1785849596074</td><td rowspan="1">99</td></tr><tr class="failedeven"><td><a href="#m1">validMaterialAmount</a></td><td rowspan="1">1785849596488</td><td rowspan="1">459</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="18">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td><td><a href="#m2">detailMaterialReturn</a></td><td rowspan="1">1785849588689</td><td rowspan="1">1003</td></tr><tr class="passedeven"><td><a href="#m3">validDiscount</a></td><td rowspan="1">1785849598260</td><td rowspan="1">143</td></tr><tr class="passedeven"><td><a href="#m4">validDueDays</a></td><td rowspan="1">1785849600789</td><td rowspan="1">201</td></tr><tr class="passedeven"><td><a href="#m5">validGstAmount</a></td><td rowspan="1">1785849597278</td><td rowspan="1">150</td></tr><tr class="passedeven"><td><a href="#m6">validMaterialReturnId</a></td><td rowspan="1">1785849593519</td><td rowspan="1">148</td></tr><tr class="passedeven"><td><a href="#m7">validOtherAmount</a></td><td rowspan="1">1785849597742</td><td rowspan="1">200</td></tr><tr class="passedeven"><td><a href="#m8">validPartyCompanyUserId</a></td><td rowspan="1">1785849594522</td><td rowspan="1">195</td></tr><tr class="passedeven"><td><a href="#m9">validPhotos</a></td><td rowspan="1">1785849599335</td><td rowspan="1">137</td></tr><tr class="passedeven"><td><a href="#m10">validProjectId</a></td><td rowspan="1">1785849595088</td><td rowspan="1">252</td></tr><tr class="passedeven"><td><a href="#m11">validRefrenceNumber</a></td><td rowspan="1">1785849600391</td><td rowspan="1">135</td></tr><tr class="passedeven"><td><a href="#m12">validRemark</a></td><td rowspan="1">1785849594059</td><td rowspan="1">128</td></tr><tr class="passedeven"><td><a href="#m13">validResponseMessage</a></td><td rowspan="1">1785849591041</td><td rowspan="1">327</td></tr><tr class="passedeven"><td><a href="#m14">validResponseSchema</a></td><td rowspan="1">1785849592211</td><td rowspan="1">891</td></tr><tr class="passedeven"><td><a href="#m15">validResponseTime</a></td><td rowspan="1">1785849591839</td><td rowspan="1">17</td></tr><tr class="passedeven"><td><a href="#m16">validReturnDate</a></td><td rowspan="1">1785849599776</td><td rowspan="1">200</td></tr><tr class="passedeven"><td><a href="#m17">validStatusCode</a></td><td rowspan="1">1785849590536</td><td rowspan="1">63</td></tr><tr class="passedeven"><td><a href="#m18">validSubCategoryId</a></td><td rowspan="1">1785849595650</td><td rowspan="1">89</td></tr><tr class="passedeven"><td><a href="#m19">validTotalPayable</a></td><td rowspan="1">1785849598757</td><td rowspan="1">220</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#detailMaterialReturn</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>41a40d22-00de-40a3-aa24-e5e9a7dd84c4</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validMaterial</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to class java.lang.String (java.util.LinkedHashMap and java.lang.String are in module java.base of loader &apos;bootstrap&apos;)
+	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial(Details_MaterialRequest_Test.java:222)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validMaterialAmount</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.RuntimeException: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials[&quot;party_mobile&quot;])
+	at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:30)
+	at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserializeWithJackson2(JsonObjectDeserializer.java:93)
+	at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserialize(JsonObjectDeserializer.java:53)
+	at io.restassured.path.json.JsonPath.jsonStringToObject(JsonPath.java:1093)
+	at io.restassured.path.json.JsonPath.getList(JsonPath.java:400)
+	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount(Details_MaterialRequest_Test.java:242)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials[&quot;party_mobile&quot;])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1937)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:312)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3848)
+	at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:28)
+	... 31 more
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:562)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:624)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:983)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:789)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)
+	... 36 more
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#detailMaterialReturn</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>656c3af1-1ea1-42d2-aab5-c8c17f6b3f79</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validDiscount</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validDueDays</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validGstAmount</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validMaterialReturnId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validOtherAmount</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validPartyCompanyUserId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validPhotos</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validProjectId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validRefrenceNumber</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validRemark</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validResponseMessage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validResponseSchema</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validResponseTime</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m16">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validReturnDate</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m17">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validStatusCode</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m18">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validSubCategoryId</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m19">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test#validTotalPayable</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

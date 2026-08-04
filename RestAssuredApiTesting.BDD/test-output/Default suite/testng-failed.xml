@@ -5,7 +5,11 @@
     <classes>
       <class name="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test">
         <methods>
+          <include name="validMaterialAmount"/>
           <include name="detailMaterialReturn"/>
+          <include name="generateTokenForSuite"/>
+          <include name="setUp"/>
+          <include name="validMaterial"/>
         </methods>
       </class> <!-- com.onsite.materialReturn_testpage.Details_MaterialRequest_Test -->
     </classes>

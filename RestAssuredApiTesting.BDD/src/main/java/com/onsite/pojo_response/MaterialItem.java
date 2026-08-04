@@ -26,7 +26,7 @@ public class MaterialItem {
 	private LocalDateTime created;
 	private LocalDateTime updated;
 	private String search;
-	private Integer monkey_patch_sub_category;
+	private Object monkey_patch_sub_category;
 	private SubCategory monkey_patch_material_sub_category;
 	//private Materialstock monkey_patch_materialstock;
 	private String source_add;
@@ -157,10 +157,10 @@ public class MaterialItem {
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	public Integer getMonkey_patch_sub_category() {
+	public Object getMonkey_patch_sub_category() {
 		return monkey_patch_sub_category;
 	}
-	public void setMonkey_patch_sub_category(Integer monkey_patch_sub_category) {
+	public void setMonkey_patch_sub_category(Object monkey_patch_sub_category) {
 		this.monkey_patch_sub_category = monkey_patch_sub_category;
 	}
 	public SubCategory getMonkey_patch_material_sub_category() {

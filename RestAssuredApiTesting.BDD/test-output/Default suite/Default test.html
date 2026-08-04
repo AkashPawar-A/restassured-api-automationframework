@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>18/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jul 31 18:00:54 IST 2026</td>
+<td>Started on:</td><td>Tue Aug 04 18:49:43 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>5 seconds (5285 ms)</td>
+<tr><td>Total time:</td><td>17 seconds (17739 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,198 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount()'><b>validMaterialAmount</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td><div><pre>java.lang.RuntimeException: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials[&quot;party_mobile&quot;])
+	at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:30)
+	at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserializeWithJackson2(JsonObjectDeserializer.java:93)
+	at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserialize(JsonObjectDeserializer.java:53)
+	at io.restassured.path.json.JsonPath.jsonStringToObject(JsonPath.java:1093)
+	at io.restassured.path.json.JsonPath.getList(JsonPath.java:400)
+	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount(Details_MaterialRequest_Test.java:242)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials[&quot;party_mobile&quot;])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1937)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:312)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3848)
+	at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:28)
+	... 31 more
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:562)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:624)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:983)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:789)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)
+	... 36 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1795368400", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1795368400'><pre>java.lang.RuntimeException: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials[&quot;party_mobile&quot;])
+	at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:30)
+	at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserializeWithJackson2(JsonObjectDeserializer.java:93)
+	at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserialize(JsonObjectDeserializer.java:53)
+	at io.restassured.path.json.JsonPath.jsonStringToObject(JsonPath.java:1093)
+	at io.restassured.path.json.JsonPath.getList(JsonPath.java:400)
+	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount(Details_MaterialRequest_Test.java:242)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials[&quot;party_mobile&quot;])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1937)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:312)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3848)
+	at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:28)
+	... 31 more
+Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227]
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:562)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:624)
+	at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
+	at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:983)
+	at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:789)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
+	at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)
+	... 36 more
+</pre></div></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial()'><b>validMaterial</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td><div><pre>java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to class java.lang.String (java.util.LinkedHashMap and java.lang.String are in module java.base of loader &apos;bootstrap&apos;)
+	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial(Details_MaterialRequest_Test.java:222)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1409442094", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1409442094'><pre>java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to class java.lang.String (java.util.LinkedHashMap and java.lang.String are in module java.base of loader &apos;bootstrap&apos;)
+	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial(Details_MaterialRequest_Test.java:222)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,10 +267,95 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn()'><b>detailMaterialReturn</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test<br>Parameters: 41a40d22-00de-40a3-aa24-e5e9a7dd84c4</td>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validRemark()'><b>validRemark</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
 <td></td>
-<td>5</td>
-<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6379eb</td></tr>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validSubCategoryId()'><b>validSubCategoryId</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn()'><b>detailMaterialReturn</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test<br>Parameters: 656c3af1-1ea1-42d2-aab5-c8c17f6b3f79</td>
+<td></td>
+<td>1</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validResponseSchema()'><b>validResponseSchema</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validPartyCompanyUserId()'><b>validPartyCompanyUserId</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validReturnDate()'><b>validReturnDate</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validResponseMessage()'><b>validResponseMessage</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validDueDays()'><b>validDueDays</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validProjectId()'><b>validProjectId</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validOtherAmount()'><b>validOtherAmount</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validPhotos()'><b>validPhotos</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validResponseTime()'><b>validResponseTime</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validStatusCode()'><b>validStatusCode</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validRefrenceNumber()'><b>validRefrenceNumber</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validGstAmount()'><b>validGstAmount</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validTotalPayable()'><b>validTotalPayable</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validDiscount()'><b>validDiscount</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
+<tr>
+<td title='com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialReturnId()'><b>validMaterialReturnId</b><br>Test class: com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</td>
+<td></td>
+<td>0</td>
+<td>com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1</td></tr>
 </table><p>
 </body>
 </html>
