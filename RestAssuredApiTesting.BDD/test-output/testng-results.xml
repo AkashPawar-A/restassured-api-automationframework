@@ -2,114 +2,117 @@
 <testng-results ignored="0" total="20" passed="18" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-08-04T18:49:43 IST" name="Default suite" finished-at="2026-08-04T18:50:00 IST" duration-ms="17739">
+  <suite started-at="2026-08-05T17:11:32 IST" name="Default suite" finished-at="2026-08-05T17:12:06 IST" duration-ms="33444">
     <groups>
     </groups>
-    <test started-at="2026-08-04T18:49:43 IST" name="Default test" finished-at="2026-08-04T18:50:00 IST" duration-ms="17739">
+    <test started-at="2026-08-05T17:11:32 IST" name="Default test" finished-at="2026-08-05T17:12:06 IST" duration-ms="33444">
       <class name="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:43 IST" name="setUp" finished-at="2026-08-04T18:49:47 IST" duration-ms="4330" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:32 IST" name="setUp" finished-at="2026-08-05T17:11:41 IST" duration-ms="8311" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:48 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:48 IST" duration-ms="399" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:41 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:41 IST" duration-ms="765" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="detailMaterialReturn(java.lang.String)[pri:1, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:48 IST" name="detailMaterialReturn" data-provider="materialReturn" finished-at="2026-08-04T18:49:49 IST" duration-ms="1003" status="PASS">
+        <test-method signature="detailMaterialReturn(java.lang.String)[pri:1, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:41 IST" name="detailMaterialReturn" data-provider="materialReturn" finished-at="2026-08-05T17:11:44 IST" duration-ms="3054" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[656c3af1-1ea1-42d2-aab5-c8c17f6b3f79]]>
+                <![CDATA[62c4a9e3-06a6-4448-bc0f-2692fb9fb861]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- detailMaterialReturn -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:49 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:50 IST" duration-ms="832" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:44 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:45 IST" duration-ms="884" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validStatusCode()[pri:2, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:50 IST" name="validStatusCode" finished-at="2026-08-04T18:49:50 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="63" status="PASS">
+        <test-method signature="validStatusCode()[pri:2, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:45 IST" name="validStatusCode" finished-at="2026-08-05T17:11:45 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validStatusCode -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:50 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:51 IST" duration-ms="432" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:45 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:46 IST" duration-ms="732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validResponseMessage()[pri:3, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:51 IST" name="validResponseMessage" finished-at="2026-08-04T18:49:51 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="327" status="PASS">
+        <test-method signature="validResponseMessage()[pri:3, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:46 IST" name="validResponseMessage" finished-at="2026-08-05T17:11:47 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="685" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseMessage -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:51 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:51 IST" duration-ms="465" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:47 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:48 IST" duration-ms="837" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validResponseTime()[pri:4, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:51 IST" name="validResponseTime" finished-at="2026-08-04T18:49:51 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="17" status="PASS">
+        <test-method signature="validResponseTime()[pri:4, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:48 IST" name="validResponseTime" finished-at="2026-08-05T17:11:48 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseTime -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:51 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:52 IST" duration-ms="341" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:48 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:48 IST" duration-ms="730" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validResponseSchema()[pri:5, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:52 IST" name="validResponseSchema" finished-at="2026-08-04T18:49:53 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="891" status="PASS">
+        <test-method signature="validResponseSchema()[pri:5, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:48 IST" name="validResponseSchema" finished-at="2026-08-05T17:11:49 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="849" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseSchema -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:53 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:53 IST" duration-ms="411" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:49 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:50 IST" duration-ms="761" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validMaterialReturnId()[pri:6, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:53 IST" name="validMaterialReturnId" finished-at="2026-08-04T18:49:53 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="148" status="PASS">
+        <test-method signature="validMaterialReturnId()[pri:6, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:50 IST" name="validMaterialReturnId" finished-at="2026-08-05T17:11:50 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="398" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validMaterialReturnId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:53 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:54 IST" duration-ms="386" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:50 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:51 IST" duration-ms="740" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validRemark()[pri:7, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:54 IST" name="validRemark" finished-at="2026-08-04T18:49:54 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="128" status="PASS">
+        <test-method signature="validRemark()[pri:7, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:51 IST" name="validRemark" finished-at="2026-08-05T17:11:51 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="285" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validRemark -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:54 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:54 IST" duration-ms="327" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:51 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:52 IST" duration-ms="751" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validPartyCompanyUserId()[pri:8, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:54 IST" name="validPartyCompanyUserId" finished-at="2026-08-04T18:49:54 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="195" status="PASS">
+        <test-method signature="validPartyCompanyUserId()[pri:8, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:52 IST" name="validPartyCompanyUserId" finished-at="2026-08-05T17:11:52 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="289" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validPartyCompanyUserId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:54 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:55 IST" duration-ms="365" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:52 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:53 IST" duration-ms="668" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validProjectId()[pri:9, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:55 IST" name="validProjectId" finished-at="2026-08-04T18:49:55 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="252" status="PASS">
+        <test-method signature="validProjectId()[pri:9, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:53 IST" name="validProjectId" finished-at="2026-08-05T17:11:53 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="263" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validProjectId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:55 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:55 IST" duration-ms="306" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:53 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:54 IST" duration-ms="696" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validSubCategoryId()[pri:10, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:55 IST" name="validSubCategoryId" finished-at="2026-08-04T18:49:55 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="89" status="PASS">
+        <test-method signature="validSubCategoryId()[pri:10, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:54 IST" name="validSubCategoryId" finished-at="2026-08-05T17:11:54 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="307" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validSubCategoryId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:55 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:56 IST" duration-ms="333" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:54 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:55 IST" duration-ms="646" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validMaterial()[pri:11, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:56 IST" name="validMaterial" finished-at="2026-08-04T18:49:56 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="99" status="FAIL">
-          <exception class="java.lang.ClassCastException">
+        <test-method signature="validMaterial()[pri:11, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:55 IST" name="validMaterial" finished-at="2026-08-05T17:11:56 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="736" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[class java.util.LinkedHashMap cannot be cast to class java.lang.String (java.util.LinkedHashMap and java.lang.String are in module java.base of loader 'bootstrap')]]>
+              <![CDATA[Quantity should be greater than 0 expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to class java.lang.String (java.util.LinkedHashMap and java.lang.String are in module java.base of loader 'bootstrap')
-at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial(Details_MaterialRequest_Test.java:222)
+              <![CDATA[java.lang.AssertionError: Quantity should be greater than 0 expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial(Details_MaterialRequest_Test.java:186)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -138,29 +141,25 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.ClassCastException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validMaterial -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:56 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:56 IST" duration-ms="312" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:56 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:57 IST" duration-ms="766" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validMaterialAmount()[pri:12, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:56 IST" name="validMaterialAmount" finished-at="2026-08-04T18:49:56 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="459" status="FAIL">
-          <exception class="java.lang.RuntimeException">
+        <test-method signature="validMaterialAmount()[pri:12, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:57 IST" name="validMaterialAmount" finished-at="2026-08-05T17:11:57 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="607" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials["party_mobile"])]]>
+              <![CDATA[Quantity should be greater than 0 expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials["party_mobile"])
-at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:30)
-at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserializeWithJackson2(JsonObjectDeserializer.java:93)
-at io.restassured.internal.path.json.mapping.JsonObjectDeserializer.deserialize(JsonObjectDeserializer.java:53)
-at io.restassured.path.json.JsonPath.jsonStringToObject(JsonPath.java:1093)
-at io.restassured.path.json.JsonPath.getList(JsonPath.java:400)
-at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount(Details_MaterialRequest_Test.java:242)
+              <![CDATA[java.lang.AssertionError: Quantity should be greater than 0 expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount(Details_MaterialRequest_Test.java:220)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -187,97 +186,73 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.fasterxml.jackson.databind.JsonMappingException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227] (through reference chain: com.onsite.pojo_request.Materials["party_mobile"])
-at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
-at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
-at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1937)
-at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:312)
-at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
-at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
-at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)
-at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3848)
-at io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.java:28)
-... 31 more
-Caused by: com.fasterxml.jackson.core.exc.InputCoercionException: Numeric value (5789412360) out of range of int (-2147483648 - 2147483647)
- at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 227]
-at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInputCoercion(ParserMinimalBase.java:562)
-at com.fasterxml.jackson.core.base.ParserMinimalBase.reportOverflowInt(ParserMinimalBase.java:624)
-at com.fasterxml.jackson.core.base.ParserBase.convertNumberToInt(ParserBase.java:1059)
-at com.fasterxml.jackson.core.base.ParserBase._parseIntValue(ParserBase.java:983)
-at com.fasterxml.jackson.core.base.ParserBase.getIntValue(ParserBase.java:789)
-at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:526)
-at com.fasterxml.jackson.databind.deser.std.NumberDeserializers$IntegerDeserializer.deserialize(NumberDeserializers.java:506)
-at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
-at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:310)
-... 36 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validMaterialAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:56 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:57 IST" duration-ms="326" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:57 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:58 IST" duration-ms="921" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validGstAmount()[pri:13, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:57 IST" name="validGstAmount" finished-at="2026-08-04T18:49:57 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="150" status="PASS">
+        <test-method signature="validGstAmount()[pri:13, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:58 IST" name="validGstAmount" finished-at="2026-08-05T17:11:58 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="271" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validGstAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:57 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:57 IST" duration-ms="309" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:58 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:11:59 IST" duration-ms="882" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validOtherAmount()[pri:14, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:57 IST" name="validOtherAmount" finished-at="2026-08-04T18:49:57 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="200" status="PASS">
+        <test-method signature="validOtherAmount()[pri:14, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:59 IST" name="validOtherAmount" finished-at="2026-08-05T17:11:59 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="247" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validOtherAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:57 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:58 IST" duration-ms="316" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:11:59 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:12:00 IST" duration-ms="641" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validDiscount()[pri:15, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:58 IST" name="validDiscount" finished-at="2026-08-04T18:49:58 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="143" status="PASS">
+        <test-method signature="validDiscount()[pri:15, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:00 IST" name="validDiscount" finished-at="2026-08-05T17:12:00 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="263" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validDiscount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:58 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:58 IST" duration-ms="350" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:00 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:12:01 IST" duration-ms="799" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validTotalPayable()[pri:16, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:58 IST" name="validTotalPayable" finished-at="2026-08-04T18:49:58 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="220" status="PASS">
+        <test-method signature="validTotalPayable()[pri:16, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:01 IST" name="validTotalPayable" finished-at="2026-08-05T17:12:02 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="528" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validTotalPayable -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:58 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:59 IST" duration-ms="353" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:02 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:12:02 IST" duration-ms="644" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validPhotos()[pri:17, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:59 IST" name="validPhotos" finished-at="2026-08-04T18:49:59 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="137" status="PASS">
+        <test-method signature="validPhotos()[pri:17, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:02 IST" name="validPhotos" finished-at="2026-08-05T17:12:03 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="353" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validPhotos -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:59 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:49:59 IST" duration-ms="302" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:03 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:12:03 IST" duration-ms="669" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validReturnDate()[pri:18, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:59 IST" name="validReturnDate" finished-at="2026-08-04T18:49:59 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="200" status="PASS">
+        <test-method signature="validReturnDate()[pri:18, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:03 IST" name="validReturnDate" finished-at="2026-08-05T17:12:04 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validReturnDate -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:49:59 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:50:00 IST" duration-ms="407" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:04 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:12:04 IST" duration-ms="570" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validRefrenceNumber()[pri:19, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:50:00 IST" name="validRefrenceNumber" finished-at="2026-08-04T18:50:00 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="135" status="PASS">
+        <test-method signature="validRefrenceNumber()[pri:19, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:04 IST" name="validRefrenceNumber" finished-at="2026-08-05T17:12:04 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="253" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validRefrenceNumber -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:50:00 IST" name="generateTokenForSuite" finished-at="2026-08-04T18:50:00 IST" duration-ms="262" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:04 IST" name="generateTokenForSuite" finished-at="2026-08-05T17:12:05 IST" duration-ms="903" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validDueDays()[pri:20, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@6302bbb1]" started-at="2026-08-04T18:50:00 IST" name="validDueDays" finished-at="2026-08-04T18:50:00 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="201" status="PASS">
+        <test-method signature="validDueDays()[pri:20, instance:com.onsite.materialReturn_testpage.Details_MaterialRequest_Test@351d00c0]" started-at="2026-08-05T17:12:05 IST" name="validDueDays" finished-at="2026-08-05T17:12:06 IST" depends-on-methods="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.detailMaterialReturn" duration-ms="238" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validDueDays -->

@@ -1,5 +1,6 @@
 package com.onsite.utilities_page;
 
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -26,6 +27,17 @@ public class JsonUtils {
             return mapper.convertValue(data, clazz);
         } catch (Exception e) {
             throw new RuntimeException("Map to POJO conversion failed", e);
+        }
+    }
+    
+    public static List<Map<String, Object>> readJsonArray(String path) {
+        try {
+            return mapper.readValue(
+                    new File(path),
+                    new TypeReference<List<Map<String, Object>>>() {}
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("JSON Array read failed: " + path, e);
         }
     }
 

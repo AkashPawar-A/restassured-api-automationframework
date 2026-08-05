@@ -37,40 +37,30 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@DataProvider(name="materialReturn")
 	public Object[][] getData() throws IOException{
-		
+
 		// Material Return main request
-	    Map<String, Object> materialReturnReq =
-	            JsonUtils.readJson("src/test/resources/testdata_materialReturn/add_materialReturn.json");
+		Map<String, Object> materialReturnReq =
+				JsonUtils.readJson("src/test/resources/testdata_materialReturn/add_materialReturn.json");
 
-	    // Material payload
-	    Map<String, Object> material =
-	            JsonUtils.readJson("src/test/resources/testdata_material/materials.json");
+		// Material payload
+		List<Map<String, Object>> materials =
+				JsonUtils.readJsonArray("src/test/resources/testdata_material/materials.json");
 
-	    // Material Item payload
-	    Map<String, Object> materialItem =
-	            JsonUtils.readJson("src/test/resources/testdata_materialitem/materialitem.json");
+		// Main payload
+		materialReturnReq.put("materials", materials);
 
-	    // Nested object add
-	    material.put("monkey_patch_materialitem", materialItem);
+		// Convert JSON -> POJO
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
 
-	    // Materials array
-	    List<Map<String, Object>> materials = new ArrayList<>();
-	    materials.add(material);
+		materialReturnPayload = mapper.convertValue(materialReturnReq, MaterialReturnRequest.class);
 
-	    // Main payload
-	    materialReturnReq.put("materials", materials);
+		// Print payload
+		String finalPayload = mapper.writerWithDefaultPrettyPrinter()
+				.writeValueAsString(materialReturnPayload);
 
-	    // Convert JSON -> POJO
-	    ObjectMapper mapper = new ObjectMapper();
-	    mapper.registerModule(new JavaTimeModule());
-
-	    materialReturnPayload = mapper.convertValue(materialReturnReq, MaterialReturnRequest.class);
-	
-	    // Print payload
-	    String finalPayload = mapper.writerWithDefaultPrettyPrinter()
-	                                .writeValueAsString(materialReturnPayload);
-
-	    System.out.println(finalPayload);
+		System.out.println(finalPayload);
+		materialReturnPayload = mapper.convertValue(materialReturnReq, MaterialReturnRequest.class);
 
 		return new Object[][] {
 			{ materialReturnPayload }
@@ -114,20 +104,20 @@ public class Create_materialReturn_test extends BaseToken{
 	public void validResponseMessage() {
 
 		String responseMessage = materialReturnResponse.jsonPath().getString("message");
-		
+
 		if(responseMessage == null || responseMessage.trim().isEmpty()) {
 			System.out.println("Response message is not provided");
 		} else {
-			
+
 			Assert.assertNotNull(responseMessage, "response message should not be null");
 			Assert.assertFalse(responseMessage.trim().isEmpty(), "Response message should not be empty");
 			System.out.println("response message :" + responseMessage);
 		}
 	}
-	
+
 	@Test(priority=3, dependsOnMethods="materialReturn")
 	public void validResponseTime() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		long responseTime = materialReturnResponse.getTime();
@@ -138,7 +128,7 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=4, dependsOnMethods="materialReturn")
 	public void validResponseSchema() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		materialReturnResponse.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(
@@ -147,14 +137,14 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=5, dependsOnMethods="materialReturn")
 	public void validMaterialReturnId() throws IOException {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String materialReturnId = materialReturnResponse.jsonPath().getString("id");
 
 		Assert.assertNotNull(materialReturnId, "material retunt id should not be null");
 		Assert.assertFalse(materialReturnId.trim().isEmpty(), "material return id should not be empty");
-		
+
 		ObjectMapper writemapper = new ObjectMapper();
 		String detailsMaterialRreturnFilePath = "src/test/resources/testdata_materialReturn/details_materialReturn.json";
 		File materialReturnData = new File(detailsMaterialRreturnFilePath);
@@ -171,13 +161,13 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=6, dependsOnMethods="materialReturn")
 	public void validCompanyId() {
-		
+
 		String loginCompanyId = CompanyContext.getCompanyId();
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String companyId = materialReturnResponse.jsonPath().getString("company_id");
-		
+
 		System.out.println("Response Company ID : " + companyId);
 		System.out.println("Login Company ID   : " + loginCompanyId);
 
@@ -190,20 +180,20 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=7, dependsOnMethods="materialReturn")
 	public void validRemark() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resRemark = materialReturnResponse.jsonPath().getString("remark");
 		String reqRemark = materialReturnPayload.getRemark();
 
 		if(reqRemark == null || reqRemark.trim().isEmpty()) {
-			
+
 			System.out.println("remark is not provided");
 		} else {
-			
+
 			Assert.assertNotNull(resRemark, "Response remark should not be null");
 			Assert.assertFalse(resRemark.trim().isEmpty(), "Response remark should not be empty");
-			
+
 			Assert.assertEquals(resRemark, reqRemark, "Response remark does not match the request remark");
 
 			System.out.println("Request Remark  : " + reqRemark);
@@ -213,7 +203,7 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=8, dependsOnMethods="materialReturn")
 	public void validPartyCompanyUserId() {
-		
+
 		String resPartyCompanyUserId = materialReturnResponse.jsonPath().getString("party_company_user_id");
 		String reqPartyCompanyUserId = materialReturnPayload.getParty_company_user_id();
 
@@ -236,14 +226,14 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=9, dependsOnMethods="materialReturn")
 	public void validCreatorCompanyUserId() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resCreatorCompanyUserId = materialReturnResponse.jsonPath().getString("creator_company_user_id");
 
 		Assert.assertNotNull(resCreatorCompanyUserId, "Creator Company User ID should not be null");
 		Assert.assertFalse(resCreatorCompanyUserId.trim().isEmpty(), "Creator Company User ID should not be empty");
-		
+
 		System.out.println("creator company user id :" + resCreatorCompanyUserId);
 	}
 
@@ -272,20 +262,20 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=11, dependsOnMethods="materialReturn")
 	public void validInvoiceId() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resInvoiceId = materialReturnResponse.jsonPath().getString("invoice_id");
 
 		Assert.assertNotNull(resInvoiceId, "Invoice Id should not be null");
 		Assert.assertFalse(resInvoiceId.trim().isEmpty(), "Invoice Id should not be empty");
-		
+
 		System.out.println("invoice id : " + resInvoiceId);	
 	}
 
 	@Test(priority=12, dependsOnMethods="materialReturn")
 	public void validMaterial() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		List<Materials> resMaterialList = materialReturnResponse.jsonPath().getList("material", Materials.class);
@@ -294,28 +284,28 @@ public class Create_materialReturn_test extends BaseToken{
 
 		Assert.assertNotNull(reqMaterialList, "Request material list should not be null");
 		Assert.assertTrue(reqMaterialList.length > 0, "Request material list should not be empty");
-		
+
 		if(resMaterialList == null || resMaterialList.isEmpty()) {
-			
+
 			System.out.println("material list is empty in response : Validating material_ids instead");
-			
+
 			List<String> responseMaterialIds = materialReturnResponse.jsonPath().getList("material_ids");
-			
-		    Assert.assertNotNull(responseMaterialIds, "material_ids should not be null");
-		    Assert.assertFalse(responseMaterialIds.isEmpty(), "material_ids should not be empty");
-		    
-		    Assert.assertEquals(responseMaterialIds.size(), reqMaterialList.length,
-		            "Material ID count mismatch");
 
-		    for (int i = 0; i < responseMaterialIds.size(); i++) {
-		    	String materialId = responseMaterialIds.get(i);
-		    	
-		        Assert.assertNotNull(materialId, "Material ID should not be null");
-		        Assert.assertFalse(materialId.trim().isEmpty(), "Material ID should not be empty");
+			Assert.assertNotNull(responseMaterialIds, "material_ids should not be null");
+			Assert.assertFalse(responseMaterialIds.isEmpty(), "material_ids should not be empty");
 
-		        System.out.println("Generated Material ID : " + materialId);
-		    }
-		    return;
+			Assert.assertEquals(responseMaterialIds.size(), reqMaterialList.length,
+					"Material ID count mismatch");
+
+			for (int i = 0; i < responseMaterialIds.size(); i++) {
+				String materialId = responseMaterialIds.get(i);
+
+				Assert.assertNotNull(materialId, "Material ID should not be null");
+				Assert.assertFalse(materialId.trim().isEmpty(), "Material ID should not be empty");
+
+				System.out.println("Generated Material ID : " + materialId);
+			}
+			return;
 		}	
 	}
 
@@ -323,7 +313,7 @@ public class Create_materialReturn_test extends BaseToken{
 	private Double resMaterialAmount;
 	@Test(priority=13, dependsOnMethods="materialReturn")
 	public void validMaterialAmount() {
-		
+
 		this.resMaterialAmount = materialReturnResponse.jsonPath().getDouble("material_amount");
 		this.reqMaterialAmount = materialReturnPayload.getMaterial_amount();
 
@@ -336,39 +326,39 @@ public class Create_materialReturn_test extends BaseToken{
 			Assert.assertEquals(errorMessage, "material amount required", "incorrect validation message");
 			System.out.println("material amount error message :" + errorMessage);
 		} else {
-			
+
 			Assert.assertNotNull(reqMaterialList, "Material list should not be null");
 			Assert.assertTrue(reqMaterialList.length > 0, "Material list should not be empty");
-			
+
 			Double expectedMaterialAmount = 0.0;
-			
+
 			for(Materials materialItem : reqMaterialList) {
-				
+
 				Assert.assertNotNull(materialItem.getQuantity(), "Material item quantity should not be null");
 				Assert.assertNotNull(materialItem.getUnit_price(), "Material item unit price should not be null");
-				
+
 				Assert.assertTrue(materialItem.getQuantity() >=0, "material quantity should not be negative");
 				Assert.assertTrue(materialItem.getUnit_price() >=0, "material unit price should not be negative"); 
-				
-	            Double itemAmount = materialItem.getQuantity() * materialItem.getUnit_price();
-	            Assert.assertTrue(itemAmount >=0, "item Amount should not be negative");
 
-	            expectedMaterialAmount += itemAmount;
+				Double itemAmount = materialItem.getQuantity() * materialItem.getUnit_price();
+				Assert.assertTrue(itemAmount >=0, "item Amount should not be negative");
+
+				expectedMaterialAmount += itemAmount;
 			}
-			
+
 			// Response validation
-	        Assert.assertNotNull(resMaterialAmount, "Response material amount should not be null");
-	        Assert.assertTrue(resMaterialAmount >= 0, "Response material amount should not be negative");
+			Assert.assertNotNull(resMaterialAmount, "Response material amount should not be null");
+			Assert.assertTrue(resMaterialAmount >= 0, "Response material amount should not be negative");
 
-	        // Expected vs Request
-	        Assert.assertEquals(reqMaterialAmount, expectedMaterialAmount, 0.01, "Request material amount mismatch");
-	        
-	        // Expected vs Response
-	        Assert.assertEquals(resMaterialAmount, expectedMaterialAmount, 0.01, "Response material amount mismatch");
+			// Expected vs Request
+			Assert.assertEquals(reqMaterialAmount, expectedMaterialAmount, 0.01, "Request material amount mismatch");
 
-	        // Request vs Response
-	        Assert.assertEquals(reqMaterialAmount, resMaterialAmount, 0.01, "Request and Response material amount mismatch");
-	        
+			// Expected vs Response
+			Assert.assertEquals(resMaterialAmount, expectedMaterialAmount, 0.01, "Response material amount mismatch");
+
+			// Request vs Response
+			Assert.assertEquals(reqMaterialAmount, resMaterialAmount, 0.01, "Request and Response material amount mismatch");
+
 			System.out.println("Expected Material Amount : " + expectedMaterialAmount);
 			System.out.println("Request Material Amount  : " + reqMaterialAmount);
 			System.out.println("Response Material Amount : " + resMaterialAmount);
@@ -379,7 +369,7 @@ public class Create_materialReturn_test extends BaseToken{
 	private Double resDiscount;
 	@Test(priority=14, dependsOnMethods="materialReturn")
 	public void validDiscount() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		this.resDiscount = materialReturnResponse.jsonPath().getDouble("discount");
@@ -390,7 +380,7 @@ public class Create_materialReturn_test extends BaseToken{
 		} else {
 			Assert.assertNotNull(resDiscount, "discount should not be null");
 			Assert.assertEquals(resDiscount, reqDiscount, "discout is missmatch");
-			
+
 			Assert.assertTrue(resDiscount >=0, "response discount amount should not be negative");
 			Assert.assertTrue(resDiscount >=0, "request discount amount should not be negative");
 
@@ -403,7 +393,7 @@ public class Create_materialReturn_test extends BaseToken{
 	private Double resGstAmount;
 	@Test(priority=15, dependsOnMethods="materialReturn")
 	public void validGstAmount() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		this.resGstAmount = materialReturnResponse.jsonPath().getDouble("gst_amount");
@@ -416,7 +406,7 @@ public class Create_materialReturn_test extends BaseToken{
 
 			Assert.assertNotNull(resGstAmount, "gst amount should not be null");
 			Assert.assertEquals(resGstAmount, reqGstAmount, "gst amount is missmatch");
-			
+
 			Assert.assertTrue(resGstAmount >=0, "response gst amount should not be negative");
 			Assert.assertTrue(resGstAmount >=0, "request gst amount should not be negative");
 
@@ -429,7 +419,7 @@ public class Create_materialReturn_test extends BaseToken{
 	private Double resOtherAmount;
 	@Test(priority=16, dependsOnMethods="materialReturn")
 	public void validOtherAmount() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		this.resOtherAmount = materialReturnResponse.jsonPath().getDouble("other_amount");
@@ -442,7 +432,7 @@ public class Create_materialReturn_test extends BaseToken{
 
 			Assert.assertNotNull(resOtherAmount, "other amount should not be null");
 			Assert.assertEquals(resOtherAmount, reqOtherAmount, "other amount is missmatch");
-			
+
 			Assert.assertTrue(resOtherAmount >=0, "response other amount should not be negative");
 			Assert.assertTrue(resOtherAmount >=0, "request other amount should not be negative");
 
@@ -470,10 +460,10 @@ public class Create_materialReturn_test extends BaseToken{
 
 			expectedReqTotalPayable = ((reqMaterialAmount-reqDiscount)+reqOtherAmount+reqGstAmount);
 			actualResTotalPayable = ((resMaterialAmount-resDiscount)+resOtherAmount+resGstAmount);
-			
+
 			Assert.assertTrue(expectedReqTotalPayable >=0, "expectedReqTotalPayable amount should not be negative");
 			Assert.assertTrue(actualResTotalPayable >=0, "actualResTotalPayable amount should not be negative");
-			
+
 			Assert.assertEquals(expectedReqTotalPayable, actualResTotalPayable, "total payable amount is different");
 
 			Assert.assertNotNull(resTotalPayable, "total payable amount should not be bull");
@@ -491,7 +481,7 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=18, dependsOnMethods="materialReturn")
 	public void validPhoto() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		List<String> resPhotoList = materialReturnResponse.jsonPath().getList("photos");
@@ -500,7 +490,7 @@ public class Create_materialReturn_test extends BaseToken{
 		if(reqPhotos == null || reqPhotos.length==0) {
 			System.out.println("photos not provided");
 		} else {
-			
+
 			List<String> reqPhotosList = Arrays.asList(reqPhotos);
 
 			Assert.assertNotNull(resPhotoList, "photos list should not be null");
@@ -547,7 +537,7 @@ public class Create_materialReturn_test extends BaseToken{
 
 	@Test(priority=20, dependsOnMethods="materialReturn")
 	public void validRefrenceNumber() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
 
 		String resRefrenceNumber = materialReturnResponse.jsonPath().getString("vendor_reference_number");
@@ -566,24 +556,24 @@ public class Create_materialReturn_test extends BaseToken{
 			System.out.println("Response refrence number :" + resRefrenceNumber);
 		}
 	}
-	
+
 	@Test(priority=21, dependsOnMethods="materialReturn")
 	public void validDueDays() {
-		
+
 		Assert.assertEquals(materialReturnResponse.getStatusCode(), 200, "Expected Status Code: 200 but found: " + materialReturnResponse.getStatusCode());
-		
+
 		Double resDueDays = materialReturnResponse.jsonPath().getDouble("due_days");
 		Double reqDueDays = materialReturnPayload.getDue_days();
-		
+
 		if(reqDueDays == null) {
-			
+
 			System.out.println("due days not provided");
 		} else {
-			
+
 			Assert.assertNotNull(resDueDays, "response due days should not be null");
-			
+
 			Assert.assertEquals(resDueDays, reqDueDays, "due days should not be match");
-			
+
 			System.out.println("request due days :" + reqDueDays);
 			System.out.println("response due days :" + resDueDays);
 		}

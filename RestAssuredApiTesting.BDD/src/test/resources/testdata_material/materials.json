@@ -1,4 +1,5 @@
-{
+[
+  {
    "id" : "",
    "materialItem_id" : "de0827d1-aaab-44b3-8f64-ae551d23c3bd",
    "type" : "deposit",
@@ -29,4 +30,37 @@
    "grn_id" : "",
    "purchase_order_item_id" : "",
    "damage_quantity" : 0
-}
+  },
+  {
+   "id" : "",
+   "materialItem_id" : "b1e8cfeb-6813-4cb2-a499-7c2ae4c3f8ea",
+   "type" : "deposit",
+   "materialstock_id" : "39d84f36-db37-451c-9879-ad72409b8c99",
+   "remark" : "",
+   "party_name" : "",
+   "party_mobile" : null,
+   "party_id" : "",
+   "party_company_user_id" : "",
+   "quantity" : 10,
+   "unit_price" : 100,
+   "receiving_date" : "2026-07-31T10:39:32.282Z",
+   "index" : 0,
+   "photos" : [""],
+   "delete" : 0,
+   "total_payable" : 1000,
+   "is_purchase" : 1,
+   "is_material_returned" : null,
+   "is_material_sold" : null,
+   "is_discount_percent" : 0,
+   "gst_amount" : 180,
+   "discount_value" : 0,
+   "discount_amount" : 0,
+   "gst_percent" : 18,
+   "billing_activity_id" : "",
+   "billing_sub_activity_id" : "",
+   "equipment_stock_id" : "",
+   "grn_id" : "",
+   "purchase_order_item_id" : "",
+   "damage_quantity" : 0
+   }
+]

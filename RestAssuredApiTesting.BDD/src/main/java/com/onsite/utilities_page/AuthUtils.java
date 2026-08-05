@@ -62,8 +62,6 @@ public class AuthUtils {
 		//Extract token
 		String token = secondResponse.jsonPath().getString("token");
 		System.out.println("Extracted token: " + token);
-		System.out.println("Token Length : " + token.length());
-		System.out.println("Token Parts : " + token.split("\\.").length);
 
 		// Extract Current Company ID
 		String currentCompanyId =
@@ -92,9 +90,7 @@ public class AuthUtils {
 		if (companyId == null) {
 		    throw new RuntimeException("Current company not found or company is hidden.");
 		}
-
-		System.out.println("CURRENT COMPANY ID : " + companyId);
-
+		
 		// Save in CompanyContext
 		CompanyContext.setCompanyId(companyId);
 		return token;
