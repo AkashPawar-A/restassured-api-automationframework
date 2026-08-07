@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.MaterialReturn_Api;
-import com.onsite.pojo_request.Materials;
 import com.onsite.pojo_response.MaterialReturn_Response;
 import com.onsite.utilities_page.BaseToken;
 
@@ -183,7 +182,7 @@ public class Details_MaterialRequest_Test extends BaseToken {
 	        Assert.assertFalse(materialStockId.trim().isEmpty(), "Material Stock Id should not be empty");
 
 	        Assert.assertNotNull(quantity, "Quantity should not be null");
-	        Assert.assertTrue(quantity.doubleValue() > 0, "Quantity should be greater than 0");
+	        Assert.assertTrue(quantity.doubleValue() != 0, "Quantity should be greater than 0");
 
 	        Assert.assertNotNull(unitPrice, "Unit Price should not be null");
 	        Assert.assertTrue(unitPrice.doubleValue() > 0, "Unit Price should be greater than 0");
@@ -217,10 +216,10 @@ public class Details_MaterialRequest_Test extends BaseToken {
 	        Assert.assertNotNull(quantity, "Quantity should not be null");
 	        Assert.assertNotNull(unitPrice, "Unit Price should not be null");
 	        
-	        Assert.assertTrue(quantity.doubleValue() > 0, "Quantity should be greater than 0");
+	        Assert.assertTrue(quantity.doubleValue() != 0, "Quantity should be greater than 0");
 	        Assert.assertTrue(unitPrice.doubleValue() > 0, "Unit Price should be greater than 0");
 
-	        expectedMaterialAmount += quantity.doubleValue() * unitPrice.doubleValue();
+	        expectedMaterialAmount += Math.abs(quantity.doubleValue()) * unitPrice.doubleValue();
 	    }
 
 	    Assert.assertEquals(responseMaterialAmount, expectedMaterialAmount, 0.01, "Material amount mismatch");

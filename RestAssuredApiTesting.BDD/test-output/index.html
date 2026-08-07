@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-308116956\testng-customsuite.xml</span>
+                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-1851223502\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,26 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">20 methods, 2 failed,   18 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test" class="method navigator-link" hash-for-method="validMaterial">validMaterial</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test" class="method navigator-link" hash-for-method="validMaterialAmount">validMaterialAmount</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">20 methods,   20 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -139,6 +120,16 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test" class="method navigator-link" hash-for-method="validGstAmount">validGstAmount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test" class="method navigator-link" hash-for-method="validMaterial">validMaterial</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test" class="method navigator-link" hash-for-method="validMaterialAmount">validMaterialAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -223,94 +214,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.onsite.materialReturn_testpage.Details_MaterialRequest_Test</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="validMaterial">
-                  </a> <!-- validMaterial -->
-                  <span class="method-name">validMaterial</span>
-                  <div class="stack-trace">java.lang.AssertionError: Quantity should be greater than 0 expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterial(Details_MaterialRequest_Test.java:186)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="validMaterialAmount">
-                  </a> <!-- validMaterialAmount -->
-                  <span class="method-name">validMaterialAmount</span>
-                  <div class="stack-trace">java.lang.AssertionError: Quantity should be greater than 0 expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at com.onsite.materialReturn_testpage.Details_MaterialRequest_Test.validMaterialAmount(Details_MaterialRequest_Test.java:220)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -344,6 +247,20 @@
                   <a name="validGstAmount">
                   </a> <!-- validGstAmount -->
                   <span class="method-name">validGstAmount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validMaterial">
+                  </a> <!-- validMaterial -->
+                  <span class="method-name">validMaterial</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validMaterialAmount">
+                  </a> <!-- validMaterialAmount -->
+                  <span class="method-name">validMaterialAmount</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -449,7 +366,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-308116956\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-1851223502\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -502,88 +419,88 @@ data.addRows(20);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'detailMaterialReturn')
 data.setCell(0, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(0, 3, 3054);
+data.setCell(0, 3, 1702);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'validResponseSchema')
 data.setCell(1, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(1, 3, 849);
+data.setCell(1, 3, 660);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'validMaterial')
+data.setCell(2, 1, 'validTotalPayable')
 data.setCell(2, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(2, 3, 736);
+data.setCell(2, 3, 633);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'validResponseMessage')
+data.setCell(3, 1, 'validMaterialAmount')
 data.setCell(3, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(3, 3, 685);
+data.setCell(3, 3, 459);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'validMaterialAmount')
+data.setCell(4, 1, 'validOtherAmount')
 data.setCell(4, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(4, 3, 607);
+data.setCell(4, 3, 392);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'validTotalPayable')
+data.setCell(5, 1, 'validSubCategoryId')
 data.setCell(5, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(5, 3, 528);
+data.setCell(5, 3, 368);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'validMaterialReturnId')
+data.setCell(6, 1, 'validMaterial')
 data.setCell(6, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(6, 3, 398);
+data.setCell(6, 3, 366);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'validPhotos')
+data.setCell(7, 1, 'validResponseMessage')
 data.setCell(7, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(7, 3, 353);
+data.setCell(7, 3, 364);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'validSubCategoryId')
+data.setCell(8, 1, 'validRemark')
 data.setCell(8, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(8, 3, 307);
+data.setCell(8, 3, 346);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'validPartyCompanyUserId')
+data.setCell(9, 1, 'validReturnDate')
 data.setCell(9, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(9, 3, 289);
+data.setCell(9, 3, 328);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'validRemark')
+data.setCell(10, 1, 'validProjectId')
 data.setCell(10, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(10, 3, 285);
+data.setCell(10, 3, 309);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'validGstAmount')
+data.setCell(11, 1, 'validPartyCompanyUserId')
 data.setCell(11, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(11, 3, 271);
+data.setCell(11, 3, 243);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'validReturnDate')
+data.setCell(12, 1, 'validMaterialReturnId')
 data.setCell(12, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(12, 3, 267);
+data.setCell(12, 3, 238);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'validProjectId')
+data.setCell(13, 1, 'validDiscount')
 data.setCell(13, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(13, 3, 263);
+data.setCell(13, 3, 214);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'validDiscount')
+data.setCell(14, 1, 'validDueDays')
 data.setCell(14, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(14, 3, 263);
+data.setCell(14, 3, 205);
 data.setCell(15, 0, 15)
 data.setCell(15, 1, 'validRefrenceNumber')
 data.setCell(15, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(15, 3, 253);
+data.setCell(15, 3, 183);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'validOtherAmount')
+data.setCell(16, 1, 'validGstAmount')
 data.setCell(16, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(16, 3, 247);
+data.setCell(16, 3, 180);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'validDueDays')
+data.setCell(17, 1, 'validPhotos')
 data.setCell(17, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(17, 3, 238);
+data.setCell(17, 3, 156);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'validResponseTime')
+data.setCell(18, 1, 'validStatusCode')
 data.setCell(18, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(18, 3, 12);
+data.setCell(18, 3, 9);
 data.setCell(19, 0, 19)
-data.setCell(19, 1, 'validStatusCode')
+data.setCell(19, 1, 'validResponseTime')
 data.setCell(19, 2, 'com.onsite.materialReturn_testpage.Details_MaterialRequest_Test')
-data.setCell(19, 3, 9);
+data.setCell(19, 3, 7);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -616,167 +533,163 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">8355 ms</span>
+                <span class="method-start">4710 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">detailMaterialReturn(62c4a9e3-06a6-4448-bc0f-2692fb9fb861)</span>
-                <span class="method-start">9120 ms</span>
+                <span class="method-start">5072 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">12198 ms</span>
+                <span class="method-start">6787 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validStatusCode</span>
-                <span class="method-start">13082 ms</span>
+                <span class="method-start">7304 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">13101 ms</span>
+                <span class="method-start">7332 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validResponseMessage</span>
-                <span class="method-start">13835 ms</span>
+                <span class="method-start">7675 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">14533 ms</span>
+                <span class="method-start">8057 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validResponseTime</span>
-                <span class="method-start">15370 ms</span>
+                <span class="method-start">8389 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">15389 ms</span>
+                <span class="method-start">8400 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validResponseSchema</span>
-                <span class="method-start">16119 ms</span>
+                <span class="method-start">8758 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">16979 ms</span>
+                <span class="method-start">9424 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validMaterialReturnId</span>
-                <span class="method-start">17740 ms</span>
+                <span class="method-start">9793 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">18142 ms</span>
+                <span class="method-start">10033 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validRemark</span>
-                <span class="method-start">18882 ms</span>
+                <span class="method-start">10404 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">19170 ms</span>
+                <span class="method-start">10757 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validPartyCompanyUserId</span>
-                <span class="method-start">19922 ms</span>
+                <span class="method-start">11107 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">20218 ms</span>
+                <span class="method-start">11354 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validProjectId</span>
-                <span class="method-start">20886 ms</span>
+                <span class="method-start">11664 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">21153 ms</span>
+                <span class="method-start">11977 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validSubCategoryId</span>
-                <span class="method-start">21849 ms</span>
+                <span class="method-start">12300 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">22158 ms</span>
+                <span class="method-start">12671 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">validMaterial</span>
-                <span class="method-start">22804 ms</span>
+                <span class="method-start">12996 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">23548 ms</span>
+                <span class="method-start">13364 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">validMaterialAmount</span>
-                <span class="method-start">24314 ms</span>
+                <span class="method-start">13685 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">24924 ms</span>
+                <span class="method-start">14146 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validGstAmount</span>
-                <span class="method-start">25845 ms</span>
+                <span class="method-start">14463 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">26119 ms</span>
+                <span class="method-start">14644 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validOtherAmount</span>
-                <span class="method-start">27001 ms</span>
+                <span class="method-start">14962 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">27250 ms</span>
+                <span class="method-start">15358 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validDiscount</span>
-                <span class="method-start">27891 ms</span>
+                <span class="method-start">15641 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">28156 ms</span>
+                <span class="method-start">15858 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validTotalPayable</span>
-                <span class="method-start">28955 ms</span>
+                <span class="method-start">16267 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">29484 ms</span>
+                <span class="method-start">16904 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validPhotos</span>
-                <span class="method-start">30128 ms</span>
+                <span class="method-start">17198 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">30485 ms</span>
+                <span class="method-start">17355 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validReturnDate</span>
-                <span class="method-start">31155 ms</span>
+                <span class="method-start">17647 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">31427 ms</span>
+                <span class="method-start">17978 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validRefrenceNumber</span>
-                <span class="method-start">31997 ms</span>
+                <span class="method-start">18353 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">32252 ms</span>
+                <span class="method-start">18538 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validDueDays</span>
-                <span class="method-start">33155 ms</span>
+                <span class="method-start">18888 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
