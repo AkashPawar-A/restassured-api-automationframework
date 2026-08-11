@@ -3,15 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.materialReturn_testpage.Details_MaterialRequest_Test">
+      <class name="com.onsite.materialReturn_testpage.Edit_materialReturn_test">
         <methods>
-          <include name="validMaterialAmount"/>
-          <include name="detailMaterialReturn"/>
-          <include name="generateTokenForSuite"/>
-          <include name="setUp"/>
-          <include name="validMaterial"/>
+          <include name="getMaterialReturnEdit"/>
         </methods>
-      </class> <!-- com.onsite.materialReturn_testpage.Details_MaterialRequest_Test -->
+      </class> <!-- com.onsite.materialReturn_testpage.Edit_materialReturn_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

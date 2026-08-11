@@ -1,0 +1,16 @@
+{
+    "remark" : "test - 2",
+	"party_company_user_id" : "92478da4-a1ea-44b7-b0ab-a3e9534b7240",
+	"project_id" : "a43a10ac-fa91-4ec3-ba8f-ac1dc944c4c9",
+	"sub_category_id" : "eed3baf3-b8ff-4182-8d96-f1d1cad008b6",
+	"material" : [],
+	"gst_amount" : 20,
+	"other_amount" : 30,
+	"material_amount" : 2000,
+	"discount" : 200,
+	"total_payable" : 1850,
+	"photos" : [],
+	"return_date" : "2026-08-11T10:39:32.282Z",
+	"vendor_reference_number" : "A-02",
+	"due_days" : 14
+}
