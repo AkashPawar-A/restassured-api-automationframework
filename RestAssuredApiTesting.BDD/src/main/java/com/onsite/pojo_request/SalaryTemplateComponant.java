@@ -1,14 +1,11 @@
-package com.onsite.pojo_response;
+package com.onsite.pojo_request;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown=true)
 public class SalaryTemplateComponant {
 	
-	private String id; //allowance_id, deduction_id, basic_id
+	private String id; //allowance
 	private String name;
-	private String relation_type; //% of ctc, fixed_Amount
-	private float relation_value; //% of ctc, fixed_Amount
+	private String relation_type;
+	private float relation_value;
 	private float amount;
 	
 	public String getId() {

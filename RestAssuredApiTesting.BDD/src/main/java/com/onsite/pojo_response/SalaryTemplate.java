@@ -14,7 +14,7 @@ public class SalaryTemplate {
 	private float gross_amount;
 	private float net_amount;
 	private int[] dayoff;
-	private String type;
+	private String type;  //daily, monthly
 	private SalaryTemplateComponant basic;
 	private SalaryBreakupComponent[] allowance;
 	private SalaryTemplateComponant fixed_allowance;
