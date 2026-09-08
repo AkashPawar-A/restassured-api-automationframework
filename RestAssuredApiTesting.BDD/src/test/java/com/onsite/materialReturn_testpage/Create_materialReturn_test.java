@@ -49,27 +49,23 @@ public class Create_materialReturn_test extends BaseToken{
 		// Main payload
 		materialReturnReq.put("materials", materials);
 
-		// Convert JSON -> POJO
+		// Convert JSON -> POJO = pojo mapping
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 
 		materialReturnPayload = mapper.convertValue(materialReturnReq, MaterialReturnRequest.class);
-
-		// Print payload
-		String finalPayload = mapper.writerWithDefaultPrettyPrinter()
-				.writeValueAsString(materialReturnPayload);
-
-		System.out.println(finalPayload);
-		materialReturnPayload = mapper.convertValue(materialReturnReq, MaterialReturnRequest.class);
+		
+		// POJO → JSON = SERIALIZATION
+		String finalPayload = mapper.writeValueAsString(materialReturnPayload);
 
 		return new Object[][] {
-			{ materialReturnPayload }
+			{ finalPayload }
 		};
 	}
 
 	@Test(dataProvider="materialReturn", priority=1)
-	public void materialReturn(MaterialReturnRequest finalPayload) {
-
+	public void materialReturn(String finalPayload) {
+		
 		materialReturnResponse = RestAssured
 				.given()
 				.baseUri(ApiBasePath.BASE_URL)
@@ -85,8 +81,8 @@ public class Create_materialReturn_test extends BaseToken{
 				.log().all()
 				.extract().response();
 
+		//Deserilization
 		MaterialReturn_Response responseBody = materialReturnResponse.as(MaterialReturn_Response.class);
-
 	}
 
 	@Test(priority=2, dependsOnMethods="materialReturn")

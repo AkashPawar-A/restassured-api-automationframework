@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.materialReturn_testpage.Edit_materialReturn_test">
+      <class name="com.onsite.materialReturn_testpage.Delete_MaterialReturn_test">
         <methods>
-          <include name="getMaterialReturnEdit"/>
+          <include name="verifyDeleteWithValidId" invocation-numbers="0"/>
+          <include name="verifyDeleteWithAlreadyDeletedId"/>
+          <include name="verifyDeleteWithoutToken"/>
         </methods>
-      </class> <!-- com.onsite.materialReturn_testpage.Edit_materialReturn_test -->
+      </class> <!-- com.onsite.materialReturn_testpage.Delete_MaterialReturn_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

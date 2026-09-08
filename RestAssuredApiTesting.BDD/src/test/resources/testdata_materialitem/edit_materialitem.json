@@ -1,9 +1,9 @@
 {
   "name": "Cement",
-  "company_id": "09defe58-d41f-4435-9f99-0d03be6220dc",
-  "unit": "Barrel",
-  "sub_category_id": "6b50ddf5-1f09-41f5-b0da-3ac3f1c82056",
-  "unit_id": "1ddc1957-081d-4ae7-97a3-9f1d30f15932",
+  "company_id": "9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc",
+  "unit": "bags",
+  "sub_category_id": "eed3baf3-b8ff-4182-8d96-f1d1cad008b6",
+  "unit_id": "aa2a9a3c-5151-4544-a488-6df7b251db89",
   "gst_percent": 18,
   "notes": "Birla cement",
   "material_sub_category_id": "",

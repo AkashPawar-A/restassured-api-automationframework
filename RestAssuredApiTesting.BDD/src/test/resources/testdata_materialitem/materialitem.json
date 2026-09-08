@@ -1,30 +1,16 @@
 [
  {
   "name": "Cement",
-  "company_id": "eb603e4c-3d94-4b37-9a23-1f5e89ca8f17",
-  "unit": "nos",
+  "company_id": "9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc",
+  "unit": "bags",
   "sub_category_id": "6b50ddf5-1f09-41f5-b0da-3ac3f1c82056",
-  "unit_id": "1ddc1957-081d-4ae7-97a3-9f1d30f15932",
+  "unit_id": "aa2a9a3c-5151-4544-a488-6df7b251db89",
   "gst_percent": 18,
   "notes": "Birla cement",
   "material_sub_category_id": "",
   "hsn_code": "12589",
   "item_code": "A-01",
-  "unit_cost_price" : 0,
+  "unit_cost_price" : 10,
   "lead_days" : 0
- }, 
- {
-  "name": "Petrol",
-  "company_id": "eb603e4c-3d94-4b37-9a23-1f5e89ca8f17",
-  "unit": "nos",
-  "sub_category_id": "6b50ddf5-1f09-41f5-b0da-3ac3f1c82056",
-  "unit_id": "ea732af5-a117-4798-beec-7400346bbc64",
-  "gst_percent": 12,
-  "notes": "Birla cement",
-  "material_sub_category_id": "",
-  "hsn_code": "12589",
-  "item_code": "A-01",
-  "unit_cost_price" : 0,
-  "lead_days" : 0
-  }
+ }
  ]
