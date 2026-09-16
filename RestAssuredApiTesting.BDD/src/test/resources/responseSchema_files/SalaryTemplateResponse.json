@@ -1,0 +1,253 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Salary Template Response Schema",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "id",
+    "creator",
+    "creator_company_user_id",
+    "company_id",
+    "name",
+    "ctc_amount",
+    "gross_amount",
+    "net_amount",
+    "dayoff",
+    "type",
+    "basic",
+    "allowances",
+    "fixed_allowance",
+    "deductions",
+    "is_active",
+    "notes",
+    "delete",
+    "created",
+    "updated"
+  ],
+
+  "properties": {
+
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+
+    "creator": {
+      "type": "string",
+      "format": "uuid"
+    },
+
+    "creator_company_user_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+
+    "company_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+
+    "name": {
+      "type": "string"
+    },
+
+    "ctc_amount": {
+      "type": "number"
+    },
+
+    "gross_amount": {
+      "type": "number"
+    },
+
+    "net_amount": {
+      "type": "number"
+    },
+
+    "dayoff": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+
+    "type": {
+      "type": "string"
+    },
+
+    "basic": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "required": [
+        "id",
+        "name",
+        "relation_type",
+        "relation_value",
+        "amount",
+        "include_in"
+      ],
+
+      "properties": {
+
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+
+        "name": {
+          "type": "string"
+        },
+
+        "relation_type": {
+          "type": "string"
+        },
+
+        "relation_value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+
+        "amount": {
+          "type": "number"
+        },
+
+        "include_in": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+
+    "allowances": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "relation_type",
+          "relation_value",
+          "amount",
+          "include_in"
+        ],
+        "properties": {
+          "id": {"type": "string", "format": "uuid"},
+          "name": {"type": "string"},
+          "relation_type": {"type": "string"},
+          "relation_value": {"type": "number"},
+          "amount": {"type": "number"},
+          "include_in": {
+            "type": ["array","null"],
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+
+    "fixed_allowance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "include_in",
+        "relation_type",
+        "relation_value",
+        "amount"
+      ],
+      "properties": {
+        "id": {"type": ["string", "null"]},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": ["number","null"]},
+        "amount": {"type": "number"},
+        "include_in": {"type": ["array", "null"],
+              "items": {"type": "string"}
+      }
+      }
+    },
+
+    "deductions": {"type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "relation_type",
+          "relation_value",
+          "amount",
+          "include_in"
+        ],
+        "properties": {
+          "id": {"type": "string", "format": "uuid"},
+          "name": {"type": "string"},
+          "relation_type": {"type": "string"},
+          "relation_value": {"type": "number"},
+          "amount": {"type": "number"},
+          "include_in": {"type": ["array", "null"],
+                 "items": {"type": "string"}
+        }
+        }
+      }
+    },
+
+    "is_active": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+
+    "notes": {
+      "type": "string"
+    },
+
+    "delete": {
+      "type": "integer"
+    },
+
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "is_pf": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+
+    "is_esic": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+
+    "is_pt": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+
+    "is_lwf": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+
+    "work_state": {
+      "type": "string"
+    }
+  }
+}

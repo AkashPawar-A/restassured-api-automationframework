@@ -1,33 +1,46 @@
 {
-   "company_id" : "",
-   "name" : "RestAssured - 1",
-   "ctc_amount" : "",
-   "gross_amount" : "",
-   "net_amount" : "",
-   "dayoff" : [],
-   "type" : "",
-   "basic" : "",
-   "allowances" : [{
-        "amount" : "",
-        "id" : "",
-        "name" : "",
-        "relation_type" : "",
-        "relation_value" : ""
-        }],
-   "fixed_allowances" : {
-       "id" : "",
-       "name" : "",
-       "relation_type" : "",
-       "relation_value" : "",
-       "amount" : 
+   "company_id" : "9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc",
+   "name" : "Salary Template - 3",
+   "ctc_amount" : 25000,
+   "gross_amount" : 25000,
+   "net_amount" : 21750,
+   "dayoff" : [0],
+   "type" : "monthly",
+   "basic" : {
+        "amount" : 22000,
+        "id" : null,
+        "include_in" : null,
+        "name" : "basic",
+        "relation_type" : "fixed",
+        "relation_value" : 22000
    },
+   "allowance" : [{
+        "amount" : 2500,
+        "id" : "68b72eb8-6481-4850-99ae-6146f60f20ea",
+        "name" : "Allowance 1",
+        "relation_type" : "ctc",
+        "relation_value" : 10,
+        "include_in" : ["pf", "esic"]
+    }],
    "deductions" : [{
-        "amount" : "",
-        "id" : "",
-        "name" : "",
-        "relation_type" : "",
-        "relation_value" : ""
-        }],
+        "amount" : 1250,
+        "id" : "5523b231-f41e-4473-b3ab-22daa4ddc632",
+        "name" : "Deduction 1",
+        "relation_type" : "ctc",
+        "relation_value" : 5
+    }],
+    "fixed_allowance" : {
+        "id" : null,
+        "name" : "fixed",
+        "relation_type" : "fixed",
+        "relation_value" : null,
+        "amount" : 500
+   },
    "notes" : "testing - 1",
-   "is_active" : 0
+   "is_active" : 1,
+   "is_esic" : 1,
+   "is_lwf" : 1,
+   "is_pf" : 1,
+   "is_pt": 1,
+   "work_state" : "MH"
 }

@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Salary Template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "company_id",
+    "name",
+    "ctc_amount",
+    "gross_amount",
+    "net_amount",
+    "dayoff",
+    "type",
+    "basic",
+    "allowance",
+    "deductions",
+    "fixed_allowance",
+    "notes",
+    "is_active"
+  ],
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ctc_amount": {
+      "type": "number"
+    },
+    "gross_amount": {
+      "type": "number"
+    },
+    "net_amount": {
+      "type": "number"
+    },
+    "dayoff": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "Daily"
+      ]
+    },
+    "basic": {
+      "$ref": "#/definitions/basic"
+    },
+    "allowance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/allowance"
+      }
+    },
+    "deductions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/deduction"
+      }
+    },
+    "fixed_allowance": {
+      "$ref": "#/definitions/fixedAllowance"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+    "is_esic": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+    "is_lwf": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+    "is_pf": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+    "is_pt": {
+      "type": "integer",
+      "enum": [0, 1]
+    },
+    "work_state": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "basic": {
+      "type": "object",
+      "required": [
+        "amount",
+        "id",
+        "name",
+        "relation_type",
+        "relation_value"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "relation_type": {
+          "type": "string"
+        },
+        "relation_value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "allowance": {
+      "type": "object",
+      "required": [
+        "amount",
+        "id",
+        "name",
+        "relation_type",
+        "relation_value"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "relation_type": {
+          "type": "string"
+        },
+        "relation_value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "deduction": {
+      "type": "object",
+      "required": [
+        "amount",
+        "id",
+        "name",
+        "relation_type",
+        "relation_value"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "relation_type": {
+          "type": "string"
+        },
+        "relation_value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixedAllowance": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "relation_type",
+        "relation_value",
+        "amount"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "relation_type": {
+          "type": "string"
+        },
+        "relation_value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "amount": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
