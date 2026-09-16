@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.materialReturn_testpage.Delete_MaterialReturn_test">
+      <class name="com.onsite.salarytemplate.Create_SalaryTemplate_Test">
         <methods>
-          <include name="verifyDeleteWithValidId" invocation-numbers="0"/>
-          <include name="verifyDeleteWithAlreadyDeletedId"/>
-          <include name="verifyDeleteWithoutToken"/>
+          <include name="validResponseSchema"/>
+          <include name="create_salarytemplate"/>
+          <include name="generateTokenForSuite"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.materialReturn_testpage.Delete_MaterialReturn_test -->
+      </class> <!-- com.onsite.salarytemplate.Create_SalaryTemplate_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
