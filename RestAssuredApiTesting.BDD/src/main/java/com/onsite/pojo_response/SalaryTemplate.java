@@ -13,7 +13,7 @@ public class SalaryTemplate {
 	private float ctc_amount;
 	private float gross_amount;
 	private float net_amount;
-	private int[] dayoff;
+	private Integer[] dayoff;
 	private String type;  //daily, monthly
 	private SalaryTemplateComponant basic;
 	private SalaryBreakupComponent[] allowance;
@@ -111,10 +111,10 @@ public class SalaryTemplate {
 	public void setNet_amount(float net_amount) {
 		this.net_amount = net_amount;
 	}
-	public int[] getDayoff() {
+	public Integer[] getDayoff() {
 		return dayoff;
 	}
-	public void setDayoff(int[] dayoff) {
+	public void setDayoff(Integer[] dayoff) {
 		this.dayoff = dayoff;
 	}
 	public String getType() {

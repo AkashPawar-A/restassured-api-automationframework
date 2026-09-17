@@ -5,9 +5,9 @@
     <classes>
       <class name="com.onsite.salarytemplate.Create_SalaryTemplate_Test">
         <methods>
-          <include name="validResponseSchema"/>
           <include name="create_salarytemplate"/>
           <include name="generateTokenForSuite"/>
+          <include name="validDayoff"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.onsite.salarytemplate.Create_SalaryTemplate_Test -->

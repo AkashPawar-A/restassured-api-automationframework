@@ -1,6 +1,6 @@
 package com.onsite.pojo_request;
 
-import com.onsite.pojo_response.SalaryTemplateComponant;
+import com.onsite.pojo_request.SalaryTemplateComponant;
 
 public class Add_SalaryTemplate {
 	

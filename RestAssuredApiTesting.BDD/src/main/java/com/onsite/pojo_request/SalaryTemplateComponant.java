@@ -1,12 +1,15 @@
 package com.onsite.pojo_request;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SalaryTemplateComponant {
 	
 	private String id; //allowance
-	private String name;
-	private String relation_type;
-	private float relation_value;
-	private float amount;
+	private String name;  ///basic
+	private String relation_type; // ctc & fixed
+	private Float relation_value; // % & rupees
+	private Float amount;
 	
 	public String getId() {
 		return id;
@@ -26,17 +29,16 @@ public class SalaryTemplateComponant {
 	public void setRelation_type(String relation_type) {
 		this.relation_type = relation_type;
 	}
-	public float getRelation_value() {
+	public Float getRelation_value() {
 		return relation_value;
 	}
-	public void setRelation_value(float relation_value) {
+	public void setRelation_value(Float relation_value) {
 		this.relation_value = relation_value;
 	}
-	public float getAmount() {
+	public Float getAmount() {
 		return amount;
 	}
-	public void setAmount(float amount) {
+	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
-
 }
