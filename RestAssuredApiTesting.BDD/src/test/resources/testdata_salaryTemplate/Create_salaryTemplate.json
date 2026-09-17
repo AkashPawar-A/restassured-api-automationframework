@@ -2,10 +2,10 @@
    "company_id" : "9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc",
    "name" : "Salary Template - 3",
    "ctc_amount" : 25000,
+   "type" : "monthly",
+   "dayoff" : [0],
    "gross_amount" : 25000,
    "net_amount" : 21750,
-   "dayoff" : [0],
-   "type" : "monthly",
    "basic" : {
         "amount" : 22000,
         "id" : null,
