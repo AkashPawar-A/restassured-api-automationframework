@@ -6,8 +6,8 @@
       <class name="com.onsite.salarytemplate.Create_SalaryTemplate_Test">
         <methods>
           <include name="create_salarytemplate"/>
+          <include name="validBasicAmount"/>
           <include name="generateTokenForSuite"/>
-          <include name="validDayoff"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.onsite.salarytemplate.Create_SalaryTemplate_Test -->

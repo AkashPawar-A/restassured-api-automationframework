@@ -7,10 +7,17 @@ public class SalaryTemplateComponant {
 	
 	private String id; //allowance
 	private String name;  ///basic
-	private String relation_type; // ctc & fixed
+	private String relation_type; // ctc, fixed & basic
 	private Float relation_value; // % & rupees
 	private Float amount;
+	private String[] include_in;
 	
+	public String[] getInclude_in() {
+		return include_in;
+	}
+	public void setInclude_in(String[] include_in) {
+		this.include_in = include_in;
+	}
 	public String getId() {
 		return id;
 	}

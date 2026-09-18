@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse--1669175482\testng-customsuite.xml</span>
+                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-1701074268\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="validDayoff">validDayoff</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="validBasicAmount">validBasicAmount</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -118,12 +118,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="create_salarytemplate({&quot;company_id&quot;:&quot;9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc&quot;,&quot;name&quot;:&quot;Salary Template - 3&quot;,&quot;ctc_amount&quot;:25000...)">create_salarytemplate({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 3","ctc_amount":25000...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="validBasicAmount">validBasicAmount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="create_salarytemplate({&quot;company_id&quot;:&quot;9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc&quot;,&quot;name&quot;:&quot;Salary Template - 4&quot;,&quot;ctc_amount&quot;:25000...)">create_salarytemplate({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 4","ctc_amount":25000...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -149,6 +144,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="validCtcAmount">validCtcAmount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.onsite.salarytemplate.Create_SalaryTemplate_Test" class="method navigator-link" hash-for-method="validDayoff">validDayoff</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -201,11 +201,15 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validDayoff">
-                  </a> <!-- validDayoff -->
-                  <span class="method-name">validDayoff</span>
-                  <div class="stack-trace">java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class [Ljava.lang.Integer; (java.util.ArrayList and [Ljava.lang.Integer; are in module java.base of loader &apos;bootstrap&apos;)
-	at com.onsite.salarytemplate.Create_SalaryTemplate_Test.validDayoff(Create_SalaryTemplate_Test.java:202)
+                  <a name="validBasicAmount">
+                  </a> <!-- validBasicAmount -->
+                  <span class="method-name">validBasicAmount</span>
+                  <div class="stack-trace">java.lang.AssertionError: Request basic amount calculation is incorrect expected [22000.0] but found [20000.0]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at com.onsite.salarytemplate.Create_SalaryTemplate_Test.validBasicAmount(Create_SalaryTemplate_Test.java:343)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -246,17 +250,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="create_salarytemplate({&quot;company_id&quot;:&quot;9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc&quot;,&quot;name&quot;:&quot;Salary Template - 3&quot;,&quot;ctc_amount&quot;:25000...)">
-                  </a> <!-- create_salarytemplate({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 3","ctc_amount":25000...) -->
+                  <a name="create_salarytemplate({&quot;company_id&quot;:&quot;9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc&quot;,&quot;name&quot;:&quot;Salary Template - 4&quot;,&quot;ctc_amount&quot;:25000...)">
+                  </a> <!-- create_salarytemplate({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 4","ctc_amount":25000...) -->
                   <span class="method-name">create_salarytemplate</span>
-                  <span class="parameters">({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 3","ctc_amount":25000.0,"gross_amount":25000.0,"net_amount":21750.0,"dayoff":[0],"type":"monthly","basic":{"id":null,"name":"basic","relation_type":"fixed","relation_value":22000.0,"amount":22000.0},"allowance":[{"id":"68b72eb8-6481-4850-99ae-6146f60f20ea","name":"Allowance 1","relation_type":"ctc","relation_value":10.0,"amount":2500.0}],"fixed_allowance":{"id":null,"name":"fixed","relation_type":"fixed","relation_value":null,"amount":500.0},"deductions":[{"id":"5523b231-f41e-4473-b3ab-22daa4ddc632","name":"Deduction 1","relation_type":"ctc","relation_value":5.0,"amount":1250.0}],"notes":"testing - 1","is_active":1,"is_pf":1,"is_esic":1,"is_pt":1,"is_lwf":1,"work_state":"MH"})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="validBasicAmount">
-                  </a> <!-- validBasicAmount -->
-                  <span class="method-name">validBasicAmount</span>
+                  <span class="parameters">({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 4","ctc_amount":25000.0,"gross_amount":25000.0,"net_amount":21750.0,"dayoff":[0],"type":"monthly","basic":{"id":null,"name":"basic","relation_type":"ctc","relation_value":80.0,"amount":22000.0},"allowance":[{"id":"68b72eb8-6481-4850-99ae-6146f60f20ea","name":"Allowance 1","relation_type":"ctc","relation_value":10.0,"amount":2500.0}],"fixed_allowance":{"id":null,"name":"fixed","relation_type":"fixed","relation_value":null,"amount":500.0},"deductions":[{"id":"5523b231-f41e-4473-b3ab-22daa4ddc632","name":"Deduction 1","relation_type":"ctc","relation_value":5.0,"amount":1250.0}],"notes":"testing - 1","is_active":1,"is_pf":1,"is_esic":1,"is_pt":1,"is_lwf":1,"work_state":"MH"})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -292,6 +289,13 @@
                   <a name="validCtcAmount">
                   </a> <!-- validCtcAmount -->
                   <span class="method-name">validCtcAmount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validDayoff">
+                  </a> <!-- validDayoff -->
+                  <span class="method-name">validDayoff</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -341,7 +345,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse--1669175482\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse-1701074268\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -394,64 +398,64 @@ data.addRows(14);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'create_salarytemplate')
 data.setCell(0, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(0, 3, 293);
+data.setCell(0, 3, 268);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'validResponseSchema')
+data.setCell(1, 1, 'validBasicAmount')
 data.setCell(1, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(1, 3, 139);
+data.setCell(1, 3, 119);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'validBasicRelationValue')
+data.setCell(2, 1, 'validResponseSchema')
 data.setCell(2, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(2, 3, 99);
+data.setCell(2, 3, 105);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'validBasicName')
+data.setCell(3, 1, 'validBasicRelationValue')
 data.setCell(3, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(3, 3, 50);
+data.setCell(3, 3, 54);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'validDayoff')
+data.setCell(4, 1, 'validSalaryTemplateType')
 data.setCell(4, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(4, 3, 44);
+data.setCell(4, 3, 52);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'validMessage')
+data.setCell(5, 1, 'validCompanyId')
 data.setCell(5, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(5, 3, 38);
+data.setCell(5, 3, 48);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'validBasicAmount')
+data.setCell(6, 1, 'validCtcAmount')
 data.setCell(6, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(6, 3, 29);
+data.setCell(6, 3, 44);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'validSalaryTemplateName')
+data.setCell(7, 1, 'validDayoff')
 data.setCell(7, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(7, 3, 28);
+data.setCell(7, 3, 33);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'validCompanyId')
+data.setCell(8, 1, 'validBasicName')
 data.setCell(8, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(8, 3, 26);
+data.setCell(8, 3, 29);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'validSalaryTemplateType')
+data.setCell(9, 1, 'validBasicRelationType')
 data.setCell(9, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(9, 3, 22);
+data.setCell(9, 3, 25);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'validCtcAmount')
+data.setCell(10, 1, 'validMessage')
 data.setCell(10, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(10, 3, 21);
+data.setCell(10, 3, 24);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'validBasicRelationType')
+data.setCell(11, 1, 'validSalaryTemplateName')
 data.setCell(11, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(11, 3, 20);
+data.setCell(11, 3, 18);
 data.setCell(12, 0, 12)
 data.setCell(12, 1, 'validResponseTime')
 data.setCell(12, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(12, 3, 11);
+data.setCell(12, 3, 9);
 data.setCell(13, 0, 13)
 data.setCell(13, 1, 'validStatusCode')
 data.setCell(13, 2, 'com.onsite.salarytemplate.Create_SalaryTemplate_Test')
-data.setCell(13, 3, 7);
+data.setCell(13, 3, 6);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 827 ms</span>
+              <span class="suite-total-time">Total running time: 834 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -484,117 +488,117 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">5142 ms</span>
+                <span class="method-start">5545 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">create_salarytemplate({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 3","ctc_amount":25000...)</span>
-                <span class="method-start">5737 ms</span>
+                <span class="method-name">create_salarytemplate({"company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 4","ctc_amount":25000...)</span>
+                <span class="method-start">5959 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">6046 ms</span>
+                <span class="method-start">6241 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validStatusCode</span>
-                <span class="method-start">6544 ms</span>
+                <span class="method-start">6725 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">6554 ms</span>
+                <span class="method-start">6739 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validMessage</span>
-                <span class="method-start">7008 ms</span>
+                <span class="method-start">7164 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">7054 ms</span>
+                <span class="method-start">7195 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validResponseTime</span>
-                <span class="method-start">7608 ms</span>
+                <span class="method-start">7701 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">7624 ms</span>
+                <span class="method-start">7715 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validResponseSchema</span>
-                <span class="method-start">8006 ms</span>
+                <span class="method-start">8162 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">8151 ms</span>
+                <span class="method-start">8272 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validCompanyId</span>
-                <span class="method-start">9670 ms</span>
+                <span class="method-start">8698 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">9701 ms</span>
+                <span class="method-start">8756 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validSalaryTemplateName</span>
-                <span class="method-start">10105 ms</span>
+                <span class="method-start">9170 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">10140 ms</span>
+                <span class="method-start">9191 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validCtcAmount</span>
-                <span class="method-start">10677 ms</span>
+                <span class="method-start">9578 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">10702 ms</span>
+                <span class="method-start">9623 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validSalaryTemplateType</span>
-                <span class="method-start">11254 ms</span>
+                <span class="method-start">10008 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">11284 ms</span>
+                <span class="method-start">10071 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">validDayoff</span>
+                <span class="method-start">10490 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">generateTokenForSuite</span>
+                <span class="method-start">10527 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">validBasicName</span>
+                <span class="method-start">10905 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">generateTokenForSuite</span>
+                <span class="method-start">10938 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">validBasicRelationType</span>
+                <span class="method-start">11214 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">generateTokenForSuite</span>
+                <span class="method-start">11241 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">validBasicRelationValue</span>
+                <span class="method-start">11662 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">generateTokenForSuite</span>
+                <span class="method-start">11717 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">validDayoff</span>
-                <span class="method-start">11772 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">11822 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">validBasicName</span>
-                <span class="method-start">12157 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">12210 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">validBasicRelationType</span>
-                <span class="method-start">12701 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">12723 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">validBasicRelationValue</span>
-                <span class="method-start">13029 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method before">
-                <span class="method-name">generateTokenForSuite</span>
-                <span class="method-start">13137 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
                 <span class="method-name">validBasicAmount</span>
-                <span class="method-start">13634 ms</span>
+                <span class="method-start">12096 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
