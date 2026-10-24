@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SalaryTemplateComponant {
 	
-	private String id; //allowance
+	private String id; //allowances
 	private String name;  ///basic
 	private String relation_type; // ctc, fixed & basic
 	private Float relation_value; // % & rupees

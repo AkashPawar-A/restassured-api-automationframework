@@ -12,86 +12,31 @@
     "dayoff",
     "type",
     "basic",
-    "allowance",
+    "allowances",
     "deductions",
     "fixed_allowance",
     "notes",
     "is_active"
   ],
   "properties": {
-    "company_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "name": {
-      "type": "string"
-    },
-    "ctc_amount": {
-      "type": "number"
-    },
-    "gross_amount": {
-      "type": "number"
-    },
-    "net_amount": {
-      "type": "number"
-    },
-    "dayoff": {
-      "type": "array",
-      "items": {
-        "type": "integer"
-      }
-    },
-    "type": {
-      "type": "string",
-      "enum": [
-        "monthly",
-        "Daily"
-      ]
-    },
-    "basic": {
-      "$ref": "#/definitions/basic"
-    },
-    "allowance": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/allowance"
-      }
-    },
-    "deductions": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/deduction"
-      }
-    },
-    "fixed_allowance": {
-      "$ref": "#/definitions/fixedAllowance"
-    },
-    "notes": {
-      "type": "string"
-    },
-    "is_active": {
-      "type": "integer",
-      "enum": [0, 1]
-    },
-    "is_esic": {
-      "type": "integer",
-      "enum": [0, 1]
-    },
-    "is_lwf": {
-      "type": "integer",
-      "enum": [0, 1]
-    },
-    "is_pf": {
-      "type": "integer",
-      "enum": [0, 1]
-    },
-    "is_pt": {
-      "type": "integer",
-      "enum": [0, 1]
-    },
-    "work_state": {
-      "type": "string"
-    }
+    "company_id": {"type": "string", "format": "uuid"},
+    "name": {"type": "string"},
+    "ctc_amount": {"type": "number"},
+    "gross_amount": {"type": "number"},
+    "net_amount": {"type": "number"},
+    "dayoff": {"type": "array", "items": {"type": "integer"}},
+    "type": {"type": "string","enum": ["monthly","Daily"]},
+    "basic": {"$ref": "#/definitions/basic"},
+    "allowances": {"type": "array","items": {"$ref": "#/definitions/allowances"}},
+    "deductions": {"type": "array", "items": {"$ref": "#/definitions/deductions"}},
+    "fixed_allowance": {"$ref": "#/definitions/fixedAllowance"},
+    "notes": {"type": "string"},
+    "is_active": {"type": "integer", "enum": [0, 1]},
+    "is_esic": {"type": "integer", "enum": [0, 1]},
+    "is_lwf": {"type": "integer", "enum": [0, 1]},
+    "is_pf": {"type": "integer", "enum": [0, 1]},
+    "is_pt": {"type": "integer","enum": [0, 1]},
+    "work_state": {"type": "string"}
   },
   "definitions": {
     "basic": {
@@ -101,88 +46,56 @@
         "id",
         "name",
         "relation_type",
-        "relation_value"
+        "relation_value",
+        "include_in"
       ],
       "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": "string"
-        },
-        "relation_type": {
-          "type": "string"
-        },
-        "relation_value": {
-          "type": [
-            "number",
-            "null"
-          ]
-        }
+        "amount": {"type": "number"},
+        "id": {"type": ["string","null"]},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": ["number","null"]},
+        "include_in": {"type": ["array", "null"], "items": {"type": "string","enum": ["pf", "esic"]}}
       },
       "additionalProperties": false
     },
-    "allowance": {
+    "allowances": {
       "type": "object",
       "required": [
         "amount",
         "id",
         "name",
         "relation_type",
-        "relation_value"
+        "relation_value",
+        "include_in"
       ],
       "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "id": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "name": {
-          "type": "string"
-        },
-        "relation_type": {
-          "type": "string"
-        },
-        "relation_value": {
-          "type": "number"
-        }
+        "amount": {"type": "number"},
+        "id": {"type": "string","format": "uuid"},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": "number"},
+        "include_in": {"type": "array", "items": {"type": "string", "enum": ["pf", "esic"]}}
       },
       "additionalProperties": false
     },
-    "deduction": {
+    "deductions": {
       "type": "object",
       "required": [
         "amount",
         "id",
         "name",
         "relation_type",
-        "relation_value"
+        "relation_value",
+        "include_in"
       ],
       "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "id": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "name": {
-          "type": "string"
-        },
-        "relation_type": {
-          "type": "string"
-        },
-        "relation_value": {
-          "type": "number"
-        }
+        "amount": {"type": "number"},
+        "id": {"type": "string","format": "uuid"},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": "number"},
+        "include_in": {"type": ["array", "null"], "items": {"type": "string","enum": ["pf", "esic"]}}
       },
       "additionalProperties": false
     },
@@ -193,30 +106,16 @@
         "name",
         "relation_type",
         "relation_value",
-        "amount"
+        "amount",
+        "include_in"
       ],
       "properties": {
-        "id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": "string"
-        },
-        "relation_type": {
-          "type": "string"
-        },
-        "relation_value": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "amount": {
-          "type": "number"
-        }
+        "id": {"type": ["string","null"]},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": ["number","null"]},
+        "amount": {"type": "number"},
+        "include_in": {"type": ["array", "null"], "items": {"type": "string","enum": ["pf", "esic"]}}
       },
       "additionalProperties": false
     }

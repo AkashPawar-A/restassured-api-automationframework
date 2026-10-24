@@ -5,7 +5,7 @@
    "type" : "monthly",
    "dayoff" : [0],
    "gross_amount" : 25000,
-   "net_amount" : 21750,
+   "net_amount" : 23750,
    "basic" : {
         "amount" : 20000,
         "id" : null,
@@ -14,11 +14,11 @@
         "relation_type" : "ctc",
         "relation_value" : 80
    },
-   "allowance" : [{
+   "allowances" : [{
         "amount" : 2500,
         "id" : "68b72eb8-6481-4850-99ae-6146f60f20ea",
         "name" : "Allowance 1",
-        "relation_type" : "ctc",
+        "relation_type" : "gross",
         "relation_value" : 10,
         "include_in" : ["pf", "esic"]
     }],
@@ -33,8 +33,8 @@
         "id" : null,
         "name" : "fixed",
         "relation_type" : "fixed",
-        "relation_value" : null,
-        "amount" : 500
+        "relation_value" : 0,
+        "amount" : 2500
    },
    "notes" : "testing - 1",
    "is_active" : 1,

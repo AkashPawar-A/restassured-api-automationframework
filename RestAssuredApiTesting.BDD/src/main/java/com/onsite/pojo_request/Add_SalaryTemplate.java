@@ -1,6 +1,6 @@
 package com.onsite.pojo_request;
 
-import com.onsite.pojo_request.SalaryTemplateComponant;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Add_SalaryTemplate {
 	
@@ -12,8 +12,10 @@ public class Add_SalaryTemplate {
 	private Integer[] dayoff;
 	private String type;    //monthly, Daily
 	private SalaryTemplateComponant basic;
-	private SalaryTemplateComponant[] allowance;
+	@JsonProperty("allowances")
+	private SalaryTemplateComponant[] allowances;
 	private SalaryTemplateComponant fixed_allowance;
+	@JsonProperty("deductions")
 	private SalaryTemplateComponant[] deductions;
 	private String notes;
 	private Integer is_active;
@@ -101,11 +103,11 @@ public class Add_SalaryTemplate {
 	public void setBasic(SalaryTemplateComponant basic) {
 		this.basic = basic;
 	}
-	public SalaryTemplateComponant[] getAllowance() {
-		return allowance;
+	public SalaryTemplateComponant[] getAllowances() {
+	    return allowances;
 	}
-	public void setAllowance(SalaryTemplateComponant[] allowance) {
-		this.allowance = allowance;
+	public void setAllowances(SalaryTemplateComponant[] allowances) {
+	    this.allowances = allowances;
 	}
 	public SalaryTemplateComponant getFixed_allowance() {
 		return fixed_allowance;

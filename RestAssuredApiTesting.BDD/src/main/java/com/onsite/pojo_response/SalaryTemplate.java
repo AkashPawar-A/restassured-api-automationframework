@@ -16,7 +16,7 @@ public class SalaryTemplate {
 	private Integer[] dayoff;
 	private String type;  //daily, monthly
 	private SalaryTemplateComponant basic;
-	private SalaryBreakupComponent[] allowance;
+	private SalaryBreakupComponent[] allowances;
 	private SalaryTemplateComponant fixed_allowance;
 	private SalaryBreakupComponent[] deductions;
 	private int is_active;
@@ -129,11 +129,11 @@ public class SalaryTemplate {
 	public void setBasic(SalaryTemplateComponant basic) {
 		this.basic = basic;
 	}
-	public SalaryBreakupComponent[] getAllowance() {
-		return allowance;
+	public SalaryBreakupComponent[] getAllowances() {
+		return allowances;
 	}
-	public void setAllowance(SalaryBreakupComponent[] allowance) {
-		this.allowance = allowance;
+	public void setAllowance(SalaryBreakupComponent[] allowances) {
+		this.allowances = allowances;
 	}
 	public SalaryTemplateComponant getFixed_allowance() {
 		return fixed_allowance;
