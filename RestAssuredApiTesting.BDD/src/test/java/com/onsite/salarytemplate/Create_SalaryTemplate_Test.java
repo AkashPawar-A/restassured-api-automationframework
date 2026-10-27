@@ -200,13 +200,13 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 		Assert.assertEquals(reqDayoff, resDayOff, "request and response dayoff mismatch");
 	}
-	
+
 	@Test(priority=10, dependsOnMethods="validSalaryTemplateName")
 	public void validBasicSalaryId() {
-		
+
 		String reqBasicSalaryId = salaryTemplate_Payload.getBasic().getId();
 		String resBasicSalaryId = salaryTemplateResponse.jsonPath().getString("basic.id");
-		
+
 		if(reqBasicSalaryId == null || reqBasicSalaryId.trim().isEmpty()) {
 			Assert.assertTrue(resBasicSalaryId == null || resBasicSalaryId.trim().isEmpty(), "Response basic salary ID is null/empty");
 		} else {
@@ -218,19 +218,19 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 	@Test(priority=11, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
 	public void validBasicSalaryIncludeIn() {
-		
+
 		String[] reqBasicSalaryIncludeIn = salaryTemplate_Payload.getBasic().getInclude_in();
 		String[] resBasicSalaryIncludeIn = salaryTemplateResponse.jsonPath().get("basic.include_in");
-		
+
 		if(reqBasicSalaryIncludeIn == null) {
 			Assert.assertNull(resBasicSalaryIncludeIn, "Response basic salary include_in should be null");
 		} else {
 			Assert.assertNotNull(resBasicSalaryIncludeIn, "Response basic salary include_in should not be null");
 		}
-		
+
 		Assert.assertEquals(reqBasicSalaryIncludeIn, resBasicSalaryIncludeIn, "Request and response basic salary include_in mismatch");
 	}
-	
+
 	@Test(priority=12, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
 	public void validBasicSalaryName() {
 
@@ -385,11 +385,11 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 	@Test(priority = 16, dependsOnMethods = {"validSalaryTemplateName", "validBasicAmount"})
 	public void validAllowance() {
-		
+
 		reqTotalAllowanceAmount = 0.0;
-	    resTotalAllowanceAmount = 0.0;
-	    
-	    Double reqGrossAmount = salaryTemplate_Payload.getGross_amount();
+		resTotalAllowanceAmount = 0.0;
+
+		Double reqGrossAmount = salaryTemplate_Payload.getGross_amount();
 		Double resGrossAmount = salaryTemplateResponse.jsonPath().getDouble("gross_amount");
 
 		SalaryTemplateComponant[] reqAllowance = salaryTemplate_Payload.getAllowances();
@@ -399,7 +399,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 		if(reqAllowance == null) {
 			reqAllowance = new SalaryTemplateComponant[0];
 		}
-		
+
 		if(resAllowance == null) {
 			resAllowance = new SalaryTemplateComponant[0];
 		}
@@ -428,7 +428,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 			// allowance relation type
 			List<String> allowedType = Arrays.asList("gross", "basic", "fixed");
-			
+
 			Assert.assertTrue(allowedType.contains(req.getRelation_type()), "invlaid request allowance relation type :" + req.getRelation_type());
 			Assert.assertTrue(allowedType.contains(res.getRelation_type()), "invalid response allowance relation type :" + res.getRelation_type());
 			Assert.assertNotNull(req.getRelation_value(), "request relation type should not be null");
@@ -443,19 +443,19 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(req.getRelation_value(), res.getRelation_value(), "request and response relation value missmatch");
 
 			// allowance amount
-	        double expReqAllowanceAmount;
-	        double expResAllowanceAmount;
-			
+			double expReqAllowanceAmount;
+			double expResAllowanceAmount;
+
 			if("basic".equalsIgnoreCase(req.getRelation_type())) {
 
 				expReqAllowanceAmount = ((reqBasicAmount * req.getRelation_value().doubleValue()) / 100);
-				
+
 			} else if("gross".equalsIgnoreCase(req.getRelation_type())) {
 
 				expReqAllowanceAmount = ((reqGrossAmount * req.getRelation_value().doubleValue()) / 100);
-				
+
 			} else {
-				
+
 				//fixed
 				expReqAllowanceAmount = req.getRelation_value().doubleValue();
 			}
@@ -463,13 +463,13 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			if("basic".equalsIgnoreCase(res.getRelation_type())) {
 
 				expResAllowanceAmount = ((resBasicAmount * res.getRelation_value().doubleValue()) / 100);
-				
+
 			} else if("gross".equalsIgnoreCase(res.getRelation_type())) {
 
 				expResAllowanceAmount = ((resGrossAmount * res.getRelation_value().doubleValue()) / 100);
-				
+
 			} else {
-				
+
 				//fixed
 				expResAllowanceAmount = res.getRelation_value().doubleValue();
 			}
@@ -478,10 +478,10 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(expResAllowanceAmount, res.getAmount().doubleValue(), 0.01, "response and expResAmount missmatch");
 			Assert.assertEquals(req.getAmount(), res.getAmount(), "requset and response allowance amount missmatch");
 
-		    // Add each allowance amount to class-level totals
-	        reqTotalAllowanceAmount += req.getAmount().doubleValue();
-	        resTotalAllowanceAmount += res.getAmount().doubleValue();
-	        
+			// Add each allowance amount to class-level totals
+			reqTotalAllowanceAmount += req.getAmount().doubleValue();
+			resTotalAllowanceAmount += res.getAmount().doubleValue();
+
 			// allowance include in
 			String[] reqIncludingIn = req.getInclude_in();
 			String[] resIncludingIn = res.getInclude_in();
@@ -511,15 +511,15 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(reqIncludingIn, resIncludingIn, "Request and Response include_in mismatch");
 		}
 	}
-	
+
 	@Test(priority=17, dependsOnMethods = {"validBasicAmount", "validAllowance"})
 	public void validFixedAllowanceId() {
-		
+
 		String reqFixedAllowanceId = salaryTemplate_Payload.getFixed_allowance().getId();
 		String resFixedAllowanceId = salaryTemplateResponse.jsonPath().getString("fixed_allowance.id");
-		
+
 		if(reqFixedAllowanceId == null || reqFixedAllowanceId.trim().isEmpty()) {
-			
+
 			Assert.assertTrue(resFixedAllowanceId == null || resFixedAllowanceId.trim().isEmpty(), "response fixed allowance id should be null");
 		} else {
 			Assert.assertNotNull(resFixedAllowanceId, "response fixed allowance id should not be null");
@@ -527,63 +527,63 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(reqFixedAllowanceId, resFixedAllowanceId, "request and response fixed allowance id should be null or empty");
 		}
 	}
-	
+
 	@Test(priority=18 ,dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceName() {
-		
+
 		String reqFixedAllowanceName = salaryTemplate_Payload.getFixed_allowance().getName();
 		String resFixedAllowanceName = salaryTemplateResponse.jsonPath().getString("fixed_allowance.name");
-		
+
 		if(reqFixedAllowanceName == null || reqFixedAllowanceName.trim().isEmpty()) {
-			
+
 			Assert.assertEquals(salaryTemplateResponse.getStatusCode(), 400, "fixed_allowance name required");
 			String errorMessage= salaryTemplateResponse.jsonPath().getString("fixed_allowance required");
 			Assert.assertEquals(errorMessage, "fixed_allowance required", "error message missmatch");
 			System.out.println("error message : " + errorMessage);
 		} else {
-			
+
 			List<String> allowedType = Arrays.asList("fixed");
-			
+
 			Assert.assertTrue(allowedType.contains(reqFixedAllowanceName), "invlaid request basic relation type");
 			Assert.assertTrue(allowedType.contains(resFixedAllowanceName), "invalid response basic relation type");
 			Assert.assertNotNull(resFixedAllowanceName, "fixed allowance name should not be null");
 			Assert.assertFalse(resFixedAllowanceName.trim().isEmpty(), "response fixed allowance should not be empty");
-			
+
 			Assert.assertEquals(reqFixedAllowanceName, resFixedAllowanceName, "request and response fixed allowance type is missmatch");
 		}
 	}
-	
+
 	@Test(priority=19, dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceType() {
-		
+
 		String reqFixedAllowanceType = salaryTemplate_Payload.getFixed_allowance().getRelation_type();
 		String resFixedAllowanceType = salaryTemplateResponse.jsonPath().getString("fixed_allowance.relation_type");
-		
+
 		if(reqFixedAllowanceType == null || reqFixedAllowanceType.trim().isEmpty()) {
-			
+
 			Assert.assertEquals(salaryTemplateResponse.getStatusCode(), 400, "fixed_allowance name required");
 			String errorMessage= salaryTemplateResponse.jsonPath().getString("fixed_allowance required");
 			Assert.assertEquals(errorMessage, "fixed_allowance required", "error message missmatch");
 			System.out.println("error message : " + errorMessage);
 		} else {
-			
+
 			List<String> allowedType = Arrays.asList("fixed");
-			
+
 			Assert.assertTrue(allowedType.contains(reqFixedAllowanceType), "invlaid request basic relation type");
 			Assert.assertTrue(allowedType.contains(resFixedAllowanceType), "invalid response basic relation type");
 			Assert.assertNotNull(resFixedAllowanceType, "fixed allowance name should not be null");
 			Assert.assertFalse(resFixedAllowanceType.trim().isEmpty(), "response fixed allowance should not be empty");
-			
+
 			Assert.assertEquals(reqFixedAllowanceType, resFixedAllowanceType, "request and response fixed allowance type is missmatch");
 		}
 	}
-	
+
 	@Test(priority=20 ,dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceValue() {
-		
+
 		Float reqFixedAllowanceValue = salaryTemplate_Payload.getFixed_allowance().getRelation_value();
 		Float resFixedAllowanceValue = salaryTemplateResponse.jsonPath().getFloat("fixed_allowance.relation_value");
-		
+
 		if(reqFixedAllowanceValue == 0) {
 			Assert.assertTrue(resFixedAllowanceValue == 0, "respose fixed allowance relation value should not be 0");
 		} else {
@@ -591,54 +591,54 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(reqFixedAllowanceValue, resFixedAllowanceValue, "request and response fixed allowance realtion value should not be null");
 		}
 	}
-	
+
 	@Test(priority=21, dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceAmount() {
-		
+
 		Float reqFixedAllowanceAmount = salaryTemplate_Payload.getFixed_allowance().getAmount();
 		Float resFixedAllowanceAmount = salaryTemplateResponse.jsonPath().getFloat("fixed_allowance.amount");
-		
+
 		Double reqCtcAmount = salaryTemplate_Payload.getCtc_amount();
 		Double resCtcAmount = salaryTemplateResponse.jsonPath().getDouble("ctc_amount");
 		Float reqBasicAmount = this.reqBasicAmount;
 		Float resBasicAmount = this.resBasicAmount;
 		Double reqAllowanceAmount = this.reqTotalAllowanceAmount;
 		Double resAllowanceAmount = this.resTotalAllowanceAmount;
-		
+
 		Assert.assertNotNull(reqFixedAllowanceAmount, "Request fixed allowance amount should not be null");
 		Assert.assertNotNull(resFixedAllowanceAmount, "Response fixed allowance amount should not be null");
-		
+
 		if(reqFixedAllowanceAmount >=0 && resFixedAllowanceAmount >=0) {
-			
+
 			Assert.assertEquals(reqFixedAllowanceAmount.doubleValue(), resFixedAllowanceAmount.doubleValue(), 0.01, "request and response allowance amount mismatch");
 		} else {
-			
+
 			Assert.fail("request and response fixed allowance amount should not be negative");
 		}
-		
+
 		Double expReqFixedAllowanceAmount = reqCtcAmount-(reqBasicAmount+reqAllowanceAmount);
 		Double expResFixedAllowanceAmount = resCtcAmount-(resBasicAmount+resAllowanceAmount);
-		
+
 		if(expReqFixedAllowanceAmount >=0 && expResFixedAllowanceAmount >=0) {
-			
+
 			Assert.assertEquals(expReqFixedAllowanceAmount, reqFixedAllowanceAmount.doubleValue(), 0.01, "Request fixed allowance amount mismatch");
 			Assert.assertEquals(expResFixedAllowanceAmount, resFixedAllowanceAmount.doubleValue(), 0.01, "Response fixed allowance amount mismatch");
 			Assert.assertEquals(expReqFixedAllowanceAmount.doubleValue(), expResFixedAllowanceAmount.doubleValue(), 0.01, "request and response allowance amount mismatch");
 		} else {
-			
+
 			Assert.fail("Expected fixed allowance amount should not be negative");
 		}
-		
+
 		reqTotalFixedAllowanceAmount = expReqFixedAllowanceAmount.doubleValue();
 		resTotalFixedAllowanceAmount = expResFixedAllowanceAmount.doubleValue();
 	}
-	
+
 	@Test(priority=22, dependsOnMethods={"validBasicAmount", "validAllowance", "validFixedAllowanceId"})
 	public void validCtcAmount() {
 
 		Double reqCtcAmount = salaryTemplate_Payload.getCtc_amount();
 		Double resCtcAmount = salaryTemplateResponse.jsonPath().getDouble("ctc_amount");
-		
+
 		Float reqBasicAmount = this.reqBasicAmount;
 		Float resBasicAmount = this.resBasicAmount;
 		Double reqTotalAllowanceAmount = this.reqTotalAllowanceAmount;
@@ -649,7 +649,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 		Double expReqCtcAmount = reqBasicAmount + reqTotalAllowanceAmount + reqTotalFixedAllowanceAmount;
 		Double expResCtcAmount = resBasicAmount + resTotalAllowanceAmount + resTotalFixedAllowanceAmount;
-		
+
 		if(reqCtcAmount == null) {
 
 			Assert.assertEquals(salaryTemplateResponse.getStatusCode(), 400, "ctc_amount required");
@@ -657,58 +657,58 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(errorMessage, "ctc_amount required", "error message missmatch");
 			System.out.println("error message :" + errorMessage);
 		} else {
-			
+
 			Assert.assertNotNull(resCtcAmount, "ctc_amount should not be null");
 			Assert.assertEquals(reqCtcAmount, resCtcAmount, "Request and response CTC amount mismatch");
-			
+
 			Assert.assertEquals(expReqCtcAmount, reqCtcAmount, 0.01, "expected and request ctc amount missmatch");
 			Assert.assertEquals(expResCtcAmount, resCtcAmount, 0.01, "expected and response ctc amount missmatch");
 			Assert.assertEquals(expReqCtcAmount, expResCtcAmount, 0.01, "expected request and response ctc amount missmatch");
 		}
-		
+
 		reqTotalCtcAmount = expReqCtcAmount;
 		resTotalCtcAmount = expResCtcAmount;
 	}
-	
+
 	@Test(priority=23, dependsOnMethods="validCtcAmount")
 	public void validGrossAmount() {
-		
+
 		Double reqGrossAmount = salaryTemplate_Payload.getGross_amount();
 		Double resGrossAmount = salaryTemplateResponse.jsonPath().getDouble("gross_amount");
-		
+
 		Double reqCtcAmount = this.reqTotalCtcAmount;
 		Double resCtcAmount = this.resTotalCtcAmount;
-		
+
 		if(reqGrossAmount == null) {
-			
+
 			Assert.assertEquals(salaryTemplateResponse.getStatusCode(), 400, "gross_amount required");
 			String errorMessage = salaryTemplateResponse.jsonPath().getString("message");
 			Assert.assertEquals(errorMessage, "ctc_amount required", "error message missmatch");
 			System.out.println("error message :" + errorMessage);
 		} else {
-			
+
 			Assert.assertNotNull(resGrossAmount, "response gross amount should not be null");
-			
+
 			Assert.assertTrue(reqGrossAmount >0, "request gross amount should not be zero or negative");
 			Assert.assertTrue(resGrossAmount >0, "response gross amount should not be zero or negative");
 			Assert.assertEquals(reqCtcAmount, resCtcAmount, "request and response ctc amount should match");
-			
+
 			Assert.assertEquals(reqGrossAmount, reqCtcAmount, "request gross amount and ctc amount missmatch");
 			Assert.assertEquals(resGrossAmount, resCtcAmount, "response gross amount and response ctc amount missmatch");
 			Assert.assertEquals(reqGrossAmount, resGrossAmount, "request and response gross amount should match");
 		}
-		
+
 		reqTotalGrossAmount = reqGrossAmount;
 		resTotalGrossAmount = resGrossAmount;
 	}
-	
+
 	@Test(priority=24, dependsOnMethods="validGrossAmount")
 	public void validDeductions() {
-		
+
 		reqTotalDeductionAmount = 0.0;
-	    resTotalDeductionAmount = 0.0;
-	    
-	    Double reqCtcAmount = this.reqTotalCtcAmount;
+		resTotalDeductionAmount = 0.0;
+
+		Double reqCtcAmount = this.reqTotalCtcAmount;
 		Double resCtcAmount = this.resTotalCtcAmount;
 		Double reqGrossAmount = this.reqTotalGrossAmount;
 		Double resGrossAmount = this.resTotalGrossAmount;
@@ -716,11 +716,11 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 		SalaryTemplateComponant[] reqDeduction = salaryTemplate_Payload.getDeductions();
 		SalaryTemplateComponant[] resDeduction = salaryTemplateResponse.jsonPath().
 				getObject("deductions", SalaryTemplateComponant[].class);
-		
+
 		if(reqDeduction == null) {
 			reqDeduction = new SalaryTemplateComponant[0];
 		}
-		
+
 		if(resDeduction == null) {
 			resDeduction = new SalaryTemplateComponant[0];
 		}
@@ -749,7 +749,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 			// deduction relation type
 			List<String> allowedType = Arrays.asList("ctc", "basic", "fixed", "gross");
-			
+
 			Assert.assertTrue(allowedType.contains(req.getRelation_type()), "invlaid request deduction relation type :" + req.getRelation_type());
 			Assert.assertTrue(allowedType.contains(res.getRelation_type()), "invalid response deduction relation type :" + res.getRelation_type());
 			Assert.assertNotNull(req.getRelation_value(), "request relation type should not be null");
@@ -764,23 +764,23 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(req.getRelation_value(), res.getRelation_value(), "request and response relation value missmatch");
 
 			// deduction amount
-	        double expReqDeductionAmount;
-	        double expResDeductionAmount;
-			
+			double expReqDeductionAmount;
+			double expResDeductionAmount;
+
 			if("basic".equalsIgnoreCase(req.getRelation_type())) {
 
 				expReqDeductionAmount = ((reqBasicAmount * req.getRelation_value().doubleValue()) / 100);
-				
+
 			} else if("ctc".equalsIgnoreCase(req.getRelation_type())) {
 
 				expReqDeductionAmount = ((reqCtcAmount * req.getRelation_value().doubleValue()) / 100);
-				
+
 			} else if("gross".equalsIgnoreCase(req.getRelation_type())) {
-				
+
 				expReqDeductionAmount = ((reqGrossAmount * req.getRelation_value().doubleValue()) / 100);
-				
+
 			} else {
-				
+
 				//fixed
 				expReqDeductionAmount = req.getRelation_value().doubleValue();
 			}
@@ -788,17 +788,17 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			if("basic".equalsIgnoreCase(res.getRelation_type())) {
 
 				expResDeductionAmount = ((resBasicAmount * res.getRelation_value().doubleValue()) / 100);
-				
+
 			} else if("ctc".equalsIgnoreCase(res.getRelation_type())) {
 
 				expResDeductionAmount = ((resCtcAmount * res.getRelation_value().doubleValue()) / 100);
-				
+
 			} else if("gross".equalsIgnoreCase(req.getRelation_type())) {
-				
+
 				expResDeductionAmount = ((resGrossAmount * req.getRelation_value().doubleValue()) / 100);
-				
+
 			} else {
-				
+
 				//fixed
 				expResDeductionAmount = res.getRelation_value().doubleValue();
 			}
@@ -807,41 +807,186 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(expResDeductionAmount, res.getAmount().doubleValue(), 0.01, "response and expResAmount missmatch");
 			Assert.assertEquals(req.getAmount(), res.getAmount(), "requset and response allowance amount missmatch");
 
-		    // Add each deduction amount to class-level totals
-	        reqTotalDeductionAmount += req.getAmount().doubleValue();
-	        resTotalDeductionAmount += res.getAmount().doubleValue();
+			// Add each deduction amount to class-level totals
+			reqTotalDeductionAmount += req.getAmount().doubleValue();
+			resTotalDeductionAmount += res.getAmount().doubleValue();
 		}
 	}
-	
+
 	@Test(priority=25, dependsOnMethods={"validGrossAmount", "validDeductions"})
 	public void validNetAmount() {
-		
+
 		Double reqGrossAmount = this.reqTotalGrossAmount;
 		Double resGrossAmount = this.resTotalGrossAmount;
-		
+
 		Double reqDeductionAmount = this.reqTotalDeductionAmount;
 		Double resDeductionAmount = this.resTotalDeductionAmount;
-		
+
 		Double reqNetAmount = salaryTemplate_Payload.getNet_amount();
 		Double resNetAmount = salaryTemplateResponse.jsonPath().getDouble("net_amount");
-		
+
 		if(reqNetAmount == null) {
-			
+
 			Assert.assertEquals(salaryTemplateResponse.getStatusCode(), 400, "gross_amount required");
 			String errorMessage = salaryTemplateResponse.jsonPath().getString("message");
 			Assert.assertEquals(errorMessage, "ctc_amount required", "error message missmatch");
 			System.out.println("error message :" + errorMessage);
 		} else {
-			
+
 			Assert.assertNotNull(resNetAmount, "net amount should not be null");
 			Assert.assertEquals(reqNetAmount, resNetAmount, "request and response net amount missmatch");
-			
+
 			Double expReqNetAmount = reqGrossAmount-reqDeductionAmount;
 			Double expResNetAmount = resGrossAmount-resDeductionAmount;
-			
+
 			Assert.assertEquals(reqNetAmount, expReqNetAmount, "request net amount and expected net amount missmatch");
 			Assert.assertEquals(resNetAmount, expResNetAmount, "response net amount and expected net amount missmatch");
 			Assert.assertEquals(expReqNetAmount, expResNetAmount, "expected request and response net amount should be match");
 		}		
+	}
+
+	@Test(priority=26, dependsOnMethods="create_salarytemplate")
+	public void validNotes(){
+
+		String reqNotes = salaryTemplate_Payload.getNotes();
+		String resNotes = salaryTemplateResponse.jsonPath().getString("notes");
+
+		if(reqNotes == null || reqNotes.isEmpty()) {
+
+			Assert.assertTrue(resNotes == null || resNotes.isEmpty(),
+					"Response notes should be null or empty when request notes is null or empty");
+
+		} else {
+
+			Assert.assertNotNull(resNotes, "Response notes should not be null");
+			Assert.assertEquals(reqNotes, resNotes, "Request and response notes mismatch");
+		}
+	}
+
+	@Test(priority=27, dependsOnMethods="create_salarytemplate")
+	public void validIsActive() {
+
+		Integer reqIsActive = salaryTemplate_Payload.getIs_active();
+		Integer resIsActive = salaryTemplateResponse.jsonPath().getInt("is_active");
+
+		List<Integer> allowedOption = Arrays.asList(0, 1);
+
+		Assert.assertTrue(allowedOption.contains(reqIsActive), "Request is_active should be either 0 or 1");
+		Assert.assertEquals(reqIsActive, Integer.valueOf(1), "Request is_active should be 1 during creation");
+		Assert.assertNotNull(resIsActive, "Response is_active should not be null");
+
+		Assert.assertEquals(resIsActive, Integer.valueOf(1), "Response is_active should be 1 during creation");
+		Assert.assertEquals(reqIsActive, resIsActive, "Request and response is_active mismatch");
+	}
+
+	@Test(priority=28, dependsOnMethods="create_salarytemplate")
+	public void validIsEsic() {
+
+		Integer reqIsEsic = salaryTemplate_Payload.getIs_esic();
+		Integer resIsEsic = salaryTemplateResponse.jsonPath().getInt("is_esic");
+
+		List<Integer> allowedOption = Arrays.asList(0, 1);
+
+		if(reqIsEsic == null) {
+
+			Assert.assertNull(resIsEsic, "Response is_esic should be null when request is_esic is null");
+
+		} else {
+
+			Assert.assertTrue(allowedOption.contains(resIsEsic), "Request is_esic should be either 0 or 1");
+			Assert.assertNotNull(resIsEsic, "Response is_esic should not be null");
+
+			Assert.assertTrue(allowedOption.contains(resIsEsic), "Response is_esic should be either 0 or 1");
+			Assert.assertEquals(resIsEsic, reqIsEsic, "Request and response is_esic mismatch");
+		}
+	}
+
+	@Test(priority=29, dependsOnMethods="create_salarytemplate")
+	public void validIsLwf() {
+
+		Integer reqIsLwf = salaryTemplate_Payload.getIs_lwf();
+		Integer resIsLwf = salaryTemplateResponse.jsonPath().getInt("is_lwf");
+
+		List<Integer> allowedOption = Arrays.asList(0, 1);
+
+		if(reqIsLwf == null) {
+
+			Assert.assertNull(resIsLwf, "Response is_lwf should be null when request is_esic is null");
+
+		} else {
+
+			Assert.assertTrue(allowedOption.contains(reqIsLwf), "Request is_lwf should be either 0 or 1");
+			Assert.assertNotNull(resIsLwf, "Response is_lwf should not be null");
+
+			Assert.assertTrue(allowedOption.contains(resIsLwf), "Response is_lwf should be either 0 or 1");
+			Assert.assertEquals(resIsLwf, reqIsLwf, "Request and response is_lwf mismatch");
+		}
+	}
+	
+	@Test(priority=30, dependsOnMethods="create_salarytemplate")
+	public void validIsPf() {
+		
+		Integer reqIsPf = salaryTemplate_Payload.getIs_pf();
+		Integer resIsPf = salaryTemplateResponse.jsonPath().getInt("is_pf");
+
+		List<Integer> allowedOption = Arrays.asList(0, 1);
+		
+		if(reqIsPf == null) {
+
+			Assert.assertNull(resIsPf, "Response is_pf should be null when request is_pf is null");
+
+		} else {
+
+			Assert.assertTrue(allowedOption.contains(reqIsPf), "Request is_pf should be either 0 or 1");
+			Assert.assertNotNull(resIsPf, "Response is_pf should not be null");
+
+			Assert.assertTrue(allowedOption.contains(resIsPf), "Response is_pf should be either 0 or 1");
+			Assert.assertEquals(resIsPf, reqIsPf, "Request and response is_pf mismatch");
+		}
+	}
+	
+	@Test(priority=31, dependsOnMethods="create_salarytemplate")
+	public void validIsPt() {
+		
+		Integer reqIsPt = salaryTemplate_Payload.getIs_pt();
+		Integer resIsPt = salaryTemplateResponse.jsonPath().getInt("is_pt");
+
+		List<Integer> allowedOption = Arrays.asList(0, 1);
+		
+		if(reqIsPt == null) {
+
+			Assert.assertNull(resIsPt, "Response is_pt should be null when request is_pt is null");
+
+		} else {
+
+			Assert.assertTrue(allowedOption.contains(reqIsPt), "Request is_pt should be either 0 or 1");
+			Assert.assertNotNull(resIsPt, "Response is_pt should not be null");
+
+			Assert.assertTrue(allowedOption.contains(resIsPt), "Response is_pt should be either 0 or 1");
+			Assert.assertEquals(resIsPt, reqIsPt, "Request and response is_pt mismatch");
+		}
+	}
+	
+	@Test(priority=32, dependsOnMethods="create_salarytemplate")
+	public void validWorkState() {
+		
+		String reqWorkState = salaryTemplate_Payload.getWork_state();
+		String resWorkState = salaryTemplateResponse.jsonPath().getString("work_state");
+		
+		List<String> allowedOption = Arrays.asList("MH", "AP", "AR", "AS", "BR", "CG", "GA", "GJ", "HR", "HP", "JH", 
+				"KA", "KL", "MP", "MN", "ML", "OD", "PB", "RJ", "SK", "TN", "TS", "TR", "UP", "UK", "WB");
+		
+		if(reqWorkState == null) {
+
+			Assert.assertNull(resWorkState, "Response is_pt should be null when request is_pt is null");
+
+		} else {
+
+			Assert.assertTrue(allowedOption.contains(reqWorkState), "Request is_pt should be either 0 or 1");
+			Assert.assertNotNull(resWorkState, "Response is_pt should not be null");
+
+			Assert.assertTrue(allowedOption.contains(resWorkState), "Response is_pt should be either 0 or 1");
+			Assert.assertEquals(resWorkState, reqWorkState, "Request and response is_pt mismatch");
+		}
 	}
 }
