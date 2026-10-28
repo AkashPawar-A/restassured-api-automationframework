@@ -25,7 +25,7 @@
     "gross_amount": {"type": "number"},
     "net_amount": {"type": "number"},
     "dayoff": {"type": "array", "items": {"type": "integer"}},
-    "type": {"type": "string","enum": ["monthly","Daily"]},
+    "type": {"type": "string","enum": ["monthly","daily"]},
     "basic": {"$ref": "#/definitions/basic"},
     "allowances": {"type": "array","items": {"$ref": "#/definitions/allowances"}},
     "deductions": {"type": "array", "items": {"$ref": "#/definitions/deductions"}},

@@ -1,7 +1,5 @@
 package com.onsite.salarytemplate;
 
-import static org.testng.Assert.assertTrue;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -11,7 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onsite.endpoints.ApiBasePath;
@@ -427,7 +424,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(req.getName(), res.getName(), "requset and response allowance name missmatch");
 
 			// allowance relation type
-			List<String> allowedType = Arrays.asList("gross", "basic", "fixed");
+			List<String> allowedType = Arrays.asList("ctc", "basic", "fixed");
 
 			Assert.assertTrue(allowedType.contains(req.getRelation_type()), "invlaid request allowance relation type :" + req.getRelation_type());
 			Assert.assertTrue(allowedType.contains(res.getRelation_type()), "invalid response allowance relation type :" + res.getRelation_type());
@@ -450,7 +447,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 				expReqAllowanceAmount = ((reqBasicAmount * req.getRelation_value().doubleValue()) / 100);
 
-			} else if("gross".equalsIgnoreCase(req.getRelation_type())) {
+			} else if("ctc".equalsIgnoreCase(req.getRelation_type())) {
 
 				expReqAllowanceAmount = ((reqGrossAmount * req.getRelation_value().doubleValue()) / 100);
 
@@ -464,7 +461,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 				expResAllowanceAmount = ((resBasicAmount * res.getRelation_value().doubleValue()) / 100);
 
-			} else if("gross".equalsIgnoreCase(res.getRelation_type())) {
+			} else if("ctc".equalsIgnoreCase(res.getRelation_type())) {
 
 				expResAllowanceAmount = ((resGrossAmount * res.getRelation_value().doubleValue()) / 100);
 

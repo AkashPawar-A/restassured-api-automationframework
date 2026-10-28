@@ -5,6 +5,11 @@
     <classes>
       <class name="com.onsite.salarytemplate.Create_SalaryTemplate_Test">
         <methods>
+          <include name="generateTokenForSuite"/>
+          <include name="validCtcAmount"/>
+          <include name="validAllowance"/>
+          <include name="validSalaryTemplateName"/>
+          <include name="setUp"/>
           <include name="validFixedAllowanceId"/>
           <include name="validDeductions"/>
           <include name="validBasicSalaryId"/>
@@ -12,11 +17,10 @@
           <include name="validNetAmount"/>
           <include name="create_salarytemplate"/>
           <include name="validBasicAmount"/>
-          <include name="generateTokenForSuite"/>
-          <include name="validCtcAmount"/>
-          <include name="validAllowance"/>
-          <include name="validSalaryTemplateName"/>
-          <include name="setUp"/>
+          <include name="validFixedAllowanceAmount"/>
+          <include name="validFixedAllowanceName"/>
+          <include name="validFixedAllowanceType"/>
+          <include name="validFixedAllowanceValue"/>
         </methods>
       </class> <!-- com.onsite.salarytemplate.Create_SalaryTemplate_Test -->
     </classes>
