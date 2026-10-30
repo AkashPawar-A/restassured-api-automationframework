@@ -3,16 +3,46 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.salarytemplate.Details_SalaryTemplate">
+      <class name="com.onsite.salarytemplate.Edit_SalaryTemplate_Test">
         <methods>
-          <include name="validSalaryTemplateName"/>
+          <include name="addObject"/>
+          <include name="editSalaryTemplate"/>
+          <include name="validSalaryTemplateType"/>
+          <include name="validWorkState"/>
           <include name="generateTokenForSuite"/>
+          <include name="validNotes"/>
+          <include name="validGrossAmount"/>
+          <include name="validFixedAllowanceValue"/>
+          <include name="validSalaryTemplateId"/>
+          <include name="validFixedAllowanceId"/>
+          <include name="validBasicSalaryName"/>
+          <include name="validIsActive"/>
           <include name="validBasicSalaryId"/>
-          <include name="validBasicSalaryIncludeIn"/>
-          <include name="detailsSalaryTemplate"/>
+          <include name="validDayoff"/>
+          <include name="validIsPt"/>
+          <include name="validStatusCode"/>
+          <include name="validBasicSalaryType"/>
+          <include name="validFixedAllowanceType"/>
+          <include name="validMessage"/>
+          <include name="validBasicSalaryValue"/>
+          <include name="validDeductions"/>
+          <include name="validIsPf"/>
+          <include name="validFixedAllowanceName"/>
+          <include name="validBasicAmount"/>
+          <include name="validFixedAllowanceAmount"/>
+          <include name="validCompanyId"/>
           <include name="setUp"/>
+          <include name="validResponseTime"/>
+          <include name="validNetAmount"/>
+          <include name="validAllowance"/>
+          <include name="validSalaryTemplateName"/>
+          <include name="validIsEsic"/>
+          <include name="validIsLwf"/>
+          <include name="validBasicSalaryIncludeIn"/>
+          <include name="validResponseSchema"/>
+          <include name="validCtcAmount"/>
         </methods>
-      </class> <!-- com.onsite.salarytemplate.Details_SalaryTemplate -->
+      </class> <!-- com.onsite.salarytemplate.Edit_SalaryTemplate_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

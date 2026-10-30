@@ -49,6 +49,7 @@ public class Edit_SalaryTemplate_Test extends BaseToken{
 		String editFilePathpath = "src/test/resources/testdata_salaryTemplate/Edit_salaryTemplate.json";
 		String editPayload = new String(Files.readAllBytes(Paths.get(editFilePathpath)));
 
+		mapper = new ObjectMapper();
 		editSalaryTemplatePayload = mapper.readValue(editPayload, Edit_SalaryTemplate.class);
 		String finalEditPayload = mapper.writeValueAsString(editSalaryTemplatePayload);
 

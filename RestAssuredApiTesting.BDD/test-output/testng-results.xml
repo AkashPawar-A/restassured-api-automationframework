@@ -1,327 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="33" passed="32" failed="1" skipped="0">
+<testng-results ignored="0" total="34" passed="34" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-10-30T17:46:10 IST" name="Default suite" finished-at="2026-10-30T17:46:29 IST" duration-ms="19239">
+  <suite started-at="2026-10-30T17:57:14 IST" name="Default suite" finished-at="2026-10-30T17:57:36 IST" duration-ms="21896">
     <groups>
     </groups>
-    <test started-at="2026-10-30T17:46:10 IST" name="Default test" finished-at="2026-10-30T17:46:29 IST" duration-ms="19239">
-      <class name="com.onsite.salarytemplate.Details_SalaryTemplate">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:10 IST" name="setUp" finished-at="2026-10-30T17:46:14 IST" duration-ms="4090" status="PASS">
+    <test started-at="2026-10-30T17:57:14 IST" name="Default test" finished-at="2026-10-30T17:57:36 IST" duration-ms="21896">
+      <class name="com.onsite.salarytemplate.Edit_SalaryTemplate_Test">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:14 IST" name="setUp" finished-at="2026-10-30T17:57:19 IST" duration-ms="4881" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:15 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:15 IST" duration-ms="504" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:21 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:22 IST" duration-ms="1027" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="detailsSalaryTemplate(java.lang.String)[pri:1, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:15 IST" name="detailsSalaryTemplate" data-provider="detailsSalaryTemplateData" finished-at="2026-10-30T17:46:16 IST" duration-ms="355" status="PASS">
+        <test-method signature="editSalaryTemplate(java.lang.String)[pri:1, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:22 IST" name="editSalaryTemplate" data-provider="editSalaryTemplateData" finished-at="2026-10-30T17:57:22 IST" duration-ms="361" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[a9c0969a-1d29-4907-99dd-1bb4722dc6b4]]>
+                <![CDATA[{"id":"a9c0969a-1d29-4907-99dd-1bb4722dc6b4","company_id":"9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc","name":"Salary Template - 3","ctc_amount":40000.0,"gross_amount":40000.0,"net_amount":35640.0,"dayoff":[1,2],"type":"monthly","basic":{"id":null,"name":"basic","relation_type":"ctc","relation_value":80.0,"amount":32000.0,"include_in":null},"fixed_allowance":{"id":null,"name":"fixed","relation_type":"fixed","relation_value":0.0,"amount":5240.0,"include_in":null},"notes":"testing - 1","is_active":1,"is_pf":1,"is_esic":1,"is_pt":1,"is_lwf":1,"work_state":"MH","allowances":[{"id":"68b72eb8-6481-4850-99ae-6146f60f20ea","name":"Allowance 1","relation_type":"ctc","relation_value":2.0,"amount":800.0,"include_in":["pf","esic"]},{"id":"41e6b9be-8288-401d-903c-bafea6a3cbfa","name":"Allowance 2","relation_type":"basic","relation_value":3.0,"amount":960.0,"include_in":["pf","esic"]},{"id":"2e1be05f-0104-4f6d-a1e8-9d5a833b5c66","name":"Allowance 3","relation_type":"fixed","relation_value":1000.0,"amount":1000.0,"include_in":["pf","esic"]}],"deductions":[{"id":"17afc894-acfb-4c05-b80d-6c917b5a0578","name":"Deduction 1","relation_type":"ctc","relation_value":2.0,"amount":800.0,"include_in":null},{"id":"be16a565-773d-4636-91c1-ff086d285e67","name":"Deduction 2","relation_type":"basic","relation_value":3.0,"amount":960.0,"include_in":null},{"id":"9dcab280-f34b-44e5-8e06-73e844dd140e","name":"Deduction 3","relation_type":"gross","relation_value":4.0,"amount":1600.0,"include_in":null},{"id":"b2f63187-e24e-4d83-ad94-8a9d22ce8899","name":"Deduction 2","relation_type":"fixed","relation_value":1000.0,"amount":1000.0,"include_in":null}]}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- detailsSalaryTemplate -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:16 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:16 IST" duration-ms="543" status="PASS">
+        </test-method> <!-- editSalaryTemplate -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:22 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:22 IST" duration-ms="506" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validStatucCode()[pri:2, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:16 IST" name="validStatucCode" finished-at="2026-10-30T17:46:16 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="10" status="PASS">
+        <test-method signature="validStatusCode()[pri:2, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:22 IST" name="validStatusCode" finished-at="2026-10-30T17:57:22 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validStatucCode -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:16 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:16 IST" duration-ms="319" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="valudMessage()[pri:3, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:16 IST" name="valudMessage" finished-at="2026-10-30T17:46:16 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="25" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- valudMessage -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:16 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:17 IST" duration-ms="435" status="PASS">
+        </test-method> <!-- validStatusCode -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:22 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:23 IST" duration-ms="435" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validResponseTime()[pri:4, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:17 IST" name="validResponseTime" finished-at="2026-10-30T17:46:17 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="8" status="PASS">
+        <test-method signature="validMessage()[pri:3, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:23 IST" name="validMessage" finished-at="2026-10-30T17:57:23 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="26" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validMessage -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:23 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:23 IST" duration-ms="426" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="validResponseTime()[pri:4, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:23 IST" name="validResponseTime" finished-at="2026-10-30T17:57:23 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseTime -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:17 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:17 IST" duration-ms="382" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:23 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:24 IST" duration-ms="460" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validSalaryTemplateId()[pri:5, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:17 IST" name="validSalaryTemplateId" finished-at="2026-10-30T17:46:17 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="32" status="PASS">
+        <test-method signature="validSalaryTemplateId()[pri:5, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:24 IST" name="validSalaryTemplateId" finished-at="2026-10-30T17:57:24 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="44" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validSalaryTemplateId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:17 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:18 IST" duration-ms="462" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:24 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:24 IST" duration-ms="449" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validCompanyId()[pri:6, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:18 IST" name="validCompanyId" finished-at="2026-10-30T17:46:18 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="38" status="PASS">
+        <test-method signature="validCompanyId()[pri:6, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:24 IST" name="validCompanyId" finished-at="2026-10-30T17:57:24 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="57" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validCompanyId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:18 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:18 IST" duration-ms="402" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:24 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:25 IST" duration-ms="414" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validResponseSchema()[pri:6, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:18 IST" name="validResponseSchema" finished-at="2026-10-30T17:46:19 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="439" status="PASS">
+        <test-method signature="validResponseSchema()[pri:6, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:25 IST" name="validResponseSchema" finished-at="2026-10-30T17:57:25 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="179" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validResponseSchema -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:19 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:19 IST" duration-ms="424" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:25 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:25 IST" duration-ms="461" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validSalaryTemplateName()[pri:7, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:19 IST" name="validSalaryTemplateName" finished-at="2026-10-30T17:46:19 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="22" status="PASS">
+        <test-method signature="validSalaryTemplateName()[pri:7, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:25 IST" name="validSalaryTemplateName" finished-at="2026-10-30T17:57:25 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validSalaryTemplateName -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:19 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:20 IST" duration-ms="481" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:25 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:26 IST" duration-ms="397" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validSalaryTemplateType()[pri:8, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:20 IST" name="validSalaryTemplateType" finished-at="2026-10-30T17:46:20 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="24" status="PASS">
+        <test-method signature="validSalaryTemplateType()[pri:8, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:26 IST" name="validSalaryTemplateType" finished-at="2026-10-30T17:57:26 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="37" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validSalaryTemplateType -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:20 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:20 IST" duration-ms="394" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:26 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:26 IST" duration-ms="366" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validDayoff()[pri:9, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:20 IST" name="validDayoff" finished-at="2026-10-30T17:46:20 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="30" status="PASS">
+        <test-method signature="validDayoff()[pri:9, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:26 IST" name="validDayoff" finished-at="2026-10-30T17:57:26 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="65" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validDayoff -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:20 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:20 IST" duration-ms="385" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:26 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:27 IST" duration-ms="399" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validBasicSalaryId()[pri:10, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:20 IST" name="validBasicSalaryId" finished-at="2026-10-30T17:46:20 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="46" status="PASS">
+        <test-method signature="validBasicSalaryId()[pri:10, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:27 IST" name="validBasicSalaryId" finished-at="2026-10-30T17:57:27 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="40" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validBasicSalaryId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:21 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:21 IST" duration-ms="313" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:27 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:27 IST" duration-ms="347" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validBasicSalaryIncludeIn()[pri:11, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:21 IST" name="validBasicSalaryIncludeIn" finished-at="2026-10-30T17:46:21 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicSalaryId, com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="28" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Response basic salary include_in should be null expected [null] but found [[Ljava.lang.String;@516c20de]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Response basic salary include_in should be null expected [null] but found [[Ljava.lang.String;@516c20de]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotSame(Assert.java:1033)
-at org.testng.Assert.assertNull(Assert.java:965)
-at com.onsite.salarytemplate.Details_SalaryTemplate.validBasicSalaryIncludeIn(Details_SalaryTemplate.java:242)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="validBasicSalaryIncludeIn()[pri:11, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:27 IST" name="validBasicSalaryIncludeIn" finished-at="2026-10-30T17:57:27 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicSalaryId, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="36" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validBasicSalaryIncludeIn -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:21 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:21 IST" duration-ms="361" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:27 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:28 IST" duration-ms="423" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validBasicSalaryName()[pri:12, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:21 IST" name="validBasicSalaryName" finished-at="2026-10-30T17:46:21 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicSalaryId, com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="18" status="PASS">
+        <test-method signature="validBasicSalaryName()[pri:12, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:28 IST" name="validBasicSalaryName" finished-at="2026-10-30T17:57:28 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicSalaryId, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="31" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validBasicSalaryName -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:21 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:22 IST" duration-ms="374" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:28 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:28 IST" duration-ms="367" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validBasicSalaryType()[pri:13, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:22 IST" name="validBasicSalaryType" finished-at="2026-10-30T17:46:22 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicSalaryId, com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="35" status="PASS">
+        <test-method signature="validBasicSalaryType()[pri:13, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:28 IST" name="validBasicSalaryType" finished-at="2026-10-30T17:57:28 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicSalaryId, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="35" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validBasicSalaryType -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:22 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:22 IST" duration-ms="359" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:28 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:28 IST" duration-ms="413" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validBasicSalaryValue()[pri:14, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:22 IST" name="validBasicSalaryValue" finished-at="2026-10-30T17:46:22 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicSalaryId, com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="83" status="PASS">
+        <test-method signature="validBasicSalaryValue()[pri:14, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:28 IST" name="validBasicSalaryValue" finished-at="2026-10-30T17:57:29 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicSalaryId, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="98" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validBasicSalaryValue -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:22 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:23 IST" duration-ms="468" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:29 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:29 IST" duration-ms="489" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validBasicAmount()[pri:15, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:23 IST" name="validBasicAmount" finished-at="2026-10-30T17:46:23 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicSalaryId, com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="117" status="PASS">
+        <test-method signature="validBasicAmount()[pri:15, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:29 IST" name="validBasicAmount" finished-at="2026-10-30T17:57:29 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicSalaryId, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="79" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validBasicAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:23 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:23 IST" duration-ms="357" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:29 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:30 IST" duration-ms="406" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validAllowance()[pri:16, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:23 IST" name="validAllowance" finished-at="2026-10-30T17:46:23 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicAmount, com.onsite.salarytemplate.Details_SalaryTemplate.validSalaryTemplateName" duration-ms="53" status="PASS">
+        <test-method signature="validAllowance()[pri:16, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:30 IST" name="validAllowance" finished-at="2026-10-30T17:57:30 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicAmount, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validSalaryTemplateName" duration-ms="75" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validAllowance -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:23 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:23 IST" duration-ms="365" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:30 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:30 IST" duration-ms="355" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validFixedAllowanceId()[pri:17, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:23 IST" name="validFixedAllowanceId" finished-at="2026-10-30T17:46:23 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validBasicAmount, com.onsite.salarytemplate.Details_SalaryTemplate.validAllowance" duration-ms="30" status="PASS">
+        <test-method signature="validFixedAllowanceId()[pri:17, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:30 IST" name="validFixedAllowanceId" finished-at="2026-10-30T17:57:30 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicAmount, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validAllowance" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validFixedAllowanceId -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:23 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:24 IST" duration-ms="438" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:30 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:30 IST" duration-ms="425" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validFixedAllowanceName()[pri:18, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:24 IST" name="validFixedAllowanceName" finished-at="2026-10-30T17:46:24 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validFixedAllowanceId" duration-ms="20" status="PASS">
+        <test-method signature="validFixedAllowanceName()[pri:18, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:30 IST" name="validFixedAllowanceName" finished-at="2026-10-30T17:57:30 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validFixedAllowanceId" duration-ms="31" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validFixedAllowanceName -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:24 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:24 IST" duration-ms="401" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:30 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:31 IST" duration-ms="330" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validFixedAllowanceType()[pri:19, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:24 IST" name="validFixedAllowanceType" finished-at="2026-10-30T17:46:24 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validFixedAllowanceId" duration-ms="36" status="PASS">
+        <test-method signature="validFixedAllowanceType()[pri:19, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:31 IST" name="validFixedAllowanceType" finished-at="2026-10-30T17:57:31 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validFixedAllowanceId" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validFixedAllowanceType -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:24 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:25 IST" duration-ms="369" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:31 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:31 IST" duration-ms="322" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validFixedAllowanceValue()[pri:20, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:25 IST" name="validFixedAllowanceValue" finished-at="2026-10-30T17:46:25 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validFixedAllowanceId" duration-ms="19" status="PASS">
+        <test-method signature="validFixedAllowanceValue()[pri:20, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:31 IST" name="validFixedAllowanceValue" finished-at="2026-10-30T17:57:31 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validFixedAllowanceId" duration-ms="30" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validFixedAllowanceValue -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:25 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:25 IST" duration-ms="266" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:31 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:32 IST" duration-ms="395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validFixedAllowanceAmount()[pri:21, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:25 IST" name="validFixedAllowanceAmount" finished-at="2026-10-30T17:46:25 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validFixedAllowanceId" duration-ms="34" status="PASS">
+        <test-method signature="validFixedAllowanceAmount()[pri:21, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:32 IST" name="validFixedAllowanceAmount" finished-at="2026-10-30T17:57:32 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validFixedAllowanceId" duration-ms="50" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validFixedAllowanceAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:25 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:25 IST" duration-ms="316" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:32 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:32 IST" duration-ms="344" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validCtcAmount()[pri:22, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:25 IST" name="validCtcAmount" finished-at="2026-10-30T17:46:25 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validFixedAllowanceId, com.onsite.salarytemplate.Details_SalaryTemplate.validBasicAmount, com.onsite.salarytemplate.Details_SalaryTemplate.validAllowance" duration-ms="22" status="PASS">
+        <test-method signature="validCtcAmount()[pri:22, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:32 IST" name="validCtcAmount" finished-at="2026-10-30T17:57:32 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validFixedAllowanceId, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validBasicAmount, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validAllowance" duration-ms="33" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validCtcAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:25 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:26 IST" duration-ms="367" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:32 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:32 IST" duration-ms="398" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validGrossAmount()[pri:23, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:26 IST" name="validGrossAmount" finished-at="2026-10-30T17:46:26 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validCtcAmount" duration-ms="67" status="PASS">
+        <test-method signature="validGrossAmount()[pri:23, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:32 IST" name="validGrossAmount" finished-at="2026-10-30T17:57:32 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validCtcAmount" duration-ms="28" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validGrossAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:26 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:26 IST" duration-ms="357" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:32 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:33 IST" duration-ms="280" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validDeductions()[pri:24, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:26 IST" name="validDeductions" finished-at="2026-10-30T17:46:26 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validGrossAmount" duration-ms="46" status="PASS">
+        <test-method signature="validDeductions()[pri:24, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:33 IST" name="validDeductions" finished-at="2026-10-30T17:57:33 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validGrossAmount" duration-ms="21" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validDeductions -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:26 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:27 IST" duration-ms="444" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:33 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:33 IST" duration-ms="324" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validNetAmount()[pri:25, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:27 IST" name="validNetAmount" finished-at="2026-10-30T17:46:27 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.validDeductions, com.onsite.salarytemplate.Details_SalaryTemplate.validGrossAmount" duration-ms="32" status="PASS">
+        <test-method signature="validNetAmount()[pri:25, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:33 IST" name="validNetAmount" finished-at="2026-10-30T17:57:33 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validDeductions, com.onsite.salarytemplate.Edit_SalaryTemplate_Test.validGrossAmount" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validNetAmount -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:27 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:27 IST" duration-ms="262" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:33 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:33 IST" duration-ms="313" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validNotes()[pri:26, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:27 IST" name="validNotes" finished-at="2026-10-30T17:46:27 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="19" status="PASS">
+        <test-method signature="validNotes()[pri:26, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:33 IST" name="validNotes" finished-at="2026-10-30T17:57:33 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="17" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validNotes -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:27 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:27 IST" duration-ms="398" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:33 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:34 IST" duration-ms="358" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validIsActive()[pri:27, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:27 IST" name="validIsActive" finished-at="2026-10-30T17:46:27 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="24" status="PASS">
+        <test-method signature="validIsActive()[pri:27, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:34 IST" name="validIsActive" finished-at="2026-10-30T17:57:34 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="28" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validIsActive -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:27 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:28 IST" duration-ms="333" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:34 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:34 IST" duration-ms="334" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validIsEsic()[pri:28, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:28 IST" name="validIsEsic" finished-at="2026-10-30T17:46:28 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="35" status="PASS">
+        <test-method signature="validIsEsic()[pri:28, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:34 IST" name="validIsEsic" finished-at="2026-10-30T17:57:34 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validIsEsic -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:28 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:28 IST" duration-ms="270" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:34 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:35 IST" duration-ms="406" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validIsLwf()[pri:29, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:28 IST" name="validIsLwf" finished-at="2026-10-30T17:46:28 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="19" status="PASS">
+        <test-method signature="validIsLwf()[pri:29, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:35 IST" name="validIsLwf" finished-at="2026-10-30T17:57:35 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="30" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validIsLwf -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:28 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:29 IST" duration-ms="457" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:35 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:35 IST" duration-ms="430" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validIsPf()[pri:30, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:29 IST" name="validIsPf" finished-at="2026-10-30T17:46:29 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="15" status="PASS">
+        <test-method signature="validIsPf()[pri:30, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:35 IST" name="validIsPf" finished-at="2026-10-30T17:57:35 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validIsPf -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:29 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:29 IST" duration-ms="343" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:35 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:35 IST" duration-ms="357" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validIsPt()[pri:31, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:29 IST" name="validIsPt" finished-at="2026-10-30T17:46:29 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="25" status="PASS">
+        <test-method signature="validIsPt()[pri:31, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:35 IST" name="validIsPt" finished-at="2026-10-30T17:57:35 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="30" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validIsPt -->
-        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:29 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:46:29 IST" duration-ms="358" status="PASS">
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:35 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:36 IST" duration-ms="407" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generateTokenForSuite -->
-        <test-method signature="validWorkState()[pri:32, instance:com.onsite.salarytemplate.Details_SalaryTemplate@4c371370]" started-at="2026-10-30T17:46:29 IST" name="validWorkState" finished-at="2026-10-30T17:46:29 IST" depends-on-methods="com.onsite.salarytemplate.Details_SalaryTemplate.detailsSalaryTemplate" duration-ms="25" status="PASS">
+        <test-method signature="validWorkState()[pri:32, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:36 IST" name="validWorkState" finished-at="2026-10-30T17:57:36 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="33" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validWorkState -->
-      </class> <!-- com.onsite.salarytemplate.Details_SalaryTemplate -->
+        <test-method is-config="true" signature="generateTokenForSuite()[pri:0, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:36 IST" name="generateTokenForSuite" finished-at="2026-10-30T17:57:36 IST" duration-ms="332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateTokenForSuite -->
+        <test-method signature="addObject()[pri:33, instance:com.onsite.salarytemplate.Edit_SalaryTemplate_Test@145f66e3]" started-at="2026-10-30T17:57:36 IST" name="addObject" finished-at="2026-10-30T17:57:36 IST" depends-on-methods="com.onsite.salarytemplate.Edit_SalaryTemplate_Test.editSalaryTemplate" duration-ms="42" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addObject -->
+      </class> <!-- com.onsite.salarytemplate.Edit_SalaryTemplate_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
