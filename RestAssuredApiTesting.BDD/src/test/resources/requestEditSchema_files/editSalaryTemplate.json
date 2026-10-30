@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Salary Template",
+  "title": "Edit Salary Template",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "id",
     "company_id",
     "name",
     "ctc_amount",
@@ -19,13 +20,14 @@
     "is_active"
   ],
   "properties": {
+    "id": {"type": "string", "format": "uuid"},
     "company_id": {"type": "string", "format": "uuid"},
     "name": {"type": "string"},
     "ctc_amount": {"type": "number"},
     "gross_amount": {"type": "number"},
     "net_amount": {"type": "number"},
     "dayoff": {"type": "array", "items": {"type": "integer"}},
-    "type": {"type": "string","enum": ["monthly","Daily"]},
+    "type": {"type": "string","enum": ["monthly","daily"]},
     "basic": {"$ref": "#/definitions/basic"},
     "allowances": {"type": "array","items": {"$ref": "#/definitions/allowances"}},
     "deductions": {"type": "array", "items": {"$ref": "#/definitions/deductions"}},

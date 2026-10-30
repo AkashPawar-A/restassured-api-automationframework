@@ -1,17 +1,21 @@
 package com.onsite.salarytemplate;
 
-import static org.testng.Assert.assertTrue;
-
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.onsite.endpoints.ApiBasePath;
@@ -32,6 +36,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 	private Response salaryTemplateResponse;
 	private Add_SalaryTemplate salaryTemplate_Payload;
+	private ObjectMapper mapper;
 	private Float reqBasicAmount;
 	private Float resBasicAmount;
 	private Double reqTotalCtcAmount = 0.0;
@@ -52,7 +57,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 		String jsonPayload = new String(Files.readAllBytes(Paths.get(createTemplate_path)));
 
-		ObjectMapper mapper = new ObjectMapper();
+		mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 
 		salaryTemplate_Payload = mapper.readValue(jsonPayload, Add_SalaryTemplate.class);
@@ -60,7 +65,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 		String finalPayload = mapper.writeValueAsString(salaryTemplate_Payload);
 
 		System.out.println("Final Payload: " + finalPayload);
-		SchemaValidator.validateSchema("requestSchemas_files/SalaryTemplateRequest.json", finalPayload);
+		SchemaValidator.validateSchema("requestAddSchemas_files/SalaryTemplateRequest.json", finalPayload);
 
 		return new Object[][] {
 			{ finalPayload }
@@ -93,7 +98,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 		int ResponseStatusCode = salaryTemplateResponse.getStatusCode();
 
-		Assert.assertEquals(ResponseStatusCode, 200, "in/add/salary-templte api fail so response status code :" + ResponseStatusCode);
+		Assert.assertEquals(ResponseStatusCode, 200, "add/salary-templte api fail so response status code :" + ResponseStatusCode);
 	}
 
 	@Test(priority=3, dependsOnMethods="create_salarytemplate")
@@ -113,7 +118,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 		long responseTime = salaryTemplateResponse.getTime();
 
-		Assert.assertTrue(responseTime <= 2000, "in/add/salary-template api response time too much long" + responseTime);
+		Assert.assertTrue(responseTime <= 2000, "add/salary-template api response time too much long" + responseTime);
 	}
 
 	@Test(priority=5, dependsOnMethods="create_salarytemplate")
@@ -427,7 +432,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertEquals(req.getName(), res.getName(), "requset and response allowance name missmatch");
 
 			// allowance relation type
-			List<String> allowedType = Arrays.asList("gross", "basic", "fixed");
+			List<String> allowedType = Arrays.asList("ctc", "basic", "fixed");
 
 			Assert.assertTrue(allowedType.contains(req.getRelation_type()), "invlaid request allowance relation type :" + req.getRelation_type());
 			Assert.assertTrue(allowedType.contains(res.getRelation_type()), "invalid response allowance relation type :" + res.getRelation_type());
@@ -450,7 +455,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 				expReqAllowanceAmount = ((reqBasicAmount * req.getRelation_value().doubleValue()) / 100);
 
-			} else if("gross".equalsIgnoreCase(req.getRelation_type())) {
+			} else if("ctc".equalsIgnoreCase(req.getRelation_type())) {
 
 				expReqAllowanceAmount = ((reqGrossAmount * req.getRelation_value().doubleValue()) / 100);
 
@@ -464,7 +469,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 
 				expResAllowanceAmount = ((resBasicAmount * res.getRelation_value().doubleValue()) / 100);
 
-			} else if("gross".equalsIgnoreCase(res.getRelation_type())) {
+			} else if("ctc".equalsIgnoreCase(res.getRelation_type())) {
 
 				expResAllowanceAmount = ((resGrossAmount * res.getRelation_value().doubleValue()) / 100);
 
@@ -988,5 +993,49 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 			Assert.assertTrue(allowedOption.contains(resWorkState), "Response is_pt should be either 0 or 1");
 			Assert.assertEquals(resWorkState, reqWorkState, "Request and response is_pt mismatch");
 		}
+	}
+	
+	@Test(priority=33, dependsOnMethods="create_salarytemplate")
+	public void validsalaryTemplateId() throws StreamReadException, DatabindException, IOException {
+		
+		String resSalaryTemplateId = salaryTemplateResponse.jsonPath().getString("id");
+		
+		if(resSalaryTemplateId != null && !resSalaryTemplateId.isEmpty()) {
+			
+			System.out.println("saary template id :" + resSalaryTemplateId);
+			
+			String editSalaryTemplatePath = "src/test/resources/testdata_salaryTemplate/Edit_salaryTemplate.json";
+			File editSalaryTemplateData = new File(editSalaryTemplatePath);
+			Map<String, Object> addId = new HashMap<>();
+			
+			if(editSalaryTemplateData.exists()) {
+				addId = mapper.readValue(editSalaryTemplateData, Map.class);
+			}
+			addId.put("id", resSalaryTemplateId);
+			mapper.writerWithDefaultPrettyPrinter().writeValue(editSalaryTemplateData, addId);
+			System.out.println("salary template id successfully updated in json file :" + addId);
+		} else {
+			Assert.fail("salary template is not generated in api response :" + resSalaryTemplateId);
+		}
+	}
+	
+	@Test(priority=34, dependsOnMethods="create_salarytemplate")
+	public void addObject() throws IOException {
+		
+		 if (salaryTemplateResponse.getStatusCode() == 200) {
+		        
+		        Object jsonObject = mapper.readValue(salaryTemplateResponse.asString(), Object.class);
+		        String formattedJson= mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+
+		        Files.write(
+		                Paths.get("src/test/resources/testdata_salaryTemplate/Details.SalaryTemplate.json"),
+		                formattedJson.getBytes(StandardCharsets.UTF_8)
+		        );
+
+		        System.out.println("Complete response saved successfully!");
+
+		    } else {
+		        Assert.fail("API Failed: " + salaryTemplateResponse.asString());
+		    }
 	}
 }

@@ -1,11 +1,11 @@
 {
    "company_id" : "9e87d60c-9bb0-4ede-9fd3-10d9db21e0bc",
-   "name" : "Salary Template - 4",
+   "name" : "Salary Template - 1",
    "ctc_amount" : 25000,
    "type" : "monthly",
-   "dayoff" : [0],
+   "dayoff" : [1],
    "gross_amount" : 25000,
-   "net_amount" : 23750,
+   "net_amount" : 22800,
    "basic" : {
         "amount" : 20000,
         "id" : null,
@@ -15,32 +15,64 @@
         "relation_value" : 80
    },
    "allowances" : [{
-        "amount" : 2500,
+        "amount" : 500,
         "id" : "68b72eb8-6481-4850-99ae-6146f60f20ea",
         "name" : "Allowance 1",
-        "relation_type" : "gross",
-        "relation_value" : 10,
+        "relation_type" : "ctc",
+        "relation_value" : 2,
+        "include_in" : ["pf", "esic"]
+    },{
+        "amount" : 600,
+        "id" : "41e6b9be-8288-401d-903c-bafea6a3cbfa",
+        "name" : "Allowance 2",
+        "relation_type" : "basic",
+        "relation_value" : 3,
+        "include_in" : ["pf", "esic"]
+    },{
+        "amount" : 500,
+        "id" : "2e1be05f-0104-4f6d-a1e8-9d5a833b5c66",
+        "name" : "Allowance 3",
+        "relation_type" : "fixed",
+        "relation_value" : 500,
         "include_in" : ["pf", "esic"]
     }],
    "deductions" : [{
-        "amount" : 1250,
-        "id" : "5523b231-f41e-4473-b3ab-22daa4ddc632",
+        "amount" : 500,
+        "id" : "17afc894-acfb-4c05-b80d-6c917b5a0578",
         "name" : "Deduction 1",
         "relation_type" : "ctc",
-        "relation_value" : 5
+        "relation_value" : 2
+    },{
+        "amount" : 600,
+        "id" : "be16a565-773d-4636-91c1-ff086d285e67",
+        "name" : "Deduction 2",
+        "relation_type" : "basic",
+        "relation_value" : 3
+    },{
+        "amount" : 1000,
+        "id" : "9dcab280-f34b-44e5-8e06-73e844dd140e",
+        "name" : "Deduction 3",
+        "relation_type" : "gross",
+        "relation_value" : 4
+    }, {
+        "amount" : 100,
+        "id" : "b2f63187-e24e-4d83-ad94-8a9d22ce8899",
+        "name" : "Deduction 2",
+        "relation_type" : "fixed",
+        "relation_value" : 100
     }],
     "fixed_allowance" : {
         "id" : null,
         "name" : "fixed",
         "relation_type" : "fixed",
         "relation_value" : 0,
-        "amount" : 2500
+        "amount" : 3400
    },
    "notes" : "testing - 1",
    "is_active" : 1,
-   "is_esic" : 1,
-   "is_lwf" : 1,
-   "is_pf" : 1,
-   "is_pt": 1,
+   "is_esic" : 0,
+   "is_lwf" : 0,
+   "is_pf" : 0,
+   "is_pt": 0,
    "work_state" : "MH"
 }
