@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Add Salary Template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "company_id",
+    "name",
+    "ctc_amount",
+    "gross_amount",
+    "net_amount",
+    "dayoff",
+    "type",
+    "basic",
+    "allowances",
+    "deductions",
+    "fixed_allowance",
+    "notes",
+    "is_active"
+  ],
+  "properties": {
+    "id": {"type": "string", "format": "uuid"},
+    "company_id": {"type": "string", "format": "uuid"},
+    "name": {"type": "string"},
+    "ctc_amount": {"type": "number"},
+    "gross_amount": {"type": "number"},
+    "net_amount": {"type": "number"},
+    "dayoff": {"type": "array", "items": {"type": "integer"}},
+    "type": {"type": "string","enum": ["monthly","daily"]},
+    "basic": {"$ref": "#/definitions/basic"},
+    "allowances": {"type": "array","items": {"$ref": "#/definitions/allowances"}},
+    "deductions": {"type": "array", "items": {"$ref": "#/definitions/deductions"}},
+    "fixed_allowance": {"$ref": "#/definitions/fixedAllowance"},
+    "notes": {"type": "string"},
+    "is_active": {"type": "integer", "enum": [0, 1]},
+    "is_esic": {"type": "integer", "enum": [0, 1]},
+    "is_lwf": {"type": "integer", "enum": [0, 1]},
+    "is_pf": {"type": "integer", "enum": [0, 1]},
+    "is_pt": {"type": "integer","enum": [0, 1]},
+    "work_state": {"type": "string"}
+  },
+  "definitions": {
+    "basic": {
+      "type": "object",
+      "required": [
+        "amount",
+        "id",
+        "name",
+        "relation_type",
+        "relation_value",
+        "include_in"
+      ],
+      "properties": {
+        "amount": {"type": "number"},
+        "id": {"type": ["string","null"]},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": ["number","null"]},
+        "include_in": {"type": ["array", "null"], "items": {"type": "string","enum": ["pf", "esic"]}}
+      },
+      "additionalProperties": false
+    },
+    "allowances": {
+      "type": "object",
+      "required": [
+        "amount",
+        "id",
+        "name",
+        "relation_type",
+        "relation_value",
+        "include_in"
+      ],
+      "properties": {
+        "amount": {"type": "number"},
+        "id": {"type": "string","format": "uuid"},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": "number"},
+        "include_in": {"type": "array", "items": {"type": "string", "enum": ["pf", "esic"]}}
+      },
+      "additionalProperties": false
+    },
+    "deductions": {
+      "type": "object",
+      "required": [
+        "amount",
+        "id",
+        "name",
+        "relation_type",
+        "relation_value",
+        "include_in"
+      ],
+      "properties": {
+        "amount": {"type": "number"},
+        "id": {"type": "string","format": "uuid"},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": "number"},
+        "include_in": {"type": ["array", "null"], "items": {"type": "string","enum": ["pf", "esic"]}}
+      },
+      "additionalProperties": false
+    },
+    "fixedAllowance": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "relation_type",
+        "relation_value",
+        "amount",
+        "include_in"
+      ],
+      "properties": {
+        "id": {"type": ["string","null"]},
+        "name": {"type": "string"},
+        "relation_type": {"type": "string"},
+        "relation_value": {"type": ["number","null"]},
+        "amount": {"type": "number"},
+        "include_in": {"type": ["array", "null"], "items": {"type": "string","enum": ["pf", "esic"]}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

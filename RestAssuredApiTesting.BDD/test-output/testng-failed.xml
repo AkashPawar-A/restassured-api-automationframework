@@ -3,26 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.salarytemplate.Create_SalaryTemplate_Test">
+      <class name="com.onsite.salarytemplate.Details_SalaryTemplate">
         <methods>
-          <include name="generateTokenForSuite"/>
-          <include name="validCtcAmount"/>
-          <include name="validAllowance"/>
           <include name="validSalaryTemplateName"/>
-          <include name="setUp"/>
-          <include name="validFixedAllowanceId"/>
-          <include name="validDeductions"/>
+          <include name="generateTokenForSuite"/>
           <include name="validBasicSalaryId"/>
-          <include name="validGrossAmount"/>
-          <include name="validNetAmount"/>
-          <include name="create_salarytemplate"/>
-          <include name="validBasicAmount"/>
-          <include name="validFixedAllowanceAmount"/>
-          <include name="validFixedAllowanceName"/>
-          <include name="validFixedAllowanceType"/>
-          <include name="validFixedAllowanceValue"/>
+          <include name="validBasicSalaryIncludeIn"/>
+          <include name="detailsSalaryTemplate"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.salarytemplate.Create_SalaryTemplate_Test -->
+      </class> <!-- com.onsite.salarytemplate.Details_SalaryTemplate -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
