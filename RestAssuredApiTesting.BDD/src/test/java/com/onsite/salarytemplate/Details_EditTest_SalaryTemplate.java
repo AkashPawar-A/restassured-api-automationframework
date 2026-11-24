@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onsite.endpoints.ApiBasePath;
 import com.onsite.endpoints.SalaryTemplate_Api;
-import com.onsite.pojo_request.Add_SalaryTemplate;
+import com.onsite.pojo_request.Edit_SalaryTemplate;
 import com.onsite.pojo_request.SalaryTemplateComponant;
 import com.onsite.pojo_response.SalaryTemplate;
 import com.onsite.utilities_page.BaseToken;
@@ -25,11 +25,11 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class Details_SalaryTemplate extends BaseToken{
+public class Details_EditTest_SalaryTemplate extends BaseToken{
 
 	private ObjectMapper mapper;
 	private Response DetailsSalaryTemplateResponse;
-	private Add_SalaryTemplate createSalaryTemplateRequest;
+	private Edit_SalaryTemplate editSalaryTemplateRequest;
 	private Float reqBasicAmount;
 	private Float resBasicAmount;
 	private Double reqTotalCtcAmount = 0.0;
@@ -46,8 +46,8 @@ public class Details_SalaryTemplate extends BaseToken{
 	@DataProvider(name="detailsSalaryTemplateData")
 	public Object[][] getData() throws IOException{
 
-		String editSalaryTemplatePath = "src/test/resources/testdata_salaryTemplate/Details.SalaryTemplate.json";
-		String detailsPayload = new String(Files.readAllBytes(Paths.get(editSalaryTemplatePath)));
+		String detailsSalaryTemplatePath = "src/test/resources/testdata_salaryTemplate/Details.EditTest_SalaryTemplate.json";
+		String detailsPayload = new String(Files.readAllBytes(Paths.get(detailsSalaryTemplatePath)));
 
 		mapper = new ObjectMapper();
 		JsonNode jsonNode = mapper.readTree(detailsPayload);
@@ -56,9 +56,9 @@ public class Details_SalaryTemplate extends BaseToken{
 		System.out.println("salary template id :" + salaryTemplateId);
 		SchemaValidator.validateSchemaFromString("requestEditSchema_files/editSalaryTemplate.json", salaryTemplateId);
 
-		String createSalaryTemplatePath = "src/test/resources/testdata_salaryTemplate/Create_salaryTemplate.json";
-		String createSalaryTemplatePayload = new String(Files.readAllBytes(Paths.get(createSalaryTemplatePath)));
-		createSalaryTemplateRequest = mapper.readValue(createSalaryTemplatePayload, Add_SalaryTemplate.class);
+		String EditSalaryTemplatePath = "src/test/resources/testdata_salaryTemplate/Edit_salaryTemplate.json";
+		String EditSalaryTemplatePayload = new String(Files.readAllBytes(Paths.get(EditSalaryTemplatePath)));
+		editSalaryTemplateRequest = mapper.readValue(EditSalaryTemplatePayload, Edit_SalaryTemplate.class);
 
 		return new Object[][] {
 			{ salaryTemplateId }
@@ -141,7 +141,7 @@ public class Details_SalaryTemplate extends BaseToken{
 
 		String getCompanyId = CompanyContext.getCompanyId();
 		String resCompanyId = DetailsSalaryTemplateResponse.jsonPath().getString("company_id");
-		String reqCompanyId = createSalaryTemplateRequest.getCompany_id();
+		String reqCompanyId = editSalaryTemplateRequest.getCompany_id();
 
 		if(reqCompanyId == null || reqCompanyId.isEmpty()) {
 
@@ -163,7 +163,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=7, dependsOnMethods="detailsSalaryTemplate")
 	public void validSalaryTemplateName() {
 
-		String reqTemplateName= createSalaryTemplateRequest.getName();
+		String reqTemplateName= editSalaryTemplateRequest.getName();
 		String resTemplateName = DetailsSalaryTemplateResponse.jsonPath().getString("name");
 
 		if(reqTemplateName == null || reqTemplateName.trim().isEmpty()) {
@@ -184,7 +184,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=8, dependsOnMethods="validSalaryTemplateName")
 	public void validSalaryTemplateType() {
 
-		String reqType = createSalaryTemplateRequest.getType();
+		String reqType = editSalaryTemplateRequest.getType();
 		String resType = DetailsSalaryTemplateResponse.jsonPath().getString("type");
 
 		if(reqType == null || reqType.isEmpty()) {
@@ -209,7 +209,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=9, dependsOnMethods="validSalaryTemplateName")
 	public void validDayoff() {
 
-		Integer[] reqDayoff = createSalaryTemplateRequest.getDayoff();
+		Integer[] reqDayoff = editSalaryTemplateRequest.getDayoff();
 		Integer[] resDayOff = DetailsSalaryTemplateResponse.jsonPath().getObject("dayoff", Integer[].class);
 
 		Assert.assertEquals(reqDayoff, resDayOff, "request and response dayoff mismatch");
@@ -218,7 +218,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=10, dependsOnMethods="validSalaryTemplateName")
 	public void validBasicSalaryId() {
 
-		String reqBasicSalaryId = createSalaryTemplateRequest.getBasic().getId();
+		String reqBasicSalaryId = editSalaryTemplateRequest.getBasic().getId();
 		String resBasicSalaryId = DetailsSalaryTemplateResponse.jsonPath().getString("basic.id");
 
 		if(reqBasicSalaryId == null || reqBasicSalaryId.trim().isEmpty()) {
@@ -230,31 +230,31 @@ public class Details_SalaryTemplate extends BaseToken{
 		}
 	}
 
-//	@Test(priority=11, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
-//	public void validBasicSalaryIncludeIn() {
-//
-//		String[] reqBasicSalaryIncludeIn = createSalaryTemplateRequest.getBasic().getInclude_in();
-//		String[] resBasicSalaryIncludeIn = DetailsSalaryTemplateResponse.jsonPath()
-//		        .getList("basic.include_in", String.class)
-//		        .toArray(new String[0]);
-//
-//		if(reqBasicSalaryIncludeIn == null) {
-//			Assert.assertNull(resBasicSalaryIncludeIn, "Response basic salary include_in should be null");
-//		} else {
-//			
-//			 Assert.assertNotNull(resBasicSalaryIncludeIn,
-//			            "Response basic salary include_in should not be null");
-//
-//			Assert.assertNotNull(resBasicSalaryIncludeIn, "Response basic salary include_in should not be null");
-//		}
-//
-//		Assert.assertEquals(reqBasicSalaryIncludeIn, resBasicSalaryIncludeIn, "Request and response basic salary include_in mismatch");
-//	}
+	//	@Test(priority=11, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
+	//	public void validBasicSalaryIncludeIn() {
+	//
+	//		String[] reqBasicSalaryIncludeIn = createSalaryTemplateRequest.getBasic().getInclude_in();
+	//		String[] resBasicSalaryIncludeIn = DetailsSalaryTemplateResponse.jsonPath()
+	//		        .getList("basic.include_in", String.class)
+	//		        .toArray(new String[0]);
+	//
+	//		if(reqBasicSalaryIncludeIn == null) {
+	//			Assert.assertNull(resBasicSalaryIncludeIn, "Response basic salary include_in should be null");
+	//		} else {
+	//			
+	//			 Assert.assertNotNull(resBasicSalaryIncludeIn,
+	//			            "Response basic salary include_in should not be null");
+	//
+	//			Assert.assertNotNull(resBasicSalaryIncludeIn, "Response basic salary include_in should not be null");
+	//		}
+	//
+	//		Assert.assertEquals(reqBasicSalaryIncludeIn, resBasicSalaryIncludeIn, "Request and response basic salary include_in mismatch");
+	//	}
 
 	@Test(priority=12, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
 	public void validBasicSalaryName() {
 
-		String reqBasicName = createSalaryTemplateRequest.getBasic().getName();
+		String reqBasicName = editSalaryTemplateRequest.getBasic().getName();
 		String resBasicName = DetailsSalaryTemplateResponse.jsonPath().getString("basic.name");
 
 		if(reqBasicName == null || reqBasicName.isEmpty()) {
@@ -279,7 +279,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=13, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
 	public void validBasicSalaryType() {
 
-		String reqBasicRelationType = createSalaryTemplateRequest.getBasic().getRelation_type();
+		String reqBasicRelationType = editSalaryTemplateRequest.getBasic().getRelation_type();
 		String resBasicRelationType = DetailsSalaryTemplateResponse.jsonPath().getString("basic.relation_type");
 
 		if(reqBasicRelationType == null || reqBasicRelationType.isEmpty()) {
@@ -304,9 +304,9 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=14, dependsOnMethods={"validSalaryTemplateName", "validBasicSalaryId"})
 	public void validBasicSalaryValue() {
 
-		String reqBasicSalaryRelationType = createSalaryTemplateRequest.getBasic().getRelation_type();
-		Float reqBasicSalaryRelationValue = createSalaryTemplateRequest.getBasic().getRelation_value();
-		Double reqCtcAmount = createSalaryTemplateRequest.getCtc_amount();
+		String reqBasicSalaryRelationType = editSalaryTemplateRequest.getBasic().getRelation_type();
+		Float reqBasicSalaryRelationValue = editSalaryTemplateRequest.getBasic().getRelation_value();
+		Double reqCtcAmount = editSalaryTemplateRequest.getCtc_amount();
 
 		String resBasicSalaryRelationType = DetailsSalaryTemplateResponse.jsonPath().getString("basic.relation_type");
 		Float resBasicSalaryRelationValue = DetailsSalaryTemplateResponse.jsonPath().getFloat("basic.relation_value");
@@ -355,10 +355,10 @@ public class Details_SalaryTemplate extends BaseToken{
 		Float ExpReqBasicAmount;
 		Float expResBasicAmount;
 
-		String reqBasicSalaryRelationType = createSalaryTemplateRequest.getBasic().getRelation_type();
-		Double reqCtcAmount = createSalaryTemplateRequest.getCtc_amount();
-		Float reqBasicSalaryRelationValue = createSalaryTemplateRequest.getBasic().getRelation_value();
-		reqBasicAmount = createSalaryTemplateRequest.getBasic().getAmount();
+		String reqBasicSalaryRelationType = editSalaryTemplateRequest.getBasic().getRelation_type();
+		Double reqCtcAmount = editSalaryTemplateRequest.getCtc_amount();
+		Float reqBasicSalaryRelationValue = editSalaryTemplateRequest.getBasic().getRelation_value();
+		reqBasicAmount = editSalaryTemplateRequest.getBasic().getAmount();
 
 		String resBasicSalaryRelationType = DetailsSalaryTemplateResponse.jsonPath().getString("basic.relation_type");
 		Double resCtcAmount = DetailsSalaryTemplateResponse.jsonPath().getDouble("ctc_amount");
@@ -409,10 +409,10 @@ public class Details_SalaryTemplate extends BaseToken{
 		reqTotalAllowanceAmount = 0.0;
 		resTotalAllowanceAmount = 0.0;
 
-		Double reqGrossAmount = createSalaryTemplateRequest.getGross_amount();
+		Double reqGrossAmount = editSalaryTemplateRequest.getGross_amount();
 		Double resGrossAmount = DetailsSalaryTemplateResponse.jsonPath().getDouble("gross_amount");
 
-		SalaryTemplateComponant[] reqAllowance = createSalaryTemplateRequest.getAllowances();
+		SalaryTemplateComponant[] reqAllowance = editSalaryTemplateRequest.getAllowances();
 		SalaryTemplateComponant[] resAllowance = DetailsSalaryTemplateResponse.jsonPath().
 				getObject("allowances", SalaryTemplateComponant[].class);
 
@@ -535,7 +535,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=17, dependsOnMethods = {"validBasicAmount", "validAllowance"})
 	public void validFixedAllowanceId() {
 
-		String reqFixedAllowanceId = createSalaryTemplateRequest.getFixed_allowance().getId();
+		String reqFixedAllowanceId = editSalaryTemplateRequest.getFixed_allowance().getId();
 		String resFixedAllowanceId = DetailsSalaryTemplateResponse.jsonPath().getString("fixed_allowance.id");
 
 		if(reqFixedAllowanceId == null || reqFixedAllowanceId.trim().isEmpty()) {
@@ -551,7 +551,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=18 ,dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceName() {
 
-		String reqFixedAllowanceName = createSalaryTemplateRequest.getFixed_allowance().getName();
+		String reqFixedAllowanceName = editSalaryTemplateRequest.getFixed_allowance().getName();
 		String resFixedAllowanceName = DetailsSalaryTemplateResponse.jsonPath().getString("fixed_allowance.name");
 
 		if(reqFixedAllowanceName == null || reqFixedAllowanceName.trim().isEmpty()) {
@@ -576,7 +576,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=19, dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceType() {
 
-		String reqFixedAllowanceType = createSalaryTemplateRequest.getFixed_allowance().getRelation_type();
+		String reqFixedAllowanceType = editSalaryTemplateRequest.getFixed_allowance().getRelation_type();
 		String resFixedAllowanceType = DetailsSalaryTemplateResponse.jsonPath().getString("fixed_allowance.relation_type");
 
 		if(reqFixedAllowanceType == null || reqFixedAllowanceType.trim().isEmpty()) {
@@ -601,7 +601,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=20 ,dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceValue() {
 
-		Float reqFixedAllowanceValue = createSalaryTemplateRequest.getFixed_allowance().getRelation_value();
+		Float reqFixedAllowanceValue = editSalaryTemplateRequest.getFixed_allowance().getRelation_value();
 		Float resFixedAllowanceValue = DetailsSalaryTemplateResponse.jsonPath().getFloat("fixed_allowance.relation_value");
 
 		if(reqFixedAllowanceValue == 0) {
@@ -615,10 +615,10 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=21, dependsOnMethods = "validFixedAllowanceId")
 	public void validFixedAllowanceAmount() {
 
-		Float reqFixedAllowanceAmount = createSalaryTemplateRequest.getFixed_allowance().getAmount();
+		Float reqFixedAllowanceAmount = editSalaryTemplateRequest.getFixed_allowance().getAmount();
 		Float resFixedAllowanceAmount = DetailsSalaryTemplateResponse.jsonPath().getFloat("fixed_allowance.amount");
 
-		Double reqCtcAmount = createSalaryTemplateRequest.getCtc_amount();
+		Double reqCtcAmount = editSalaryTemplateRequest.getCtc_amount();
 		Double resCtcAmount = DetailsSalaryTemplateResponse.jsonPath().getDouble("ctc_amount");
 		Float reqBasicAmount = this.reqBasicAmount;
 		Float resBasicAmount = this.resBasicAmount;
@@ -656,7 +656,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=22, dependsOnMethods={"validBasicAmount", "validAllowance", "validFixedAllowanceId"})
 	public void validCtcAmount() {
 
-		Double reqCtcAmount = createSalaryTemplateRequest.getCtc_amount();
+		Double reqCtcAmount = editSalaryTemplateRequest.getCtc_amount();
 		Double resCtcAmount = DetailsSalaryTemplateResponse.jsonPath().getDouble("ctc_amount");
 
 		Float reqBasicAmount = this.reqBasicAmount;
@@ -693,7 +693,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=23, dependsOnMethods="validCtcAmount")
 	public void validGrossAmount() {
 
-		Double reqGrossAmount = createSalaryTemplateRequest.getGross_amount();
+		Double reqGrossAmount = editSalaryTemplateRequest.getGross_amount();
 		Double resGrossAmount = DetailsSalaryTemplateResponse.jsonPath().getDouble("gross_amount");
 
 		Double reqCtcAmount = this.reqTotalCtcAmount;
@@ -733,7 +733,7 @@ public class Details_SalaryTemplate extends BaseToken{
 		Double reqGrossAmount = this.reqTotalGrossAmount;
 		Double resGrossAmount = this.resTotalGrossAmount;
 
-		SalaryTemplateComponant[] reqDeduction = createSalaryTemplateRequest.getDeductions();
+		SalaryTemplateComponant[] reqDeduction = editSalaryTemplateRequest.getDeductions();
 		SalaryTemplateComponant[] resDeduction = DetailsSalaryTemplateResponse.jsonPath().
 				getObject("deductions", SalaryTemplateComponant[].class);
 
@@ -842,7 +842,7 @@ public class Details_SalaryTemplate extends BaseToken{
 		Double reqDeductionAmount = this.reqTotalDeductionAmount;
 		Double resDeductionAmount = this.resTotalDeductionAmount;
 
-		Double reqNetAmount = createSalaryTemplateRequest.getNet_amount();
+		Double reqNetAmount = editSalaryTemplateRequest.getNet_amount();
 		Double resNetAmount = DetailsSalaryTemplateResponse.jsonPath().getDouble("net_amount");
 
 		if(reqNetAmount == null) {
@@ -868,7 +868,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=26, dependsOnMethods="detailsSalaryTemplate")
 	public void validNotes(){
 
-		String reqNotes = createSalaryTemplateRequest.getNotes();
+		String reqNotes = editSalaryTemplateRequest.getNotes();
 		String resNotes = DetailsSalaryTemplateResponse.jsonPath().getString("notes");
 
 		if(reqNotes == null || reqNotes.isEmpty()) {
@@ -886,7 +886,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=27, dependsOnMethods="detailsSalaryTemplate")
 	public void validIsActive() {
 
-		Integer reqIsActive = createSalaryTemplateRequest.getIs_active();
+		Integer reqIsActive = editSalaryTemplateRequest.getIs_active();
 		Integer resIsActive = DetailsSalaryTemplateResponse.jsonPath().getInt("is_active");
 
 		List<Integer> allowedOption = Arrays.asList(0, 1);
@@ -902,7 +902,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=28, dependsOnMethods="detailsSalaryTemplate")
 	public void validIsEsic() {
 
-		Integer reqIsEsic = createSalaryTemplateRequest.getIs_esic();
+		Integer reqIsEsic = editSalaryTemplateRequest.getIs_esic();
 		Integer resIsEsic = DetailsSalaryTemplateResponse.jsonPath().getInt("is_esic");
 
 		List<Integer> allowedOption = Arrays.asList(0, 1);
@@ -924,7 +924,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=29, dependsOnMethods="detailsSalaryTemplate")
 	public void validIsLwf() {
 
-		Integer reqIsLwf = createSalaryTemplateRequest.getIs_lwf();
+		Integer reqIsLwf = editSalaryTemplateRequest.getIs_lwf();
 		Integer resIsLwf = DetailsSalaryTemplateResponse.jsonPath().getInt("is_lwf");
 
 		List<Integer> allowedOption = Arrays.asList(0, 1);
@@ -946,7 +946,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=30, dependsOnMethods="detailsSalaryTemplate")
 	public void validIsPf() {
 
-		Integer reqIsPf = createSalaryTemplateRequest.getIs_pf();
+		Integer reqIsPf = editSalaryTemplateRequest.getIs_pf();
 		Integer resIsPf = DetailsSalaryTemplateResponse.jsonPath().getInt("is_pf");
 
 		List<Integer> allowedOption = Arrays.asList(0, 1);
@@ -968,7 +968,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=31, dependsOnMethods="detailsSalaryTemplate")
 	public void validIsPt() {
 
-		Integer reqIsPt = createSalaryTemplateRequest.getIs_pt();
+		Integer reqIsPt = editSalaryTemplateRequest.getIs_pt();
 		Integer resIsPt = DetailsSalaryTemplateResponse.jsonPath().getInt("is_pt");
 
 		List<Integer> allowedOption = Arrays.asList(0, 1);
@@ -990,7 +990,7 @@ public class Details_SalaryTemplate extends BaseToken{
 	@Test(priority=32, dependsOnMethods="detailsSalaryTemplate")
 	public void validWorkState() {
 
-		String reqWorkState = createSalaryTemplateRequest.getWork_state();
+		String reqWorkState = editSalaryTemplateRequest.getWork_state();
 		String resWorkState = DetailsSalaryTemplateResponse.jsonPath().getString("work_state");
 
 		List<String> allowedOption = Arrays.asList("MH", "AP", "AR", "AS", "BR", "CG", "GA", "GJ", "HR", "HP", "JH", 
@@ -1009,6 +1009,5 @@ public class Details_SalaryTemplate extends BaseToken{
 			Assert.assertEquals(resWorkState, reqWorkState, "Request and response is_pt mismatch");
 		}
 	}
-
 
 }

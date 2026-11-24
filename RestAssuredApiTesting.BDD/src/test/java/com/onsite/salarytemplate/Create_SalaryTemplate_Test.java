@@ -1028,7 +1028,7 @@ public class Create_SalaryTemplate_Test extends BaseToken{
 		        String formattedJson= mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
 
 		        Files.write(
-		                Paths.get("src/test/resources/testdata_salaryTemplate/Details.SalaryTemplate.json"),
+		                Paths.get("src/test/resources/testdata_salaryTemplate/Details.CreateTest_SalaryTemplate.json"),
 		                formattedJson.getBytes(StandardCharsets.UTF_8)
 		        );
 
