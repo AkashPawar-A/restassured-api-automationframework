@@ -3,40 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.onsite.salarytemplate.Details_EditTest_SalaryTemplate">
+      <class name="com.onsite.salarytemplate.List_SalaryTemplate">
         <methods>
-          <include name="validNotes"/>
-          <include name="validSalaryTemplateType"/>
-          <include name="validWorkState"/>
-          <include name="validGrossAmount"/>
-          <include name="validFixedAllowanceValue"/>
-          <include name="validBasicSalaryId"/>
-          <include name="validDayoff"/>
-          <include name="validIsActive"/>
-          <include name="detailsSalaryTemplate"/>
-          <include name="validBasicSalaryType"/>
-          <include name="validIsPt"/>
-          <include name="validFixedAllowanceType"/>
-          <include name="validBasicSalaryValue"/>
-          <include name="validIsPf"/>
-          <include name="validDeductions"/>
-          <include name="validCompanyId"/>
-          <include name="validSalaryTemplateName"/>
-          <include name="validBasicAmount"/>
-          <include name="validFixedAllowanceAmount"/>
-          <include name="validFixedAllowanceName"/>
-          <include name="validNetAmount"/>
-          <include name="validAllowance"/>
-          <include name="validBasicSalaryName"/>
-          <include name="validSalaryTemplateId"/>
-          <include name="validFixedAllowanceId"/>
-          <include name="validIsLwf"/>
-          <include name="validStatucCode"/>
-          <include name="validResponseSchema"/>
-          <include name="validIsEsic"/>
-          <include name="validCtcAmount"/>
+          <include name="validSalaryTemplateData"/>
+          <include name="generateTokenForSuite"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.onsite.salarytemplate.Details_EditTest_SalaryTemplate -->
+      </class> <!-- com.onsite.salarytemplate.List_SalaryTemplate -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
