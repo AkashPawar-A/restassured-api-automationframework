@@ -7,5 +7,5 @@ public class SalaryTemplate_Api {
 	public static final String EDIT_SALARYTEMPLATE = "/in/edit/salary-template";
 	public static final String DETAILS_SALARYTEMPLATE = "/detail/salary-template/{id}";
 	public static final String LIST_SALARYTEMPLATE = "/list/salary-template";
-	public static final String DELETE_SALARYTEMPLATE = "/delete/salary-template";
+	public static final String DELETE_SALARYTEMPLATE = "/delete/salary-template/{id}";
 }

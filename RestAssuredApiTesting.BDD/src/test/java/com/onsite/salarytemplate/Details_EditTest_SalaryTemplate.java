@@ -666,7 +666,6 @@ public class Details_EditTest_SalaryTemplate extends BaseToken{
 		Double reqTotalFixedAllowanceAmount = this.reqTotalFixedAllowanceAmount;
 		Double resTotalFixedAllowanceAmount= this.resTotalFixedAllowanceAmount;
 
-
 		Double expReqCtcAmount = reqBasicAmount + reqTotalAllowanceAmount + reqTotalFixedAllowanceAmount;
 		Double expResCtcAmount = resBasicAmount + resTotalAllowanceAmount + resTotalFixedAllowanceAmount;
 

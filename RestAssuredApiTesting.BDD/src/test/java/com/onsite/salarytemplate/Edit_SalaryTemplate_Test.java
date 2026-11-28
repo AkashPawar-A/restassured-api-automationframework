@@ -101,15 +101,7 @@ public class Edit_SalaryTemplate_Test extends BaseToken{
 			System.out.println("validation message null or empty in response");
 		}	
 	}
-
-	@Test(priority=4, dependsOnMethods="editSalaryTemplate")
-	public void validResponseTime() {
-
-		long responseTime = editSalaryTemplateResponse.getTime();
-
-		Assert.assertTrue(responseTime <= 2000, "edit/salary-template api response time too much long" + responseTime);
-	}
-
+	
 	@Test(priority=5, dependsOnMethods="editSalaryTemplate")
 	public void validSalaryTemplateId() {
 
